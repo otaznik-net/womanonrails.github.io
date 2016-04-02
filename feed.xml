@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Woman on Rails</title>
+    <description></description>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 02 Apr 2016 11:32:48 -0400</pubDate>
+    <lastBuildDate>Sat, 02 Apr 2016 11:32:48 -0400</lastBuildDate>
+    <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Simple usage of Git</title>
+        <description>&lt;p&gt;&lt;a href=&quot;/what-is-git&quot;&gt;Last time&lt;/a&gt; we talk about why we like &lt;strong&gt;Git&lt;/strong&gt;. Today I would like to show you how we use Git. I will go thought base commands but if you like more information please use &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;Git documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Let&amp;#39;s get started!&lt;/h2&gt;
+
+&lt;p&gt;Git is &lt;strong&gt;distributed repository&lt;/strong&gt;. This mean that every one in our team have all history of changes locally. You can commit changes quickly without Internet connection. The most important thing is when something goes wrong in one local machine rest of the team has copy of &lt;strong&gt;repo&lt;/strong&gt; (repository). In case you have central repository, if something is broken in this repository you loose all your changes.&lt;/p&gt;
+
+&lt;p&gt;I will be talking about &lt;strong&gt;command line&lt;/strong&gt; for Git. I think it is easier to understand Git and use command line then some graphic tools.&lt;/p&gt;
+
+&lt;h2&gt;First - setup&lt;/h2&gt;
+
+&lt;p&gt;When we use Git we want to be sure that your changes will be assigned to us. So we set up our user data.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git config --global user.name &amp;quot;Your Name&amp;quot;
+git config --global user.email you_email_address@example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can also add colors to our command line.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git config --global color.ui true
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Create repository&lt;/h2&gt;
+
+&lt;p&gt;To start using Git in our project, we go to this project through command line and then we initialize Git inside.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This command will initialize only &lt;strong&gt;local Git repository&lt;/strong&gt;. To put our repo to server you can use tools like &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt; or &lt;a href=&quot;https://bitbucket.org&quot;&gt;Bitbucket&lt;/a&gt;. Ok now, how we can work with Git. Very helpful command will be:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git status
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This command tell us what was change from last time we use Git. So we have for example ruby file:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_word.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And it is not tracked by Git we can see something like that:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git status
+
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)
+#
+#   hello_word.rb
+#
+# nothing added to commit but untracked files present (use &amp;quot;git add&amp;quot; to track)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;First commit&lt;/h2&gt;
+
+&lt;p&gt;Now we must tell Git: &lt;em&gt;please track this file&lt;/em&gt;, so we do.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git add hello_word.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After this when we use &lt;code&gt;git status&lt;/code&gt; we see:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git status
+
+# On branch master
+#
+# Initial commit
+#
+# Changes to be commited:
+#   (use &amp;quot;git rm --cached  &amp;lt;file&amp;gt;...&amp;quot; to unstage)
+#
+#   new file: hello_word.rb
+#
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we can do &lt;strong&gt;commit&lt;/strong&gt;. I can say that commit is like prepare box to send. You put into one box everything which creates one common piece. For our changes we add only one file so our commit will contain a simple file.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git commit -m &amp;quot;Create a hello function&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then Git status shows:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git status
+
+# On branch master
+# nothing to commit (working directory clean)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So we change our function:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_word.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git status
+
+# On branch master
+# Changed but not updated:
+#
+#  modified: hello_word.rb
+# no changes add to commit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we want create new commit we must add new things to your box:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git add hello_word.rb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and create commit&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git commit -m &amp;quot;Change our hello function&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Push/pull changes to/from remote repository&lt;/h2&gt;
+
+&lt;p&gt;Ok, we know how create commits. Now I would like to show you how we can &lt;strong&gt;push&lt;/strong&gt; our code to server (to &lt;strong&gt;remote repository&lt;/strong&gt;) and how we can download (&lt;strong&gt;pull&lt;/strong&gt;) our repo from server. To do this we will use &lt;strong&gt;GitHub&lt;/strong&gt; but you can use others solutions.&lt;/p&gt;
+
+&lt;p&gt;When we have account on GitHub we create &lt;strong&gt;new repository&lt;/strong&gt; and we need to run in command line something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git remote add origin link_to_or_repo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Don&amp;#39;t worry, after you create your new repository, GitHub show you all commands. You only need to copy and paste this commands to your command line. In short this command tells local Git: &lt;em&gt;Hey this is my remote repository and its name is origin&lt;/em&gt; (We can say that this is my server for code). When we want to send our code to this remote repository we do:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git push -u origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So we tell to Git: &lt;em&gt;push your code from branch&lt;/em&gt; &lt;code&gt;master&lt;/code&gt; &lt;em&gt;to repository with name&lt;/em&gt; &lt;code&gt;origin&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h4&gt;What is branch?&lt;/h4&gt;
+
+&lt;p&gt;It is like path. You can have many path in your code (for now we have only one and it&amp;#39;s default name is master). And you can switch between this paths. After this command you will be asking about you GitHub user name and password. When you put this informations to console, your code will be available on GitHub.&lt;/p&gt;
+
+&lt;h2&gt;Last think!&lt;/h2&gt;
+
+&lt;p&gt;When you know that other people do some changes in this repository you can &lt;strong&gt;pull&lt;/strong&gt; this changes locally.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This command &lt;strong&gt;pull&lt;/strong&gt; code from remote repository with &lt;code&gt;origin&lt;/code&gt; name to our current branch. Because we have only one branch - &lt;code&gt;master&lt;/code&gt;, all changes will be download to &lt;code&gt;master&lt;/code&gt; branch.&lt;/p&gt;
+
+&lt;p&gt;This is end. All you need to know to start working with Git is here. I hope you like it. If you wants know more please let me now in comments. See you next time! Bye!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 20 Feb 2016 00:00:00 -0500</pubDate>
+        <link>/git-usage</link>
+        <guid isPermaLink="true">/git-usage</guid>
+        
+        <category>git</category>
+        
+        <category>tools</category>
+        
+        
+        <category>environment</category>
+        
+        <category>git</category>
+        
+        <category>tools</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>Lambdas in Ruby</title>
+        <description>&lt;p&gt;I had situation where I worked with many different (but in some way similar) collections in Ruby. This collections had very similar methods to search elements by name. In this particular example I decided to use lambda. Let me show you how this looks like.&lt;/p&gt;
+
+&lt;p&gt;Code which I get looks like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@first_collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is not bad code but in others places I had similar things. Collections (I mean arrays) and names were only changes. Like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@sedond_collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name1&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name2&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So I decided to use lambda. I created method which generate lambda for different collections. As an arguments lambda get &lt;code&gt;names&lt;/code&gt; of activities to select. Method looks like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When you prepare collection, you can start looking for activities with specific names.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@collection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;vi&quot;&gt;@collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;vi&quot;&gt;@collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This solution reduce number of the same structure in our code. There is one place where collection is declared. To be honest with you this was only temporary change because at the end of my refactoring collection became separate object. But for this moment in time solution was very clear and simple.&lt;/p&gt;
+
+&lt;p&gt;If you like to know more about lambda and functional programming, you can read my presentaion availabe &lt;a href=&quot;http://womanonrails.github.io/presentation-functional-programming-in-ruby/#1&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I hope that was interesting for you. Live a comment and see you next time. Bye!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
+        <link>/lambda</link>
+        <guid isPermaLink="true">/lambda</guid>
+        
+        <category>ruby</category>
+        
+        <category>refactoring</category>
+        
+        
+        <category>refactoring</category>
+        
+        <category>ruby</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>Global Game Jam</title>
+        <description>&lt;p&gt;&lt;br&gt;
+Date: &lt;em&gt;2016-01-29 17:00 – 2016-01-31 19:00&lt;/em&gt;&lt;br&gt;
+Place: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I really love doing things connecting in technology. This time I was participant in &lt;a href=&quot;http://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; in Cieszyn. This was my third time. &lt;strong&gt;What is Global Game Jam?&lt;/strong&gt; This is 48 hours hackaton for people which would like to create games. And each year I&amp;#39;m impressed of ideas, talent and projects realization. You can see more &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
+        <link>/global-game-jam</link>
+        <guid isPermaLink="true">/global-game-jam</guid>
+        
+        <category>ggj</category>
+        
+        <category>cieszyn</category>
+        
+        
+        <category>events</category>
+        
+        <category>travels</category>
+        
+        <category>workshops</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>What is git?</title>
+        <description>&lt;p&gt;Today I would start quick series about &lt;strong&gt;Git&lt;/strong&gt;. This will be 2-3 article about &lt;strong&gt;basic of Git&lt;/strong&gt;. Internet has many different articles and tutorials about Git so I don’t want to do another one. If you like get know more about Git I can recommend 2 courses on CodeSchool about it. Start &lt;a href=&quot;https://www.codeschool.com/courses/try-git&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I don’t give you definition of Git because you can find definition in &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_(software)&quot;&gt;wiki&lt;/a&gt; or &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;Git documentation&lt;/a&gt;. I only say that, this is &lt;strong&gt;version control system&lt;/strong&gt; and I give you info for what cases or problems we can use Git and why is it great tool.&lt;/p&gt;
+
+&lt;p&gt;Do you have sometimes situations where you need to work on the same files with many people. Situations such as: group project in school, university or maybe big web application? Presentation or report for boss? Or other work to do when every one of team members need to share the same files. And everyone can change any files in this project. I have this situation all the time in my work. I work on web application where I cooperate with about 8 people. Or maybe you work just by your self but you don’t want to loose your changes. Maybe you are writer and you write book. So what can it goes wrong?&lt;/p&gt;
+
+&lt;h2&gt;Only my work&lt;/h2&gt;
+
+&lt;p&gt;We work alone. For example we are writing book. We are working on this project through last 2 years. And something happened: computer breaks down, we removed file through mistake, or we change something and the previous version was better and we want get back this version. What then? I know we have many choices: Dropbox, hard drive (just in case), send emails to my self. Even programs do this easy for us. They remember history of last changes and so on. But Git can handle this too. Git remember all yours files changes history. You can get back to any of your files version.&lt;/p&gt;
+
+&lt;p&gt;If you don’t now why Git can be better solution for some problems, we have second example. ;]&lt;/p&gt;
+
+&lt;h2&gt;Team case&lt;/h2&gt;
+
+&lt;p&gt;Every one in team has they own computer so they have locally on computer copy of our project. For example we have one file. We love Ruby so this file has Ruby code:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So every one have this file locally on this computer. Now I have task to change this method to return no &lt;code&gt;hello&lt;/code&gt; but &lt;code&gt;hello world&lt;/code&gt;. So I change this file:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now I need to send to all of team members this new code. How do this? E-mail? Dropbox? Pendrive? Each of this solutions can be painful. So we have problem one. &lt;strong&gt;1. Actualization of our project (how have access to current version).&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This problem we can somehow resolved. But what happened in this situation. Someone in team change something in the same file as I. For example change method name but he/she don’t know that I working on this file in the same time. So his/her code looks like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now I send my change to everyone (somehow) and the other person sends his/her changes also. Which changes are last changes? My or the other person? Or maybe we would like to have something like that:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;All changes together. How we can resolve this problem? We can have some one in team who will take care of this. We can talk with this person, tell what we changed and then this person need to go though all files check and figure out how fix conflicts. Do you also think that this is not good idea? Even worse. This is catastrophically bad idea and who wants to be this person? So second and I think the most important problem &lt;strong&gt;2. how merge all changes together easily?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Do you see that this is painful? Even more than the first example. Yes? I think that too.&lt;/p&gt;
+
+&lt;p&gt;So Git can resolved this problems for us in most cases automatically. So Git is tool to help with cooperative projects. But! (there is always some but) It is good for text files (programs, books, articles) but not good for images. Image is binary file no text file (in most cases excluded for example svg). When we change something in this file we can not read in easy way those changes.&lt;/p&gt;
+
+&lt;p&gt;Example:
+Our image have this inside:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
+00000010  00 00 04 c9 00 00 01 7e  08 06 00 00 01 ef a0 7d  |.......~.......}|
+00000020  68 00 00 00 09 70 48 59  73 00 00 2e 23 00 00 2e  |h....pHYs...#...|
+00000030  23 01 78 a5 3f 76 00 00  00 19 74 45 58 74 53 6f  |#.x.?v....tEXtSo|
+00000040  66 74 77 61 72 65 00 41  64 6f 62 65 20 49 6d 61  |ftware.Adobe Ima|
+00000050  67 65 52 65 61 64 79 71  c9 65 3c 00 00 36 8c 49  |geReadyq.e&amp;lt;..6.I|
+00000060  44 41 54 78 da ec 9c 61  6e 83 30 0c 46 47 c4 85  |DATx...an.0.FG..|
+00000070  a6 75 47 da a9 76 a4 75  da 91 98 f8 41 95 a6 31  |.uG..v.u....A..1|
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Our computer can interpret this in colors and shapes but we can’t. So when we change something on this image (one or more bits), we don’t even know what was this change. Do you know what I mean? I don’t say that we never put images to git. I say that we can not see what changed (in simple way).&lt;/p&gt;
+
+&lt;p&gt;I hope that this article help you to understand for what we use git and why it is helpful. In next article I describe how we can use it. If you have some question or suggestion please let me know in comments. See you next time. Bye!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 20 Dec 2015 00:00:00 -0500</pubDate>
+        <link>/what-is-git</link>
+        <guid isPermaLink="true">/what-is-git</guid>
+        
+        <category>git</category>
+        
+        <category>tools</category>
+        
+        
+        <category>environment</category>
+        
+        <category>git</category>
+        
+        <category>tools</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>Coderetreat 2015 Crakow</title>
+        <description>&lt;p&gt;In last Saturday I was on &lt;a href=&quot;http://coderetreat.org/&quot;&gt;Global Day of Coderetreat&lt;/a&gt; in Krakow. &lt;strong&gt;Coderetreat&lt;/strong&gt; is one day in year when programmers focus not on delivery new functionality but focus on &lt;strong&gt;good code quality&lt;/strong&gt;. I think this is very important to stop for a moment and think how to be better programmer. And Coderetreat is that moment.&lt;/p&gt;
+
+&lt;h2&gt;How looks this Coderetreat day?&lt;/h2&gt;
+
+&lt;p&gt;All day is divide for 6-7 sessions of coding. In our case it was 6 sessions. In each session we try resolved &lt;a href=&quot;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&quot;&gt;Game of life&lt;/a&gt; problem. This is very simple problem but in Coderetreat main goal is not solving this problem but focus on process and code quality. One session take 45 minutes and then we have 15 minutes to discuss and sum what we did and how we did. Through all sessions we do &lt;strong&gt;ping pong pair programing&lt;/strong&gt; with some constrains. Pair programming because we work in pairs, ping pong because we change keyboard between people. One person writes test, second writes code and first one does refactoring. Now it is time to say something about constrains. They can be very different. Some of them are easy, some are very hard. Below are all constrains form Coderetreat day in this year.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;No primitives&lt;/strong&gt; – Wrap all primitives and strings&lt;/p&gt;
+
+&lt;p&gt;In this session you don’t sent any primitive type between objects. So everything must be some kind of more complex object. On beginning is easy to put primitive types to our code. In future this behavior can cost us much more then we expect (not only our time). Now I will be thinking twice before I use primitives in my code. This first session was for me very productive, especially sharing my thought and conceptions about this problem with other woman.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Functional programming&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;All code is not mutable. Every method get some argument and return results – like function in math. In this case methods cannot modifies object state. For me this session was session out of my comfort zone. First time in my life I wrote code in &lt;a href=&quot;http://livescript.net/&quot;&gt;LiveScript&lt;/a&gt;. This language is very similar to &lt;a href=&quot;http://coffeescript.org/&quot;&gt;CoffeeScript&lt;/a&gt;, so it was nice to try other alternative. After this session I realized how easy was testing code like that. You call methods and only check if result equal to something.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tell don’t ask&lt;/strong&gt; – No getter, no setter, no properties&lt;/p&gt;
+
+&lt;p&gt;This time methods don’t ask for data from other object but tell this object do something. Each method in your code is void type (don’t return anything). This code is very hard to test. You have black box and you don’t know what is inside your object. Code is as much as possible encapsulate. Objects do only things, which are in they responsibility. There was one more think very interesting about this session. I wrote Ruby code with Java developer. It was experience which opened my mind. When we work in one technology (language) we think through this technology. Our mind focus on what we can do in this technology. And we don’t know that it is other solution, other way. So learning new thing, &lt;strong&gt;go out of your comfort zone&lt;/strong&gt; helps us thinking out of the box. This is true, not only in coding but also in our lives. Big respect for my pair programming partner for trying new things.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;3 minutes circles&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We had only 3 minutes for finish one TDD circle. Test, code, refactoring. If we don’t finish at time we must remove all code for this one circle. This session helps me to understand that in work we sometime think about one big problem. We have lot of useless code, which don’t work because “it is not finished yet”. I can say that in this session we worked in small &lt;a href=&quot;https://en.wikipedia.org/wiki/Minimum_viable_product&quot;&gt;MVP&lt;/a&gt; (Minimum Viable Product) session. After each 3 minutes we have working functionality. It was small functionality but it’s working.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;No loops, no conditions&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In this session I wrote code in &lt;a href=&quot;http://es6-features.org/&quot;&gt;JavaScript ES6&lt;/a&gt; (out of my comfort zone). We don’t suppose to use any loops and any conditions. This session was the hardest session for me. We use loops and condition many time per day. We even don’t realize how often we use this two tools. You can use recursion instead of loops but how stop recursion without conditions? This wasn’t easy task. I really liked this challenge. This was out of the box thinking session.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Silent session&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This was last session. This time we could not speak to each other. Even more. We could not write and show anything. Only tests and code can talk to us. And really, we do this everyday in work. You don’t have person which write code all the time available to ask about something. You need to figure out through code and tests of course, how this part of application work. In this session I worked with my best friend. I thought that we know each other so good, so we can read in our minds. But when we can not talk, we can not also choose one way to resolve problem. Each of us was thinking about this problem in different way. Only good, descriptive test and good, descriptive code can help us in this situation. All names, comments, tests are very important. This is must have!&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/coderetreat/first-session.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/first-session.jpg&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;figure class=&quot;third&quot;&gt;
+  &lt;a href=&quot;/images/coderetreat/summary.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary.jpg&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;/images/coderetreat/summary2.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary2.jpg&quot;&gt;&lt;/a&gt;
+  &lt;a href=&quot;/images/coderetreat/summary3.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary3.jpg&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/coderetreat/session5.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/session5.jpg&quot;&gt;&lt;/a&gt;
+  &lt;figcaption&gt;Memories of Cracow Coderetreat&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Ok, this is it. This was very productive day for me. I learn new things. Coderetreat one more time open my eyes how important is good quality code. I wish every programmer to be part of this event. See you soon. All best! Bye.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 20 Nov 2015 00:00:00 -0500</pubDate>
+        <link>/coderetreat</link>
+        <guid isPermaLink="true">/coderetreat</guid>
+        
+        <category>coderetreat</category>
+        
+        <category>event</category>
+        
+        <category>crakow</category>
+        
+        
+        <category>events</category>
+        
+        <category>travels</category>
+        
+        <category>workshops</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>CoderDojo workshops</title>
+        <description>&lt;p&gt;&lt;br&gt;
+Ones a week I’m teaching others at &lt;strong&gt;CoderDojo&lt;/strong&gt; workshops. CoderDojo is a place for young people (not only young by age but also young by mind) which like to learn Computer Science. When I say &lt;strong&gt;Computer Science&lt;/strong&gt; I mean: programming, game and website creation, graphic design, 3D printing, animations, video creation, robots and many many more. Only yours imagination can limit your skills connected to Computer. On this classes is only one rule: &lt;strong&gt;Just be cool!&lt;/strong&gt; CoderDojo is places where everyone feel good and can learn new things.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;BTW we are looking for new mentors.&lt;/strong&gt; All people which like this CoderDojo idea are welcome to come. You don’t have to know all this IT staff. All you need is to be positive and want to learn new skill and teach others. &lt;strong&gt;I encourage everyone to try.&lt;/strong&gt; I truly recommend to see what this young people can do. It is amazing. They are even smarter then we are. They have their own passion and want to share this with others. And this is beautiful.&lt;/p&gt;
+
+&lt;p&gt;If you like to see how classes look like just come to us or watch our &lt;a href=&quot;https://www.youtube.com/watch?v=G_tTBd_ei3s&quot;&gt;video&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you are intested in CoderDojo workshop you can also find more information on &lt;a href=&quot;https://coderdojo.com/&quot;&gt;https://coderdojo.com/&lt;/a&gt; or &lt;a href=&quot;https://coderdojo.org.pl/&quot;&gt;https://coderdojo.org.pl/&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 10 Oct 2015 00:00:00 -0400</pubDate>
+        <link>/coderdojo-workshop</link>
+        <guid isPermaLink="true">/coderdojo-workshop</guid>
+        
+        <category>coderdojo</category>
+        
+        <category>event</category>
+        
+        
+        <category>events</category>
+        
+        <category>travels</category>
+        
+        <category>workshops</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>Be yourself – How deal with low self-confidence</title>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;Be who you are, say what you feel, those who mind don’t matter, those who matter don’t mind.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Today I would write about very important for me topic. About &lt;strong&gt;self-confidence&lt;/strong&gt;. I don’t know if you have some problems with it but I do. I went through this many times. And I went back to this topic because I change project at my work.&lt;/p&gt;
+
+&lt;p&gt;About 4 weeks ago I started work on new project (for me of course, because rest of the team work on this project about 2 years). Project has very complex logic. On the beginning I felt like lost child (sometimes event now I feel this way). Everything was hard to understand. Everything was so difficult.&lt;/p&gt;
+
+&lt;p&gt;In this moments of stress when I understand nothing and I must act and work, fear paralyses me. I start thinking:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;&amp;quot;I’m stupid.&amp;quot;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&amp;quot;I’m the worst programmer ever.&amp;quot;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&amp;quot;I never understand this.&amp;quot;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&amp;quot;I’m useless.&amp;quot;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&amp;quot;I’m not supposed to be here.&amp;quot;&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&amp;quot;I’m not fit here.&amp;quot;&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br&gt;
+My own mind was hurting me and was telling me that I’m not enough. How can I focus on my task when I here something like that in my head? How to be effective? What I should do? &lt;strong&gt;Surrender?&lt;/strong&gt; Stop doing my work and cry? &lt;strong&gt;NO!&lt;/strong&gt; (Even if I thought so). I know it is hard, really really hard and easy to say now. But in those moments we must fight with our mind. Ask yourself: Am I really so bad? Am I really stupid? I don’t know this one thing but I know many others things. Am I really useless? Think realistic, be objective and go through all word which your mind told you. You will see that it is not so bad as you thought on the beginning.&lt;/p&gt;
+
+&lt;p&gt;This is only first step. It will be long way to be self-confidence. I’m still working on me. I’m still going this way. Now you must think why you are so nervous in this kind of situation? Maybe You want to show others that you are right person in right place. Or you afraid to disappoint someone (family, boss, friends). Or you afraid losing your job. Think now, If bad thing will happen so what? You should not pretend someone else. You should not prove something to someone. If your family, friends or even boss really know you, they will not disappointed. They accept you with all yours imperfection.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Be who you are, say what you feel, those who mind don’t matter, those who matter don’t mind.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If they don’t, maybe they wasn’t right person/people in your life. If you lose your job, you will find new one and this situation will be new experience in your life.&lt;/p&gt;
+
+&lt;p&gt;I think self-confidence it is about understanding yourself. What we feel and what we think in this particular moment. In this moment we can accept or reject bad feelings and thoughts. It’s depends of us. Our attitude can be positive or negative.&lt;/p&gt;
+
+&lt;p&gt;One more think as I say earlier. This is hard work. It will be good moments when we will win with our mind. But also not so good moments when bad thoughts will surround us. Even when we will lose one battle, war is not over. &lt;strong&gt;As log as we are still trying, we are winner.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2&gt;Summing up&lt;/h2&gt;
+
+&lt;p&gt;When you mind is your enemy:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Slow down&lt;/strong&gt; - think what your mind say and is this really true – develop your awareness&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Accept yourself and your environment&lt;/strong&gt; Be gentle and patient for yourself&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Decide what is important to you&lt;/strong&gt; and develop your skills in this direction&lt;/li&gt;
+&lt;li&gt;If something brings you joy, no one have right to say you “You are not enough” even your brain.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br&gt;
+I hope you enjoy reading this article. If you have some questions or suggestions, please live your comments below. Thank you for your time. On the end I set links connect to this topic, which inspire me all the time.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=yIxjC4T_f0U&quot;&gt;Lavendaire&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=M1LZqN9O-cA&quot;&gt;Mimi Ikonn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=21j_OCNLuYg&quot;&gt;Life is easy. Why do we make it so hard?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=4tkkL9w2pw8&quot;&gt;Unconditional positive regard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=lK-_D2QikME&quot;&gt;Imposter syndrome [PL]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 29 Sep 2015 00:00:00 -0400</pubDate>
+        <link>/be-yourself</link>
+        <guid isPermaLink="true">/be-yourself</guid>
+        
+        <category>self-awareness</category>
+        
+        
+        <category>self-awareness</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>Rails Girls Szczecin (22 – 23 August 2015)</title>
+        <description>&lt;p&gt;&lt;br&gt;
+This time I won’t be writing about technical things. This time I’d like to share with you something very special for me. Something that brings me lot of joy and happiness.&lt;/p&gt;
+
+&lt;p&gt;Last weekend I’ve spent as a mentor on &lt;strong&gt;Rails Girls in Szczecin&lt;/strong&gt;. It was my third time. I always have great memories with this place. People are so nice and helpful. The workshop was prepared perfectly. The atmosphere was so positive. If you like to be a part of Rails Girls workshop I truly recommend Szczecin. It’s a great place to start your programming adventure.&lt;/p&gt;
+
+&lt;p&gt;Ok, I was on many &lt;strong&gt;Rails Girls in Poland&lt;/strong&gt; so why am I talking especially about this workshop. For me, it was special time. On this workshop I did my first amateur video. If you wonder how it looks like you can watch this video &lt;a href=&quot;https://www.youtube.com/watch?v=UVAF7ndEJyE&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you have some comments or questions please leave them below. See you next time.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 30 Aug 2015 00:00:00 -0400</pubDate>
+        <link>/rails-girls-szczecin</link>
+        <guid isPermaLink="true">/rails-girls-szczecin</guid>
+        
+        <category>hack4good</category>
+        
+        <category>cracow</category>
+        
+        
+        <category>events</category>
+        
+        <category>travels</category>
+        
+        <category>workshops</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>SessionsController refactoring</title>
+        <description>&lt;p&gt;A few weeks ago I worked on code like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SessionsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render_user&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;user_params&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_user&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:created&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Email or password was invalid&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:unprocessable_entity&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;When you look on this code at first time, you probably think that this is not too bad. Class isn’t to long. It have about 25 lines. Methods are short. Maybe 5 – 6 lines. Is only one public method. Everything looks OK, so what do we do here?&lt;/p&gt;
+
+&lt;p&gt;In this code is bug. When user want to login and send correct email but wrong password, method returns status &lt;code&gt;:created&lt;/code&gt;. This mean that user is correctly login. But this is not true, because &lt;code&gt;Session&lt;/code&gt; for user wasn’t created.&lt;/p&gt;
+
+&lt;p&gt;So, how we can deal with this bug? First we create a test, which show us this bug.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rails_helper&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;RSpec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SessionsController&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:controller&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;POST #create&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rand_text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;let&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;for wrong password return status :unprocessable_entity&amp;#39;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;post&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;wrong&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;have_http_status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:unprocessable_entity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Test failed. Now we can closely look to this code.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render_user&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Something strange happened in this line. We call method &lt;code&gt;respond_t&lt;/code&gt;o and in this method we call &lt;code&gt;render&lt;/code&gt;. On first look we don’t see this because &lt;code&gt;render&lt;/code&gt; is hidden in &lt;code&gt;render_user&lt;/code&gt; method. So, I decide to remove this method and move &lt;code&gt;render&lt;/code&gt; to &lt;code&gt;create&lt;/code&gt; method in our controller. For now I create method &lt;code&gt;user&lt;/code&gt; where I set correctly user.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SessionsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:created&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Email or password was invalid&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:unprocessable_entity&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;authenticated?&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;user&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;authenticated?&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;user_params&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now bug is fixed. Test passed. Everything is OK, right? We can stop at this point and go to another challenge.&lt;/p&gt;
+
+&lt;p&gt;Let’s think. When we leave code at this moment, what can happen?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Code is great and no one come back here (It is small chance for this).&lt;/li&gt;
+&lt;li&gt;Code is not so good and someone will back here to do refactoring.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Why we cannot do this refactoring? We can try leave this code better then we found.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SessionsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:set_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render_user_with_token&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;errors.invalid&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:unprocessable_entity&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set_user&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;render_user_with_token&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:created&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;user_params&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Tests are still passing. I think this code is better than before but it is not perfect. We can think why we let &lt;code&gt;@user&lt;/code&gt; to be &lt;code&gt;nil&lt;/code&gt; (when we use &lt;code&gt;find_by&lt;/code&gt; method)? I leave here &lt;code&gt;find_by&lt;/code&gt; not &lt;code&gt;find&lt;/code&gt; or &lt;code&gt;find_by!&lt;/code&gt; because this two methods give me exception which I don’t want. &lt;code&gt;ActiveRecord::RecordNotFound&lt;/code&gt; exception give me status &lt;code&gt;:not_found&lt;/code&gt; but I want &lt;code&gt;:unprocessable_entity&lt;/code&gt; status.&lt;/p&gt;
+
+&lt;p&gt;Next we can think about&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you not seen I recommend to look on &lt;strong&gt;Sandi Metz&lt;/strong&gt; presentation about &lt;strong&gt;Null Object Pattern&lt;/strong&gt; (&lt;a href=&quot;https://www.youtube.com/watch?v=29MAL8pJImQ&quot;&gt;RailsConf 2015 – Nothing is Something&lt;/a&gt;). We can here create something like &lt;code&gt;TrustedUser&lt;/code&gt; and use everywhere objects without checking &lt;code&gt;nil&lt;/code&gt;. Then we can come back to simply &lt;code&gt;render&lt;/code&gt; and set token in &lt;code&gt;create&lt;/code&gt; method. Let’s we see how this can look.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SessionsController&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationController&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;before_action&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:set_user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;only&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:create&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;create&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;token&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:created&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;errors.invalid&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:unprocessable_entity&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;set_user&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@user&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;TrustedUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user_params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;user_params&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:user&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;permit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# app/models/trusted_user.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TrustedUser&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find_by&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MissingUser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# app/models/missing_user.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MissingUser&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can now think about moving token setting to model but I stop my refactoring here. You can do this if you want. But I think the hardest thing about this is question: Have this change value for me? Answer depends on you.&lt;/p&gt;
+
+&lt;p&gt;If you have any suggestion what can we change here. Please leave me a comment down below. I hope this was useful. Bye and see you next time.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 17 Jul 2015 00:00:00 -0400</pubDate>
+        <link>/session-controller-refactoring</link>
+        <guid isPermaLink="true">/session-controller-refactoring</guid>
+        
+        <category>refactoring</category>
+        
+        <category>ruby</category>
+        
+        <category>ruby on rails</category>
+        
+        
+        <category>refactoring</category>
+        
+        <category>ruby</category>
+        
+        <category>ruby on rails</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>Custom Rails Validators</title>
+        <description>&lt;p&gt;For a few days I worked on custom validators in Rails. First what are validators? When you want to check some data which comes to your application, you use validators. For example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;if email has specific format,&lt;/li&gt;
+&lt;li&gt;if number is odd,&lt;/li&gt;
+&lt;li&gt;or if you simply want to check if name is required&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;for all of this we use validators.&lt;/p&gt;
+
+&lt;p&gt;Rails has many different validators already in side. Check the &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#validation-helpers&quot;&gt;documentation&lt;/a&gt;. But sometimes you want to do more. In my case I need validator for black list of words for string field. I know I can use &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#exclusion&quot;&gt;build-in validator&lt;/a&gt;. But I need much more customization:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;The list of excluded words was very long.&lt;/li&gt;
+&lt;li&gt;I didn’t want to have this words in my Ruby file.&lt;/li&gt;
+&lt;li&gt;I always want to add new wards without changing my application.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;So I decide to do my own validator.&lt;/h2&gt;
+
+&lt;p&gt;I look to documentation and I find &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations&quot;&gt;this&lt;/a&gt;. I choosed &lt;code&gt;ActiveModel::EachValidator&lt;/code&gt; where I have access to whole record, specific attribute to check and the value of this attribute. This was all I needed. To do my custom validator I must only write one method: &lt;code&gt;validate_each&lt;/code&gt;. It look like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/validators/blacklist_validator.rb&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Validate list of words that can not be use in specifig field&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BlacklistValidator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EachValidator&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blacklist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blacklist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blacklist&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;config&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;blacklist.txt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;How this works?&lt;/h2&gt;
+
+&lt;p&gt;I add error &lt;code&gt;:on_blacklist&lt;/code&gt; to record when value is located on black list. I put my black list – &lt;code&gt;blacklist.txt&lt;/code&gt; – in Rails &lt;code&gt;config&lt;/code&gt; directory. To use this validator we put something like this in our model:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;blacklist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Remember convention:&lt;/h2&gt;
+
+&lt;p&gt;When your valdator class is named &lt;code&gt;BlacklistValidator&lt;/code&gt; then in your model you use &lt;code&gt;blacklist: true&lt;/code&gt; parameter.&lt;/p&gt;
+
+&lt;p&gt;This was perfect for me, but what about put some custom parameters to validator? Something like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;numericality&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greater_than&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is not a problem. In custom validators you have available something like &lt;code&gt;options&lt;/code&gt;, where you have access to all custom parameters. When you call &lt;code&gt;options&lt;/code&gt; for our example you see:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greater_than&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I use this for array validator, where I check size of array:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/validators/array_lenght_validator.rb&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Validate if array is not too short&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayLenghtValidator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EachValidator&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;array_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:minimum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:too_short_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;What happed here?&lt;/h2&gt;
+
+&lt;p&gt;I check if &lt;code&gt;:minimum&lt;/code&gt; parameter is set. I count number of elements in array. If &lt;code&gt;array_size&lt;/code&gt; is lower then &lt;code&gt;minimum&lt;/code&gt; size, I add error &lt;code&gt;:too_short_array&lt;/code&gt; to record.&lt;/p&gt;
+
+&lt;p&gt;I can call this validator like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;array_lenght&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It is one more think to say. &lt;strong&gt;How put translation to our validators in &lt;code&gt;locales&lt;/code&gt;?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;We use Rails Convention. This is one but not only way to do this (all convention is explain in &lt;a href=&quot;http://guides.rubyonrails.org/i18n.html#error-message-scopes&quot;&gt;http://guides.rubyonrails.org/i18n.html#error-message-scopes&lt;/a&gt;):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;en:
+  activerecord:
+    errors:
+      models:
+        our_model_name:
+          attributes:
+            name:
+              on_blacklist: is on words blacklist
+            array:
+              too_short_array:
+                one: is too short (minimum is 1 item)
+                other: is too short (minimum is %{count} items)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In &lt;code&gt;our_model_name:&lt;/code&gt; key we put model name. For example when we have model &lt;code&gt;User&lt;/code&gt;, we have key &lt;code&gt;user:&lt;/code&gt;. Next we put names of our validated fields:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;name:&lt;/code&gt; field (form black list validation),&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;array:&lt;/code&gt; field (from array length validation).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then we put names of our errors: &lt;code&gt;on_blacklist:&lt;/code&gt; and &lt;code&gt;too_short_array:&lt;/code&gt;. For &lt;code&gt;on_blacklist:&lt;/code&gt; this is it. But &lt;code&gt;too_short_array:&lt;/code&gt; error had &lt;code&gt;count&lt;/code&gt; parameter. Rails Internalization can recognized if it singular or plural version of &lt;code&gt;count&lt;/code&gt;. And serve &lt;code&gt;one:&lt;/code&gt; or &lt;code&gt;other:&lt;/code&gt; translation. Last thing: In &lt;code&gt;other:&lt;/code&gt; translation we put our count parameter thought &lt;code&gt;%{}&lt;/code&gt;. Then Rails know where put &lt;code&gt;count&lt;/code&gt; value.&lt;/p&gt;
+
+&lt;p&gt;This is it. I hope this was useful for you. Please live your comments,
+questions or any suggestions below. To next time! Bye!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 15 Apr 2015 00:00:00 -0400</pubDate>
+        <link>/custom-rails-validators</link>
+        <guid isPermaLink="true">/custom-rails-validators</guid>
+        
+        <category>ruby</category>
+        
+        <category>ruby on rails</category>
+        
+        <category>validators</category>
+        
+        
+        <category>ruby</category>
+        
+        <category>ruby on rails</category>
+        
+      </item>
+    
+  </channel>
+</rss>
