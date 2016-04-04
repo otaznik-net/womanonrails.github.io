@@ -33,6 +33,9 @@ pre {
 .status a, .status a:visited, .status a:focus, .quote a, .quote a:visited, .quote a:focus {
   color: #c91b26; }
 
+.social-icons a:visited, .social-icons a:focus {
+  text-decoration: none; }
+
 blockquote p.lead {
   font-family: 'Lato', sans-serif;
   font-style: italic; }

@@ -5,8 +5,8 @@
     <description></description>
     <link>/pl/</link>
     <atom:link href="/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 02 Apr 2016 11:32:48 -0400</pubDate>
-    <lastBuildDate>Sat, 02 Apr 2016 11:32:48 -0400</lastBuildDate>
+    <pubDate>Mon, 04 Apr 2016 12:35:13 -0400</pubDate>
+    <lastBuildDate>Mon, 04 Apr 2016 12:35:13 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -183,14 +183,14 @@ git config --global user.email you_email_address@example.com
         <link>/pl/lambda</link>
         <guid isPermaLink="true">/pl/lambda</guid>
         
-        <category>ruby</category>
+        <category>Ruby</category>
         
         <category>refactoring</category>
         
         
-        <category>refactoring</category>
+        <category>Ruby</category>
         
-        <category>ruby</category>
+        <category>refactoring</category>
         
       </item>
     
@@ -207,9 +207,9 @@ Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
         <link>/pl/global-game-jam</link>
         <guid isPermaLink="true">/pl/global-game-jam</guid>
         
-        <category>ggj</category>
+        <category>GGJ</category>
         
-        <category>cieszyn</category>
+        <category>Cieszyn</category>
         
         
         <category>podróże</category>
@@ -355,7 +355,7 @@ I oto koniec. Nasza ostatnia sesja zakończona. Podsumowując ten dzień uważam
         
         <category>event</category>
         
-        <category>kraków</category>
+        <category>Kraków</category>
         
         
         <category>podróże</category>
@@ -382,7 +382,7 @@ Raz w tygodniu pomagam w organizacji warsztatów &lt;strong&gt;CoderDojo&lt;/str
         <link>/pl/coderdojo-workshop</link>
         <guid isPermaLink="true">/pl/coderdojo-workshop</guid>
         
-        <category>coderdojo</category>
+        <category>CoderDojo</category>
         
         <category>event</category>
         
@@ -485,9 +485,9 @@ Tym razem nie będę pisać o żadnych technicznych rzeczach. Tym razem chciała
         
         <category>event</category>
         
-        <category>rails girls</category>
+        <category>Rails Girls</category>
         
-        <category>szczecin</category>
+        <category>Szczecin</category>
         
         
         <category>podróże</category>
@@ -674,16 +674,16 @@ Tym razem nie będę pisać o żadnych technicznych rzeczach. Tym razem chciała
         
         <category>refactoring</category>
         
-        <category>ruby</category>
+        <category>Ruby</category>
         
-        <category>ruby on rails</category>
+        <category>Ruby on Rails</category>
         
+        
+        <category>Ruby</category>
+        
+        <category>Ruby on Rails</category>
         
         <category>refactoring</category>
-        
-        <category>ruby</category>
-        
-        <category>ruby on rails</category>
         
       </item>
     
@@ -795,16 +795,16 @@ Do następnego razu!&lt;/p&gt;
         <link>/pl/custom-rails-validators</link>
         <guid isPermaLink="true">/pl/custom-rails-validators</guid>
         
-        <category>ruby</category>
+        <category>Ruby</category>
         
-        <category>ruby on rails</category>
+        <category>Ruby on Rails</category>
         
         <category>validators</category>
         
         
-        <category>ruby</category>
+        <category>Ruby</category>
         
-        <category>ruby on rails</category>
+        <category>Ruby on Rails</category>
         
       </item>
     
