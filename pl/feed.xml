@@ -5,9 +5,90 @@
     <description></description>
     <link>/pl/</link>
     <atom:link href="/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 Apr 2016 12:35:13 -0400</pubDate>
-    <lastBuildDate>Mon, 04 Apr 2016 12:35:13 -0400</lastBuildDate>
+    <pubDate>Thu, 14 Apr 2016 15:41:47 -0400</pubDate>
+    <lastBuildDate>Thu, 14 Apr 2016 15:41:47 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Git Rebase</title>
+        <description>&lt;p&gt;Poprzednie dwa artykuły wprowadzały do tego &lt;a href=&quot;/pl/what-is-git&quot;&gt;co to jest git&lt;/a&gt; i jak go &lt;a href=&quot;/pl/git-usage&quot;&gt;używać&lt;/a&gt;. Możecie tam znaleźć podstawowe informacje na temat gita. Dzisiaj chciałabym skupić się na trochę bardziej zaawansowanych rzeczach związanych z gitem. W zeszłym tygodniu robiłam krótką prezentację dotyczącą funkcji &lt;code&gt;git rebase&lt;/code&gt;, pomyślałam więc że to dobry pomysł by zrobić z tego krótką notatkę tutaj. Oto ona.&lt;/p&gt;
+
+&lt;p&gt;Kiedy używamy gita mamy dwie możliwości dociągnięcia nowych zmian ze zdalnego repozytorium. &lt;strong&gt;Merge&lt;/strong&gt; i &lt;strong&gt;rebase&lt;/strong&gt;. Jeżeli używamy funkcji &lt;strong&gt;merge&lt;/strong&gt; (jest to opcja domyślna) git stara się rozwiązać wszystkie konflikty i umieszcza nasze zmiany między zmianami innych członków zespołu, porządkując je względem linii czasu. Natomiast gdy używamy opcji &lt;strong&gt;rebase&lt;/strong&gt; git przenosi nasze lokalne zmiany do takiego tymczasowego miejsca i dociąga to co się zmieniło z zdalnego repozytoriom. Po czym każdą naszą lokalną zmianę umieszcza z powrotem na branch na samej górze wszystkich dociągniętych zmian. Mówimy wtedy, że jesteśmy na samej górze &lt;strong&gt;HEAD&lt;/strong&gt;. Można powiedzieć, że HEAD jest czymś w rodzaju takiego znacznika, która wersja jest aktualna. Kiedy na zdalnym repozytorium są zmiany, których jeszcze nie mamy u siebie na komputerze, mówimy że jesteśmy &lt;strong&gt;za HEAD&lt;/strong&gt; (czyli za tym głównym znacznikiem), jak tylko dociągniemy zmiany to będziemy &lt;strong&gt;na bieżącym HEAD&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;A teraz zobaczmy jak wizualnie wyglądają różnice między tymi dwoma metodami.&lt;/p&gt;
+
+&lt;h2&gt;Merge&lt;/h2&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Widać że zmiany, które tworzą logiczną całość po dołączeniu do gałęzi (branch) develop zostają przeplecione innymi zmianami. Wszystko powoduje wrażenie bałaganu i nieładu. Dodatkowo da się zauważyć zmiany (commit), których sami nie zrobiłyśmy. Są to właściwie informacje o tym jak zostały połączone pliki modyfikowane przez kilka osób.&lt;/p&gt;
+
+&lt;h2&gt;Rebase&lt;/h2&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Tutaj wszystko ma swoje miejsce. Zmiany są pogrupowane w jakieś logiczne całości. Dodatkowo widzimy historię naszych gałęzi (branches).&lt;/p&gt;
+
+&lt;h2&gt;W takim razie jak możemy to zrobić, gdy nasz kod był tylko zapisany lokalnie?&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Przechodzimy na gałąź (branch) develop&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout develop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dociągamy najnowsze zmiany&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Przełączmy się na naszą gałąź (branch) gdzie wcześniej pracowałyśmy&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Robimy rebase&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Możemy wrzucić zmiany na zdalne repozytorium&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;  git push
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Czasami gdy będziemy robić &lt;code&gt;git rebase&lt;/code&gt;, git może nie dać sobie rady sam z rozwiązywaniem konfliktów (czyli łączeniem plików modyfikowanych przez kilka osób). Wtedy do akcji wkraczamy my. Poprawnie rozwiązujemy konlikty i dodajemy nasze zmiany, tak by gita je widział. Następnie możemy dalej kontynłować rebase.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
+&lt;span class=&quot;c&quot;&gt;# rozwiązanie konfliktów&lt;/span&gt;
+git add -u &lt;span class=&quot;c&quot;&gt;# dodanie wszystkich zmian do śledzenia&lt;/span&gt;
+git rebase --continue
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Musimy porozmawiać jeszcze o jedne rzeczy. Czasami nasze zmiany są już na zdalnym repozytorium a my musimy/chcemy zrobić rebase. Po zakończeniu całej operacji chcemy umieści zmiany z powrotem na zdalnym repozytorium. Jednak tym razem &lt;code&gt;git push&lt;/code&gt; nam nie zadziała. W takie sytuacji możemy zrobić tak:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push -f origin my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Uwaga! Z tym poleceniem trzeba być bardzo uważnym. Polecenie to nadpisze wszystkie zmiany na wybranej przez nas gałęzi (branch) zmianami, które miałyśmy lokalnie. Jeżeli tylko my pracujemy na tej gałęzi nic się nie stanie. Jeżeli współdzielimy tą gałąź z kimś innym, trzeba myśleć o tym, że możemy usunąć czyjeś zmiany. Musimy wiedzieć co robimy i zdawać sobie sprawę z konsekwencji.&lt;/p&gt;
+
+&lt;p&gt;Gdybyśmy chcieli zrezygnować z rebase, możemy do tego celu użyć polecenia:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase --abort
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To wszystko na dzisiaj. Pokazałam Wam jak można używać &lt;code&gt;git rebase&lt;/code&gt;. Mam nadzięję, że było to dla Was pomocne. Jeżeli miacie jakieś pytania lub sugestie zapraszam do komentowania. Do zobaczenia następnym razem!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
+        <link>/pl/git-rebase</link>
+        <guid isPermaLink="true">/pl/git-rebase</guid>
+        
+        <category>git</category>
+        
+        <category>tools</category>
+        
+        
+        <category>git</category>
+        
+        <category>narzędzia</category>
+        
+        <category>środowisko</category>
+        
+      </item>
     
       
       <item>
@@ -684,127 +765,6 @@ Tym razem nie będę pisać o żadnych technicznych rzeczach. Tym razem chciała
         <category>Ruby on Rails</category>
         
         <category>refactoring</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Własne walidatory w Ruby on Rails</title>
-        <description>&lt;p&gt;Przez kilka ostatnich dni pracowałam z walidatorami w Railsach. Ale zanim opowiem o tym, co zrobiłam kilka słów na temat tego czym są walidatory. Kiedy chcemy sprawdzić czy dane, które otrzymuje nasza aplikacja spełniają pewne założenia, wtedy używamy walidatorów. Przykładowo gdy chcemy sprawdzić:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;czy dane mają odpowiedni format,&lt;/li&gt;
-&lt;li&gt;czy liczba jest parzysta,&lt;/li&gt;
-&lt;li&gt;lub po prostu czy nazwa jest wymagana&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;dla wszystkich tych przypadków korzystamy właśnie z walidatorów.&lt;/p&gt;
-
-&lt;p&gt;Railsy mają wbudowane wiele walidatorów. Jeżeli jesteście zainteresowani poznaniem ich to zajrzyjcie do &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#validation-helpers&quot;&gt;dokumentacji&lt;/a&gt;. Czasem jednak to nie wystarcza, potrzeba czegoś więcej. W moim przypadku chciałam sprawdzić, czy konkretne pole tekstowe nie zawiera słów będących na czarnej liście. Wiem, że istnieje &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#exclusion&quot;&gt;wbudowany walidator&lt;/a&gt;, który mógłby mi pomóc, ale zależało mi na czymś więcej:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Moja czarna lista słów była dość długa.&lt;/li&gt;
-&lt;li&gt;Nie chciałam tych wszystkich słów umieszczać w pliku Ruby.&lt;/li&gt;
-&lt;li&gt;Chciałam mieć łatwy dostęp do rozszerzania mojej listy, bez modyfikacji kodu aplikacji.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Zdecydowałam, więc że stworze swój własny walidator.&lt;/h2&gt;
-
-&lt;p&gt;Zajrzałam do dokumentacji i znalazłam &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations&quot;&gt;to&lt;/a&gt;. Wybrałam &lt;code&gt;ActiveModel::EachValidator&lt;/code&gt;, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: &lt;code&gt;validate_each&lt;/code&gt;. Całość wyglądała następująco:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/validators/blacklist_validator.rb&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Validate list of words that can not be use in specifig field&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BlacklistValidator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EachValidator&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blacklist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blacklist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blacklist&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;config&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;blacklist.txt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Jak to działa?&lt;/h2&gt;
-
-&lt;p&gt;Dodaje błąd &lt;code&gt;:on_blacklist&lt;/code&gt; do record tylko wtedy gdy value znajduje się na czarnej liście. Plik z czarną listą słów nazwałam &lt;code&gt;blacklist.txt&lt;/code&gt; i umieściłam w Railsowym katalogu &lt;code&gt;config&lt;/code&gt;. By teraz móc używać tego walidatora wystarczy dodać do naszego modelu:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;blacklist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Zapamiętajcie konwencje:&lt;/h2&gt;
-
-&lt;p&gt;Kiedy Wasz walidator nazywa się &lt;code&gt;BlacklistValidator&lt;/code&gt; to w modelu używacie parametru do walidacji w następujący sposób: &lt;code&gt;blacklist: true&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;To rozwiązanie było dla mnie idealne. Ale co jeżeli chcielibyśmy przekazać do walidatora jakiś dodatkowy parametr. Przykładowo:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;numericality&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greater_than&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To żaden problem. We własnych walidatorach mamy dostęp do zmiennej &lt;code&gt;options&lt;/code&gt;, która mówi nam dokładnie jakie parametry zostały przekazane. Jeżeli wywołamy options dla naszego przykładu zobaczymy następujący wynik:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greater_than&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Użyłam tej funkcjonalności, by sprawdzić za pomocą walidatora minimalną długość tablicy:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/validators/array_lenght_validator.rb&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Validate if array is not too short&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayLenghtValidator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EachValidator&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;array_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:minimum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:too_short_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3&gt;Co się tutaj dzieje?&lt;/h3&gt;
-
-&lt;p&gt;Na początku sprawdzam, czy w ogóle parametr &lt;code&gt;:minimum&lt;/code&gt; został ustawiony. Liczę ilość elementów w tablicy i sprawdzam czy &lt;code&gt;array_size&lt;/code&gt; jest mniejsze od &lt;code&gt;minimum&lt;/code&gt;. Jeżeli tak jest dodaje do rekordu błąd &lt;code&gt;:too_short_array&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Walidator mogę wywołać następująco:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;array_lenght&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Została jeszcze jedna kwestia do omówienia. &lt;strong&gt;W jaki sposób dodać tłumaczenia błędów w katalogu &lt;code&gt;locales&lt;/code&gt;?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Używamy konwencji w Rails. Poniżej przedstawiam jeden ze sposobów (inne możliwości dostępne w dokumentacji &lt;a href=&quot;http://guides.rubyonrails.org/i18n.html#error-message-scopes&quot;&gt;http://guides.rubyonrails.org/i18n.html#error-message-scopes&lt;/a&gt;):&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;pl:
-  activerecord:
-    errors:
-      models:
-        our_model_name:
-          attributes:
-            name:
-              on_blacklist: jest na czarnej liście
-            array:
-              too_short_array:
-                one: jest za krótka (minimalnie 1 element)
-                other: jest za krótka (minimalnie %{count} elementów)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;W klucz &lt;code&gt;our_model_name:&lt;/code&gt; wpisujemy nazwę naszego modelu. Na przykład jeżeli mamy model &lt;code&gt;User&lt;/code&gt;, to kluczem będzie &lt;code&gt;user:&lt;/code&gt;. Następnie ustawiamy nazwy naszych walidowanych pól:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;name:&lt;/code&gt; pole dla którego używamy walidatora czarnej listy,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;array:&lt;/code&gt; pole dla którego używamy walidatora długości tablicy.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Dalej ustawiamy nazwy naszych błędów: &lt;code&gt;on_blacklist:&lt;/code&gt; i &lt;code&gt;too_short_array:&lt;/code&gt;. Dla &lt;code&gt;on_blacklist:&lt;/code&gt; to już wszystko. Jeżeli chodzi o &lt;code&gt;too_short_array:&lt;/code&gt; dodatkowo podawaliśmy parametr &lt;code&gt;count&lt;/code&gt;. Rails Internalization rozpoznaje czy &lt;code&gt;count&lt;/code&gt; jest w liczbie pojedynczej czy mnogiej i serwuje &lt;code&gt;one:&lt;/code&gt; lub &lt;code&gt;other:&lt;/code&gt; z tłumaczeń. Ostatnia rzecz: W kluczu &lt;code&gt;other:&lt;/code&gt; wstawiliśmy parametr &lt;code&gt;count&lt;/code&gt; za pomocą &lt;code&gt;%{}&lt;/code&gt;. Wtedy Railsy wiedzą gdzie mają wstawić wartość parametru &lt;code&gt;count&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;To już wszystko. Mam nadzieję, że będzie to dla Was przydatne.
-Jeżeli macie jakieś pytania lub sugestie, proszę zostawcie komentarze.
-Do następnego razu!&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 Apr 2015 00:00:00 -0400</pubDate>
-        <link>/pl/custom-rails-validators</link>
-        <guid isPermaLink="true">/pl/custom-rails-validators</guid>
-        
-        <category>Ruby</category>
-        
-        <category>Ruby on Rails</category>
-        
-        <category>validators</category>
-        
-        
-        <category>Ruby</category>
-        
-        <category>Ruby on Rails</category>
         
       </item>
     

@@ -5,9 +5,91 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 Apr 2016 12:35:12 -0400</pubDate>
-    <lastBuildDate>Mon, 04 Apr 2016 12:35:12 -0400</lastBuildDate>
+    <pubDate>Thu, 14 Apr 2016 15:41:46 -0400</pubDate>
+    <lastBuildDate>Thu, 14 Apr 2016 15:41:46 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Git Rebase</title>
+        <description>&lt;p&gt;I wrote 2 articles about git: &lt;a href=&quot;/what-is-git&quot;&gt;What is git&lt;/a&gt; and &lt;a href=&quot;/git-usage&quot;&gt;Git usage&lt;/a&gt;. There are basic information about git. Today I would like to do something more advanced. Last week I did quick presentation/lighting talk about &lt;code&gt;git rebase&lt;/code&gt;. After that I realize that this is good topic to do short note. So, there you have.&lt;/p&gt;
+
+&lt;p&gt;When we use git, we have two ways to pull new changes from remote repository. &lt;strong&gt;Merge&lt;/strong&gt; and &lt;strong&gt;rebase&lt;/strong&gt;. When we use &lt;strong&gt;merge&lt;/strong&gt; (this is default option) git will try resolve conflicts and put our changes between changes of others in our team (using timeline to this). But when we use &lt;strong&gt;rebase&lt;/strong&gt;, git move our local changes to temporary area and pull all changes from remote repository. Then one by one will move each our local change to branch but on top of all downloaded changes. We say that rebase move your local changes on top of &lt;strong&gt;HEAD&lt;/strong&gt;. We can say that HEAD is something like marker which version is current. When on remote repository are new changes and we don&amp;#39;t have this changes locally we say that we are &lt;strong&gt;behind the HEAD&lt;/strong&gt;. So when we pull all changes from remote repository we are &lt;strong&gt;on HEAD&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Ok, let&amp;#39;s move now to visual difference between those two method.&lt;/p&gt;
+
+&lt;h2&gt;Merge&lt;/h2&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;You can see that even someone do some connected commits, after merge all is one big mess. Even more, we see that there are also commits with title merge and we didn&amp;#39;t create this commits.&lt;/p&gt;
+
+&lt;h2&gt;Rebase&lt;/h2&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Here everything is in order. Connected commits are in one group. We also see history of our branches.&lt;/p&gt;
+
+&lt;h2&gt;How we can do this when our code is only locally?&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Switch to develop branch&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout develop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Download all changes lacally&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git pull
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Switch to specific branch (branch on which you work)&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Do rebase&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Push changes to remote repository&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Sometimes when you use rebase, then it can show some conflicts. You need to resolved them and add changes. Then you can continue rebase.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
+&lt;span class=&quot;c&quot;&gt;# resolve conflicts&lt;/span&gt;
+git add -u &lt;span class=&quot;c&quot;&gt;# add all changes&lt;/span&gt;
+git rebase --continue
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We need to talk about one more thing. Sometimes we have our code on remote repository and after rebase we cannot do &lt;code&gt;git push&lt;/code&gt;. In this case we can use:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push -f origin my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;But! You need to be very &lt;strong&gt;careful&lt;/strong&gt;. This command will override all history of change on remote repository for your branch. You must be sure that you don&amp;#39;t lose any change. If you work on branch alone, it is safe but when you work on branch with others you need to be sure what you doing.&lt;/p&gt;
+
+&lt;p&gt;If you like to abort rebase. You can do that in this way.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase --abort
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is it. I showed you how you can use &lt;code&gt;git rebase&lt;/code&gt;. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
+        <link>/git-rebase</link>
+        <guid isPermaLink="true">/git-rebase</guid>
+        
+        <category>git</category>
+        
+        <category>tools</category>
+        
+        
+        <category>environment</category>
+        
+        <category>git</category>
+        
+        <category>tools</category>
+        
+      </item>
     
       
       <item>
@@ -680,126 +762,6 @@ This time I won’t be writing about technical things. This time I’d like to s
         <category>Ruby on Rails</category>
         
         <category>refactoring</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Custom Rails Validators</title>
-        <description>&lt;p&gt;For a few days I worked on custom validators in Rails. First what are validators? When you want to check some data which comes to your application, you use validators. For example:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;if email has specific format,&lt;/li&gt;
-&lt;li&gt;if number is odd,&lt;/li&gt;
-&lt;li&gt;or if you simply want to check if name is required&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;for all of this we use validators.&lt;/p&gt;
-
-&lt;p&gt;Rails has many different validators already in side. Check the &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#validation-helpers&quot;&gt;documentation&lt;/a&gt;. But sometimes you want to do more. In my case I need validator for black list of words for string field. I know I can use &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#exclusion&quot;&gt;build-in validator&lt;/a&gt;. But I need much more customization:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The list of excluded words was very long.&lt;/li&gt;
-&lt;li&gt;I didn’t want to have this words in my Ruby file.&lt;/li&gt;
-&lt;li&gt;I always want to add new wards without changing my application.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;So I decide to do my own validator.&lt;/h2&gt;
-
-&lt;p&gt;I look to documentation and I find &lt;a href=&quot;http://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations&quot;&gt;this&lt;/a&gt;. I choosed &lt;code&gt;ActiveModel::EachValidator&lt;/code&gt; where I have access to whole record, specific attribute to check and the value of this attribute. This was all I needed. To do my custom validator I must only write one method: &lt;code&gt;validate_each&lt;/code&gt;. It look like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/validators/blacklist_validator.rb&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Validate list of words that can not be use in specifig field&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BlacklistValidator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EachValidator&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on_blacklist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;blacklist&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;blacklist&lt;/span&gt;
-    &lt;span class=&quot;no&quot;&gt;File&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;config&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;blacklist.txt&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:strip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;How this works?&lt;/h2&gt;
-
-&lt;p&gt;I add error &lt;code&gt;:on_blacklist&lt;/code&gt; to record when value is located on black list. I put my black list – &lt;code&gt;blacklist.txt&lt;/code&gt; – in Rails &lt;code&gt;config&lt;/code&gt; directory. To use this validator we put something like this in our model:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;blacklist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Remember convention:&lt;/h2&gt;
-
-&lt;p&gt;When your valdator class is named &lt;code&gt;BlacklistValidator&lt;/code&gt; then in your model you use &lt;code&gt;blacklist: true&lt;/code&gt; parameter.&lt;/p&gt;
-
-&lt;p&gt;This was perfect for me, but what about put some custom parameters to validator? Something like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:age&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;numericality&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greater_than&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is not a problem. In custom validators you have available something like &lt;code&gt;options&lt;/code&gt;, where you have access to all custom parameters. When you call &lt;code&gt;options&lt;/code&gt; for our example you see:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;greater_than&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I use this for array validator, where I check size of array:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# app/validators/array_lenght_validator.rb&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;# Validate if array is not too short&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayLenghtValidator&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveModel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;EachValidator&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;validate_each&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;array_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:minimum&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array_size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;record&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:too_short_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;What happed here?&lt;/h2&gt;
-
-&lt;p&gt;I check if &lt;code&gt;:minimum&lt;/code&gt; parameter is set. I count number of elements in array. If &lt;code&gt;array_size&lt;/code&gt; is lower then &lt;code&gt;minimum&lt;/code&gt; size, I add error &lt;code&gt;:too_short_array&lt;/code&gt; to record.&lt;/p&gt;
-
-&lt;p&gt;I can call this validator like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;validates&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;array_lenght&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;minimum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;It is one more think to say. &lt;strong&gt;How put translation to our validators in &lt;code&gt;locales&lt;/code&gt;?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We use Rails Convention. This is one but not only way to do this (all convention is explain in &lt;a href=&quot;http://guides.rubyonrails.org/i18n.html#error-message-scopes&quot;&gt;http://guides.rubyonrails.org/i18n.html#error-message-scopes&lt;/a&gt;):&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;en:
-  activerecord:
-    errors:
-      models:
-        our_model_name:
-          attributes:
-            name:
-              on_blacklist: is on words blacklist
-            array:
-              too_short_array:
-                one: is too short (minimum is 1 item)
-                other: is too short (minimum is %{count} items)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In &lt;code&gt;our_model_name:&lt;/code&gt; key we put model name. For example when we have model &lt;code&gt;User&lt;/code&gt;, we have key &lt;code&gt;user:&lt;/code&gt;. Next we put names of our validated fields:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;name:&lt;/code&gt; field (form black list validation),&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;array:&lt;/code&gt; field (from array length validation).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Then we put names of our errors: &lt;code&gt;on_blacklist:&lt;/code&gt; and &lt;code&gt;too_short_array:&lt;/code&gt;. For &lt;code&gt;on_blacklist:&lt;/code&gt; this is it. But &lt;code&gt;too_short_array:&lt;/code&gt; error had &lt;code&gt;count&lt;/code&gt; parameter. Rails Internalization can recognized if it singular or plural version of &lt;code&gt;count&lt;/code&gt;. And serve &lt;code&gt;one:&lt;/code&gt; or &lt;code&gt;other:&lt;/code&gt; translation. Last thing: In &lt;code&gt;other:&lt;/code&gt; translation we put our count parameter thought &lt;code&gt;%{}&lt;/code&gt;. Then Rails know where put &lt;code&gt;count&lt;/code&gt; value.&lt;/p&gt;
-
-&lt;p&gt;This is it. I hope this was useful for you. Please live your comments,
-questions or any suggestions below. To next time! Bye!&lt;/p&gt;
-</description>
-        <pubDate>Wed, 15 Apr 2015 00:00:00 -0400</pubDate>
-        <link>/custom-rails-validators</link>
-        <guid isPermaLink="true">/custom-rails-validators</guid>
-        
-        <category>Ruby</category>
-        
-        <category>Ruby on Rails</category>
-        
-        <category>validators</category>
-        
-        
-        <category>Ruby</category>
-        
-        <category>Ruby on Rails</category>
         
       </item>
     
