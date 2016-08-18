@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Leaflet - Introduction to maps",
+		  "category"   : "",
+		  "url"        : "/leaflet",
+		  "date"       : "2016-08-13 00:00:00 -0400",
+		  "shortdate"  : "August 13, 2016"
+		} ,
+	
+		{
 		  "title"      : "Working remote",
 		  "category"   : "",
 		  "url"        : "/remote-work",

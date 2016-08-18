@@ -17,22 +17,22 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>SessionsController refactoring &#8211; Woman on Rails</title>
-<meta name="description" content="How improve your code?">
+<title>Refaktoryzacja w SessionsController &#8211; Woman on Rails</title>
+<meta name="description" content="Jak można poprawić swój kod?">
 <meta name="keywords" content="refactoring, Ruby, Ruby on Rails">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="SessionsController refactoring">
-<meta name="twitter:description" content="How improve your code?">
+<meta name="twitter:title" content="Refaktoryzacja w SessionsController">
+<meta name="twitter:description" content="Jak można poprawić swój kod?">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SessionsController refactoring">
-<meta property="og:description" content="How improve your code?">
+<meta property="og:title" content="Refaktoryzacja w SessionsController">
+<meta property="og:description" content="Jak można poprawić swój kod?">
 <meta property="og:url" content="/session-controller-refactoring">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
@@ -93,25 +93,25 @@ Description: Awesome dude, awesome life
         
           <li>
             
-              <a href="/">Home</a>
+              <a href="/pl">Strona główna</a>
             
           </li>
         
           <li>
             
-              <a href="/categories">Categories</a>
+              <a href="/pl/categories">Kategorie</a>
             
           </li>
         
           <li>
             
-              <a href="/tags">Tags</a>
+              <a href="/pl/tags">Tagi</a>
             
           </li>
         
           <li>
             
-              <a href="/about">About</a>
+              <a href="/pl/about">O mnie</a>
             
           </li>
         
@@ -135,8 +135,8 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/pl/session-controller-refactoring" class='language animated fade'>
-    pl
+  <a href="/session-controller-refactoring" class='language animated fade'>
+    en
   </a>
 
 
@@ -188,9 +188,9 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">SessionsController refactoring</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Refaktoryzacja w SessionsController</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">How improve your code?</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Jak można poprawić swój kod?</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2015-07-17T00:00:00-04:00" class="post-time" itemprop="datePublished">17 Jul 2015</time><span>
                             in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#Ruby on Rails" data-toggle="tooltip" title="Other posts from the Ruby on rails category" rel="tag">Ruby on rails</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#refactoring" data-toggle="tooltip" title="Other posts from the Refactoring category" rel="tag">Refactoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.765</span> minutes read</span>
@@ -198,7 +198,7 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>A few weeks ago I worked on code like this:</p>
+                        <p>Kilka tygodni temu pracowałam z następującym kodem:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
@@ -225,11 +225,11 @@ Description: Awesome dude, awesome life
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>When you look on this code at first time, you probably think that this is not too bad. Class isn’t to long. It have about 25 lines. Methods are short. Maybe 5 – 6 lines. Is only one public method. Everything looks OK, so what do we do here?</p>
+<p>Kiedy patrzy się na ten kod pierwszy raz prawdopodobnie myśli się że jest OK. Klasa nie jest za długa. Ma tylko 25 linii. Metody są krótkie. Około 5 – 6 linii. Jest tylko jedna publiczna metoda. Wszystko wygląda dobrze, prawda?</p>
 
-<p>In this code is bug. When user want to login and send correct email but wrong password, method returns status <code>:created</code>. This mean that user is correctly login. But this is not true, because <code>Session</code> for user wasn’t created.</p>
+<p>Okazuje się jednak, że kod ten ma błąd. Gdy użytkownik chce się zalogować i poda poprawny email ale błędne hasło, metoda zwróci status <code>:created</code>. Oznacza to, że użytkownik poprawnie się zalogował, co nie jest prawdą. Sesja nie nie została dla niego utworzona.</p>
 
-<p>So, how we can deal with this bug? First we create a test, which show us this bug.</p>
+<p>Jak poradzimy sobie z tym błędem? Wpierw napiszemy test, który wykryje nasz błąd.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rails_helper&#39;</span>
 
 <span class="no">RSpec</span><span class="o">.</span><span class="n">describe</span> <span class="no">SessionsController</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:controller</span> <span class="k">do</span>
@@ -246,10 +246,12 @@ Description: Awesome dude, awesome life
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Test failed. Now we can closely look to this code.</p>
+<p>Test nie przechodzi. Możemy zacząć działać. Przyjrzyjmy się bliżej naszej klasie.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
 </code></pre></div>
-<p>Something strange happened in this line. We call method <code>respond_t</code>o and in this method we call <code>render</code>. On first look we don’t see this because <code>render</code> is hidden in <code>render_user</code> method. So, I decide to remove this method and move <code>render</code> to <code>create</code> method in our controller. For now I create method <code>user</code> where I set correctly user.</p>
+<p>Coś dziwnego dzieje się w tym kodzie. Wywołujemy metodę <code>respond_to</code>, w której wywołujemy <code>render</code>. Nie widać tego na pierwszy rzut oka ponieważ <code>render</code> ukryty jest w metodzie <code>render_user</code>.</p>
+
+<p>Postanowiłam, że usunę tą metodę i przeniosę <code>render</code> do metody <code>create</code> w naszym kontrolerze. Dodatkowo stworzyłam tymczasowo metodę <code>user</code> by poprawnie był ustawiany użytkownik.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
@@ -279,16 +281,16 @@ Description: Awesome dude, awesome life
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Now bug is fixed. Test passed. Everything is OK, right? We can stop at this point and go to another challenge.</p>
+<p>Błąd naprawiony. Test przychodzi. Wszystko jest dobrze. Możemy ruszać dalej po nowe wyzwania, prawda?</p>
 
-<p>Let’s think. When we leave code at this moment, what can happen?</p>
+<p>Pomyślmy przez chwilę czy możemy możemy zostawić ten kod w tej postaci? Co się dalej stanie?</p>
 
 <ol>
-<li>Code is great and no one come back here (It is small chance for this).</li>
-<li>Code is not so good and someone will back here to do refactoring.</li>
+<li>Nasz kod jest tak dobry, że nikt nie będzie musiał do niego wracać (mało prawdopodobne).</li>
+<li>Nasz kod nie jest tak dobry jak myślimy i prędzej czy później ktoś będzie musiał tu coś zmienić lub naprawić.</li>
 </ol>
 
-<p>Why we cannot do this refactoring? We can try leave this code better then we found.</p>
+<p>Dlaczego my nie możemy poprawić tego kodu już teraz? Dlaczego nie zastosować się do zasady zostaw fragment kodu który modyfikujesz lepszym niż go zastałeś.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
@@ -316,12 +318,12 @@ Description: Awesome dude, awesome life
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Tests are still passing. I think this code is better than before but it is not perfect. We can think why we let <code>@user</code> to be <code>nil</code> (when we use <code>find_by</code> method)? I leave here <code>find_by</code> not <code>find</code> or <code>find_by!</code> because this two methods give me exception which I don’t want. <code>ActiveRecord::RecordNotFound</code> exception give me status <code>:not_found</code> but I want <code>:unprocessable_entity</code> status.</p>
+<p>Testy dalej przechodzą. Myślę, że ten kod jest lepszy niż poprzednia wersja ale są rzeczy, które da się jeszcze poprawić. Możemy się zastanowić na przykład nad zmienną <code>@user</code>. Raz jest ona obiektem typu <code>User</code> a raz <code>nil</code> (wynika to z używania metody <code>find_by</code>). Nie używamy tutaj ani <code>find</code> ani <code>find_by!</code> ponieważ status naszej odpowiedzi byłby inny niż oczekujemy. Wyjątek <code>ActiveRecord::RecordNotFound</code> zwróci nam status <code>:not_found</code> a my chcielibśmy <code>:unprocessable_entity</code>.</p>
 
-<p>Next we can think about</p>
+<p>Natępnie możemy zastanowić się nad warunkiem:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
-<p>If you not seen I recommend to look on <strong>Sandi Metz</strong> presentation about <strong>Null Object Pattern</strong> (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). We can here create something like <code>TrustedUser</code> and use everywhere objects without checking <code>nil</code>. Then we can come back to simply <code>render</code> and set token in <code>create</code> method. Let’s we see how this can look.</p>
+<p>Jeżeli nie widzieliście prezentacji <strong>Sandi Metz</strong> na temat <strong>Null Object Pattern</strong> to polecam (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). Możemy stworzyć klasę <code>TrustedUser</code> i używać wszędzie tego obiektu bez sprawdzania czy mamy przyjemność z <code>nil</code>. Dalej możemy przenieść z powrotem metodę <code>render</code> i ustawiania tokenu do metody <code>create</code>. Zobaczmy jak nasz kod wygląda po zmianach:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
@@ -359,9 +361,9 @@ Description: Awesome dude, awesome life
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>We can now think about moving token setting to model but I stop my refactoring here. You can do this if you want. But I think the hardest thing about this is question: Have this change value for me? Answer depends on you.</p>
+<p>Teraz moglibyśmy przystąpić do kolejnej zmiany. Przykładowo przenieść ustawianie tokenu do modelu. Ja na tym poprzestanę. Jeżeli macie ochotę sami możecie spróbować to zmienić. Najtrudniejszą rzeczą w tym zadaniu jest próba odpowiedzenia sobie na pytanie: Czy warto robić takie zmiany? Czy daje nam to jakąś wartość? Odpowiedź zależy od Was.</p>
 
-<p>If you have any suggestion what can we change here. Please leave me a comment down below. I hope this was useful. Bye and see you next time.</p>
+<p>Mam nadzieję, że Wam się podobał artykuł. Jeżeli macie sugestie co można jeszcze tutaj zmienić – zostawcie swój komentarz. Do zobaczenia następnym razem.</p>
 
                         <br>
                     
@@ -381,7 +383,7 @@ Description: Awesome dude, awesome life
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;SessionsController refactoring&quot;%20/session-controller-refactoring%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Refaktoryzacja w SessionsController&quot;%20/session-controller-refactoring%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>

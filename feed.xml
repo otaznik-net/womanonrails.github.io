@@ -5,9 +5,248 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 11 Jun 2016 07:27:14 -0400</pubDate>
-    <lastBuildDate>Sat, 11 Jun 2016 07:27:14 -0400</lastBuildDate>
+    <pubDate>Thu, 18 Aug 2016 15:37:51 -0400</pubDate>
+    <lastBuildDate>Thu, 18 Aug 2016 15:37:51 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Leaflet - Introduction to maps</title>
+        <description>&lt;p&gt;I&amp;#39;m back on track. This time I would like to talk with you about maps. How easy we can work with maps nowadays. To be able to use maps on my website I will be using:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt; - JavaScript library for interactive maps&lt;/li&gt;
+&lt;li&gt;Maps tiles&lt;/li&gt;
+&lt;li&gt;Ruby on Rails (not required but you need to have at least some &lt;strong&gt;html&lt;/strong&gt; file)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So first things first. What are they &lt;strong&gt;maps tiles&lt;/strong&gt;? In simple words they are small square images, which show a map. They are served in packages. So on our website we see many of them.&lt;/p&gt;
+
+&lt;h2&gt;How we can get tiles?&lt;/h2&gt;
+
+&lt;p&gt;For beginning we can sign in into &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt; which generates this kind of images or we can use &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;. There are lot of services which also generate tiles. I will try to include some of them on the end.&lt;/p&gt;
+
+&lt;h2&gt;Preparation&lt;/h2&gt;
+
+&lt;p&gt;When we have in our application &lt;strong&gt;Leaflet&lt;/strong&gt; library and we decided which tiles set we will be using, we can start.&lt;/p&gt;
+
+&lt;p&gt;On our &lt;code&gt;index.html&lt;/code&gt; file we need to add:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And on our JavaScript file we need to set selected maps tiles. In this examples I will be using CoffeeScript but the same behaviour you can get in JavaScript.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;-&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;map = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.301&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.654&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Mapbox tiles&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/mapbox.png&quot;&gt;&lt;img src=&quot;/images/leaflet/mapbox.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map data &amp;amp;copy; &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors, &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/2.0/&amp;quot;&amp;gt;CC-BY-SA&amp;lt;/a&amp;gt;, Imagery © &amp;lt;a href=&amp;quot;http://mapbox.com&amp;quot;&amp;gt;Mapbox&amp;lt;/a&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;your id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;accessToken: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;your token&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;OpenStreetMap tiles&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/osm.png&quot;&gt;&lt;img src=&quot;/images/leaflet/osm.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map data &amp;amp;copy; &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors, &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/2.0/&amp;quot;&amp;gt;CC-BY-SA&amp;lt;/a&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Toner tiles&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/toner.png&quot;&gt;&lt;img src=&quot;/images/leaflet/toner.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;http://tile.stamen.com/toner/{z}/{x}/{y}.png&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map tiles by &amp;lt;a href=&amp;quot;http://stamen.com&amp;quot;&amp;gt;Stamen Design&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by/3.0&amp;quot;&amp;gt;CC BY 3.0&amp;lt;/a&amp;gt;. Data by &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://www.openstreetmap.org/copyright&amp;quot;&amp;gt;ODbL&amp;lt;/a&amp;gt;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;WaterColor tiles&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/watercolor.png&quot;&gt;&lt;img src=&quot;/images/leaflet/watercolor.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;http://tile.stamen.com/watercolor/{z}/{x}/{y}.png&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map tiles by &amp;lt;a href=&amp;quot;http://stamen.com&amp;quot;&amp;gt;Stamen Design&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by/3.0&amp;quot;&amp;gt;CC BY 3.0&amp;lt;/a&amp;gt;. Data by &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/3.0&amp;quot;&amp;gt;CC BY SA&amp;lt;/a&amp;gt;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And that&amp;#39;s it! When you refresh your website you should see map.&lt;/p&gt;
+
+&lt;h2&gt;Putting objects on map&lt;/h2&gt;
+
+&lt;p&gt;Now is time for fun! We can put on map different objects. One very important thing - each object on map has it own coordinates (like in Maths). In Leaflet are used two coordinate system. &lt;strong&gt;Cartesian coordinate geometry&lt;/strong&gt; and &lt;strong&gt;Lat-long system&lt;/strong&gt;. In first one point is &lt;code&gt;[longitude, latitude]&lt;/code&gt; in second &lt;code&gt;[latitude, longitude]&lt;/code&gt;. It is very easy to remember where is used which coordination system. For &lt;code&gt;GeoJSON&lt;/code&gt; object we use &lt;strong&gt;Cartesian notation&lt;/strong&gt; and for the rest &lt;strong&gt;Lat-long notation&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h4&gt;Marker&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/marker.png&quot;&gt;&lt;img src=&quot;/images/leaflet/marker.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;marker = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.28895538456755&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.681907653808594&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Custom marker&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/custom-marker.png&quot;&gt;&lt;img src=&quot;/images/leaflet/custom-marker.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;customIcon = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;iconUrl: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;assets/womanonrails.jpg&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;iconSize: &lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;iconAnchor: &lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;className: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;round&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;customMarker = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29391802001304&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.665471076965332&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;icon: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;customIcon&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;HTML marker&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/html-marker.png&quot;&gt;&lt;img src=&quot;/images/leaflet/html-marker.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;divIcon = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;divIcon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;className: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;div-icon&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;html: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;lt;div&amp;gt;This is my custom html&amp;lt;/div&amp;gt;&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;iconSize: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.2845132498121&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.668603897094727&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;icon: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;divIcon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Circle&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/circle.png&quot;&gt;&lt;img src=&quot;/images/leaflet/circle.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;circle = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.290024725454515&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.640880584716797&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;color: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;red&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;fillColor: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;#f03&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;fillOpacity: &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Polygon&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/poligon.png&quot;&gt;&lt;img src=&quot;/images/leaflet/poligon.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;polygon = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;polygon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29830444909283&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.61384391784668&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29619353058144&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.620710372924805&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29084727901576&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.616890907287598&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29125855046426&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.61354351043701&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.2941373510724&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;18.611998558044434&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29830444909283&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.61384391784668&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Popups&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/popup.png&quot;&gt;&lt;img src=&quot;/images/leaflet/popup.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bindPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;b&amp;gt;Hello world!&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;I am a popup.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;openPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bindPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;I am a circle.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;polygon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bindPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;I am a polygon.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;popup = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setLatLng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;51.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.09&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;I am a standalone popup.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;openOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;Events&lt;/h4&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/leaflet/event.png&quot;&gt;&lt;img src=&quot;/images/leaflet/event.png&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;onMapClick = &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;(e) -&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Coordinate: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMapClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;onMapClick = &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;(e) -&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;popup = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setLatLng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;You clicked the map at &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;openOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Coordinate: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMapClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4&gt;GeoJSON&lt;/h4&gt;
+
+&lt;p&gt;I think the most powerful element of Leaflet is &lt;code&gt;geoJson&lt;/code&gt;. You can display every of further objects using &lt;code&gt;geoJson&lt;/code&gt;. Also you can use &lt;strong&gt;GIS&lt;/strong&gt; data from data base like &lt;a href=&quot;https://www.postgresql.org/&quot;&gt;PostgreSQL&lt;/a&gt; and directly use in &lt;code&gt;geJson&lt;/code&gt; object. For this element you can also use some styling or binding events.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;geoData = &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Feature&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;properties&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;geometry&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Polygon&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s&quot;&gt;&amp;quot;coordinates&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.613758087158203&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.298386690775416&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.618135452270508&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.3022518894775&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.619508743286133&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.302279301112605&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.62457275390625&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.30570563109659&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.62959384918213&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.30510261491786&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.624873161315918&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.3016488295082&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.627877235412598&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.3005797498622&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.622384071350098&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.29600162425392&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.613758087158203&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.298386690775416&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;style = &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;color&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;#ff7800&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;weight&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;s&quot;&gt;&amp;quot;opacity&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.65&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geoJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geoData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;style: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;On the end&lt;/h2&gt;
+
+&lt;p&gt;This is only a small pieces of &lt;strong&gt;Leaflet&lt;/strong&gt; possibilities. If you looking for more (for example drawing on map) checkout links below:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw&quot;&gt;Leaflet Draw&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://geojson.io/&quot;&gt;GeoJSON&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.liedman.net/leaflet-routing-machine/&quot;&gt;Leaflet Routing Machine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://openlayers.org/&quot;&gt;OpenLayers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/?csw=1&quot;&gt;Google Maps Javascript API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/modestmaps/modestmaps-js&quot;&gt;Modest Maps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.microsoft.com/maps/&quot;&gt;Bing maps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.google.pl/maps?source=tldso&quot;&gt;Google Maps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.maptiler.com/&quot;&gt;MapTiler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://maps.stamen.com/&quot;&gt;Maps Stamen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.mapquest.com/&quot;&gt;Map Quest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://wiki.openstreetmap.org/wiki/Tiles&quot;&gt;Tiles&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
+        <link>/leaflet</link>
+        <guid isPermaLink="true">/leaflet</guid>
+        
+        <category>maps</category>
+        
+        <category>geo data</category>
+        
+        <category>tips</category>
+        
+        
+        <category>geo data</category>
+        
+        <category>maps</category>
+        
+        <category>tips</category>
+        
+      </item>
     
       
       <item>
@@ -640,35 +879,6 @@ I hope you enjoy reading this article. If you have some questions or suggestions
         
         
         <category>self-awareness</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Rails Girls Szczecin (22 – 23 August 2015)</title>
-        <description>&lt;p&gt;&lt;br&gt;
-This time I won’t be writing about technical things. This time I’d like to share with you something very special for me. Something that brings me lot of joy and happiness.&lt;/p&gt;
-
-&lt;p&gt;Last weekend I’ve spent as a mentor on &lt;strong&gt;Rails Girls in Szczecin&lt;/strong&gt;. It was my third time. I always have great memories with this place. People are so nice and helpful. The workshop was prepared perfectly. The atmosphere was so positive. If you like to be a part of Rails Girls workshop I truly recommend Szczecin. It’s a great place to start your programming adventure.&lt;/p&gt;
-
-&lt;p&gt;Ok, I was on many &lt;strong&gt;Rails Girls in Poland&lt;/strong&gt; so why am I talking especially about this workshop. For me, it was special time. On this workshop I did my first amateur video. If you wonder how it looks like you can watch this video &lt;a href=&quot;https://www.youtube.com/watch?v=UVAF7ndEJyE&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you have some comments or questions please leave them below. See you next time.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 30 Aug 2015 00:00:00 -0400</pubDate>
-        <link>/rails-girls-szczecin</link>
-        <guid isPermaLink="true">/rails-girls-szczecin</guid>
-        
-        <category>Rails Girls</category>
-        
-        <category>Szczecin</category>
-        
-        
-        <category>events</category>
-        
-        <category>travels</category>
-        
-        <category>workshops</category>
         
       </item>
     

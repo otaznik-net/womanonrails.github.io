@@ -1,7 +1,15 @@
 [
 	
 		{
-		  "title"      : "Working remote",
+		  "title"      : "Leaflet - Wstęp do map",
+		  "category"   : "",
+		  "url"        : "/leaflet",
+		  "date"       : "2016-08-13 00:00:00 -0400",
+		  "shortdate"  : "August 13, 2016"
+		} ,
+	
+		{
+		  "title"      : "Praca zdalna",
 		  "category"   : "",
 		  "url"        : "/remote-work",
 		  "date"       : "2016-05-15 00:00:00 -0400",
@@ -17,7 +25,7 @@
 		} ,
 	
 		{
-		  "title"      : "Simple usage of Git",
+		  "title"      : "Podstawowe użycie Git",
 		  "category"   : "",
 		  "url"        : "/git-usage",
 		  "date"       : "2016-02-20 00:00:00 -0500",
@@ -25,7 +33,7 @@
 		} ,
 	
 		{
-		  "title"      : "Lambdas in Ruby",
+		  "title"      : "Lambda w Ruby",
 		  "category"   : "",
 		  "url"        : "/lambda",
 		  "date"       : "2016-02-10 00:00:00 -0500",
@@ -41,7 +49,7 @@
 		} ,
 	
 		{
-		  "title"      : "What is git?",
+		  "title"      : "Co to jest git?",
 		  "category"   : "",
 		  "url"        : "/what-is-git",
 		  "date"       : "2015-12-20 00:00:00 -0500",
@@ -49,7 +57,7 @@
 		} ,
 	
 		{
-		  "title"      : "Coderetreat 2015 Crakow",
+		  "title"      : "Coderetreat 2015 Kraków",
 		  "category"   : "",
 		  "url"        : "/coderetreat",
 		  "date"       : "2015-11-20 00:00:00 -0500",
@@ -57,7 +65,7 @@
 		} ,
 	
 		{
-		  "title"      : "CoderDojo workshops",
+		  "title"      : "Warsztaty CoderDojo",
 		  "category"   : "",
 		  "url"        : "/coderdojo-workshop",
 		  "date"       : "2015-10-10 00:00:00 -0400",
@@ -65,7 +73,7 @@
 		} ,
 	
 		{
-		  "title"      : "Be yourself – How deal with low self-confidence",
+		  "title"      : "Bądź sobą – Jak radzić sobie z brakiem pewności siebie",
 		  "category"   : "",
 		  "url"        : "/be-yourself",
 		  "date"       : "2015-09-29 00:00:00 -0400",
@@ -73,7 +81,7 @@
 		} ,
 	
 		{
-		  "title"      : "Rails Girls Szczecin (22 – 23 August 2015)",
+		  "title"      : "Rails Girls Szczecin (22 – 23 Sierpień 2015)",
 		  "category"   : "",
 		  "url"        : "/rails-girls-szczecin",
 		  "date"       : "2015-08-30 00:00:00 -0400",
@@ -81,7 +89,7 @@
 		} ,
 	
 		{
-		  "title"      : "SessionsController refactoring",
+		  "title"      : "Refaktoryzacja w SessionsController",
 		  "category"   : "",
 		  "url"        : "/session-controller-refactoring",
 		  "date"       : "2015-07-17 00:00:00 -0400",
@@ -89,7 +97,7 @@
 		} ,
 	
 		{
-		  "title"      : "Custom Rails Validators",
+		  "title"      : "Własne walidatory w Ruby on Rails",
 		  "category"   : "",
 		  "url"        : "/custom-rails-validators",
 		  "date"       : "2015-04-15 00:00:00 -0400",
@@ -97,7 +105,7 @@
 		} ,
 	
 		{
-		  "title"      : "RVM – Ruby Version Manager",
+		  "title"      : "RVM – zarządzanie wersjami Ruby",
 		  "category"   : "",
 		  "url"        : "/rvm",
 		  "date"       : "2015-03-08 00:00:00 -0500",
@@ -105,7 +113,7 @@
 		} ,
 	
 		{
-		  "title"      : "MVC – design pattern",
+		  "title"      : "Wzorzec projektowy – MVC",
 		  "category"   : "",
 		  "url"        : "/mvc-design-pattern",
 		  "date"       : "2014-11-10 00:00:00 -0500",
@@ -113,7 +121,7 @@
 		} ,
 	
 		{
-		  "title"      : "Guake terminal",
+		  "title"      : "Guake – podręczny terminal",
 		  "category"   : "",
 		  "url"        : "/guake-terminal",
 		  "date"       : "2014-08-22 00:00:00 -0400",
@@ -121,7 +129,7 @@
 		} ,
 	
 		{
-		  "title"      : "Ruby Hash Tips",
+		  "title"      : "Triki dla obiektu Hash w Ruby",
 		  "category"   : "",
 		  "url"        : "/ruby-hash-tips",
 		  "date"       : "2014-06-25 00:00:00 -0400",
@@ -129,7 +137,7 @@
 		} ,
 	
 		{
-		  "title"      : "RailsGirls Cracow",
+		  "title"      : "RailsGirls Kraków",
 		  "category"   : "",
 		  "url"        : "/rails-girls-cracow",
 		  "date"       : "2014-05-26 00:00:00 -0400",
@@ -137,7 +145,7 @@
 		} ,
 	
 		{
-		  "title"      : "Open Source Days",
+		  "title"      : "Dni Wolnego Oprogramowania",
 		  "category"   : "",
 		  "url"        : "/dwo-2014",
 		  "date"       : "2014-05-02 00:00:00 -0400",
@@ -145,7 +153,7 @@
 		} ,
 	
 		{
-		  "title"      : "Ruby Array Tips",
+		  "title"      : "Triki dla Tablic w Ruby",
 		  "category"   : "",
 		  "url"        : "/ruby-array-tips",
 		  "date"       : "2014-03-14 00:00:00 -0400",
@@ -153,7 +161,7 @@
 		} ,
 	
 		{
-		  "title"      : "Rails Girls welcome back!",
+		  "title"      : "Rails Girls witaj z powrotem!",
 		  "category"   : "",
 		  "url"        : "/rails-girls-warsaw",
 		  "date"       : "2014-02-24 00:00:00 -0500",
@@ -161,7 +169,7 @@
 		} ,
 	
 		{
-		  "title"      : "Hack4Good Cracow",
+		  "title"      : "Hack4Good Kraków",
 		  "category"   : "",
 		  "url"        : "/hack4good-cracow",
 		  "date"       : "2014-02-10 00:00:00 -0500",
@@ -169,7 +177,7 @@
 		} ,
 	
 		{
-		  "title"      : "Ruby Refactoring – part 1",
+		  "title"      : "Ruby Refactoring – część 1",
 		  "category"   : "",
 		  "url"        : "/refactoring-ruby-part1",
 		  "date"       : "2013-12-30 00:00:00 -0500",
@@ -177,7 +185,7 @@
 		} ,
 	
 		{
-		  "title"      : "CoffeeScript Refactoring – part 1",
+		  "title"      : "CoffeeScript Refactoring – część 1",
 		  "category"   : "",
 		  "url"        : "/refactoring-coffee-part1",
 		  "date"       : "2013-12-06 00:00:00 -0500",
@@ -209,7 +217,7 @@
 		} ,
 	
 		{
-		  "title"      : "Rails Girls Rules",
+		  "title"      : "Zasady Rails Girls",
 		  "category"   : "",
 		  "url"        : "/rails-girls-rules",
 		  "date"       : "2013-09-07 19:00:00 -0400",
@@ -217,9 +225,9 @@
 		} ,
 	
 		{
-		  "title"      : "Introduction",
+		  "title"      : "Wprowadzenie",
 		  "category"   : "",
-		  "url"        : "/introduction",
+		  "url"        : "/inrtoduction",
 		  "date"       : "2013-09-05 19:00:00 -0400",
 		  "shortdate"  : "September 05, 2013"
 		} 
