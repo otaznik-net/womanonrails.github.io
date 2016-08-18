@@ -17,22 +17,22 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>RVM – zarządzanie wersjami Ruby &#8211; Woman on Rails</title>
-<meta name="description" content="Jak zarządzać wieloma wersjami Ruby?">
+<title>RVM – Ruby Version Manager &#8211; Woman on Rails</title>
+<meta name="description" content="How can I manage different Ruby versions?">
 <meta name="keywords" content="Ruby, RVM, tools">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="RVM – zarządzanie wersjami Ruby">
-<meta name="twitter:description" content="Jak zarządzać wieloma wersjami Ruby?">
+<meta name="twitter:title" content="RVM – Ruby Version Manager">
+<meta name="twitter:description" content="How can I manage different Ruby versions?">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RVM – zarządzanie wersjami Ruby">
-<meta property="og:description" content="Jak zarządzać wieloma wersjami Ruby?">
+<meta property="og:title" content="RVM – Ruby Version Manager">
+<meta property="og:description" content="How can I manage different Ruby versions?">
 <meta property="og:url" content="/rvm">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
@@ -93,25 +93,25 @@ Description: Awesome dude, awesome life
         
           <li>
             
-              <a href="/pl">Strona główna</a>
+              <a href="/">Home</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/categories">Kategorie</a>
+              <a href="/categories">Categories</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/tags">Tagi</a>
+              <a href="/tags">Tags</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/about">O mnie</a>
+              <a href="/about">About</a>
             
           </li>
         
@@ -135,8 +135,8 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/rvm" class='language animated fade'>
-    en
+  <a href="/pl/rvm" class='language animated fade'>
+    pl
   </a>
 
 
@@ -188,28 +188,28 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">RVM – zarządzanie wersjami Ruby</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">RVM – Ruby Version Manager</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Jak zarządzać wieloma wersjami Ruby?</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">How can I manage different Ruby versions?</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2015-03-08T00:00:00-05:00" class="post-time" itemprop="datePublished">08 Mar 2015</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#narzędzia" data-toggle="tooltip" title="Other posts from the Narzędzia category" rel="tag">Narzędzia</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#środowisko" data-toggle="tooltip" title="Other posts from the środowisko category" rel="tag">środowisko</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;1 minute read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#enviroment" data-toggle="tooltip" title="Other posts from the Enviroment category" rel="tag">Enviroment</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tools" data-toggle="tooltip" title="Other posts from the Tools category" rel="tag">Tools</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;1 minute read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Wpadł mi do głowy pewien pomysł jak pokazać czym jest <strong>RVM</strong>. Otóż RVM jest trochę jak dom z kwiatami. Każdy kwiatek potrzebuje osobnego środowiska jeden lubi dużo wody, inny nie przepada za silnym światłem. Jeżeli chcemy by nasze kwiatki ładnie nam rosły to musimy dostosować ten nasz domek do ich potrzeb. W tym właśnie pomaga nam RVM. Każdy projekt pisany w Ruby on Rails potrzebuje osobnego środowiska. RVM pomoże nam rozdzielić środowiska dla poszczególnych projektów bez większych przeszkód.</p>
+                        <p>I hit on an idea how to show: What exactly is RVM? RVM is like house with flowers. Each flower need special living conditions. One of them likes water, other doesn’t like strong light. If we want to flowers grown, we need to take care about this specific living conditions. In this cases help us RVM. Each project wrote in Ruby on Rails needs special environment. RVM help as to keep environments separate without problems.</p>
 
-<h2>No dobrze, ale jak możemy użyć RVM?</h2>
+<h2>How can we use RVM?</h2>
 
-<p>To bardzo proste. Spójrz:</p>
+<p>It’s easy, look:</p>
 
 <ul>
-<li>lista wersji Ruby (to nasze podłoże):</li>
+<li>list of Ruby versions (type of ground):</li>
 </ul>
 <div class="highlight"><pre><code class="language-text" data-lang="text">rvm list
 </code></pre></div>
-<p>Na ekranie może to wyglądać tak:</p>
+<p>it can look like:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">rvm rubies
 
      jruby-1.7.4 [ x86_64 ]
@@ -221,7 +221,7 @@ Description: Awesome dude, awesome life
   #  * - default
 </code></pre></div>
 <ul>
-<li>lista gemsetów (środowiska)</li>
+<li>list of gemsets (living conditions):</li>
 </ul>
 <div class="highlight"><pre><code class="language-text" data-lang="text">rvm gemset list
 
@@ -230,28 +230,28 @@ Description: Awesome dude, awesome life
      woman_on_rails
 </code></pre></div>
 <ul>
-<li>zmiana gemsetu na woman<em>on</em>rails</li>
+<li>change gemset to woman<em>on</em>rails:</li>
 </ul>
 <div class="highlight"><pre><code class="language-text" data-lang="text">rvm gemset use woman_on_rails
 
   Using ruby-2.0.0-p247 with gemset woman_on_rails
 </code></pre></div>
-<p>Jeżeli teraz spojrzymy na listę gemsetów, zobaczymy:</p>
+<p>When we look into gemset list now, we can see:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">rvm gemset list
 
    (default)
    global
 =&gt; woman_on_rails
 </code></pre></div>
-<h2>OK, a jak zainstalować RVM?</h2>
+<h2>OK, but how can we install RVM?</h2>
 
 <ul>
-<li>Spróbuj skorzystać z oficjalnej <a href="http://rvm.io/rvm/install">strony projektu RVM</a>.</li>
-<li>Lub przetestuj <a href="https://github.com/fractalsoft/dotfiles">https://github.com/fractalsoft/dotfiles</a> – Znajdziesz tam instrukcję jak stworzyć całe środowisko od podstaw. Jeżeli masz już system operacyjny to możesz skorzystać z samych dotfiles do zainstalowania RVM i nie tylko.</li>
+<li>Try use official <a href="http://rvm.io/rvm/install">RVM page</a></li>
+<li>Or try <a href="https://github.com/fractalsoft/dotfiles">https://github.com/fractalsoft/dotfiles</a> – There is instruction how create your own environment from the begin. If you have system and the rest, you can use only dotfiles to install rvm.</li>
 </ul>
 
-<p>Mam nadzieje, że ten wpis pomógł Ci zrozumieć czym jest RVM. Uwielbiam feedback. Proszę zostaw swój komentarz.
-Ten artykuł jest tylko wstępem do RVM. Jeżeli chcesz więcej zerknij na oficjalną stronę RVM.</p>
+<p>I hope that, my entry helps you understood what RVM is. I love feedback. Please live your comment.
+This article is a simple sample of RVM. If you want more knowladge please check official RVM webpage.</p>
 
                         <br>
                     
@@ -271,7 +271,7 @@ Ten artykuł jest tylko wstępem do RVM. Jeżeli chcesz więcej zerknij na oficj
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;RVM – zarządzanie wersjami Ruby&quot;%20/rvm%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;RVM – Ruby Version Manager&quot;%20/rvm%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>

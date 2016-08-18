@@ -17,22 +17,22 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>Triki dla obiektu Hash w Ruby &#8211; Woman on Rails</title>
-<meta name="description" content="Czego ciekawego dowiedziałam się o obiekcie Hash">
+<title>Ruby Hash Tips &#8211; Woman on Rails</title>
+<meta name="description" content="What I know about Hash?">
 <meta name="keywords" content="Ruby, tips">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="Triki dla obiektu Hash w Ruby">
-<meta name="twitter:description" content="Czego ciekawego dowiedziałam się o obiekcie Hash">
+<meta name="twitter:title" content="Ruby Hash Tips">
+<meta name="twitter:description" content="What I know about Hash?">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Triki dla obiektu Hash w Ruby">
-<meta property="og:description" content="Czego ciekawego dowiedziałam się o obiekcie Hash">
+<meta property="og:title" content="Ruby Hash Tips">
+<meta property="og:description" content="What I know about Hash?">
 <meta property="og:url" content="/ruby-hash-tips">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
@@ -93,25 +93,25 @@ Description: Awesome dude, awesome life
         
           <li>
             
-              <a href="/pl">Strona główna</a>
+              <a href="/">Home</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/categories">Kategorie</a>
+              <a href="/categories">Categories</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/tags">Tagi</a>
+              <a href="/tags">Tags</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/about">O mnie</a>
+              <a href="/about">About</a>
             
           </li>
         
@@ -135,8 +135,8 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/ruby-hash-tips" class='language animated fade'>
-    en
+  <a href="/pl/ruby-hash-tips" class='language animated fade'>
+    pl
   </a>
 
 
@@ -188,19 +188,19 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Triki dla obiektu Hash w Ruby</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Ruby Hash Tips</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Czego ciekawego dowiedziałam się o obiekcie Hash</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">What I know about Hash?</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-06-25T00:00:00-04:00" class="post-time" itemprop="datePublished">25 Jun 2014</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tips" data-toggle="tooltip" title="Other posts from the Tips category" rel="tag">Tips</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">4.975</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tips" data-toggle="tooltip" title="Other posts from the Tips category" rel="tag">Tips</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">5.035</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Dzisiaj chciałabym opowiedzieć Wam trochę o obiekcie Hash i metodach, których często do niego wykorzystuje. Ale zanim o metodach to zacznijmy od tego co to jest właściwie Hash?</p>
+                        <p>Today I will show you some Hash tips, which I like. But before that what really is this hash?</p>
 
-<p>Hash to bardzo specyficzna tablica. Jako klucz możemy użyć cokolwiek i przyporządkować mu odpowiednią wartość lub wartości. Przykładowo: Jeżeli mamy nasze ulubione książki i chciałybyśmy je uporządkować według ich autorów to jako klucz możemy użyć imię i nazwisko autora a jako wartość jego lub jej książki.</p>
+<p>Hash is a very specific Array where as a key we can use anything we want and order to this key some value or values. For example: If we have books and theirs authors. We can connect author to his books. When we call author then we see his/her books.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span>
   <span class="s1">&#39;Carlos Ruiz Zafon&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;La Sombra del Viento&#39;</span><span class="p">,</span> <span class="s1">&#39;El Juego del Angel&#39;</span><span class="o">]</span><span class="p">,</span>
   <span class="s1">&#39;Antoine de Saint-Exupery&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Le Petit Prince&#39;</span>
@@ -209,33 +209,36 @@ Description: Awesome dude, awesome life
 <span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;Carlos Ruiz Zafon&#39;</span><span class="o">]</span>        <span class="c1"># =&gt; [&#39;La Sombra del Viento&#39;, &#39;El Juego del Angel&#39;]</span>
 <span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;Antoine de Saint-Exupery&#39;</span><span class="o">]</span> <span class="c1"># =&gt; &#39;Le Petit Prince&#39;</span>
 </code></pre></div>
-<p>Gdy chcemy dodać kolejnego autora, zachowujemy się jak przy zwykłej tablicy:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;autor&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;jego znana książka&#39;</span><span class="o">]</span>
+<p>If we want to add new author to hash, we do this like in normal array.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;author name&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;his famous book&#39;</span><span class="o">]</span>
 </code></pre></div>
-<p>To wszystko! Teraz możemy przejść do kilku fajnych metod dla obiektu Hash:</p>
+<p>And that it. So, let’s started with some tips:</p>
 
-<h2>1. Tworzenie obiektu Hash z domyślna wartością</h2>
+<h2>1. Create hash with default value:</h2>
 
-<p>Jeżeli stworzymy ten obiekt w następujący sposób:</p>
+<p>If you create Hash like this:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span> <span class="n">lub</span> <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="c1"># =&gt; nil</span>
 </code></pre></div>
-<p>naszą domyślną wartością będzie <code>nil</code>. Ale co jeżeli chciałybyśmy zliczać jakieś elementy (np. ilość wystąpień danej litery w zdaniu). Możemy to zrobić tak:</p>
+<p>Your default value will be <code>nil</code>.</p>
+
+<p>What if you need to count something and put it to hash?
+You can do this like that:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">unless</span> <span class="nb">hash</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="ss">:key</span><span class="p">)</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">hash</span> <span class="c1"># =&gt; {:key=&gt;1}</span>
 </code></pre></div>
-<p>lub tak:</p>
+<p>or like this</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">hash</span> <span class="c1"># =&gt; {:key=&gt;1}</span>
 </code></pre></div>
-<p>Sposób drugi deklaruje domyślną wartość dla obiektu Hash na zero. Nasz kod wygląda lepiej i jest znacznie bardziej przejrzysty.</p>
+<p>In second way you declare your default value to 0. Code look better and cleaner.</p>
 
-<p>Dorze to co się stanie jeżeli postanowimy zadeklarować jako domyślną wartość pustą tablicę? Sprawdźmy</p>
+<p>But what happened if we declare default value as an array? Let’s try it.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:ala</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
 <span class="nb">hash</span>        <span class="c1"># =&gt; {}</span>
@@ -246,91 +249,91 @@ Description: Awesome dude, awesome life
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:ala</span><span class="o">]</span>  <span class="c1"># =&gt; [1, 2]</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:bela</span><span class="o">]</span> <span class="c1"># =&gt; [1, 2]</span>
 </code></pre></div>
-<p>Upsss! Coś jest nie tak. Nasz obiekt wydaje się być pusty ale gdy szukamy konkretnego klucza okazuje się, że ta sama tablica jest przywiązana do różnych kluczy. Możemy powiedzieć tak jeżeli jako klucza używamy liczby lub napisu to jest to coś lekkiego. Natomiast jeżeli jako kluczy zaczynamy używać tablic to są to już obiekty znacznie cięższe. Hash jest dość leniwy i nie chce mu się dźwigać ciężkich rzeczy, więc zapamiętuje tylko adres do tej tablicy (czyli to gdzie ta tablica się znajduje). Teraz za każdym razem gdy pojawia się nowa wartość dla dowolnego klucza to Hash odsyła ją pod ten jeden zapamiętany adres. Jeżeli chcemy by każdy klucz miał swój własny adres to trzeba to powiedzieć naszemu obiektowi Hash. Możemy to zrobić w następujący sposób:</p>
+<p>Oops! It is something wrong! Our hash seems to be empty but when we look for specific key we have the same array for two different keys. We can say that if we put string or number as a hash key it is something light to carry on. But if we put array as a key to hash it is much more heavy. So hash as a very lazy object remember only address of array (where array leave). He has only one address so when we add value to this key he say: Value go to this address. So all values are on the same address. When we want to do this correctly we must set different address to different keys. We do this in this way:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="o">[]</span> <span class="p">}</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:a</span><span class="o">]</span>
 <span class="nb">hash</span> <span class="c1"># =&gt; {:a=&gt;[]}</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:b</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span>
 <span class="c1"># =&gt; {:a=&gt;[], :b=&gt;[3]}</span>
 </code></pre></div>
-<h2>2. Łączenie razem dwóch obiektów typu Hash i dodawanie do nich nowych kluczy</h2>
+<h2>2. Put together two hashes:</h2>
 
-<p>Możemy to zrobić na kilka sposobów. Ja pokaże tutaj trzy. Najprostszy sposób dodania nowego klucza już znamy:</p>
+<p>We can do this in couple ways. I show you three. The easiest way to do this, is as I show earlier:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">[</span><span class="ss">:c</span><span class="o">]</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="nb">hash</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 6}</span>
 </code></pre></div>
-<p>Drugi sposób na dodanie jednego klucza z wartością to</p>
+<p>Second way, but only to add one key to hash:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="ss">:c</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="nb">hash</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 6}</span>
 </code></pre></div>
-<p>Natomiast gdy chcemy sumować dwa obiekty Hash to możemy zrobić to tak:</p>
+<p>When we want to sum two different hashes. We can do this</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 <span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">c</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
 <span class="n">first_hash</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
 </code></pre></div>
-<p>Ten kod nie modyfikuje obiektu <code>first_hash</code> i <code>second_hash</code> zastały takie same jak na początku. Gdybyśmy jednak chciały zmodyfikować obiekt <code>first_hash</code> to powinnyśmy użyć metody z wykrzyknikiem <code>merge!</code></p>
+<p>This code don’t modify hashes. <code>first_hash</code> and <code>second_hash</code> stay the same. When you want to overwrite first hash you should use <code>merge!</code> method.</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 <span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">c</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
 <span class="n">first_hash</span><span class="o">.</span><span class="n">merge!</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
 <span class="n">first_hash</span>                     <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
 <span class="n">second_hash</span>                    <span class="c1"># =&gt; {c: 7, d: 9}</span>
 </code></pre></div>
-<h4>Uwaga</h4>
+<h4>Alert:</h4>
 
-<p>W tym przypadku musimy uważać. Możemy łatwo nadpisać sobie wartość dla konkretnego klucza jeżeli on znajduje się w obu obiektach. Przetrwa tylko wartość z ostatniego obiektu. Co widać na przykładzie:</p>
+<p>In this case, when you use merge method. You must be carefully because hash can have only ones specific key. When two hashes have the same key survive only the last key. Let me show you:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 <span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">b</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
 <span class="n">first_hash</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 5, d: 9}</span>
 </code></pre></div>
-<h2>3. Wiemy już teraz jak dodawać do siebie obiekty Hash. A co jeżeli chcemy z nich coś usunąć?</h2>
+<h2>3. We know how add hash to hash but what when we want to remove element or bigger part of hash?</h2>
 
-<p>Zacznijmy od usunięcia jednego elementu:</p>
+<p>First let I show you how remove one element from hash:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:b</span><span class="p">)</span> <span class="c1"># =&gt; 4</span>
 <span class="nb">hash</span>            <span class="c1"># =&gt; {a: 3}</span>
 </code></pre></div>
-<p>Jak widzimy po usunięciu jednego klucza metoda zwraca nam wartość jaka kryła się pod tym kluczem. Natomiast w naszym obiekcie nie ma już usuniętego klucza.</p>
+<p>As we see when we remove one key from hash, method return value which was connect to this key. After then hash has no more this key inside.</p>
 
-<p>Jeżeli chcemy usunąć wiele kluczy i wartości możemy to zrobić następująco:</p>
+<p>When we want to remove more elements we can do this like:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                           <span class="c1"># =&gt; {a: 3}</span>
 </code></pre></div>
-<p>Tym razem wywołana metoda zwraca nie usunięte elementy ale te które zostają. Dodatkowo widać że nasz obiekt hash uległ zmianie.</p>
+<p>This time called <code>delete_if</code> method return not a removed elements but elements which stay in hash.</p>
 
-<p>Ten sam efekt możemy uzyskać wykorzystując metodę <code>reject</code>.</p>
+<p>Or we can remove element using method <code>reject</code>:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">.</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                        <span class="c1"># =&gt; {a: 3, b: 4, c: 2}</span>
 </code></pre></div>
-<p>Metoda ta nie zmienia obiektu hash. Gdy chcemy go zmodyfikować to używamy <code>reject!</code></p>
+<p>This method don’t change hash object. If we want do this, we can use <code>reject!</code> method. It behave like <code>delete_if</code>.</p>
 
-<p>Możemy spojrzeć na problem z innej strony zamiast wyrzucać elementy których nie chcemy, możemy zatrzymać te które nas interesują:</p>
+<p>We can also do this in different way. We can say what we want to keep not what we want to remove. For example:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">.</span><span class="n">keep_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                     <span class="c1"># =&gt; {a: 3}</span>
 </code></pre></div>
-<p>lub za pomocą metody <code>select</code>:</p>
+<p>or with method <code>select</code>:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                    <span class="c1"># =&gt; {a: 3, b: 4, c: 2}</span>
 </code></pre></div>
-<p><strong>Uwaga:</strong> Metoda <code>select!</code> modyfikuje obiekt hash podobnie jak to robi metoda <code>keep_if</code></p>
+<p><strong>Alert:</strong> <code>select!</code> behave like <code>keep_if</code> method:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 <span class="nb">hash</span><span class="o">.</span><span class="n">select!</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                     <span class="c1"># =&gt; {a: 3}</span>
 </code></pre></div>
-<h2>Podsumujmy. Dowiedziałyśmy się już:</h2>
+<h2>For now I show you:</h2>
 
 <ul>
-<li>jak się tworzy obiekt z domyślna wartością,</li>
-<li>jak dodawać elementy do obiektu Hash i jak łączyć dwa takie obiekty,</li>
-<li>oraz jak usuwać klucze z obiektu Hash.</li>
+<li>how we can create hash with default value,</li>
+<li>how we can add some keys with values to existing hash,</li>
+<li>and how we can remove keys form hash.</li>
 </ul>
 
-<p>Myślę, że to był dobry początek. Na dziś starczy. Dziękuje za przeczytanie i do zobaczenia wkrótce.</p>
+<p>I think form the start it is enough. Thank you for reading and see you soon!</p>
 
                         <br>
                     
@@ -350,7 +353,7 @@ Description: Awesome dude, awesome life
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Triki dla obiektu Hash w Ruby&quot;%20/ruby-hash-tips%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Ruby Hash Tips&quot;%20/ruby-hash-tips%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>

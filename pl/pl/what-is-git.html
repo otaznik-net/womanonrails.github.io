@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<!--
+====================================================
+    __  ____  ______________  _______ ___    __
+   / / / /  |/  / ____/   \ \/ / ___//   |  / /
+  / /_/ / /|_/ / /_  / /| |\  /\__ \/ /| | / /
+ / __  / /  / / __/ / ___ |/ /___/ / ___ |/ /___
+/_/ /_/_/  /_/_/   /_/  |_/_//____/_/  |_/_____/
+
+====================================================
+Owner Name: Hossain Mohammad Faysal
+Profile: https://www.facebook.com/hmfaysal
+Version: 1.1
+Description: Awesome dude, awesome life
+====================================================
+-->
+<head>
+<meta charset="utf-8">
+<title>Co to jest git? &#8211; Woman on Rails</title>
+<meta name="description" content="Git - podstawy">
+<meta name="keywords" content="git, tools">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/womanonrails.jpg">
+<meta name="twitter:title" content="Co to jest git?">
+<meta name="twitter:description" content="Git - podstawy">
+<meta name="twitter:creator" content="@womanonrails">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Co to jest git?">
+<meta property="og:description" content="Git - podstawy">
+<meta property="og:url" content="/what-is-git">
+<meta property="og:site_name" content="Woman on Rails">
+<meta property="og:image" content="/images/">
+
+
+
+
+
+<link rel="canonical" href="/what-is-git">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/css/main.css">
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">
+<div id="fade"></div>
+<a id="slide" class="animated fade"></a>
+<aside id="sidebar">
+  <nav id="navigation">
+    <h2>MENU</h2>
+    <hr>
+    <ul>
+      
+        
+          <li>
+            
+              <a href="/pl">Strona główna</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/pl/categories">Kategorie</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/pl/tags">Tagi</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/pl/about">O mnie</a>
+            
+          </li>
+        
+      
+      <li>
+        <a href="/feed.xml" title="Atom/RSS feed">
+          <i class="icon-rss"></i> Feed
+        </a>
+      </li>
+    </ul>
+    </nav>
+</aside>
+
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url(/images/)" itemscope itemtype="http://schema.org/Organization">
+
+
+    <button class="menu-button animated fade dosearch">
+        <i class="icon-search"></i>
+    </button>
+
+
+  
+  <a href="/what-is-git" class='language animated fade'>
+    en
+  </a>
+
+
+    <div class="inner">
+        <div class="container">
+            <a class="brand light" href="" role="banner" itemprop="url">
+
+                <img itemprop="logo" src="/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+
+            <h1 class="blog-title light" itemprop="name">
+                Woman on Rails
+            </h1>
+
+            </a>
+            <h2 class="blog-description light bordered bordered-top" itemprop="description">
+                My code is getting worse, please send more chocolate
+            </h2>
+        </div>
+    </div>
+    
+    
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+
+        </svg>
+    </div>
+    
+</header>
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+    <div class="container">
+        <div class="row">
+            <article class="post col-md-8 col-md-offset-2 hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            
+            
+            
+            
+                    <header class="post-header entry-header">
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Co to jest git?</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Git - podstawy</div>
+                        <div class="post-info text-center small">
+                            <span class="entry-date date published updated"><time datetime="2015-12-20T00:00:00-05:00" class="post-time" itemprop="datePublished">20 Dec 2015</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#git" data-toggle="tooltip" title="Other posts from the Git category" rel="tag">Git</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#narzędzia" data-toggle="tooltip" title="Other posts from the Narzędzia category" rel="tag">Narzędzia</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#środowisko" data-toggle="tooltip" title="Other posts from the środowisko category" rel="tag">środowisko</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">4.795</span> minutes read</span>
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>Chciałabym z Wami zacząć dzisiaj krótką serię 2-3 artykułów na temat <strong>Gita</strong>. To będzie naprawdę podstawa. W Internecie jest wiele różnego rodzaju kursów na temat Gita. A ja nie chciałabym robić kolejnego. Jeżeli chciałybyście dowiedzieć się czegoś więcej na ten temat, osobiście mogę polecić 2 kursy na temat Gita z CodeSchool. Możecie zacząć <a href="https://www.codeschool.com/courses/try-git">tutaj</a>.</p>
+
+<p>Nie będę tutaj podawać definicji tego czym jest Git, bo możecie ją znaleźć na <a href="https://en.wikipedia.org/wiki/Git_(software)">wiki</a> czy w <a href="https://git-scm.com/documentation">dokumentacji Gita</a>. Powiem tylko, że git to <strong>system kontroli wersji</strong>. Teraz zajmiemy się zrozumieniem do czego można wykorzystać Gita i dlaczego jest to naprawdę świetne narzędzie.</p>
+
+<p>Czy zdarzają się Wam sytuacje, w których pracujecie wspólnie z innymi nad tymi samymi plikami? Sytuacje takie jak: projekt zespołowy w szkole, na uczelni? Może jakaś duża aplikacja internetowa? Prezentacja lub raport dla szefa? Lub inne zadanie, gdzie każdy w zespole ma dostęp do tych samych plików? Ja spotykam się z taką sytuacją każdego dnia w swojej pracy. Pracuję w zespole składającym się z około 8 osób. A może pracujecie tylko dla siebie, ale nie możecie sobie pozwolić na utratę Waszych danych? Może jesteście pisarzami i przykładowo piszecie książkę?</p>
+
+<h2>Praca tylko dla siebie</h2>
+
+<p>Załóżmy, że pracujemy sami. Piszemy książkę. Pracujemy nad nią od dwóch lat. Nagle komputer się zepsuł, przypadkowo usunęliśmy plik z danymi lub po prostu chcemy wrócić do poprzedniej wersji, bo była znacznie lepsza, niż ta po ostatnich poprawkach. Co teraz? Wiem dzisiaj istnieje już wiele sposobów, dzięki którym możemy zapobiec tego typu sytuacją. Mamy Dropbox, dyski zewnętrzne czy pocztę internetową (na którą wysyłamy koleją wersję naszych danych). Nawet programy, takie jak LibreOffice potrafią zapamiętywać ostatnie dokonane zmiany. Git też to potrafi. Pamięta on historię wszystkich zapisanych zmian. Można dzięki temu wrócić do dowolnej starszej wersji plików.</p>
+
+<p>Jeżeli przykład ten nie przekonał Cię, że Git może być użytecznym narzędziem, to zapraszam do kolejnego przykładu.</p>
+
+<h2>Praca zespołowa</h2>
+
+<p>Każdy w naszym zespole ma dostęp do projektu na swoim własnym komputerze. Przykładowo mamy jeden plik. Kochamy język Ruby, więc plik będzie pisany właśnie w tym języku. A wygląda on tak:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
+<span class="k">def</span> <span class="nf">hello</span>
+  <span class="s2">&quot;hello&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Każdym ma ten plik lokalnie na swoim komputerze. Teraz ja dostaję zadanie, by zmienić napisaną w nim metodę, tak by zwracała nie <code>hello</code> tylko <code>hello world</code>. Po zmianie plik wygląda następująco:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
+<span class="k">def</span> <span class="nf">hello</span>
+  <span class="s2">&quot;hello world&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Teraz w jakiś sposób muszę podzielić się tą zmianą z innymi osobami w zespole. Ale jak? Przez e-mail? Dropbox? Pendrive? Każde z tych rozwiązań jest dość bolesne w tym przypadku. Nasz pierwszy problem to: <strong>1. Aktualizacja projektu (jak mieć dostęp do bieżącej wersji projektu)</strong></p>
+
+<p>Ten problem jest możliwy do rozwiązania. Czasem rozwiązanie może być pracochłonne i nużące, ale jesteśmy w stanie sobie z nim poradzić. Natomiast, co zrobimy w przypadku, gdy dwie osoby zmieniają dokładnie ten sam fragment kodu? Przykładowo druga osoba zmienia nazwę metody, nad którą ja w tym czasie pracuje. Kod tej osoby wygląda następująco:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
+<span class="k">def</span> <span class="nf">say_hi</span>
+  <span class="s2">&quot;hello&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Teraz ja wysyłam moje zmiany do wszystkich, druga osoba robi to samo. Które zmiany powinny zostać? Które zmiany są ważniejsze? A może zależy nam na czymś takim:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
+<span class="k">def</span> <span class="nf">say_hi</span>
+  <span class="s2">&quot;hello world&quot;</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Połączone zmiany. W jaki sposób możemy ten problem rozwiązać? Moglibyśmy mieć taką osobę w zespole, która by to dla nas przygotowywała. Rozmawialibyśmy z tą osobą o zmianach, jakie wprowadziliśmy i ona starałaby się rozwiązywać takie konflikty za nas. Czy myślicie tak jak ja że to bardzo zły pomysł? Jeżeli tak do dobrze, bo to katastrofalny pomysł. No i kto chciałby być taką osobą w zespole? Pojawia się nam drugi chyba jeszcze ważniejszy problem: <strong>2. W jaki sposób łatwo łączyć zmiany wprowadzone przez różne osoby?</strong></p>
+
+<p>Git jest takim narzędziem, które w wielu przypadkach automatycznie łączy zmiany pochodzące od różnych osób. Jest to bardzo przydatne narzędzie zwłaszcza przy zespołowych projektach. Ale! (zawsze musi być jakieś ale). O ile w bardzo przystępny sposób za pomocą Gita można poruszać się po plikach tekstowych (programy, książki, artykuły) i ich zmianach. To znacznie ciężej jest poruszać się po plikach graficznych. Obrazki to pliki binarne (w większości przypadków, za wyjątkiem np. svg). Kiedy zmienimy coś w takim pliku ciężko jest nam obserwować zmiany.</p>
+
+<p>Przykładowo, nasz obrazek może dla komputera wyglądać następująco:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
+00000010  00 00 04 c9 00 00 01 7e  08 06 00 00 01 ef a0 7d  |.......~.......}|
+00000020  68 00 00 00 09 70 48 59  73 00 00 2e 23 00 00 2e  |h....pHYs...#...|
+00000030  23 01 78 a5 3f 76 00 00  00 19 74 45 58 74 53 6f  |#.x.?v....tEXtSo|
+00000040  66 74 77 61 72 65 00 41  64 6f 62 65 20 49 6d 61  |ftware.Adobe Ima|
+00000050  67 65 52 65 61 64 79 71  c9 65 3c 00 00 36 8c 49  |geReadyq.e&lt;..6.I|
+00000060  44 41 54 78 da ec 9c 61  6e 83 30 0c 46 47 c4 85  |DATx...an.0.FG..|
+00000070  a6 75 47 da a9 76 a4 75  da 91 98 f8 41 95 a6 31  |.uG..v.u....A..1|
+...
+</code></pre></div>
+<p>Nasz komputer w łatwy sposób jest wstanie zinterpretować ciągi tych liczb i literek w postaci kształtów i kolorów. My niestety nie. Więc gdy zmienimy coś na naszym obrazku, nie potrafimy po jakimś czasie stwierdzić co to była za zmiana. Chyba, że otworzymy ten obrazek w odpowiednim programie. Rozumiecie co mam na myśli? Nie chodzi o to, że nigdy nie dodajemy plików graficznych do Gita. Chodzi o to, że bez dodatkowych narzędzi ciężko nam śledzić na takich plikach zmiany.</p>
+
+<p>Mam nadzieję, że ten artykuł był dla Was pomocny, w zrozumieniu tego po co przydaje się takie narzędzie jak Git. W następnym artykule chciałabym opisać podstawowe użycie tego narzędzia. Jeżeli macie jakieś pytania lub sugestie, dajcie znać w komentarzach. Do zobaczenia następnym razem. Pa!</p>
+
+                        <br>
+                    
+                    
+                    <div class="entry-tags text-center">
+
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#git" data-toggle="tooltip" title="Posts tagged with git" rel="tag">git</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#tools" data-toggle="tooltip" title="Posts tagged with tools" rel="tag">tools</a>
+
+                    </div>
+                    
+                    </div>
+        </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Co to jest git?&quot;%20/what-is-git%20via%20&#64;womanonrails"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/what-is-git"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url=/what-is-git"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
+                <i class="icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+                        <div class="post-author text-center">                       
+	        <img src="/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>    
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
+	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
+</div>
+                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    </footer>
+            </article>
+    </div>
+</div>
+
+<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(/images/)" >
+
+
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+            <li>
+                <a href="http://twitter.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Twitter" target="_blank">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://facebook.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Facebook" target="_blank">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank">
+                    <i class="icon-stackexchange"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on LinkedIn" target="_blank">
+                    <i class="icon-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://instagram.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Instagram" target="_blank">
+                    <i class="icon-instagram"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://github.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Github" target="_blank">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+            <div>
+                <a href="/about/">Agnieszka Matysek</a> &copy; 2016 &bull; All rights reserved.
+            </div>
+            <ul class="menu-items">
+            
+            <li>
+                
+                    <a href="/"><i class="icon-home"></i></a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="/categories">Categories</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="/tags">Tags</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="/about">About</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+        </ul>
+        </div>
+    </div>
+    
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+
+            </svg>
+        </div>
+    
+</footer>
+<script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:157104,hjsv:5};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="/assets/js/script.js"></script>
+<script type='text/javascript'>$(document).ready(function(){$(".time").text(function(a,b){return Math.round(parseFloat(b))})});</script>
+
+<script type="text/javascript">
+
+/*      Slides       */
+
+$("a#slide").click(function(){
+    $("#sidebar,body,a#slide,#fade").addClass("slide")
+});
+
+$("#fade,#header,#posts-container").click(function(){
+    $("#sidebar,body,a#slide,#fade").removeClass("slide")
+});
+
+$("a#click-filter").click(function(){
+    $("#slide-filter").slideToggle("medium");
+    $("#slide-pages").slideOut("medium");
+});
+
+$("a#click-pages").click(function(){
+    $("#slide-pages").slideToggle("medium");
+    $("#slide-filter").slideOut("medium");
+});
+
+/*      End-Slides      */
+
+</script>
+
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : '/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl =
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-62202006-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'womanonrails'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</body>
+</html>

@@ -17,22 +17,22 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>Co to jest git? &#8211; Woman on Rails</title>
-<meta name="description" content="Git - podstawy">
+<title>What is git? &#8211; Woman on Rails</title>
+<meta name="description" content="Git - basic">
 <meta name="keywords" content="git, tools">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="Co to jest git?">
-<meta name="twitter:description" content="Git - podstawy">
+<meta name="twitter:title" content="What is git?">
+<meta name="twitter:description" content="Git - basic">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Co to jest git?">
-<meta property="og:description" content="Git - podstawy">
+<meta property="og:title" content="What is git?">
+<meta property="og:description" content="Git - basic">
 <meta property="og:url" content="/what-is-git">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
@@ -93,25 +93,25 @@ Description: Awesome dude, awesome life
         
           <li>
             
-              <a href="/pl">Strona główna</a>
+              <a href="/">Home</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/categories">Kategorie</a>
+              <a href="/categories">Categories</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/tags">Tagi</a>
+              <a href="/tags">Tags</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/about">O mnie</a>
+              <a href="/about">About</a>
             
           </li>
         
@@ -135,8 +135,8 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/what-is-git" class='language animated fade'>
-    en
+  <a href="/pl/what-is-git" class='language animated fade'>
+    pl
   </a>
 
 
@@ -188,61 +188,64 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Co to jest git?</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">What is git?</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Git - podstawy</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Git - basic</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2015-12-20T00:00:00-05:00" class="post-time" itemprop="datePublished">20 Dec 2015</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#git" data-toggle="tooltip" title="Other posts from the Git category" rel="tag">Git</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#narzędzia" data-toggle="tooltip" title="Other posts from the Narzędzia category" rel="tag">Narzędzia</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#środowisko" data-toggle="tooltip" title="Other posts from the środowisko category" rel="tag">środowisko</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">4.795</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#environment" data-toggle="tooltip" title="Other posts from the Environment category" rel="tag">Environment</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#git" data-toggle="tooltip" title="Other posts from the Git category" rel="tag">Git</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tools" data-toggle="tooltip" title="Other posts from the Tools category" rel="tag">Tools</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">4.96</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Chciałabym z Wami zacząć dzisiaj krótką serię 2-3 artykułów na temat <strong>Gita</strong>. To będzie naprawdę podstawa. W Internecie jest wiele różnego rodzaju kursów na temat Gita. A ja nie chciałabym robić kolejnego. Jeżeli chciałybyście dowiedzieć się czegoś więcej na ten temat, osobiście mogę polecić 2 kursy na temat Gita z CodeSchool. Możecie zacząć <a href="https://www.codeschool.com/courses/try-git">tutaj</a>.</p>
+                        <p>Today I would start quick series about <strong>Git</strong>. This will be 2-3 article about <strong>basic of Git</strong>. Internet has many different articles and tutorials about Git so I don’t want to do another one. If you like get know more about Git I can recommend 2 courses on CodeSchool about it. Start <a href="https://www.codeschool.com/courses/try-git">here</a>.</p>
 
-<p>Nie będę tutaj podawać definicji tego czym jest Git, bo możecie ją znaleźć na <a href="https://en.wikipedia.org/wiki/Git_(software)">wiki</a> czy w <a href="https://git-scm.com/documentation">dokumentacji Gita</a>. Powiem tylko, że git to <strong>system kontroli wersji</strong>. Teraz zajmiemy się zrozumieniem do czego można wykorzystać Gita i dlaczego jest to naprawdę świetne narzędzie.</p>
+<p>I don’t give you definition of Git because you can find definition in <a href="https://en.wikipedia.org/wiki/Git_(software)">wiki</a> or <a href="https://git-scm.com/documentation">Git documentation</a>. I only say that, this is <strong>version control system</strong> and I give you info for what cases or problems we can use Git and why is it great tool.</p>
 
-<p>Czy zdarzają się Wam sytuacje, w których pracujecie wspólnie z innymi nad tymi samymi plikami? Sytuacje takie jak: projekt zespołowy w szkole, na uczelni? Może jakaś duża aplikacja internetowa? Prezentacja lub raport dla szefa? Lub inne zadanie, gdzie każdy w zespole ma dostęp do tych samych plików? Ja spotykam się z taką sytuacją każdego dnia w swojej pracy. Pracuję w zespole składającym się z około 8 osób. A może pracujecie tylko dla siebie, ale nie możecie sobie pozwolić na utratę Waszych danych? Może jesteście pisarzami i przykładowo piszecie książkę?</p>
+<p>Do you have sometimes situations where you need to work on the same files with many people. Situations such as: group project in school, university or maybe big web application? Presentation or report for boss? Or other work to do when every one of team members need to share the same files. And everyone can change any files in this project. I have this situation all the time in my work. I work on web application where I cooperate with about 8 people. Or maybe you work just by your self but you don’t want to loose your changes. Maybe you are writer and you write book. So what can it goes wrong?</p>
 
-<h2>Praca tylko dla siebie</h2>
+<h2>Only my work</h2>
 
-<p>Załóżmy, że pracujemy sami. Piszemy książkę. Pracujemy nad nią od dwóch lat. Nagle komputer się zepsuł, przypadkowo usunęliśmy plik z danymi lub po prostu chcemy wrócić do poprzedniej wersji, bo była znacznie lepsza, niż ta po ostatnich poprawkach. Co teraz? Wiem dzisiaj istnieje już wiele sposobów, dzięki którym możemy zapobiec tego typu sytuacją. Mamy Dropbox, dyski zewnętrzne czy pocztę internetową (na którą wysyłamy koleją wersję naszych danych). Nawet programy, takie jak LibreOffice potrafią zapamiętywać ostatnie dokonane zmiany. Git też to potrafi. Pamięta on historię wszystkich zapisanych zmian. Można dzięki temu wrócić do dowolnej starszej wersji plików.</p>
+<p>We work alone. For example we are writing book. We are working on this project through last 2 years. And something happened: computer breaks down, we removed file through mistake, or we change something and the previous version was better and we want get back this version. What then? I know we have many choices: Dropbox, hard drive (just in case), send emails to my self. Even programs do this easy for us. They remember history of last changes and so on. But Git can handle this too. Git remember all yours files changes history. You can get back to any of your files version.</p>
 
-<p>Jeżeli przykład ten nie przekonał Cię, że Git może być użytecznym narzędziem, to zapraszam do kolejnego przykładu.</p>
+<p>If you don’t now why Git can be better solution for some problems, we have second example. ;]</p>
 
-<h2>Praca zespołowa</h2>
+<h2>Team case</h2>
 
-<p>Każdy w naszym zespole ma dostęp do projektu na swoim własnym komputerze. Przykładowo mamy jeden plik. Kochamy język Ruby, więc plik będzie pisany właśnie w tym języku. A wygląda on tak:</p>
+<p>Every one in team has they own computer so they have locally on computer copy of our project. For example we have one file. We love Ruby so this file has Ruby code:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">&quot;hello&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Każdym ma ten plik lokalnie na swoim komputerze. Teraz ja dostaję zadanie, by zmienić napisaną w nim metodę, tak by zwracała nie <code>hello</code> tylko <code>hello world</code>. Po zmianie plik wygląda następująco:</p>
+<p>So every one have this file locally on this computer. Now I have task to change this method to return no <code>hello</code> but <code>hello world</code>. So I change this file:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">&quot;hello world&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Teraz w jakiś sposób muszę podzielić się tą zmianą z innymi osobami w zespole. Ale jak? Przez e-mail? Dropbox? Pendrive? Każde z tych rozwiązań jest dość bolesne w tym przypadku. Nasz pierwszy problem to: <strong>1. Aktualizacja projektu (jak mieć dostęp do bieżącej wersji projektu)</strong></p>
+<p>Now I need to send to all of team members this new code. How do this? E-mail? Dropbox? Pendrive? Each of this solutions can be painful. So we have problem one. <strong>1. Actualization of our project (how have access to current version).</strong></p>
 
-<p>Ten problem jest możliwy do rozwiązania. Czasem rozwiązanie może być pracochłonne i nużące, ale jesteśmy w stanie sobie z nim poradzić. Natomiast, co zrobimy w przypadku, gdy dwie osoby zmieniają dokładnie ten sam fragment kodu? Przykładowo druga osoba zmienia nazwę metody, nad którą ja w tym czasie pracuje. Kod tej osoby wygląda następująco:</p>
+<p>This problem we can somehow resolved. But what happened in this situation. Someone in team change something in the same file as I. For example change method name but he/she don’t know that I working on this file in the same time. So his/her code looks like this:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">say_hi</span>
   <span class="s2">&quot;hello&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Teraz ja wysyłam moje zmiany do wszystkich, druga osoba robi to samo. Które zmiany powinny zostać? Które zmiany są ważniejsze? A może zależy nam na czymś takim:</p>
+<p>Now I send my change to everyone (somehow) and the other person sends his/her changes also. Which changes are last changes? My or the other person? Or maybe we would like to have something like that:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">say_hi</span>
   <span class="s2">&quot;hello world&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Połączone zmiany. W jaki sposób możemy ten problem rozwiązać? Moglibyśmy mieć taką osobę w zespole, która by to dla nas przygotowywała. Rozmawialibyśmy z tą osobą o zmianach, jakie wprowadziliśmy i ona starałaby się rozwiązywać takie konflikty za nas. Czy myślicie tak jak ja że to bardzo zły pomysł? Jeżeli tak do dobrze, bo to katastrofalny pomysł. No i kto chciałby być taką osobą w zespole? Pojawia się nam drugi chyba jeszcze ważniejszy problem: <strong>2. W jaki sposób łatwo łączyć zmiany wprowadzone przez różne osoby?</strong></p>
+<p>All changes together. How we can resolve this problem? We can have some one in team who will take care of this. We can talk with this person, tell what we changed and then this person need to go though all files check and figure out how fix conflicts. Do you also think that this is not good idea? Even worse. This is catastrophically bad idea and who wants to be this person? So second and I think the most important problem <strong>2. how merge all changes together easily?</strong></p>
 
-<p>Git jest takim narzędziem, które w wielu przypadkach automatycznie łączy zmiany pochodzące od różnych osób. Jest to bardzo przydatne narzędzie zwłaszcza przy zespołowych projektach. Ale! (zawsze musi być jakieś ale). O ile w bardzo przystępny sposób za pomocą Gita można poruszać się po plikach tekstowych (programy, książki, artykuły) i ich zmianach. To znacznie ciężej jest poruszać się po plikach graficznych. Obrazki to pliki binarne (w większości przypadków, za wyjątkiem np. svg). Kiedy zmienimy coś w takim pliku ciężko jest nam obserwować zmiany.</p>
+<p>Do you see that this is painful? Even more than the first example. Yes? I think that too.</p>
 
-<p>Przykładowo, nasz obrazek może dla komputera wyglądać następująco:</p>
+<p>So Git can resolved this problems for us in most cases automatically. So Git is tool to help with cooperative projects. But! (there is always some but) It is good for text files (programs, books, articles) but not good for images. Image is binary file no text file (in most cases excluded for example svg). When we change something in this file we can not read in easy way those changes.</p>
+
+<p>Example:
+Our image have this inside:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
 00000010  00 00 04 c9 00 00 01 7e  08 06 00 00 01 ef a0 7d  |.......~.......}|
 00000020  68 00 00 00 09 70 48 59  73 00 00 2e 23 00 00 2e  |h....pHYs...#...|
@@ -253,9 +256,9 @@ Description: Awesome dude, awesome life
 00000070  a6 75 47 da a9 76 a4 75  da 91 98 f8 41 95 a6 31  |.uG..v.u....A..1|
 ...
 </code></pre></div>
-<p>Nasz komputer w łatwy sposób jest wstanie zinterpretować ciągi tych liczb i literek w postaci kształtów i kolorów. My niestety nie. Więc gdy zmienimy coś na naszym obrazku, nie potrafimy po jakimś czasie stwierdzić co to była za zmiana. Chyba, że otworzymy ten obrazek w odpowiednim programie. Rozumiecie co mam na myśli? Nie chodzi o to, że nigdy nie dodajemy plików graficznych do Gita. Chodzi o to, że bez dodatkowych narzędzi ciężko nam śledzić na takich plikach zmiany.</p>
+<p>Our computer can interpret this in colors and shapes but we can’t. So when we change something on this image (one or more bits), we don’t even know what was this change. Do you know what I mean? I don’t say that we never put images to git. I say that we can not see what changed (in simple way).</p>
 
-<p>Mam nadzieję, że ten artykuł był dla Was pomocny, w zrozumieniu tego po co przydaje się takie narzędzie jak Git. W następnym artykule chciałabym opisać podstawowe użycie tego narzędzia. Jeżeli macie jakieś pytania lub sugestie, dajcie znać w komentarzach. Do zobaczenia następnym razem. Pa!</p>
+<p>I hope that this article help you to understand for what we use git and why it is helpful. In next article I describe how we can use it. If you have some question or suggestion please let me know in comments. See you next time. Bye!</p>
 
                         <br>
                     
@@ -275,7 +278,7 @@ Description: Awesome dude, awesome life
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Co to jest git?&quot;%20/what-is-git%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;What is git?&quot;%20/what-is-git%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>

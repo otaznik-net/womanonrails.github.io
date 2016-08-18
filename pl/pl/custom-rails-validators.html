@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<!--
+====================================================
+    __  ____  ______________  _______ ___    __
+   / / / /  |/  / ____/   \ \/ / ___//   |  / /
+  / /_/ / /|_/ / /_  / /| |\  /\__ \/ /| | / /
+ / __  / /  / / __/ / ___ |/ /___/ / ___ |/ /___
+/_/ /_/_/  /_/_/   /_/  |_/_//____/_/  |_/_____/
+
+====================================================
+Owner Name: Hossain Mohammad Faysal
+Profile: https://www.facebook.com/hmfaysal
+Version: 1.1
+Description: Awesome dude, awesome life
+====================================================
+-->
+<head>
+<meta charset="utf-8">
+<title>Własne walidatory w Ruby on Rails &#8211; Woman on Rails</title>
+<meta name="description" content="Jak napisać własny walidator?">
+<meta name="keywords" content="Ruby, Ruby on Rails, validators">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/womanonrails.jpg">
+<meta name="twitter:title" content="Własne walidatory w Ruby on Rails">
+<meta name="twitter:description" content="Jak napisać własny walidator?">
+<meta name="twitter:creator" content="@womanonrails">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Własne walidatory w Ruby on Rails">
+<meta property="og:description" content="Jak napisać własny walidator?">
+<meta property="og:url" content="/custom-rails-validators">
+<meta property="og:site_name" content="Woman on Rails">
+<meta property="og:image" content="/images/">
+
+
+
+
+
+<link rel="canonical" href="/custom-rails-validators">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/css/main.css">
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+<body class="post-template" itemscope itemtype="http://schema.org/WebPage">
+<div id="fade"></div>
+<a id="slide" class="animated fade"></a>
+<aside id="sidebar">
+  <nav id="navigation">
+    <h2>MENU</h2>
+    <hr>
+    <ul>
+      
+        
+          <li>
+            
+              <a href="/pl">Strona główna</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/pl/categories">Kategorie</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/pl/tags">Tagi</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="/pl/about">O mnie</a>
+            
+          </li>
+        
+      
+      <li>
+        <a href="/feed.xml" title="Atom/RSS feed">
+          <i class="icon-rss"></i> Feed
+        </a>
+      </li>
+    </ul>
+    </nav>
+</aside>
+
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url(/images/)" itemscope itemtype="http://schema.org/Organization">
+
+
+    <button class="menu-button animated fade dosearch">
+        <i class="icon-search"></i>
+    </button>
+
+
+  
+  <a href="/custom-rails-validators" class='language animated fade'>
+    en
+  </a>
+
+
+    <div class="inner">
+        <div class="container">
+            <a class="brand light" href="" role="banner" itemprop="url">
+
+                <img itemprop="logo" src="/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+
+            <h1 class="blog-title light" itemprop="name">
+                Woman on Rails
+            </h1>
+
+            </a>
+            <h2 class="blog-description light bordered bordered-top" itemprop="description">
+                My code is getting worse, please send more chocolate
+            </h2>
+        </div>
+    </div>
+    
+    
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+
+        </svg>
+    </div>
+    
+</header>
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+    <div class="container">
+        <div class="row">
+            <article class="post col-md-8 col-md-offset-2 hentry" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+            
+            
+            
+            
+                    <header class="post-header entry-header">
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Własne walidatory w Ruby on Rails</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Jak napisać własny walidator?</div>
+                        <div class="post-info text-center small">
+                            <span class="entry-date date published updated"><time datetime="2015-04-15T00:00:00-04:00" class="post-time" itemprop="datePublished">15 Apr 2015</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#Ruby on Rails" data-toggle="tooltip" title="Other posts from the Ruby on rails category" rel="tag">Ruby on rails</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.155</span> minutes read</span>
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>Przez kilka ostatnich dni pracowałam z walidatorami w Railsach. Ale zanim opowiem o tym, co zrobiłam kilka słów na temat tego czym są walidatory. Kiedy chcemy sprawdzić czy dane, które otrzymuje nasza aplikacja spełniają pewne założenia, wtedy używamy walidatorów. Przykładowo gdy chcemy sprawdzić:</p>
+
+<ul>
+<li>czy dane mają odpowiedni format,</li>
+<li>czy liczba jest parzysta,</li>
+<li>lub po prostu czy nazwa jest wymagana</li>
+</ul>
+
+<p>dla wszystkich tych przypadków korzystamy właśnie z walidatorów.</p>
+
+<p>Railsy mają wbudowane wiele walidatorów. Jeżeli jesteście zainteresowani poznaniem ich to zajrzyjcie do <a href="http://guides.rubyonrails.org/active_record_validations.html#validation-helpers">dokumentacji</a>. Czasem jednak to nie wystarcza, potrzeba czegoś więcej. W moim przypadku chciałam sprawdzić, czy konkretne pole tekstowe nie zawiera słów będących na czarnej liście. Wiem, że istnieje <a href="http://guides.rubyonrails.org/active_record_validations.html#exclusion">wbudowany walidator</a>, który mógłby mi pomóc, ale zależało mi na czymś więcej:</p>
+
+<ol>
+<li>Moja czarna lista słów była dość długa.</li>
+<li>Nie chciałam tych wszystkich słów umieszczać w pliku Ruby.</li>
+<li>Chciałam mieć łatwy dostęp do rozszerzania mojej listy, bez modyfikacji kodu aplikacji.</li>
+</ol>
+
+<h2>Zdecydowałam, więc że stworze swój własny walidator.</h2>
+
+<p>Zajrzałam do dokumentacji i znalazłam <a href="http://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">to</a>. Wybrałam <code>ActiveModel::EachValidator</code>, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: <code>validate_each</code>. Całość wyglądała następująco:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/validators/blacklist_validator.rb</span>
+
+<span class="c1"># Validate list of words that can not be use in specifig field</span>
+<span class="k">class</span> <span class="nc">BlacklistValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
+  <span class="k">def</span> <span class="nf">validate_each</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="n">record</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">:on_blacklist</span><span class="p">)</span> <span class="k">if</span> <span class="n">blacklist</span><span class="o">.</span><span class="n">include?</span> <span class="n">value</span>
+  <span class="k">end</span>
+
+  <span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">blacklist</span>
+    <span class="no">File</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;blacklist.txt&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:strip</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h2>Jak to działa?</h2>
+
+<p>Dodaje błąd <code>:on_blacklist</code> do record tylko wtedy gdy value znajduje się na czarnej liście. Plik z czarną listą słów nazwałam <code>blacklist.txt</code> i umieściłam w Railsowym katalogu <code>config</code>. By teraz móc używać tego walidatora wystarczy dodać do naszego modelu:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist</span><span class="p">:</span> <span class="kp">true</span>
+</code></pre></div>
+<h2>Zapamiętajcie konwencje:</h2>
+
+<p>Kiedy Wasz walidator nazywa się <code>BlacklistValidator</code> to w modelu używacie parametru do walidacji w następujący sposób: <code>blacklist: true</code>.</p>
+
+<p>To rozwiązanie było dla mnie idealne. Ale co jeżeli chcielibyśmy przekazać do walidatora jakiś dodatkowy parametr. Przykładowo:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
+</code></pre></div>
+<p>To żaden problem. We własnych walidatorach mamy dostęp do zmiennej <code>options</code>, która mówi nam dokładnie jakie parametry zostały przekazane. Jeżeli wywołamy options dla naszego przykładu zobaczymy następujący wynik:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
+</code></pre></div>
+<p>Użyłam tej funkcjonalności, by sprawdzić za pomocą walidatora minimalną długość tablicy:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/validators/array_lenght_validator.rb</span>
+
+<span class="c1"># Validate if array is not too short</span>
+<span class="k">class</span> <span class="nc">ArrayLenghtValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
+  <span class="k">def</span> <span class="nf">validate_each</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="k">return</span> <span class="k">unless</span> <span class="n">options</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="ss">:minimum</span><span class="p">)</span>
+    <span class="n">array_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">try</span><span class="p">(</span><span class="ss">:size</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">minimum</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:minimum</span><span class="o">]</span>
+    <span class="k">return</span> <span class="k">if</span> <span class="n">array_size</span> <span class="o">&gt;=</span> <span class="n">minimum</span>
+    <span class="n">record</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">:too_short_array</span><span class="p">,</span> <span class="ss">count</span><span class="p">:</span> <span class="n">minimum</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3>Co się tutaj dzieje?</h3>
+
+<p>Na początku sprawdzam, czy w ogóle parametr <code>:minimum</code> został ustawiony. Liczę ilość elementów w tablicy i sprawdzam czy <code>array_size</code> jest mniejsze od <code>minimum</code>. Jeżeli tak jest dodaje do rekordu błąd <code>:too_short_array</code>.</p>
+
+<p>Walidator mogę wywołać następująco:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+</code></pre></div>
+<p>Została jeszcze jedna kwestia do omówienia. <strong>W jaki sposób dodać tłumaczenia błędów w katalogu <code>locales</code>?</strong></p>
+
+<p>Używamy konwencji w Rails. Poniżej przedstawiam jeden ze sposobów (inne możliwości dostępne w dokumentacji <a href="http://guides.rubyonrails.org/i18n.html#error-message-scopes">http://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">pl:
+  activerecord:
+    errors:
+      models:
+        our_model_name:
+          attributes:
+            name:
+              on_blacklist: jest na czarnej liście
+            array:
+              too_short_array:
+                one: jest za krótka (minimalnie 1 element)
+                other: jest za krótka (minimalnie %{count} elementów)
+</code></pre></div>
+<p>W klucz <code>our_model_name:</code> wpisujemy nazwę naszego modelu. Na przykład jeżeli mamy model <code>User</code>, to kluczem będzie <code>user:</code>. Następnie ustawiamy nazwy naszych walidowanych pól:</p>
+
+<ul>
+<li><code>name:</code> pole dla którego używamy walidatora czarnej listy,</li>
+<li><code>array:</code> pole dla którego używamy walidatora długości tablicy.</li>
+</ul>
+
+<p>Dalej ustawiamy nazwy naszych błędów: <code>on_blacklist:</code> i <code>too_short_array:</code>. Dla <code>on_blacklist:</code> to już wszystko. Jeżeli chodzi o <code>too_short_array:</code> dodatkowo podawaliśmy parametr <code>count</code>. Rails Internalization rozpoznaje czy <code>count</code> jest w liczbie pojedynczej czy mnogiej i serwuje <code>one:</code> lub <code>other:</code> z tłumaczeń. Ostatnia rzecz: W kluczu <code>other:</code> wstawiliśmy parametr <code>count</code> za pomocą <code>%{}</code>. Wtedy Railsy wiedzą gdzie mają wstawić wartość parametru <code>count</code>.</p>
+
+<p>To już wszystko. Mam nadzieję, że będzie to dla Was przydatne.
+Jeżeli macie jakieś pytania lub sugestie, proszę zostawcie komentarze.
+Do następnego razu!</p>
+
+                        <br>
+                    
+                    
+                    <div class="entry-tags text-center">
+
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#Ruby" data-toggle="tooltip" title="Posts tagged with Ruby" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#Ruby on Rails" data-toggle="tooltip" title="Posts tagged with Ruby on Rails" rel="tag">Ruby on Rails</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#validators" data-toggle="tooltip" title="Posts tagged with validators" rel="tag">validators</a>
+
+                    </div>
+                    
+                    </div>
+        </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Własne walidatory w Ruby on Rails&quot;%20/custom-rails-validators%20via%20&#64;womanonrails"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/custom-rails-validators"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url=/custom-rails-validators"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
+                <i class="icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+                        <div class="post-author text-center">                       
+	        <img src="/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>    
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person">By <span itemprop="name" class="fn"><a href="/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
+	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
+</div>
+                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    </footer>
+            </article>
+    </div>
+</div>
+
+<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top" style="background-image: url(/images/)" >
+
+
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+            <li>
+                <a href="http://twitter.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Twitter" target="_blank">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://facebook.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Facebook" target="_blank">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank">
+                    <i class="icon-stackexchange"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on LinkedIn" target="_blank">
+                    <i class="icon-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="http://instagram.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Instagram" target="_blank">
+                    <i class="icon-instagram"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://github.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Github" target="_blank">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+            <div>
+                <a href="/about/">Agnieszka Matysek</a> &copy; 2016 &bull; All rights reserved.
+            </div>
+            <ul class="menu-items">
+            
+            <li>
+                
+                    <a href="/"><i class="icon-home"></i></a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="/categories">Categories</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="/tags">Tags</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="/about">About</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li><a href="/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+        </ul>
+        </div>
+    </div>
+    
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+
+            </svg>
+        </div>
+    
+</footer>
+<script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:157104,hjsv:5};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="/assets/js/script.js"></script>
+<script type='text/javascript'>$(document).ready(function(){$(".time").text(function(a,b){return Math.round(parseFloat(b))})});</script>
+
+<script type="text/javascript">
+
+/*      Slides       */
+
+$("a#slide").click(function(){
+    $("#sidebar,body,a#slide,#fade").addClass("slide")
+});
+
+$("#fade,#header,#posts-container").click(function(){
+    $("#sidebar,body,a#slide,#fade").removeClass("slide")
+});
+
+$("a#click-filter").click(function(){
+    $("#slide-filter").slideToggle("medium");
+    $("#slide-pages").slideOut("medium");
+});
+
+$("a#click-pages").click(function(){
+    $("#slide-pages").slideToggle("medium");
+    $("#slide-filter").slideOut("medium");
+});
+
+/*      End-Slides      */
+
+</script>
+
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : '/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  var _gaq = _gaq || [];
+  var pluginUrl =
+ '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+  _gaq.push(['_setAccount', 'UA-62202006-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'womanonrails'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</body>
+</html>

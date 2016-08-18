@@ -17,22 +17,22 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>CoffeeScript Refactoring – część 1 &#8211; Woman on Rails</title>
-<meta name="description" content="Mały refactoring w CoffeeScript">
+<title>CoffeeScript Refactoring – part 1 &#8211; Woman on Rails</title>
+<meta name="description" content="Small refactoring in CoffeeScript">
 <meta name="keywords" content="CoffeeScript, refactoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="CoffeeScript Refactoring – część 1">
-<meta name="twitter:description" content="Mały refactoring w CoffeeScript">
+<meta name="twitter:title" content="CoffeeScript Refactoring – part 1">
+<meta name="twitter:description" content="Small refactoring in CoffeeScript">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CoffeeScript Refactoring – część 1">
-<meta property="og:description" content="Mały refactoring w CoffeeScript">
+<meta property="og:title" content="CoffeeScript Refactoring – part 1">
+<meta property="og:description" content="Small refactoring in CoffeeScript">
 <meta property="og:url" content="/refactoring-coffee-part1">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
@@ -93,25 +93,25 @@ Description: Awesome dude, awesome life
         
           <li>
             
-              <a href="/pl">Strona główna</a>
+              <a href="/">Home</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/categories">Kategorie</a>
+              <a href="/categories">Categories</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/tags">Tagi</a>
+              <a href="/tags">Tags</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/about">O mnie</a>
+              <a href="/about">About</a>
             
           </li>
         
@@ -135,8 +135,8 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/refactoring-coffee-part1" class='language animated fade'>
-    en
+  <a href="/pl/refactoring-coffee-part1" class='language animated fade'>
+    pl
   </a>
 
 
@@ -188,9 +188,9 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">CoffeeScript Refactoring – część 1</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">CoffeeScript Refactoring – part 1</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Mały refactoring w CoffeeScript</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Small refactoring in CoffeeScript</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2013-12-06T00:00:00-05:00" class="post-time" itemprop="datePublished">06 Dec 2013</time><span>
                             in <span class="post-tags"><a href="/categories/index.html#CoffeeScript" data-toggle="tooltip" title="Other posts from the Coffeescript category" rel="tag">Coffeescript</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#refactoring" data-toggle="tooltip" title="Other posts from the Refactoring category" rel="tag">Refactoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;Less than 1 minute read</span>
@@ -198,20 +198,20 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>To będzie mój pierwszy wpis o refaktoringu. Uwielbiam refaktoring, więc bierzmy się do pracy.</p>
+                        <p>This will be the first article about refactoring. I love refactoring, so let’s start.</p>
 
-<p>Myślę, że najlepszym sposobem by to zrobić będzie zapisanie na początku fragmentu kodu a później wprowadzenie zmian. Dzisiaj chciałabym zaprezentować Wam kilka linijek kodu w CoffeeScript:</p>
+<p>I think that the best way to do this is to put some code on the beginning and then change it. Today I would like to show you a piece of CoffeeScript code:</p>
 <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="k">if</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span>
   <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 <span class="k">else</span>
   <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
 </code></pre></div>
-<p>Ten kod jest naprawdę prosty. Sprawdzam czy ilość zaznaczonych elementów jest równa ilości wszystkich elementów. I w zależności od odpowiedzi zaznaczam (lub nie) checkbox na stronie internetowej. Tak jak powiedziałam jest to prosty kod, ale może być ładniejszy:</p>
+<p>This code is simple. I check if number of selected items is same as number of all items. And then I select (or not) a checkbox on a web page. As I said it’s simple but can be improved:</p>
 <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span><span class="p">)</span>
 </code></pre></div>
-<p>Ta sama funkcjonalność w jednej linijce. Bardzo mi się podoba ten refaktoring. Jeśli widzicie jak można by jeszcze ulepszyć ten fragment kodu dajcie znać.</p>
+<p>The same functionality in one line. I like this refactoring very much. If You see how can I improve this code, simply let me know.</p>
 
-<p>Do zobaczenia następnym razem!</p>
+<p>See you next time!</p>
 
                         <br>
                     
@@ -231,7 +231,7 @@ Description: Awesome dude, awesome life
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;CoffeeScript Refactoring – część 1&quot;%20/refactoring-coffee-part1%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;CoffeeScript Refactoring – part 1&quot;%20/refactoring-coffee-part1%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>

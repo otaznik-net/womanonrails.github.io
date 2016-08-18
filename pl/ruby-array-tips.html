@@ -17,22 +17,22 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>Triki dla Tablic w Ruby &#8211; Woman on Rails</title>
-<meta name="description" content="10 troków na tablicach w Ruby">
+<title>Ruby Array Tips &#8211; Woman on Rails</title>
+<meta name="description" content="10 Ruby tips for Array">
 <meta name="keywords" content="Ruby, tips">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="Triki dla Tablic w Ruby">
-<meta name="twitter:description" content="10 troków na tablicach w Ruby">
+<meta name="twitter:title" content="Ruby Array Tips">
+<meta name="twitter:description" content="10 Ruby tips for Array">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Triki dla Tablic w Ruby">
-<meta property="og:description" content="10 troków na tablicach w Ruby">
+<meta property="og:title" content="Ruby Array Tips">
+<meta property="og:description" content="10 Ruby tips for Array">
 <meta property="og:url" content="/ruby-array-tips">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
@@ -93,25 +93,25 @@ Description: Awesome dude, awesome life
         
           <li>
             
-              <a href="/pl">Strona główna</a>
+              <a href="/">Home</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/categories">Kategorie</a>
+              <a href="/categories">Categories</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/tags">Tagi</a>
+              <a href="/tags">Tags</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/about">O mnie</a>
+              <a href="/about">About</a>
             
           </li>
         
@@ -135,8 +135,8 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/ruby-array-tips" class='language animated fade'>
-    en
+  <a href="/pl/ruby-array-tips" class='language animated fade'>
+    pl
   </a>
 
 
@@ -188,9 +188,9 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Triki dla Tablic w Ruby</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Ruby Array Tips</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">10 troków na tablicach w Ruby</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">10 Ruby tips for Array</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2014-03-14T00:00:00-04:00" class="post-time" itemprop="datePublished">14 Mar 2014</time><span>
                             in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tips" data-toggle="tooltip" title="Other posts from the Tips category" rel="tag">Tips</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;1 minute read</span>
@@ -198,41 +198,41 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Ruby ma naprawdę świetną dokumentację. Metody dla tablic też są dobrze opisane na przykład tutaj. Dziś chciałabym się skupić na kilku trikach jakie znam na tablicach w Ruby. No to zaczynamy:</p>
+                        <p>Ruby have great documentation for Array method for example like this. To day I want to focus not on methods in documentation but some tips I know in Ruby with Array. Let’s start:</p>
 
 <ul>
-<li>Tworzenie tablicy składającej się z napisów:</li>
+<li>Create Array with strings:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sx">%w{ 1 2 3 4 }</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-<li>Tworzenie tablicy składającej się z tej samej liczby:</li>
+<li>Create Array with the same number:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">[</span><span class="mi">2</span><span class="o">]*</span><span class="mi">5</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-<li>Tworzenie tablicy z kolejnych liczb naturalnych:</li>
+<li>Create Array with ordered numbers:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-<li>Tworzenie tablicy z kolejnych liczb parzystych:</li>
+<li>Create Array with even numbers:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-<li>Pokazanie ostatniego elementu tablicy:</li>
+<li>Show last element in Array:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">array</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span>
  <span class="o">=&gt;</span> <span class="mi">4</span>
 </code></pre></div>
 <ul>
-<li>Pokazanie wybranego fragmentu tablicy:</li>
+<li>Show part of Array:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">2</span><span class="o">]</span>
@@ -243,47 +243,47 @@ Description: Awesome dude, awesome life
   <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-<li>Dekompozycja tablicy:</li>
+<li>Array decomposition:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">c</span> <span class="o">=&gt;</span> <span class="mi">3</span>
 </code></pre></div>
-<p>lub</p>
+<p>or</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">c</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-<li>Suma wszystkich elementów tablicy:</li>
+<li>Sum all elements in Array:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">array</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span>
  <span class="o">=&gt;</span> <span class="mi">10</span>
 </code></pre></div>
-<p>lub</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span>
+<p>or</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span> <span class="p">(</span><span class="k">for</span> <span class="n">parallel</span> <span class="n">calculations</span><span class="p">)</span>
  <span class="o">=&gt;</span> <span class="mi">10</span>
 </code></pre></div>
 <ul>
-<li>Usunięcie określonej części tablicy:</li>
+<li>Removed specific elements from Array:</li>
 </ul>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">array</span><span class="o">.</span><span class="n">slice!</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">array</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 </code></pre></div>
 <ul>
-<li>Operacje na tablicy:</li>
+<li>Array operations:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Suma</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Sum</span>
 <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">|</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="c1"># Konkatenacja</span>
+<span class="c1"># Concatenation</span>
 <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="c1"># Iloczyn</span>
+<span class="c1"># Product</span>
 <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">&amp;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-<span class="c1"># Różnica</span>
+<span class="c1"># Difference</span>
 <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">-</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
 </code></pre></div>
                         <br>
@@ -304,7 +304,7 @@ Description: Awesome dude, awesome life
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Triki dla Tablic w Ruby&quot;%20/ruby-array-tips%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Ruby Array Tips&quot;%20/ruby-array-tips%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>

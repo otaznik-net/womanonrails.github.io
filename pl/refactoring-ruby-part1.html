@@ -17,22 +17,22 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>Ruby Refactoring – część 1 &#8211; Woman on Rails</title>
-<meta name="description" content="Sumowanie elementów tablicy względem kolumny - Refactoring">
+<title>Ruby Refactoring – part 1 &#8211; Woman on Rails</title>
+<meta name="description" content="Sum elements in array columns - Refactoring">
 <meta name="keywords" content="Ruby, refactoring">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="Ruby Refactoring – część 1">
-<meta name="twitter:description" content="Sumowanie elementów tablicy względem kolumny - Refactoring">
+<meta name="twitter:title" content="Ruby Refactoring – part 1">
+<meta name="twitter:description" content="Sum elements in array columns - Refactoring">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ruby Refactoring – część 1">
-<meta property="og:description" content="Sumowanie elementów tablicy względem kolumny - Refactoring">
+<meta property="og:title" content="Ruby Refactoring – part 1">
+<meta property="og:description" content="Sum elements in array columns - Refactoring">
 <meta property="og:url" content="/refactoring-ruby-part1">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
@@ -93,25 +93,25 @@ Description: Awesome dude, awesome life
         
           <li>
             
-              <a href="/pl">Strona główna</a>
+              <a href="/">Home</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/categories">Kategorie</a>
+              <a href="/categories">Categories</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/tags">Tagi</a>
+              <a href="/tags">Tags</a>
             
           </li>
         
           <li>
             
-              <a href="/pl/about">O mnie</a>
+              <a href="/about">About</a>
             
           </li>
         
@@ -135,8 +135,8 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/refactoring-ruby-part1" class='language animated fade'>
-    en
+  <a href="/pl/refactoring-ruby-part1" class='language animated fade'>
+    pl
   </a>
 
 
@@ -188,17 +188,17 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Ruby Refactoring – część 1</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Ruby Refactoring – part 1</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Sumowanie elementów tablicy względem kolumny - Refactoring</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Sum elements in array columns - Refactoring</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2013-12-30T00:00:00-05:00" class="post-time" itemprop="datePublished">30 Dec 2013</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#refactoring" data-toggle="tooltip" title="Other posts from the Refactoring category" rel="tag">Refactoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">1.79</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#refactoring" data-toggle="tooltip" title="Other posts from the Refactoring category" rel="tag">Refactoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">1.855</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Tym razem będę zmieniać kody Ruby. Mój mały potwór wygląda następująco:</p>
+                        <p>This time I will change Ruby code. My little monster looks like this:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">sum_array</span> <span class="o">=</span>  <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span>
     <span class="o">[</span><span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">column</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
@@ -208,7 +208,7 @@ Description: Awesome dude, awesome life
   <span class="k">end</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">sum_array</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span> <span class="o">[</span><span class="n">first</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">first</span><span class="o">[</span><span class="mi">1</span><span class="o">]]</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Jeżeli na pierwszy rzut oka wiecie co ten kod robi, macie moje wyrazy szacunku. Ja osobiście stwierdzam, że ten kod jest straszny i muszę coś z nim zrobić. Dobrze, zacznijmy od początku. Metoda ta pobiera dane w postaci tablicy tablic liczby naturalnych np. <code>[[1, 2, 3], [4, 5, 6]]</code> . Następnie grupuje je względem pierwszej i ostatniej kolumny i sumuje po środkowej. Gdy macie dane jak te:</p>
+<p>If You know what this code does I say: Wow! I wrote this code but it’s terrible. I must do something with it. OK, lets start from the beginning. This method gets data as an array of integer arrays. Like this: <code>[[1, 2, 3], [4, 5, 6]]</code>. Then groups the data by first and last column and sums by middle column. When You have data like this:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
@@ -217,14 +217,14 @@ Description: Awesome dude, awesome life
   <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>
 <span class="o">]</span>
 </code></pre></div>
-<p>to metoda zwraca:</p>
+<p>then our method returns</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">result</span> <span class="o">=</span> <span class="o">[</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>
 <span class="o">]</span>
 </code></pre></div>
-<p>Zacznijmy zmiany. Metoda ta zwraca tablicę podobną do result. Zadeklarujmy więc tablicę na początku. Później pogrupujmy nasze dane po pierwszej i ostatniej kolumnie. Na koniec w pętli zsumujmy kolumnę środkową i zwróćmy dane w tablicy. Teraz metoda ta wygląda tak:</p>
+<p>I decided to change this method. On the end I need an array similar to result. So I declared an array. Then I grouped my array by first and last column. Finally I summed the middle column in loop and put all data into array. Now our method looks like this:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
   <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="o">[</span><span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">column</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span> <span class="p">}</span>
@@ -235,7 +235,7 @@ Description: Awesome dude, awesome life
   <span class="n">array</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Po tych zmianach doszłam do wniosku, że kolejność kolumn w danych wejściowych i wyjściowych nie ma dla mnie znaczenia. Oto jak wyglądają obecnie:</p>
+<p>After that I noticed that order in the data array doesn’t matter. My input and output changed to:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
@@ -250,7 +250,7 @@ Description: Awesome dude, awesome life
   <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
 <span class="o">]</span>
 </code></pre></div>
-<p>Metoda zmieniła się tylko odrobinę:</p>
+<p>The method changed only a little:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
   <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
@@ -260,13 +260,13 @@ Description: Awesome dude, awesome life
   <span class="n">array</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Teraz kod ten wygląda lepiej, ale czy da się jeszcze coś ulepszyć? Zobaczmy… może zamienimy each na map:</p>
+<p>OK, it looks better now but what else can I do to improve it? Let me see… Maybe I can replace each with map:</p>
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
   <span class="n">grouped_data</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="o">[*</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span><span class="o">]</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div>
-<p>Super! Teraz wygląda o wiele lepiej. To rozwiązanie jest dla mnie do przyjęcia ;p Jeżeli macie jeszcze jakieś propozycje jak można by zmienić tą metodę to zapiszcie je w komentarzach.</p>
+<p>Yeyyy… It looks fine now. Finally this method is acceptable for me. If you have any suggestions how can I change this method, please left your comment.</p>
 
                         <br>
                     
@@ -286,7 +286,7 @@ Description: Awesome dude, awesome life
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Ruby Refactoring – część 1&quot;%20/refactoring-ruby-part1%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Ruby Refactoring – part 1&quot;%20/refactoring-ruby-part1%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
