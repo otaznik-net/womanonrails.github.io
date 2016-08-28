@@ -198,11 +198,11 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p><a href="/pl/what-is-git">Ostatnim razem</a> mówiliśmy trochę o tym dlaczego <strong>Git</strong> jest bardzo użytecznym narzędziem, zwłaszcza dla programistów. Dzisiaj chciałabym się skupić na tym, jak zacząć używać narzędzia Git przynajmniej w bardzo podstawowym zakresie. Pokarzę kilka najczęściej używanych poleceń, ale jeżeli chcecie się dowiedzieć więcej polecam <a href="https://git-scm.com/documentation">dokumentację</a>.</p>
+                        <p><a href="/pl/what-is-git">Ostatnim razem</a> mówiliśmy trochę o tym dlaczego <strong>Git</strong> jest bardzo użytecznym narzędziem, zwłaszcza dla programistów. Dzisiaj chciałabym się skupić na tym, jak zacząć używać narzędzia Git przynajmniej w bardzo podstawowym zakresie. Pokażę kilka najczęściej używanych poleceń, ale jeżeli chcecie się dowiedzieć więcej polecam <a href="https://git-scm.com/documentation">dokumentację</a>.</p>
 
 <h2>Zaczynamy!</h2>
 
-<p>Git to <strong>rozproszonym systemem wersjonowania</strong> (distributed repository lub distributed version control system). To znaczy, że każdy w zespole ma u siebie lokalnie całą historię zmian. Dzięki temu można dodać do repozytorium kolejne swoje zmiany bez połączenia z Internetem. Jednak najważniejszą cechą takiego systemu kontroli wersji jest to, że nawet gdy u jednej osoby zmiany zostaną utracone reszta zespołu ciągle posiada całą historię prac. W przypadku scentralizowanego systemy kontroli wersji to problemy w centralnym repozytorium powodują utratę zmian u wszystkich członków zespołu.</p>
+<p>Git jest <strong>rozproszonym systemem wersjonowania</strong> (distributed repository lub distributed version control system). To znaczy, że każdy w zespole ma u siebie lokalnie całą historię zmian. Dzięki temu można dodać do repozytorium kolejne swoje zmiany bez połączenia z Internetem. Jednak najważniejszą cechą takiego systemu kontroli wersji jest to, że nawet gdy u jednej osoby zmiany zostaną utracone reszta zespołu ciągle posiada całą historię prac. W przypadku scentralizowanego systemy kontroli wersji to problemy w centralnym repozytorium powodują utratę zmian u wszystkich członków zespołu.</p>
 
 <p>Mówiąc o narzędziu Git będę używać wiersza poleceń. Myślę, że taki sposób użycia jest łatwiejszy do zrozumienia co tak naprawdę się dzieje niż używanie jakichś graficznych programów.</p>
 
@@ -224,7 +224,7 @@ git config --global user.email you_email_address@example.com
 <div class="highlight"><pre><code class="language-text" data-lang="text">git status
 </code></pre></div>
 <p>To polecenie mówi nam co zmieniło się od ostatniego użycia narzędzia Git. Przykładowo mamy plik napisany w języku Ruby.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_word.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">&quot;hello&quot;</span>
 <span class="k">end</span>
@@ -239,14 +239,14 @@ git config --global user.email you_email_address@example.com
 # Untracked files:
 #   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 #
-#   hello_word.rb
+#   hello_world.rb
 #
 # nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </code></pre></div>
 <h2>Pierwszy commit</h2>
 
 <p>Teraz musimy powiedzieć do naszego systemu kontroli wersji: <em>Proszę, śledź zmiany w tym pliku</em>:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_word.rb
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_world.rb
 </code></pre></div>
 <p>Po wykonaniu tego polecenia sprawdzamy status naszych zmian <code>git status</code> i otrzymujemy:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git status
@@ -258,7 +258,7 @@ git config --global user.email you_email_address@example.com
 # Changes to be commited:
 #   (use &quot;git rm --cached  &lt;file&gt;...&quot; to unstage)
 #
-#   new file: hello_word.rb
+#   new file: hello_world.rb
 #
 </code></pre></div>
 <p>Teraz możemy zrobić <strong>commit</strong>. Można powiedzieć, że commit to takie przygotowane do wysłania pudełko. Do pudełka wkładamy wszystkie elementy, które wspólnie tworzą jedną całość. Ponieważ zmieniliśmy tylko jeden plik, to nasz commit będzie składał się tylko z niego.</p>
@@ -271,7 +271,7 @@ git config --global user.email you_email_address@example.com
 # nothing to commit (working directory clean)
 </code></pre></div>
 <p>Jeżeli zmienimy naszą funkcję, to zobaczymy:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_word.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">&quot;hello world&quot;</span>
 <span class="k">end</span>
@@ -280,11 +280,11 @@ git config --global user.email you_email_address@example.com
 # On branch master
 # Changed but not updated:
 #
-#  modified: hello_word.rb
+#  modified: hello_world.rb
 # no changes add to commit
 </code></pre></div>
 <p>Jeżeli chcemy zrobić nowy commit, musimy dodać nasze zmiany do pudełka:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_word.rb
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_world.rb
 </code></pre></div>
 <p>i oznaczyć opisem co jest w środku:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git commit -m &quot;Change our hello function&quot;
@@ -301,7 +301,7 @@ git config --global user.email you_email_address@example.com
 </code></pre></div>
 <p>Mówimy wtedy do narzędzia Git: <em>Wyślij mój kod na gałąź (branch)</em> <code>master</code> <em>na repozytorium o nazwie</em> <code>origin</code>.</p>
 
-<h4>Co to jest branch (gałęź)?</h4>
+<h4>Co to jest branch (gałąź)?</h4>
 
 <p>Branch jest jak ścieżka. W naszym projekcie mamy wiele ścieżek, każda z nich może wyglądać inaczej, ale w danym momencie możemy iść tylko jedną ścieżką. Domyślnie po stworzeniu repozytorium Git ma jedną ścieżkę, którą nazywa <code>master</code>. Po poleceniu, które widzimy nieco wyżej GitHub zapyta się nas o naszą nazwę użytkownika (login) i hasło. Gdy podamy te informacje nasze zmiany znajdą się na serwerze.</p>
 

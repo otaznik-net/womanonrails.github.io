@@ -5,8 +5,8 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Aug 2016 15:37:51 -0400</pubDate>
-    <lastBuildDate>Thu, 18 Aug 2016 15:37:51 -0400</lastBuildDate>
+    <pubDate>Sun, 28 Aug 2016 05:46:20 -0400</pubDate>
+    <lastBuildDate>Sun, 28 Aug 2016 05:46:20 -0400</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -179,7 +179,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h4&gt;GeoJSON&lt;/h4&gt;
 
-&lt;p&gt;I think the most powerful element of Leaflet is &lt;code&gt;geoJson&lt;/code&gt;. You can display every of further objects using &lt;code&gt;geoJson&lt;/code&gt;. Also you can use &lt;strong&gt;GIS&lt;/strong&gt; data from data base like &lt;a href=&quot;https://www.postgresql.org/&quot;&gt;PostgreSQL&lt;/a&gt; and directly use in &lt;code&gt;geJson&lt;/code&gt; object. For this element you can also use some styling or binding events.&lt;/p&gt;
+&lt;p&gt;I think the most powerful element of Leaflet is &lt;code&gt;geoJson&lt;/code&gt;. You can display every of further objects using &lt;code&gt;geoJson&lt;/code&gt;. Also you can use &lt;strong&gt;GIS&lt;/strong&gt; data from data base like &lt;a href=&quot;https://www.postgresql.org/&quot;&gt;PostgreSQL&lt;/a&gt; and directly use in &lt;code&gt;geoJson&lt;/code&gt; object. For this element you can also use some styling or binding events.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;geoData = &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;s&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Feature&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;s&quot;&gt;&amp;quot;properties&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
@@ -257,17 +257,17 @@
 
 &lt;h2&gt;Day by day work&lt;/h2&gt;
 
-&lt;p&gt;When I work remotly from my home or open space in most cases work looks like normaly day in office. But in my offce each person in team has separate room and we don&amp;#39;t go to others rooms. One time per day we have meeing (Hangout or Sykpe). And that&amp;#39;s it. Rest of my day it is normal work. I have my tasks to do and I do what I should. When I need to talk with someone I write a message on communicator (Slack or Skype). The most important thing in this kind of work is &lt;strong&gt;trust&lt;/strong&gt;. Trust that each team member does what he/she should to get things done.&lt;/p&gt;
+&lt;p&gt;When I work remotly from my home or open space in most cases work looks like normaly day in office. But in my offce each person in team has separate room and we don&amp;#39;t go to others rooms. One time per day we have meeting (Hangout or Sykpe). And that&amp;#39;s it. Rest of my day it is normal work. I have to do my tasks and I do what I should. When I need to talk with someone I write a message on communicator (Slack or Skype). The most important thing in this kind of work is &lt;strong&gt;trust&lt;/strong&gt;. Trust that each team member does what he/she should to get things done.&lt;/p&gt;
 
 &lt;h3&gt;My observations:&lt;/h3&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Less people around my desk, then better I can focus&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Less people around my desk, then I can better focus&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;How many times do you waste your time on funny conversations? How many times someone interrupt you in your work to ask something? How many times you need to go to boring and useless meeting? There are many reasons for break.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;How many times do you waste your time for funny conversations? How many times someone interrupt you in your work to ask something? How many times you need to go to boring and useless meeting? There are many reasons for break.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;I can work from any place from office, from home, from Warsaw or Krakow. It doesn&amp;#39;t matter.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;This is very nice I can work from home when I need this. Or I can go to my family and working from theirs house. Or go to another country.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;This is very nice I can work from home when I need it. Or I can go to my family and working from theirs house. Or go to another country.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;I need to be well organized to plan my work and my communication.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;Because time when all team members are on one meeting is very short I need to be prepare to ask necessary questions, to announce most important informations for team. I need to be good organized when you work. Forget about wasting time for nothing. I need to be motivate to work without any supervisor around me. Remember trust. I trust that others team members working and the same have the same for me. They trust that I working also.&lt;/p&gt;&lt;/li&gt;
@@ -278,7 +278,7 @@
 
 &lt;h2&gt;Australia remote work&lt;/h2&gt;
 
-&lt;p&gt;As I say earlier in remote work I can work from every place in the world. So I decided to spend 6 weeks working remotely from Australia. Sometimes remote work from Australia was very easy. Time went quickly and very productive. But sometimes it was very hard. My team is working in Europe time zone so when I moved to Australia then my work time changed from 9am to 5pm to 6pm to 2am. I decided then to work only half time. (Big thank you for my team that this was possible). So I worked from 6pm to 10pm. Sometime I was tired after all day but I had work to do. I worked from different places mostly form my bedroom, but also from shopping center, couch in friends living room, hotels or cars. I don&amp;#39;t recommend this last work place specially when you have motion sickness. Some of this places had trouble with Internet connection or didn&amp;#39;t have any. Then I used mobile Internet. Yes I used mobile Internet for work. And the most important sometimes I just would like to have evening just for my self to meet friends and go out.&lt;/p&gt;
+&lt;p&gt;As I said earlier in remote work I can work from every place in the world. So I decided to spend 6 weeks working remotely from Australia. Sometimes remote work from Australia was very easy. Time went quickly and very productive. But sometimes it was very hard. My team is working in Europe time zone so when I moved to Australia then my work time changed from 9am to 5pm to 6pm to 2am. I decided to work only half time. Big thank you for my team that this was possible. So I worked from 6pm to 10pm. Sometime I was tired after all day but I had work to do. I worked from different places mostly from my bedroom, but also from shopping center, couch in friends living room, hotels or cars. I don&amp;#39;t recommend this last work place specially when you have motion sickness. Some of this places had trouble with Internet connection or didn&amp;#39;t have any. Then I used mobile Internet. Yes I used mobile Internet for work. And the most important sometimes I just would like to have evening just for my self to meet friends and go out.&lt;/p&gt;
 
 &lt;p&gt;Even that there was sometime many problems to deal with, this was my best time ever. I woke up at 7am Australian time. I did my exercises and some hobby stuff and then I have 8 hours to explore Australia. After that I used to sit with my computer and worked. This possibility to work remotely allowed me to visit lot of beautiful places. I felt like I was on holiday in some how. If someone will ask me if this is something worth to try I will say &lt;strong&gt;YES&lt;/strong&gt;.&lt;/p&gt;
 
@@ -314,8 +314,8 @@
 &lt;li&gt;Do I have everything what I need on my laptop?&lt;/li&gt;
 &lt;li&gt;Is there always access to electricity?&lt;/li&gt;
 &lt;li&gt;How much time do I have to work?&lt;/li&gt;
-&lt;li&gt;What I will do as my work?&lt;/li&gt;
-&lt;li&gt;Where I will be working?&lt;/li&gt;
+&lt;li&gt;What will I do as my work?&lt;/li&gt;
+&lt;li&gt;Where will I be working?&lt;/li&gt;
 &lt;li&gt;How organized am I?&lt;/li&gt;
 &lt;li&gt;How motivate to work am I?&lt;/li&gt;
 &lt;li&gt;What is time zone in my destination?&lt;/li&gt;
@@ -377,7 +377,7 @@ This is it. I hope you like this article. If you have any question please leave 
 &lt;li&gt;&lt;p&gt;Switch to develop branch&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout develop
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Download all changes lacally&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;Download all changes locally&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git pull
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Switch to specific branch (branch on which you work)&lt;/p&gt;
@@ -453,7 +453,7 @@ git config --global user.email you_email_address@example.com
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git status
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;This command tell us what was change from last time we use Git. So we have for example ruby file:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_word.rb&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
@@ -468,14 +468,14 @@ git config --global user.email you_email_address@example.com
 # Untracked files:
 #   (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)
 #
-#   hello_word.rb
+#   hello_world.rb
 #
 # nothing added to commit but untracked files present (use &amp;quot;git add&amp;quot; to track)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;First commit&lt;/h2&gt;
 
 &lt;p&gt;Now we must tell Git: &lt;em&gt;please track this file&lt;/em&gt;, so we do.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git add hello_word.rb
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git add hello_world.rb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;After this when we use &lt;code&gt;git status&lt;/code&gt; we see:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git status
@@ -487,7 +487,7 @@ git config --global user.email you_email_address@example.com
 # Changes to be commited:
 #   (use &amp;quot;git rm --cached  &amp;lt;file&amp;gt;...&amp;quot; to unstage)
 #
-#   new file: hello_word.rb
+#   new file: hello_world.rb
 #
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now we can do &lt;strong&gt;commit&lt;/strong&gt;. I can say that commit is like prepare box to send. You put into one box everything which creates one common piece. For our changes we add only one file so our commit will contain a simple file.&lt;/p&gt;
@@ -500,7 +500,7 @@ git config --global user.email you_email_address@example.com
 # nothing to commit (working directory clean)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;So we change our function:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_word.rb&lt;/span&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
   &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
@@ -509,11 +509,11 @@ git config --global user.email you_email_address@example.com
 # On branch master
 # Changed but not updated:
 #
-#  modified: hello_word.rb
+#  modified: hello_world.rb
 # no changes add to commit
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;If we want create new commit we must add new things to your box:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git add hello_word.rb
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git add hello_world.rb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;and create commit&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;git commit -m &amp;quot;Change our hello function&amp;quot;

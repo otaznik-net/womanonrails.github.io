@@ -239,11 +239,12 @@ Description: Awesome dude, awesome life
 <li><p>Robimy rebase</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git rebase develop
 </code></pre></div></li>
-<li><p>Możemy wrzucić zmiany na zdalne repozytorium</p></li>
+<li><p>Możemy wrzucić zmiany na zdalne repozytorium</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git push
+</code></pre></div></li>
 </ol>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">  git push
-</code></pre></div>
-<p>Czasami gdy będziemy robić <code>git rebase</code>, git może nie dać sobie rady sam z rozwiązywaniem konfliktów (czyli łączeniem plików modyfikowanych przez kilka osób). Wtedy do akcji wkraczamy my. Poprawnie rozwiązujemy konlikty i dodajemy nasze zmiany, tak by gita je widział. Następnie możemy dalej kontynłować rebase.</p>
+
+<p>Czasami gdy będziemy robić <code>git rebase</code>, git może nie dać sobie rady sam z rozwiązywaniem konfliktów (czyli łączeniem plików modyfikowanych przez kilka osób). Wtedy do akcji wkraczamy my. Poprawnie rozwiązujemy konflikty i dodajemy nasze zmiany, tak by git je widział. Następnie możemy dalej kontynłować rebase.</p>
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">git rebase develop
 <span class="c"># rozwiązanie konfliktów</span>
 git add -u <span class="c"># dodanie wszystkich zmian do śledzenia</span>

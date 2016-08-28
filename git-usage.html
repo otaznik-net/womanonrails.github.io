@@ -224,7 +224,7 @@ git config --global user.email you_email_address@example.com
 <div class="highlight"><pre><code class="language-text" data-lang="text">git status
 </code></pre></div>
 <p>This command tell us what was change from last time we use Git. So we have for example ruby file:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_word.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">&quot;hello&quot;</span>
 <span class="k">end</span>
@@ -239,14 +239,14 @@ git config --global user.email you_email_address@example.com
 # Untracked files:
 #   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
 #
-#   hello_word.rb
+#   hello_world.rb
 #
 # nothing added to commit but untracked files present (use &quot;git add&quot; to track)
 </code></pre></div>
 <h2>First commit</h2>
 
 <p>Now we must tell Git: <em>please track this file</em>, so we do.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_word.rb
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_world.rb
 </code></pre></div>
 <p>After this when we use <code>git status</code> we see:</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git status
@@ -258,7 +258,7 @@ git config --global user.email you_email_address@example.com
 # Changes to be commited:
 #   (use &quot;git rm --cached  &lt;file&gt;...&quot; to unstage)
 #
-#   new file: hello_word.rb
+#   new file: hello_world.rb
 #
 </code></pre></div>
 <p>Now we can do <strong>commit</strong>. I can say that commit is like prepare box to send. You put into one box everything which creates one common piece. For our changes we add only one file so our commit will contain a simple file.</p>
@@ -271,7 +271,7 @@ git config --global user.email you_email_address@example.com
 # nothing to commit (working directory clean)
 </code></pre></div>
 <p>So we change our function:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_word.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">&quot;hello world&quot;</span>
 <span class="k">end</span>
@@ -280,11 +280,11 @@ git config --global user.email you_email_address@example.com
 # On branch master
 # Changed but not updated:
 #
-#  modified: hello_word.rb
+#  modified: hello_world.rb
 # no changes add to commit
 </code></pre></div>
 <p>If we want create new commit we must add new things to your box:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_word.rb
+<div class="highlight"><pre><code class="language-text" data-lang="text">git add hello_world.rb
 </code></pre></div>
 <p>and create commit</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">git commit -m &quot;Change our hello function&quot;
