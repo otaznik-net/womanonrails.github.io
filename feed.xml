@@ -5,9 +5,52 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 28 Aug 2016 05:46:20 -0400</pubDate>
-    <lastBuildDate>Sun, 28 Aug 2016 05:46:20 -0400</lastBuildDate>
+    <pubDate>Thu, 24 Nov 2016 16:27:22 -0500</pubDate>
+    <lastBuildDate>Thu, 24 Nov 2016 16:27:22 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Web Summit Lisbon 2016</title>
+        <description>&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;It took me some time from last post. So many things happened: events, workshops, travel. But I&amp;#39;m back! Today I would like to share my thoughts about &lt;a href=&quot;https://websummit.net/&quot;&gt;Web Summit&lt;/a&gt;. This is big conference (exhibition for startups). I was on this conference once in &lt;a href=&quot;/websummit&quot;&gt;Dublin&lt;/a&gt; and now in Lisbon. I decided to come because as a &lt;em&gt;Woman in Tech&lt;/em&gt; I got free ticket. Maybe because of that I should not talk about what I don&amp;#39;t like. On the other hand I think when no one talks about disadvantage, conference can not be better next time.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Too big for me&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;In Ruby community we have quote: &lt;em&gt;If you want to build big application, just don&amp;#39;t do that&lt;/em&gt;. I think the same is for conference. This conference was too big. A lot of people in metro waiting for transportation, a lot of people in queue waiting first day to get inside. Queues everywhere: for food, conference stages, startups, toilets and so on.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Do I really have matter?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;There were so many people, that I was thinking if someone like me is important for this conference. For sure conference still will take a place without me. No one would notice that I&amp;#39;m not there. So my questions are: Do I really have matter? My opinion, my presence, my comfort? Or am I just next person on this big event?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Is it for developer?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m a tech woman and I went to Web Summit to learn something new. I don&amp;#39;t have startup, I&amp;#39;m not a business person. I&amp;#39;m just a developer. From my perspective there were a lot of inspiring talks and panels but 20 minutes it&amp;#39;s not enough to go deeper in topic. So this was disappointed for me. Most of my time I spent walking around startups area. Talking with people. This was much more interesting and much more technical then talks and panels on stages. Don&amp;#39;t understand me wrong. There were a lot of very good talks but from developer perspective there were too low number of technical staff. For me this was more exhibition of startups then conference. I think this is place for business more then for developers.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tech women perspective&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I really appreciate that I had chance to get free ticket for this conference. Organizers did a lot to bring women to Web Summit. I think this is very nice that organizers see problem and try to do something to resolve it. But... Simple thing T-shirt. Even I got T-shirt size S for man it is too big so I only can sleep in this T-shirt. Next thing completely separate space for women with &lt;em&gt;Women in Tech&lt;/em&gt; on ticket. For me this was misunderstanding. Why only Woman in Tech could go there? Why other women cannot? And why men which support us in Tech can&amp;#39;t join also? I know a lot of great men which help and support me and others women. I think they deserve for respect. In my opinion women don&amp;#39;t need special place in IT. I would like to be treat the same like men. This lounge looks for me more like zoo or aquarium than same safe palce to relax. And I really don&amp;#39;t like this idea. We should be in the same place where men are, to show good example to others. To show that in IT we are normal developers like men.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2&gt;Summary&lt;/h2&gt;
+
+&lt;p&gt;I appreciate that I could come to Web Summit and be participant on this conference. But if I would buy the ticket as a developer I would be disappointed. I really love small conference where you feel like in home, where everyone (almost everyone) know each other&amp;#39;s. Where everyone care for each others. The best thing of Web Summit was amazing people which I met there. I&amp;#39;m so happy that even on that huge event I could meet so wonderful people from different countries. That&amp;#39;s all what I would like to say. I hope the next edition will be better.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
+        <link>/websummit-lisbon-2016</link>
+        <guid isPermaLink="true">/websummit-lisbon-2016</guid>
+        
+        <category>Web Summit</category>
+        
+        <category>Lisbon</category>
+        
+        
+        <category>events</category>
+        
+        <category>travels</category>
+        
+        <category>workshops</category>
+        
+      </item>
     
       
       <item>
@@ -809,76 +852,6 @@ Ones a week I’m teaching others at &lt;strong&gt;CoderDojo&lt;/strong&gt; work
         <category>travels</category>
         
         <category>workshops</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Be yourself – How deal with low self-confidence</title>
-        <description>&lt;blockquote&gt;
-&lt;p&gt;Be who you are, say what you feel, those who mind don’t matter, those who matter don’t mind.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Today I would write about very important for me topic. About &lt;strong&gt;self-confidence&lt;/strong&gt;. I don’t know if you have some problems with it but I do. I went through this many times. And I went back to this topic because I change project at my work.&lt;/p&gt;
-
-&lt;p&gt;About 4 weeks ago I started work on new project (for me of course, because rest of the team work on this project about 2 years). Project has very complex logic. On the beginning I felt like lost child (sometimes event now I feel this way). Everything was hard to understand. Everything was so difficult.&lt;/p&gt;
-
-&lt;p&gt;In this moments of stress when I understand nothing and I must act and work, fear paralyses me. I start thinking:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;em&gt;&amp;quot;I’m stupid.&amp;quot;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&amp;quot;I’m the worst programmer ever.&amp;quot;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&amp;quot;I never understand this.&amp;quot;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&amp;quot;I’m useless.&amp;quot;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&amp;quot;I’m not supposed to be here.&amp;quot;&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;&amp;quot;I’m not fit here.&amp;quot;&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br&gt;
-My own mind was hurting me and was telling me that I’m not enough. How can I focus on my task when I here something like that in my head? How to be effective? What I should do? &lt;strong&gt;Surrender?&lt;/strong&gt; Stop doing my work and cry? &lt;strong&gt;NO!&lt;/strong&gt; (Even if I thought so). I know it is hard, really really hard and easy to say now. But in those moments we must fight with our mind. Ask yourself: Am I really so bad? Am I really stupid? I don’t know this one thing but I know many others things. Am I really useless? Think realistic, be objective and go through all word which your mind told you. You will see that it is not so bad as you thought on the beginning.&lt;/p&gt;
-
-&lt;p&gt;This is only first step. It will be long way to be self-confidence. I’m still working on me. I’m still going this way. Now you must think why you are so nervous in this kind of situation? Maybe You want to show others that you are right person in right place. Or you afraid to disappoint someone (family, boss, friends). Or you afraid losing your job. Think now, If bad thing will happen so what? You should not pretend someone else. You should not prove something to someone. If your family, friends or even boss really know you, they will not disappointed. They accept you with all yours imperfection.&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;Be who you are, say what you feel, those who mind don’t matter, those who matter don’t mind.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;If they don’t, maybe they wasn’t right person/people in your life. If you lose your job, you will find new one and this situation will be new experience in your life.&lt;/p&gt;
-
-&lt;p&gt;I think self-confidence it is about understanding yourself. What we feel and what we think in this particular moment. In this moment we can accept or reject bad feelings and thoughts. It’s depends of us. Our attitude can be positive or negative.&lt;/p&gt;
-
-&lt;p&gt;One more think as I say earlier. This is hard work. It will be good moments when we will win with our mind. But also not so good moments when bad thoughts will surround us. Even when we will lose one battle, war is not over. &lt;strong&gt;As log as we are still trying, we are winner.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h2&gt;Summing up&lt;/h2&gt;
-
-&lt;p&gt;When you mind is your enemy:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Slow down&lt;/strong&gt; - think what your mind say and is this really true – develop your awareness&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Accept yourself and your environment&lt;/strong&gt; Be gentle and patient for yourself&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Decide what is important to you&lt;/strong&gt; and develop your skills in this direction&lt;/li&gt;
-&lt;li&gt;If something brings you joy, no one have right to say you “You are not enough” even your brain.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br&gt;
-I hope you enjoy reading this article. If you have some questions or suggestions, please live your comments below. Thank you for your time. On the end I set links connect to this topic, which inspire me all the time.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=yIxjC4T_f0U&quot;&gt;Lavendaire&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=M1LZqN9O-cA&quot;&gt;Mimi Ikonn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=21j_OCNLuYg&quot;&gt;Life is easy. Why do we make it so hard?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=4tkkL9w2pw8&quot;&gt;Unconditional positive regard&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=lK-_D2QikME&quot;&gt;Imposter syndrome [PL]&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Tue, 29 Sep 2015 00:00:00 -0400</pubDate>
-        <link>/be-yourself</link>
-        <guid isPermaLink="true">/be-yourself</guid>
-        
-        <category>self-awareness</category>
-        
-        
-        <category>self-awareness</category>
         
       </item>
     
