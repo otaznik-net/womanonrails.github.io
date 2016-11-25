@@ -193,7 +193,7 @@ Description: Awesome dude, awesome life
                         <div class="cursive" style="color: #000; font-style:italic;">Open-source biblioteka JavaScript do obsługi interaktywnych map</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2016-08-13T00:00:00-04:00" class="post-time" itemprop="datePublished">13 Aug 2016</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#geo dane" data-toggle="tooltip" title="Other posts from the Geo dane category" rel="tag">Geo dane</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#mapy" data-toggle="tooltip" title="Other posts from the Mapy category" rel="tag">Mapy</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tips" data-toggle="tooltip" title="Other posts from the Tips category" rel="tag">Tips</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.325</span> minutes read</span>
+                            in <span class="post-tags"><a href="/categories/index.html#geo dane" data-toggle="tooltip" title="Other posts from the Geo dane category" rel="tag">Geo dane</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#mapy" data-toggle="tooltip" title="Other posts from the Mapy category" rel="tag">Mapy</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tips" data-toggle="tooltip" title="Other posts from the Tips category" rel="tag">Tips</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.355</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
@@ -202,15 +202,15 @@ Description: Awesome dude, awesome life
 
 <ol>
 <li><a href="http://leafletjs.com/">Leaflet</a> - biblioteka JavaScript do obsługi map</li>
-<li>Taile (Maps tiles)</li>
+<li>Fragmenty mapy (Maps tiles)</li>
 <li>Ruby on Rails (nie jest wymagany, na początek wystarczy strona <strong>html</strong>)</li>
 </ol>
 
-<p>Zacznijmy od początku. Co to są <strong>taile</strong>? Prostymi słowami, są to małe kwadratowe obrazki zawierające wygląd naszej mapy. Są one przygotowywane w postaci paczek, by można było na stronie wyświetlić większy fragment mapy.</p>
+<p>Zacznijmy od początku. Co to są <strong>map tiles</strong>? Prostymi słowami, są to małe kwadratowe obrazki zawierające wygląd naszej mapy. Są one przygotowywane w postaci paczek, by można było na stronie wyświetlić większy fragment mapy.</p>
 
-<h2>Skąd możemy dostać taile?</h2>
+<h2>Skąd możemy dostać takie fragmenty mapy?</h2>
 
-<p>Można zarejestrować się na stronie <a href="https://www.mapbox.com/">Mapbox</a> i skorzystać z ich darmowego pakietu do obsługi map lub użyć <a href="http://openstreetmap.org">OpenStreetMap</a>. Jest wiele serwisów, które dostarczają taile, na końcu tego artykułu postaram się wymienić kilka z nich.</p>
+<p>Można zarejestrować się na stronie <a href="https://www.mapbox.com/">Mapbox</a> i skorzystać z ich darmowego pakietu do obsługi map lub użyć <a href="http://openstreetmap.org">OpenStreetMap</a>. Jest wiele serwisów, które dostarczają map tiles, na końcu tego artykułu postaram się wymienić kilka z nich.</p>
 
 <h2>Przygotowania</h2>
 
@@ -219,7 +219,7 @@ Description: Awesome dude, awesome life
 <p>W naszym pliku <code>index.html</code> dodajemy następująca linijkę:</p>
 <div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#39;map&#39;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </code></pre></div>
-<p>Po stronie JavaScript potrzebujemy jeszcze ustawić wybranego dostawcę taili. W tym przykładzie będę używać CoffeeScript ale każda z prezentowanych funkcjonalności jest też możliwa do osiągnięcia w czystym JavaScript.</p>
+<p>Po stronie JavaScript potrzebujemy jeszcze ustawić wybranego dostawcę map tiles. W tym przykładzie będę używać CoffeeScript ale każda z prezentowanych funkcjonalności jest też możliwa do osiągnięcia w czystym JavaScript.</p>
 <div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">jQuery</span> <span class="nf">-&gt;</span>
   <span class="nv">map = </span><span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s">&#39;map&#39;</span><span class="p">).</span><span class="nx">setView</span><span class="p">([</span><span class="mf">50.301</span><span class="p">,</span> <span class="mf">18.654</span><span class="p">],</span> <span class="mi">13</span><span class="p">)</span>
 </code></pre></div>
