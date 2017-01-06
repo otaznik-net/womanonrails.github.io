@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Quick overview Ruby each_with_object method",
+		  "category"   : "",
+		  "url"        : "/each-with-object",
+		  "date"       : "2017-01-05 00:00:00 -0500",
+		  "shortdate"  : "January 05, 2017"
+		} ,
+	
+		{
 		  "title"      : "Web Summit Lisbon 2016",
 		  "category"   : "",
 		  "url"        : "/websummit-lisbon-2016",

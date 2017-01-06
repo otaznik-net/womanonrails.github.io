@@ -199,6 +199,45 @@ Description: Awesome dude, awesome life
                  
                       
                       <h2 class="post-title text-center super lighter bordered-bottom">
+                          <a href="/pl/refactoring-ruby-part1">Ruby Refactoring – część 1</a>
+                      
+                      </h2>
+                      <div class="post-info text-center small">
+                          <time datetime="2013-12-30T00:00:00-05:00" class="post-time">30 Dec 2013</time>
+                          in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#refactoring" data-toggle="tooltip" title="Other posts from the Refactoring category" rel="tag">Refactoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">1.79</span> minutes read</span>
+                      </div>
+                  </header>
+                  <div class="post-body bordered-bottom">
+                  
+                  
+                      <p>Tym razem będę zmieniać kody Ruby. Mój mały potwór wygląda następująco: def sum_by_column(data) sum_array = data.group_by do |column| [column[0], column[2]] end.values.map { |item| item.transpose[1].inject(:+) } data.group_by do |column| [column[0], column[2]] end.keys.zip(sum_array).map { |first, last| [first[0], last, first[1]] } end Jeżeli na pierwszy rzut oka wiecie co ten kod robi, macie moje wyrazy szacunku. Ja osobiście stwierdzam, że ten kod jest straszny i muszę coś z nim zrobić. Dobrze, zacznijmy od początku. Metoda ta pobiera dane w postaci tablicy tablic liczby naturalnych np. [[1, 2, 3], [4, 5, 6]] . Następnie grupuje je względem pierwszej i ostatniej kolumny i sumuje po...&hellip;</p>
+                      <div class="text-center">
+                      
+                    <a href="/pl/refactoring-ruby-part1" data-toggle="tooltip" title="Sumowanie elementów tablicy względem kolumny - Refactoring" class="more-link btn btn-danger btn-large">
+                        <i class="icon-link"></i> czytaj więcej...
+                    </a>
+                    
+                    </div>
+                  </div>
+              </article>
+          </div>
+      
+  
+    
+    
+    
+    
+      
+          
+          
+          
+          
+          <div class="row">
+              <article class="post post col-md-8 col-md-offset-2">
+                 <header class="post-header">
+                 
+                      
+                      <h2 class="post-title text-center super lighter bordered-bottom">
                           <a href="/pl/refactoring-coffee-part1">CoffeeScript Refactoring – część 1</a>
                       
                       </h2>
@@ -377,55 +416,6 @@ Description: Awesome dude, awesome life
           </div>
       
   
-    
-    
-    
-    
-      
-          
-          <div class="row">
-              <article class="post col-md-10 col-md-offset-1">
-                 <header class="post-header">
-                      <h2 class="post-title text-center super lighter status">
-                          <a href="/pl/inrtoduction"><i class="icon-retweet"></i> "Czas zacząć przygodę z blogowaniem. Zapraszam do czytania!
-"</a>
-                      </h2>
-                      <p class="light small text-center">
-                          Share this Status
-                      </p>
-                      <ul class="social-mini text-center">
-                          <li>
-                              <a href="https://twitter.com/intent/tweet?text=&quot;Wprowadzenie&quot;%20/pl/inrtoduction%20via%20&#64;womanonrails"
-                              onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter">
-                                  <i class="icon-twitter"></i>
-                              </a>
-                          </li>
-                          <li>
-                              <a  href="https://www.facebook.com/sharer/sharer.php?u=/pl/inrtoduction"
-                              onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook">
-                                  <i class="icon-facebook"></i>
-                              </a>
-                          </li>
-                          <li>
-                              <a href="https://plus.google.com/share?url=/pl/inrtoduction"
-                             onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus">
-                                  <i class="icon-google-plus"></i>
-                              </a>
-                          </li>
-                      </ul>
-                      <div class="post-info text-center small">
-                          Status posted @ <time datetime="2013-09-05T19:00:00-04:00" class="post-time">05 Sep 2013</time>
-                          in <span class="post-tags"></span>&nbsp;<span class="post-tags">by Agnieszka Matysek</span>
-                          <div class="post-body bordered-bottom"></div>
-                      </div>
-                  </header>
-              </article>
-          </div>
-          
-          
-          
-          
-  
 
         <div class="row text-center text-caps">
             <div class="col-md-8 col-md-offset-2">
@@ -438,8 +428,12 @@ Description: Awesome dude, awesome life
   
 
 <span class="page-number">
-  Strona 5 z 5
+  Strona 5 z 6
 </span>
+
+  <a class="older-posts" href="/pl/page6">
+    Starsze posty &rarr;
+  </a>
 
 </nav>
             </div>
@@ -493,7 +487,7 @@ Description: Awesome dude, awesome life
             </li>
         </ul>
             <div>
-                <a href="/about/">Agnieszka Matysek</a> &copy; 2016 &bull; All rights reserved.
+                <a href="/about/">Agnieszka Matysek</a> &copy; 2017 &bull; All rights reserved.
             </div>
             <ul class="menu-items">
             

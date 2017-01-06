@@ -17,23 +17,23 @@ Description: Awesome dude, awesome life
 -->
 <head>
 <meta charset="utf-8">
-<title>Rails Girls Szczecin (22 – 23 Sierpień 2015) &#8211; Woman on Rails</title>
-<meta name="description" content="Wideo relacja z Rails Girls Szczecin">
-<meta name="keywords" content="event, Rails Girls, Szczecin">
+<title>Zastosowanie metody each_with_object w Ruby &#8211; Woman on Rails</title>
+<meta name="description" content="Przykłady użycia each_with_object">
+<meta name="keywords" content="Ruby, tips">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="/images/womanonrails.jpg">
-<meta name="twitter:title" content="Rails Girls Szczecin (22 – 23 Sierpień 2015)">
-<meta name="twitter:description" content="Wideo relacja z Rails Girls Szczecin">
+<meta name="twitter:title" content="Zastosowanie metody each_with_object w Ruby">
+<meta name="twitter:description" content="Przykłady użycia each_with_object">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Rails Girls Szczecin (22 – 23 Sierpień 2015)">
-<meta property="og:description" content="Wideo relacja z Rails Girls Szczecin">
-<meta property="og:url" content="/rails-girls-szczecin">
+<meta property="og:title" content="Zastosowanie metody each_with_object w Ruby">
+<meta property="og:description" content="Przykłady użycia each_with_object">
+<meta property="og:url" content="/each-with-object">
 <meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="/images/">
 
@@ -41,7 +41,7 @@ Description: Awesome dude, awesome life
 
 
 
-<link rel="canonical" href="/rails-girls-szczecin">
+<link rel="canonical" href="/each-with-object">
 <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
 
@@ -135,7 +135,7 @@ Description: Awesome dude, awesome life
 
 
   
-  <a href="/rails-girls-szczecin" class='language animated fade'>
+  <a href="/each-with-object" class='language animated fade'>
     en
   </a>
 
@@ -152,7 +152,7 @@ Description: Awesome dude, awesome life
 
             </a>
             <h2 class="blog-description light bordered bordered-top" itemprop="description">
-                My code is getting worse, please send more chocolate
+                Premature optimization is the root of all evil.
             </h2>
         </div>
     </div>
@@ -188,38 +188,114 @@ Description: Awesome dude, awesome life
             
                     <header class="post-header entry-header">
                         
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline"><i class="icon-play-circle"></i> Rails Girls Szczecin (22 – 23 Sierpień 2015)</h1>
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Zastosowanie metody each_with_object w Ruby</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Wideo relacja z Rails Girls Szczecin</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Przykłady użycia each_with_object</div>
                         <div class="post-info text-center small">
-                            <span class="entry-date date published updated"><time datetime="2015-08-30T00:00:00-04:00" class="post-time" itemprop="datePublished">30 Aug 2015</time><span>
-                            in <span class="post-tags"><a href="/categories/index.html#podróże" data-toggle="tooltip" title="Other posts from the Podróże category" rel="tag">Podróże</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#warsztaty" data-toggle="tooltip" title="Other posts from the Warsztaty category" rel="tag">Warsztaty</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#wydarzenia" data-toggle="tooltip" title="Other posts from the Wydarzenia category" rel="tag">Wydarzenia</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;Less than 1 minute read</span>
+                            <span class="entry-date date published updated"><time datetime="2017-01-05T00:00:00-05:00" class="post-time" itemprop="datePublished">05 Jan 2017</time><span>
+                            in <span class="post-tags"><a href="/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/categories/index.html#tips" data-toggle="tooltip" title="Other posts from the Tips category" rel="tag">Tips</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">2.905</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        
-                            
-                            <iframe width="940" height="529" src="//www.youtube.com/embed/UVAF7ndEJyE?theme=light&amp;color=white" frameborder="0" allowfullscreen> </iframe>
-                        
-                        
-                        <p><br>
-Tym razem nie będę pisać o żadnych technicznych rzeczach. Tym razem chciałabym podzielić się z Tobą czymś, co było dla mnie ciekawym doświadczeniem. Czymś co przyniosło mi dużo radości i zabawy.</p>
+                        <p>Ostatnio pracowałam z metodą <code>each_with_object</code>. Jak zazwyczaj w takich sytuacjach zawsze staram się przed użyciem jakiejś metody sprawdzić jej dokumentację. Weszłam więc na <a href="http://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object">APIdock</a> przeglądam zastosowanie oraz przykłady. Okazało się że nie było tam jednego z przypadków zastosowania. Chciałam go dodać, lecz bez powodzenia. Postanowiłam więc, że skoro czekam na rozwiązanie problemu ze strony APIdock mogę napisać krótką notatkę na temat metody <code>each_with_object</code> tutaj.</p>
 
-<p>W poprzedni weekend miałam przyjemność być trzeci raz mentorem na <strong>Rails Girls Szczecin</strong>. Z warsztatami Rails Girls w Szczecinie wiążą się dla mnie zawsze bardzo miłe wspomnienia. Ludzie są niesamowicie mili i pomocni. Atmosfera jest cudowna. Jeżeli kiedykolwiek będziesz chciała (tak piszę przede wszystkim do Ciebie bo warsztaty Rails Girls są skierowane do dziewczyn i kobiet takich jak Ty) brać udział w warsztatach Rails Girls to polecam Szczecin. To naprawdę świetne miejsce żeby zacząć swoją przygodę z programowaniem.</p>
+<p>Najbardziej pożytecznym i wydaje mi się również popularnym użyciem tej metody jest podanie jako argumentu tablicy lub hasha (tablicy słownikowej). Można to zrobić przykładowo:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
+  hash[item] = item.to_s.upcase
+end
+ =&gt; {:foo=&gt;&quot;FOO&quot;, :bar=&gt;&quot;BAR&quot;, :jazz=&gt;&quot;JAZZ&quot;}
+</code></pre></div>
+<p>lub</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).each_with_object([]) do |item, array|
+  array &lt;&lt; item ** 2
+end
+ =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre></div>
+<p>Wiem te przykłady są trywialne, ale chodzi o to by zrozumieć samą konstrukcję użycia. Dzięki tej metodzie nie musimy deklarować tablicy przed pętlą:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">array = []
+(1..10).each do |item|
+  array &lt;&lt; item ** 2
+end
+array
+ =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre></div>
+<p>Oczywiście dla tego przykładu można by to zrobić z użyciem metody <code>map</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).map { |item| item ** 2 }
+ =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre></div>
+<p>Innym ciekawym zastosowaniem <code>each_with_object</code> jest zliczanie częstotliwości występowania:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">[&#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;one&#39;].each_with_object(Hash.new(0)) do |item, hash|
+  hash[item] += 1
+end
+ =&gt; {&quot;one&quot;=&gt;3, &quot;two&quot;=&gt;1}
+</code></pre></div>
+<p>W tym przypadku ustawiamy domyślną wartość dla tablicy słownikowej na <code>0</code>. Dzięki temu zliczanie ilości wystąpień elementów w tablicy jest szybkie i proste. Nie potrzebujemy warunku <code>if</code> by zabezpieczyć się przed nieoczekiwaną wartością <code>nil</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">if hash[item]
+  hash[item] += 1
+else
+  hash[item] = 0
+end
+</code></pre></div>
+<p><strong>Uwaga</strong></p>
 
-<p>OK, ale przecież wielokrotnie byłam już mentorem na warsztatach <strong>Rails Girls</strong>. Dlaczego właśnie o tych warsztatach piszę?</p>
+<p>W metodzie <code>each_with_object</code> nie można użyć niemutowalnych (inmutable) obiektów jak liczby. Przykład poniżej nie zwróci Wam 55 tylko 0.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).each_with_object(0) do |item, sum|
+  sum += item
+end
+ =&gt; 0
+</code></pre></div>
+<p>Możemy to zrobić też inaczej:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).reduce(:+)
+ =&gt; 55
+</code></pre></div>
+<p>lub</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).inject(:+)
+ =&gt; 55
+</code></pre></div>
+<p>lub w Ruby on Rails:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).sum
+ =&gt; 55
+</code></pre></div>
+<p>Przy okazji czy wiecie jaka jest różnica między metodą <code>reduce</code> a <code>inject</code>? Nie ma różnicy. Te dwie metody to tak naprawdę jedna i ta sama metoda, ale mająca dwie nazwy tzw. <a href="http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject">alias</a>.</p>
 
-<p>To było dla mnie ciekawe doświadczenie ponieważ oprócz mentorowania zrobiłam coś jeszcze. Stworzyłam swój pierwszy filmik. Rezultaty mojej twórczości możesz zobaczyć <a href="https://www.youtube.com/watch?v=UVAF7ndEJyE">tutaj</a>.</p>
+<p>W tym momencie powinniśmy jeszcze wspomnieć o jednej rzeczy. Metodę <code>inject</code> możemy stosować też bardzo podobnie do <code>each_with_object</code>. Różnica jest w kolejności argumentów w bloku i tym że w ostatniej linii bloku dla metody <code>inject</code> zawsze musimy zwrócić naszą wartość agregującą (przykładowo sumującą). Popatrzcie tutaj:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).inject([]) do |array, item|
+  array &lt;&lt; item ** 2
+end
+ =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</code></pre></div>
+<p>lub</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">[:foo, :bar, :jazz].inject({}) do |hash, item|
+  hash[item] = item.to_s.upcase
+  hash
+end
+ =&gt; {:foo=&gt;&quot;FOO&quot;, :bar=&gt;&quot;BAR&quot;, :jazz=&gt;&quot;JAZZ&quot;}
+</code></pre></div>
+<p><strong>Uwaga</strong></p>
 
-<p>Jeżeli masz jakieś pytania lub komentarze zostaw je poniżej. Pozdrawiam i do następnego razu!</p>
+<p>Kiedy używamy <code>array &lt;&lt; item ** 2</code> zawsze zostaje tu zwrócona cała tablica, ale dla przykładu drugiego <code>hash[item] = item.to_s.upcase</code> zwraca <code>item.to_s.upcase</code> a nie <code>hash</code> więc musimy pamiętać by w ostatniej linii bloku zawsze zwrócić <code>hash</code>.</p>
+
+<p>A teraz brakujący przypadek. Metodę <code>each_with_object</code> można nie tylko używać na tablicy czy enumeratorze ale również na hashu (tablicy słownikowej). Taki przypadek wygląda troszkę inaczej. Zobaczcie sami:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
+  hash[key] = value**2
+end
+ =&gt; {:foo=&gt;1, :bar=&gt;4, :jazz=&gt;9}
+</code></pre></div>
+<p>lub</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
+  array &lt;&lt; { id: value, name: key }
+end
+ =&gt; [{:id=&gt;1, :name=&gt;:foo}, {:id=&gt;2, :name=&gt;:bar}, {:id=&gt;3, :name=&gt;:jazz}]
+</code></pre></div>
+<p>To był krótki przegląd tego co można zrobić z metodą <code>each_with_object</code>. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!</p>
 
                         <br>
                     
                     
                     <div class="entry-tags text-center">
 
-                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#event" data-toggle="tooltip" title="Posts tagged with event" rel="tag">event</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#Rails Girls" data-toggle="tooltip" title="Posts tagged with Rails Girls" rel="tag">Rails Girls</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#Szczecin" data-toggle="tooltip" title="Posts tagged with Szczecin" rel="tag">Szczecin</a>
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="/tags/index.html#Ruby" data-toggle="tooltip" title="Posts tagged with Ruby" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="/tags/index.html#tips" data-toggle="tooltip" title="Posts tagged with tips" rel="tag">tips</a>
 
                     </div>
                     
@@ -232,19 +308,19 @@ Tym razem nie będę pisać o żadnych technicznych rzeczach. Tym razem chciała
     </p>
     <ul class="social-mini">
         <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Rails Girls Szczecin (22 – 23 Sierpień 2015)&quot;%20/rails-girls-szczecin%20via%20&#64;womanonrails"
+            <a href="https://twitter.com/intent/tweet?text=&quot;Zastosowanie metody each_with_object w Ruby&quot;%20/each-with-object%20via%20&#64;womanonrails"
             onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
                 <i class="icon-twitter"></i>
             </a>
         </li>
         <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=/rails-girls-szczecin"
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=/each-with-object"
             onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
                 <i class="icon-facebook"></i>
             </a>
         </li>
         <li>
-            <a href="https://plus.google.com/share?url=/rails-girls-szczecin"
+            <a href="https://plus.google.com/share?url=/each-with-object"
            onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
                 <i class="icon-google-plus"></i>
             </a>

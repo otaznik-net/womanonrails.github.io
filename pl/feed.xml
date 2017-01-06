@@ -5,9 +5,119 @@
     <description></description>
     <link>/pl/</link>
     <atom:link href="/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Nov 2016 14:33:34 -0500</pubDate>
-    <lastBuildDate>Fri, 25 Nov 2016 14:33:34 -0500</lastBuildDate>
+    <pubDate>Fri, 06 Jan 2017 14:17:59 -0500</pubDate>
+    <lastBuildDate>Fri, 06 Jan 2017 14:17:59 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Zastosowanie metody each_with_object w Ruby</title>
+        <description>&lt;p&gt;Ostatnio pracowałam z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Jak zazwyczaj w takich sytuacjach zawsze staram się przed użyciem jakiejś metody sprawdzić jej dokumentację. Weszłam więc na &lt;a href=&quot;http://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object&quot;&gt;APIdock&lt;/a&gt; przeglądam zastosowanie oraz przykłady. Okazało się że nie było tam jednego z przypadków zastosowania. Chciałam go dodać, lecz bez powodzenia. Postanowiłam więc, że skoro czekam na rozwiązanie problemu ze strony APIdock mogę napisać krótką notatkę na temat metody &lt;code&gt;each_with_object&lt;/code&gt; tutaj.&lt;/p&gt;
+
+&lt;p&gt;Najbardziej pożytecznym i wydaje mi się również popularnym użyciem tej metody jest podanie jako argumentu tablicy lub hasha (tablicy słownikowej). Można to zrobić przykładowo:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
+  hash[item] = item.to_s.upcase
+end
+ =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;lub&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object([]) do |item, array|
+  array &amp;lt;&amp;lt; item ** 2
+end
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wiem te przykłady są trywialne, ale chodzi o to by zrozumieć samą konstrukcję użycia. Dzięki tej metodzie nie musimy deklarować tablicy przed pętlą:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;array = []
+(1..10).each do |item|
+  array &amp;lt;&amp;lt; item ** 2
+end
+array
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Oczywiście dla tego przykładu można by to zrobić z użyciem metody &lt;code&gt;map&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).map { |item| item ** 2 }
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Innym ciekawym zastosowaniem &lt;code&gt;each_with_object&lt;/code&gt; jest zliczanie częstotliwości występowania:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[&amp;#39;one&amp;#39;, &amp;#39;two&amp;#39;, &amp;#39;one&amp;#39;, &amp;#39;one&amp;#39;].each_with_object(Hash.new(0)) do |item, hash|
+  hash[item] += 1
+end
+ =&amp;gt; {&amp;quot;one&amp;quot;=&amp;gt;3, &amp;quot;two&amp;quot;=&amp;gt;1}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W tym przypadku ustawiamy domyślną wartość dla tablicy słownikowej na &lt;code&gt;0&lt;/code&gt;. Dzięki temu zliczanie ilości wystąpień elementów w tablicy jest szybkie i proste. Nie potrzebujemy warunku &lt;code&gt;if&lt;/code&gt; by zabezpieczyć się przed nieoczekiwaną wartością &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;if hash[item]
+  hash[item] += 1
+else
+  hash[item] = 0
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Uwaga&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;W metodzie &lt;code&gt;each_with_object&lt;/code&gt; nie można użyć niemutowalnych (inmutable) obiektów jak liczby. Przykład poniżej nie zwróci Wam 55 tylko 0.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object(0) do |item, sum|
+  sum += item
+end
+ =&amp;gt; 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Możemy to zrobić też inaczej:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).reduce(:+)
+ =&amp;gt; 55
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;lub&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject(:+)
+ =&amp;gt; 55
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;lub w Ruby on Rails:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).sum
+ =&amp;gt; 55
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Przy okazji czy wiecie jaka jest różnica między metodą &lt;code&gt;reduce&lt;/code&gt; a &lt;code&gt;inject&lt;/code&gt;? Nie ma różnicy. Te dwie metody to tak naprawdę jedna i ta sama metoda, ale mająca dwie nazwy tzw. &lt;a href=&quot;http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject&quot;&gt;alias&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;W tym momencie powinniśmy jeszcze wspomnieć o jednej rzeczy. Metodę &lt;code&gt;inject&lt;/code&gt; możemy stosować też bardzo podobnie do &lt;code&gt;each_with_object&lt;/code&gt;. Różnica jest w kolejności argumentów w bloku i tym że w ostatniej linii bloku dla metody &lt;code&gt;inject&lt;/code&gt; zawsze musimy zwrócić naszą wartość agregującą (przykładowo sumującą). Popatrzcie tutaj:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject([]) do |array, item|
+  array &amp;lt;&amp;lt; item ** 2
+end
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;lub&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].inject({}) do |hash, item|
+  hash[item] = item.to_s.upcase
+  hash
+end
+ =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Uwaga&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Kiedy używamy &lt;code&gt;array &amp;lt;&amp;lt; item ** 2&lt;/code&gt; zawsze zostaje tu zwrócona cała tablica, ale dla przykładu drugiego &lt;code&gt;hash[item] = item.to_s.upcase&lt;/code&gt; zwraca &lt;code&gt;item.to_s.upcase&lt;/code&gt; a nie &lt;code&gt;hash&lt;/code&gt; więc musimy pamiętać by w ostatniej linii bloku zawsze zwrócić &lt;code&gt;hash&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A teraz brakujący przypadek. Metodę &lt;code&gt;each_with_object&lt;/code&gt; można nie tylko używać na tablicy czy enumeratorze ale również na hashu (tablicy słownikowej). Taki przypadek wygląda troszkę inaczej. Zobaczcie sami:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
+  hash[key] = value**2
+end
+ =&amp;gt; {:foo=&amp;gt;1, :bar=&amp;gt;4, :jazz=&amp;gt;9}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;lub&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
+  array &amp;lt;&amp;lt; { id: value, name: key }
+end
+ =&amp;gt; [{:id=&amp;gt;1, :name=&amp;gt;:foo}, {:id=&amp;gt;2, :name=&amp;gt;:bar}, {:id=&amp;gt;3, :name=&amp;gt;:jazz}]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To był krótki przegląd tego co można zrobić z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
+        <link>/pl/each-with-object</link>
+        <guid isPermaLink="true">/pl/each-with-object</guid>
+        
+        <category>Ruby</category>
+        
+        <category>tips</category>
+        
+        
+        <category>Ruby</category>
+        
+        <category>tips</category>
+        
+      </item>
     
       
       <item>
@@ -808,35 +918,6 @@ I oto koniec. Nasza ostatnia sesja zakończona. Podsumowując ten dzień uważam
         <category>event</category>
         
         <category>Kraków</category>
-        
-        
-        <category>podróże</category>
-        
-        <category>warsztaty</category>
-        
-        <category>wydarzenia</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Warsztaty CoderDojo</title>
-        <description>&lt;p&gt;&lt;br&gt;
-Raz w tygodniu pomagam w organizacji warsztatów &lt;strong&gt;CoderDojo&lt;/strong&gt;. Warsztaty te przeznaczone są dla osób młodych (nie tylko wiekiem ale także duchem), które chcą nauczyć się czegoś o &lt;strong&gt;Informatyce&lt;/strong&gt;. Mówiąc Informatyka mam na myśli programowanie, tworzenie stron internetowych, gier, grafikę, druk 3D, animacje, video, roboty i wiele innych. Tak na prawdę tylko wyobraźnia ogranicza nasze możliwości. Na CoderDojo obowiązuje tylko jedna zasada: &lt;strong&gt;Bądź fajny&lt;/strong&gt;. CoderDojo to miejsce gdzie każdy powinien czuć się dobrze i móc uczyć się nowych rzeczy.&lt;/p&gt;
-
-&lt;p&gt;Przy okazji chciałabym powiedzieć, że &lt;strong&gt;nieustannie szukamy nowych mentorów&lt;/strong&gt;. Każdy, komu podoba się ta inicjatywa jest mile widziany. Nie trzeba umieć te wszystkie rzeczy, aby do nas dołączyć. Wystarczy pozytywne nastawienie i chęć nauki siebie i innych. &lt;strong&gt;Serdecznie zapraszam!&lt;/strong&gt; To jedyna okazja by przekonać się co młodzi ludzie potrafią zrobić. Oni na prawdę są niesamowici. Są nawet lepsi niż my. Mają swoje pasje i chętnie dzielą się nimi z innymi.&lt;/p&gt;
-
-&lt;p&gt;Jeżeli chciałbyś/chciałabyś zobaczyć jak wyglądają zajęcia odwiedź nas lub obejrzyj &lt;a href=&quot;https://www.youtube.com/watch?v=G_tTBd_ei3s&quot;&gt;filmik&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Jeżeli zainteresowała Cię ta inicjatywa to po więcej informacji zapraszam na &lt;a href=&quot;https://coderdojo.com/&quot;&gt;https://coderdojo.com/&lt;/a&gt; lub &lt;a href=&quot;https://coderdojo.org.pl/&quot;&gt;https://coderdojo.org.pl/&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 10 Oct 2015 00:00:00 -0400</pubDate>
-        <link>/pl/coderdojo-workshop</link>
-        <guid isPermaLink="true">/pl/coderdojo-workshop</guid>
-        
-        <category>CoderDojo</category>
-        
-        <category>event</category>
         
         
         <category>podróże</category>

@@ -5,9 +5,119 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 25 Nov 2016 14:33:33 -0500</pubDate>
-    <lastBuildDate>Fri, 25 Nov 2016 14:33:33 -0500</lastBuildDate>
+    <pubDate>Fri, 06 Jan 2017 14:17:58 -0500</pubDate>
+    <lastBuildDate>Fri, 06 Jan 2017 14:17:58 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Quick overview Ruby each_with_object method</title>
+        <description>&lt;p&gt;I worked in last a few days with &lt;code&gt;each_with_object&lt;/code&gt; method. Every time when I would like to use some method in Ruby I try read documentation one more time and I look on some example of usage. This time I went through &lt;a href=&quot;http://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object&quot;&gt;APIdock&lt;/a&gt; and I noticed that in theirs documentation is missing one very nice example of usage &lt;code&gt;each_with_object&lt;/code&gt; method. I tried to add this missing part there, but without success. In meantime when I&amp;#39;m waiting for message from APIdoc support I decided to write short note here about this.&lt;/p&gt;
+
+&lt;p&gt;The most useful and I think the most popular usage of &lt;code&gt;each_with_object&lt;/code&gt; is putting hash or array as an argument. You can do this like in example below:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
+  hash[item] = item.to_s.upcase
+end
+ =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object([]) do |item, array|
+  array &amp;lt;&amp;lt; item ** 2
+end
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I know this examples are trivial, but they show main rules. You don&amp;#39;t need to declare array or hash before your loops for example like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;array = []
+(1..10).each do |item|
+  array &amp;lt;&amp;lt; item ** 2
+end
+array
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I know this example can be also replace with &lt;code&gt;map&lt;/code&gt; use case. Like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).map { |item| item ** 2 }
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Other nice example of &lt;code&gt;each_with_object&lt;/code&gt; usage is frequency hash:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[&amp;#39;one&amp;#39;, &amp;#39;two&amp;#39;, &amp;#39;one&amp;#39;, &amp;#39;one&amp;#39;].each_with_object(Hash.new(0)) do |item, hash|
+  hash[item] += 1
+end
+ =&amp;gt; {&amp;quot;one&amp;quot;=&amp;gt;3, &amp;quot;two&amp;quot;=&amp;gt;1}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this case we use hash with default value set to &lt;code&gt;0&lt;/code&gt; and now counting occurrence is easy and quick. You don&amp;#39;t need to do &lt;code&gt;if&lt;/code&gt; statement to be sure that you are nil safe like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;if hash[item]
+  hash[item] += 1
+else
+  hash[item] = 0
+end
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Important note&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You cannot use immutable objects like numbers. Example below does not return 55 but 0.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object(0) do |item, sum|
+  sum += item
+end
+ =&amp;gt; 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Yes, we can do that in different way:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).reduce(:+)
+ =&amp;gt; 55
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject(:+)
+ =&amp;gt; 55
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;or in Rails:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).sum
+ =&amp;gt; 55
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;By the way, what is difference between &lt;code&gt;reduce&lt;/code&gt; and &lt;code&gt;inject&lt;/code&gt;? There is no difference. This two methods are &lt;a href=&quot;http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject&quot;&gt;aliases&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this place we should add one more thing. &lt;code&gt;inject&lt;/code&gt; method we can use similar to &lt;code&gt;each_with_object&lt;/code&gt; but order of arguments in block is different and we need always remember to put in last line of block our accumulator value. Look here:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject([]) do |array, item|
+  array &amp;lt;&amp;lt; item ** 2
+end
+ =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].inject({}) do |hash, item|
+  hash[item] = item.to_s.upcase
+  hash
+end
+ =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Important note&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;When we use &lt;code&gt;array &amp;lt;&amp;lt; item ** 2&lt;/code&gt; this command always returns all array, but for this second example &lt;code&gt;hash[item] = item.to_s.upcase&lt;/code&gt; returns &lt;code&gt;item.to_s.upcase&lt;/code&gt; not all &lt;code&gt;hash&lt;/code&gt; so we need to remember about adding &lt;code&gt;hash&lt;/code&gt; on the end.&lt;/p&gt;
+
+&lt;p&gt;And now the missing part for &lt;code&gt;each_with_object&lt;/code&gt;. You can use this method also on hash not only on arrays or enumerators. This looks a little bit different than before. Let I show you:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
+  hash[key] = value**2
+end
+ =&amp;gt; {:foo=&amp;gt;1, :bar=&amp;gt;4, :jazz=&amp;gt;9}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;or like this&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
+  array &amp;lt;&amp;lt; { id: value, name: key }
+end
+ =&amp;gt; [{:id=&amp;gt;1, :name=&amp;gt;:foo}, {:id=&amp;gt;2, :name=&amp;gt;:bar}, {:id=&amp;gt;3, :name=&amp;gt;:jazz}]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This was quick overview for method &lt;code&gt;each_with_object&lt;/code&gt;. I hope you like this examples like I do. If you have any question leave them below and see you next time!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
+        <link>/each-with-object</link>
+        <guid isPermaLink="true">/each-with-object</guid>
+        
+        <category>Ruby</category>
+        
+        <category>tips</category>
+        
+        
+        <category>Ruby</category>
+        
+        <category>tips</category>
+        
+      </item>
     
       
       <item>
@@ -816,35 +926,6 @@ Our image have this inside:&lt;/p&gt;
         <category>event</category>
         
         <category>Cracow</category>
-        
-        
-        <category>events</category>
-        
-        <category>travels</category>
-        
-        <category>workshops</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>CoderDojo workshops</title>
-        <description>&lt;p&gt;&lt;br&gt;
-Ones a week I’m teaching others at &lt;strong&gt;CoderDojo&lt;/strong&gt; workshops. CoderDojo is a place for young people (not only young by age but also young by mind) which like to learn Computer Science. When I say &lt;strong&gt;Computer Science&lt;/strong&gt; I mean: programming, game and website creation, graphic design, 3D printing, animations, video creation, robots and many many more. Only yours imagination can limit your skills connected to Computer. On this classes is only one rule: &lt;strong&gt;Just be cool!&lt;/strong&gt; CoderDojo is places where everyone feel good and can learn new things.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;BTW we are looking for new mentors.&lt;/strong&gt; All people which like this CoderDojo idea are welcome to come. You don’t have to know all this IT staff. All you need is to be positive and want to learn new skill and teach others. &lt;strong&gt;I encourage everyone to try.&lt;/strong&gt; I truly recommend to see what this young people can do. It is amazing. They are even smarter then we are. They have their own passion and want to share this with others. And this is beautiful.&lt;/p&gt;
-
-&lt;p&gt;If you like to see how classes look like just come to us or watch our &lt;a href=&quot;https://www.youtube.com/watch?v=G_tTBd_ei3s&quot;&gt;video&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you are intested in CoderDojo workshop you can also find more information on &lt;a href=&quot;https://coderdojo.com/&quot;&gt;https://coderdojo.com/&lt;/a&gt; or &lt;a href=&quot;https://coderdojo.org.pl/&quot;&gt;https://coderdojo.org.pl/&lt;/a&gt;&lt;/p&gt;
-</description>
-        <pubDate>Sat, 10 Oct 2015 00:00:00 -0400</pubDate>
-        <link>/coderdojo-workshop</link>
-        <guid isPermaLink="true">/coderdojo-workshop</guid>
-        
-        <category>CoderDojo</category>
-        
-        <category>event</category>
         
         
         <category>events</category>
