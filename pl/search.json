@@ -3,7 +3,7 @@
 		{
 		  "title"      : "Zastosowanie metody each_with_object w Ruby",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/each-with-object",
+		  "url"        : "/each-with-object",
 		  "date"       : "2017-01-05 00:00:00 -0500",
 		  "shortdate"  : "January 05, 2017"
 		} ,
@@ -11,7 +11,7 @@
 		{
 		  "title"      : "Web Summit - Lizbona 2016",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/websummit-lisbon-2016",
+		  "url"        : "/websummit-lisbon-2016",
 		  "date"       : "2016-11-19 00:00:00 -0500",
 		  "shortdate"  : "November 19, 2016"
 		} ,
@@ -19,7 +19,7 @@
 		{
 		  "title"      : "Leaflet - Wstęp do map",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/leaflet",
+		  "url"        : "/leaflet",
 		  "date"       : "2016-08-13 00:00:00 -0400",
 		  "shortdate"  : "August 13, 2016"
 		} ,
@@ -27,7 +27,7 @@
 		{
 		  "title"      : "Praca zdalna",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/remote-work",
+		  "url"        : "/remote-work",
 		  "date"       : "2016-05-15 00:00:00 -0400",
 		  "shortdate"  : "May 15, 2016"
 		} ,
@@ -35,7 +35,7 @@
 		{
 		  "title"      : "Git Rebase",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/git-rebase",
+		  "url"        : "/git-rebase",
 		  "date"       : "2016-04-10 00:00:00 -0400",
 		  "shortdate"  : "April 10, 2016"
 		} ,
@@ -43,7 +43,7 @@
 		{
 		  "title"      : "Podstawowe użycie Git",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/git-usage",
+		  "url"        : "/git-usage",
 		  "date"       : "2016-02-20 00:00:00 -0500",
 		  "shortdate"  : "February 20, 2016"
 		} ,
@@ -51,7 +51,7 @@
 		{
 		  "title"      : "Lambda w Ruby",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/lambda",
+		  "url"        : "/lambda",
 		  "date"       : "2016-02-10 00:00:00 -0500",
 		  "shortdate"  : "February 10, 2016"
 		} ,
@@ -59,7 +59,7 @@
 		{
 		  "title"      : "Global Game Jam",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/global-game-jam",
+		  "url"        : "/global-game-jam",
 		  "date"       : "2016-01-31 00:00:00 -0500",
 		  "shortdate"  : "January 31, 2016"
 		} ,
@@ -67,7 +67,7 @@
 		{
 		  "title"      : "Co to jest git?",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/what-is-git",
+		  "url"        : "/what-is-git",
 		  "date"       : "2015-12-20 00:00:00 -0500",
 		  "shortdate"  : "December 20, 2015"
 		} ,
@@ -75,7 +75,7 @@
 		{
 		  "title"      : "Coderetreat 2015 Kraków",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/coderetreat",
+		  "url"        : "/coderetreat",
 		  "date"       : "2015-11-20 00:00:00 -0500",
 		  "shortdate"  : "November 20, 2015"
 		} ,
@@ -83,7 +83,7 @@
 		{
 		  "title"      : "Warsztaty CoderDojo",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/coderdojo-workshop",
+		  "url"        : "/coderdojo-workshop",
 		  "date"       : "2015-10-10 00:00:00 -0400",
 		  "shortdate"  : "October 10, 2015"
 		} ,
@@ -91,7 +91,7 @@
 		{
 		  "title"      : "Bądź sobą – Jak radzić sobie z brakiem pewności siebie",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/be-yourself",
+		  "url"        : "/be-yourself",
 		  "date"       : "2015-09-29 00:00:00 -0400",
 		  "shortdate"  : "September 29, 2015"
 		} ,
@@ -99,7 +99,7 @@
 		{
 		  "title"      : "Rails Girls Szczecin (22 – 23 Sierpień 2015)",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/rails-girls-szczecin",
+		  "url"        : "/rails-girls-szczecin",
 		  "date"       : "2015-08-30 00:00:00 -0400",
 		  "shortdate"  : "August 30, 2015"
 		} ,
@@ -107,7 +107,7 @@
 		{
 		  "title"      : "Refaktoryzacja w SessionsController",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/session-controller-refactoring",
+		  "url"        : "/session-controller-refactoring",
 		  "date"       : "2015-07-17 00:00:00 -0400",
 		  "shortdate"  : "July 17, 2015"
 		} ,
@@ -115,7 +115,7 @@
 		{
 		  "title"      : "Własne walidatory w Ruby on Rails",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/custom-rails-validators",
+		  "url"        : "/custom-rails-validators",
 		  "date"       : "2015-04-15 00:00:00 -0400",
 		  "shortdate"  : "April 15, 2015"
 		} ,
@@ -123,7 +123,7 @@
 		{
 		  "title"      : "RVM – zarządzanie wersjami Ruby",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/rvm",
+		  "url"        : "/rvm",
 		  "date"       : "2015-03-08 00:00:00 -0500",
 		  "shortdate"  : "March 08, 2015"
 		} ,
@@ -131,7 +131,7 @@
 		{
 		  "title"      : "Wzorzec projektowy – MVC",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/mvc-design-pattern",
+		  "url"        : "/mvc-design-pattern",
 		  "date"       : "2014-11-10 00:00:00 -0500",
 		  "shortdate"  : "November 10, 2014"
 		} ,
@@ -139,7 +139,7 @@
 		{
 		  "title"      : "Guake – podręczny terminal",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/guake-terminal",
+		  "url"        : "/guake-terminal",
 		  "date"       : "2014-08-22 00:00:00 -0400",
 		  "shortdate"  : "August 22, 2014"
 		} ,
@@ -147,7 +147,7 @@
 		{
 		  "title"      : "Triki dla obiektu Hash w Ruby",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/ruby-hash-tips",
+		  "url"        : "/ruby-hash-tips",
 		  "date"       : "2014-06-25 00:00:00 -0400",
 		  "shortdate"  : "June 25, 2014"
 		} ,
@@ -155,7 +155,7 @@
 		{
 		  "title"      : "RailsGirls Kraków",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/rails-girls-cracow",
+		  "url"        : "/rails-girls-cracow",
 		  "date"       : "2014-05-26 00:00:00 -0400",
 		  "shortdate"  : "May 26, 2014"
 		} ,
@@ -163,7 +163,7 @@
 		{
 		  "title"      : "Dni Wolnego Oprogramowania",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/dwo-2014",
+		  "url"        : "/dwo-2014",
 		  "date"       : "2014-05-02 00:00:00 -0400",
 		  "shortdate"  : "May 02, 2014"
 		} ,
@@ -171,7 +171,7 @@
 		{
 		  "title"      : "Triki dla Tablic w Ruby",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/ruby-array-tips",
+		  "url"        : "/ruby-array-tips",
 		  "date"       : "2014-03-14 00:00:00 -0400",
 		  "shortdate"  : "March 14, 2014"
 		} ,
@@ -179,7 +179,7 @@
 		{
 		  "title"      : "Rails Girls witaj z powrotem!",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/rails-girls-warsaw",
+		  "url"        : "/rails-girls-warsaw",
 		  "date"       : "2014-02-24 00:00:00 -0500",
 		  "shortdate"  : "February 24, 2014"
 		} ,
@@ -187,7 +187,7 @@
 		{
 		  "title"      : "Hack4Good Kraków",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/hack4good-cracow",
+		  "url"        : "/hack4good-cracow",
 		  "date"       : "2014-02-10 00:00:00 -0500",
 		  "shortdate"  : "February 10, 2014"
 		} ,
@@ -195,7 +195,7 @@
 		{
 		  "title"      : "Ruby Refactoring – część 1",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/refactoring-ruby-part1",
+		  "url"        : "/refactoring-ruby-part1",
 		  "date"       : "2013-12-30 00:00:00 -0500",
 		  "shortdate"  : "December 30, 2013"
 		} ,
@@ -203,7 +203,7 @@
 		{
 		  "title"      : "CoffeeScript Refactoring – część 1",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/refactoring-coffee-part1",
+		  "url"        : "/refactoring-coffee-part1",
 		  "date"       : "2013-12-06 00:00:00 -0500",
 		  "shortdate"  : "December 06, 2013"
 		} ,
@@ -211,7 +211,7 @@
 		{
 		  "title"      : "Web Summit",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/websummit",
+		  "url"        : "/websummit",
 		  "date"       : "2013-11-01 00:00:00 -0400",
 		  "shortdate"  : "November 01, 2013"
 		} ,
@@ -219,7 +219,7 @@
 		{
 		  "title"      : "Hack4Good",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/hack4good",
+		  "url"        : "/hack4good",
 		  "date"       : "2013-10-30 00:00:00 -0400",
 		  "shortdate"  : "October 30, 2013"
 		} ,
@@ -227,7 +227,7 @@
 		{
 		  "title"      : "RuPy",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/rupy",
+		  "url"        : "/rupy",
 		  "date"       : "2013-10-13 19:00:00 -0400",
 		  "shortdate"  : "October 13, 2013"
 		} ,
@@ -235,7 +235,7 @@
 		{
 		  "title"      : "Zasady Rails Girls",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/rails-girls-rules",
+		  "url"        : "/rails-girls-rules",
 		  "date"       : "2013-09-07 19:00:00 -0400",
 		  "shortdate"  : "September 07, 2013"
 		} ,
@@ -243,7 +243,7 @@
 		{
 		  "title"      : "Wprowadzenie",
 		  "category"   : "",
-		  "url"        : "http://womanonrails.com/inrtoduction",
+		  "url"        : "/inrtoduction",
 		  "date"       : "2013-09-05 19:00:00 -0400",
 		  "shortdate"  : "September 05, 2013"
 		} 

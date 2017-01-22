@@ -3,10 +3,10 @@
   <channel>
     <title>Woman on Rails</title>
     <description></description>
-    <link>http://womanonrails.com/</link>
-    <atom:link href="http://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 Jan 2017 09:37:24 -0500</pubDate>
-    <lastBuildDate>Sun, 22 Jan 2017 09:37:24 -0500</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 22 Jan 2017 09:44:46 -0500</pubDate>
+    <lastBuildDate>Sun, 22 Jan 2017 09:44:46 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -105,8 +105,8 @@ end
 &lt;p&gt;This was quick overview for method &lt;code&gt;each_with_object&lt;/code&gt;. I hope you like this examples like I do. If you have any question leave them below and see you next time!&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/each-with-object</link>
-        <guid isPermaLink="true">http://womanonrails.com/each-with-object</guid>
+        <link>/each-with-object</link>
+        <guid isPermaLink="true">/each-with-object</guid>
         
         <category>Ruby</category>
         
@@ -146,8 +146,8 @@ end
 &lt;p&gt;I appreciate that I could come to Web Summit and be participant on this conference. But if I would buy the ticket as a developer I would be disappointed. I really love small conference where you feel like in home, where everyone (almost everyone) know each other&amp;#39;s. Where everyone care for each others. The best thing of Web Summit was amazing people which I met there. I&amp;#39;m so happy that even on that huge event I could meet so wonderful people from different countries. That&amp;#39;s all what I would like to say. I hope the next edition will be better.&lt;/p&gt;
 </description>
         <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/websummit-lisbon-2016</link>
-        <guid isPermaLink="true">http://womanonrails.com/websummit-lisbon-2016</guid>
+        <link>/websummit-lisbon-2016</link>
+        <guid isPermaLink="true">/websummit-lisbon-2016</guid>
         
         <category>Web Summit</category>
         
@@ -383,8 +383,8 @@ end
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
-        <link>http://womanonrails.com/leaflet</link>
-        <guid isPermaLink="true">http://womanonrails.com/leaflet</guid>
+        <link>/leaflet</link>
+        <guid isPermaLink="true">/leaflet</guid>
         
         <category>maps</category>
         
@@ -479,8 +479,8 @@ From my perspective it is great opportunity. I very happy that I could to try.
 This is it. I hope you like this article. If you have any question please leave them below in comments. See you next time!&lt;/p&gt;
 </description>
         <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>http://womanonrails.com/remote-work</link>
-        <guid isPermaLink="true">http://womanonrails.com/remote-work</guid>
+        <link>/remote-work</link>
+        <guid isPermaLink="true">/remote-work</guid>
         
         <category>work</category>
         
@@ -561,8 +561,8 @@ git rebase --continue
 &lt;p&gt;This is it. I showed you how you can use &lt;code&gt;git rebase&lt;/code&gt;. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>http://womanonrails.com/git-rebase</link>
-        <guid isPermaLink="true">http://womanonrails.com/git-rebase</guid>
+        <link>/git-rebase</link>
+        <guid isPermaLink="true">/git-rebase</guid>
         
         <category>git</category>
         
@@ -697,8 +697,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;This is end. All you need to know to start working with Git is here. I hope you like it. If you wants know more please let me now in comments. See you next time! Bye!&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Feb 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/git-usage</link>
-        <guid isPermaLink="true">http://womanonrails.com/git-usage</guid>
+        <link>/git-usage</link>
+        <guid isPermaLink="true">/git-usage</guid>
         
         <category>git</category>
         
@@ -748,8 +748,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;I hope that was interesting for you. Live a comment and see you next time. Bye!&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/lambda</link>
-        <guid isPermaLink="true">http://womanonrails.com/lambda</guid>
+        <link>/lambda</link>
+        <guid isPermaLink="true">/lambda</guid>
         
         <category>Ruby</category>
         
@@ -772,8 +772,8 @@ Place: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I really love doing things connecting in technology. This time I was participant in &lt;a href=&quot;http://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; in Cieszyn. This was my third time. &lt;strong&gt;What is Global Game Jam?&lt;/strong&gt; This is 48 hours hackaton for people which would like to create games. And each year I&amp;#39;m impressed of ideas, talent and projects realization. You can see more &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/global-game-jam</link>
-        <guid isPermaLink="true">http://womanonrails.com/global-game-jam</guid>
+        <link>/global-game-jam</link>
+        <guid isPermaLink="true">/global-game-jam</guid>
         
         <category>GGJ</category>
         
@@ -854,8 +854,8 @@ Our image have this inside:&lt;/p&gt;
 &lt;p&gt;I hope that this article help you to understand for what we use git and why it is helpful. In next article I describe how we can use it. If you have some question or suggestion please let me know in comments. See you next time. Bye!&lt;/p&gt;
 </description>
         <pubDate>Sun, 20 Dec 2015 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/what-is-git</link>
-        <guid isPermaLink="true">http://womanonrails.com/what-is-git</guid>
+        <link>/what-is-git</link>
+        <guid isPermaLink="true">/what-is-git</guid>
         
         <category>git</category>
         
@@ -918,8 +918,8 @@ Our image have this inside:&lt;/p&gt;
 &lt;p&gt;Ok, this is it. This was very productive day for me. I learn new things. Coderetreat one more time open my eyes how important is good quality code. I wish every programmer to be part of this event. See you soon. All best! Bye.&lt;/p&gt;
 </description>
         <pubDate>Fri, 20 Nov 2015 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/coderetreat</link>
-        <guid isPermaLink="true">http://womanonrails.com/coderetreat</guid>
+        <link>/coderetreat</link>
+        <guid isPermaLink="true">/coderetreat</guid>
         
         <category>coderetreat</category>
         
