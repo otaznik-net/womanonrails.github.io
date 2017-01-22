@@ -3,10 +3,10 @@
   <channel>
     <title>Woman on Rails</title>
     <description></description>
-    <link>/pl/</link>
-    <atom:link href="/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 06 Jan 2017 14:17:59 -0500</pubDate>
-    <lastBuildDate>Fri, 06 Jan 2017 14:17:59 -0500</lastBuildDate>
+    <link>http://womanonrails.com/pl/</link>
+    <atom:link href="http://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 22 Jan 2017 08:21:09 -0500</pubDate>
+    <lastBuildDate>Sun, 22 Jan 2017 08:21:09 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -105,8 +105,8 @@ end
 &lt;p&gt;To był krótki przegląd tego co można zrobić z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>/pl/each-with-object</link>
-        <guid isPermaLink="true">/pl/each-with-object</guid>
+        <link>http://womanonrails.com/pl/each-with-object</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/each-with-object</guid>
         
         <category>Ruby</category>
         
@@ -146,8 +146,8 @@ end
 &lt;p&gt;Dziękuje za to, że mogłam wziąć udział w tego rocznym Web Summit. Jednak patrząc z perspektywy programistki, gdybym kupiła ten bilet z własnych pieniędzy, byłabym bardzo rozczarowana. Naprawdę uwielbiam konferencje bardziej kameralne, gdzie wszyscy lub prawie wszyscy się znają lub kojarzą z widzenia. Gdzie moja obecność ma znaczenie. Gdzie ludzie dbają o siebie na wzajem. Brakowało mi tego na Web Summit. Najlepszą rzeczą jaką wyniosłam z tegorocznej wydarzenia to poznanie wspaniałych ludzi. Jestem naprawdę szczęśliwa, że nawet przy tak przytłaczającym tłumie można spotkać niesamowitych ludzi z różnych krajów. To wszystko, co chciałabym powiedzieć. Mam nadzieję, że następna edycja będzie lepsza.&lt;/p&gt;
 </description>
         <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
-        <link>/pl/websummit-lisbon-2016</link>
-        <guid isPermaLink="true">/pl/websummit-lisbon-2016</guid>
+        <link>http://womanonrails.com/pl/websummit-lisbon-2016</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/websummit-lisbon-2016</guid>
         
         <category>Web Summit</category>
         
@@ -377,8 +377,8 @@ end
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
-        <link>/pl/leaflet</link>
-        <guid isPermaLink="true">/pl/leaflet</guid>
+        <link>http://womanonrails.com/pl/leaflet</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/leaflet</guid>
         
         <category>maps</category>
         
@@ -473,8 +473,8 @@ Z mojej perspektywy było to niesamowite doświadczenie. Jestem naprawdę szczę
 To wszystko na dziś. Mam nadzieje, że artykuł Wam się podobał. Jeżeli macie jakieś pytania, piszcie w komentarzach. Do następnego razu!&lt;/p&gt;
 </description>
         <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>/pl/remote-work</link>
-        <guid isPermaLink="true">/pl/remote-work</guid>
+        <link>http://womanonrails.com/pl/remote-work</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/remote-work</guid>
         
         <category>praca</category>
         
@@ -555,8 +555,8 @@ git rebase --continue
 &lt;p&gt;To wszystko na dzisiaj. Pokazałam Wam jak można używać &lt;code&gt;git rebase&lt;/code&gt;. Mam nadzięję, że było to dla Was pomocne. Jeżeli miacie jakieś pytania lub sugestie zapraszam do komentowania. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>/pl/git-rebase</link>
-        <guid isPermaLink="true">/pl/git-rebase</guid>
+        <link>http://womanonrails.com/pl/git-rebase</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/git-rebase</guid>
         
         <category>git</category>
         
@@ -691,8 +691,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;To na razie tyle. Szybki przegląd podstawowych poleceń używanych do obsługi systemu kontroli wersji jakim jest Git. Mam nadzieje, że Wam się podobało. Jeżeli chcielibyście dowiedzieć sie czegoś więcej lub chcielibyście bym coś bardziej wytłumaczyła zostawcie komentarz. Do zobaczenia następnym razem. Pa!&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Feb 2016 00:00:00 -0500</pubDate>
-        <link>/pl/git-usage</link>
-        <guid isPermaLink="true">/pl/git-usage</guid>
+        <link>http://womanonrails.com/pl/git-usage</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/git-usage</guid>
         
         <category>git</category>
         
@@ -742,8 +742,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;Mam nadzieje, że było to dla Was interesujące. Zostawcie komentarz i do zobaczenia następnym razem.&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
-        <link>/pl/lambda</link>
-        <guid isPermaLink="true">/pl/lambda</guid>
+        <link>http://womanonrails.com/pl/lambda</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/lambda</guid>
         
         <category>Ruby</category>
         
@@ -766,8 +766,8 @@ Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Uwielbiam robić rzeczy związane z technologią. Tym razem uczestniczyłam w &lt;a href=&quot;http://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; w Cieszynie. To był mój trzeci raz. &lt;strong&gt;Co to Global Game Jam?&lt;/strong&gt; To hakaton trwający 48 godzin. Gromadzą się tam ludzie, który chcą tworzyć gry komputerowe. Każdego roku jestem pod ogromnym wrażeniem pomysłowości, talentu i realizacji projektów, które tam powstają. Jeżeli chcecie zobaczyć więcej możecie zajrzeć &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
-        <link>/pl/global-game-jam</link>
-        <guid isPermaLink="true">/pl/global-game-jam</guid>
+        <link>http://womanonrails.com/pl/global-game-jam</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/global-game-jam</guid>
         
         <category>GGJ</category>
         
@@ -845,8 +845,8 @@ Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Mam nadzieję, że ten artykuł był dla Was pomocny, w zrozumieniu tego po co przydaje się takie narzędzie jak Git. W następnym artykule chciałabym opisać podstawowe użycie tego narzędzia. Jeżeli macie jakieś pytania lub sugestie, dajcie znać w komentarzach. Do zobaczenia następnym razem. Pa!&lt;/p&gt;
 </description>
         <pubDate>Sun, 20 Dec 2015 00:00:00 -0500</pubDate>
-        <link>/pl/what-is-git</link>
-        <guid isPermaLink="true">/pl/what-is-git</guid>
+        <link>http://womanonrails.com/pl/what-is-git</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/what-is-git</guid>
         
         <category>git</category>
         
@@ -910,8 +910,8 @@ Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 I oto koniec. Nasza ostatnia sesja zakończona. Podsumowując ten dzień uważam, że to był dobrze zainwestowany czas. Wiele przemyśleń i nowe spojrzenie. Kolejny raz Coderetreat otworzył mi oczy i pokazał jak ważne jest dbanie o jakość kodu. Życzę każdemu wzięcia udziału w tym wydarzeniu, zwłaszcza tak dobrze przygotowanym jak w Krakowie. Do zobaczenia w krótce. Pa!&lt;/p&gt;
 </description>
         <pubDate>Fri, 20 Nov 2015 00:00:00 -0500</pubDate>
-        <link>/pl/coderetreat</link>
-        <guid isPermaLink="true">/pl/coderetreat</guid>
+        <link>http://womanonrails.com/pl/coderetreat</link>
+        <guid isPermaLink="true">http://womanonrails.com/pl/coderetreat</guid>
         
         <category>coderetreat</category>
         
