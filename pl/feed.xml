@@ -5,9 +5,119 @@
     <description></description>
     <link>/pl/</link>
     <atom:link href="/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 Jan 2017 10:34:24 -0500</pubDate>
-    <lastBuildDate>Sun, 22 Jan 2017 10:34:24 -0500</lastBuildDate>
+    <pubDate>Fri, 10 Mar 2017 11:39:11 -0500</pubDate>
+    <lastBuildDate>Fri, 10 Mar 2017 11:39:11 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Sublime Text - edytor tekstowy</title>
+        <description>&lt;p&gt;Myślę, że prawie każdy programista ma swój ulubiony edytor tekstowy. Jedni lubią edytory takie jak &lt;a href=&quot;https://en.wikipedia.org/wiki/Vim_(text_editor)&quot;&gt;Vim&lt;/a&gt;, inni jak &lt;a href=&quot;https://notepad-plus-plus.org/&quot;&gt;Notepad++&lt;/a&gt; a ja uwielbiam &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;. Posiada on wiele skrótów klawiszowych, dodatków czy snippetów ułatwiających pracę z kodem lub ze zwykłym tekstem. Oto moim zadaniem najważniejsze zalety Sublime:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Możesz jednocześnie przeglądać 4 pliki w tym samym czasie.&lt;/p&gt;
+
+&lt;p&gt;Sublime ma możliwość podzielenia okna programu na kilka części. Maksymalnie cztery. Chyba, że używasz dodatku &lt;a href=&quot;https://github.com/SublimeText/Origami&quot;&gt;Origami&lt;/a&gt;. Pozwala on dzielić okno programu na dowolną ilość paneli. W podstawowej wersji Sublime można wybierać pomiędzy kilkoma dostępnymi typami paneli. Można je zaleźć w &lt;code&gt;View -&amp;gt; Layout&lt;/code&gt;. Są tam też dostępne skróty klawiszowe do zarządzania tymi panelami. Ja osobiście lubię mieć otwarte dwa panele równocześnie. To bardzo ułatwia mi pracę w &lt;strong&gt;TDD&lt;/strong&gt;. Dzięki temu cały czas mam widoczny kod i testy nad którymi pracuję.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wszystko jest konfigurowalne&lt;/p&gt;
+
+&lt;p&gt;Wystarczy tylko wejść do &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. Są tam zapisane wszystkie ustawienia. Kolory, zachowania, skróty, ustawienia języków. Dosłownie wszystko. Polecam też przyjrzeć się innym opcją dostępnym w zakładce menu &lt;code&gt;Preferences&lt;/code&gt;. A zwłaszcza &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Dodatki&lt;/p&gt;
+
+&lt;p&gt;Jeżeli tylko chcesz rozszerzyć funkcjonalność Sublime to możesz wybierać w różnych dodatkach. Tutaj moje ulubione:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - do szybkiego i łatwego tworzenia kodu HTML lub CSS&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/facelessuser/BracketHighlighter&quot;&gt;BracketHighlighter&lt;/a&gt; - podświetla otwarcie i zamknięcie konkretnego zagłębienia nawiasów, bardzo przydatny zwłaszcza przy pracy z językami takimi jak JavaScript, gdzie tych nawiasów jest sporo&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jisaacks/GitGutter&quot;&gt;Git Gutter&lt;/a&gt; - pokazuje zmiany jakie zaszły w kodzie (jest zintegrowany z narzędziem o nazwie &lt;strong&gt;git&lt;/strong&gt;, pisałam o nim w artykule &lt;a href=&quot;/pl/what-is-git&quot;&gt;Co to jest git?&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dzhibas/SublimePrettyJson&quot;&gt;SublimePrettyJson&lt;/a&gt; - pozwala za pomocą kombinacji klawiszy w czytelny sposób sformatować plik zawierający dane w formacie JSON&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pderichs/sublime_rubocop&quot;&gt;RuboCop&lt;/a&gt; - pokazuje dobre praktyki pisania kodu w języku Ruby&lt;/li&gt;
+&lt;li&gt;Linters (Coffee Script, CSS, Sass, JS) - narzędzia, które pokazują dobre praktyki pisania kodu w różnych językach w zależności od wybranego lintera&lt;/li&gt;
+&lt;li&gt;Colorfull syntaxt - kolorowanie składni języka, jeżeli tylko brakuje Ci składni jakiegoś języka programowania zawsze można taką funkcjonalność doinstalować&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Zachęcam do samodzielnego poszukania innych dodatków.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Skróty, skróty skróty klawiszowe&lt;/p&gt;
+
+&lt;p&gt;Jak mam być szczera uwielbiam skróty klawiszowe. To jest też główny powód, dla którego robię ten artykuł. Jak tylko jest to możliwe, to pracuje wyłącznie z klawiaturą. Dzięki temu oszczędzam czas. Sublime oferuje nam niezliczony zasób takich właśnie skrótów. Te z których korzystam na co dzień zamieściłam poniżej:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + b&lt;/code&gt; - włącza/wyłącza pasek boczny (z projektami)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + 0&lt;/code&gt; - przechodzi do paska bocznego, gdzie znajdują się katalogi z projektami (wtedy za pomocą strzałek można poruszać się pomiędzy plikami i katalogami, naciskając &lt;code&gt;enter ↩&lt;/code&gt; otwieramy plik w oknie głównym i przenosimy tam kursor)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + 1,2,3,4&lt;/code&gt; - przenosi kursor pomiędzy panelami wewnątrz okna głównego (w zależności od wybranej ilości paneli)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ←, →&lt;/code&gt; - przechodzi do początku/końca słowa&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ←, →&lt;/code&gt; - zaznacza poprzednie/następne słowo&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + m&lt;/code&gt; - przeskakuje pomiędzy początkiem a końcem nawiasów w bieżącym fragmencie kodu&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + m&lt;/code&gt; - zaznacza całe wnętrze nawiasu lub cudzysłowu&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + PgUp, PgDn&lt;/code&gt; - przechodzi do poprzedniej/następnej zakładki/pliku&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + tab&lt;/code&gt; - przechodzi do następnej używanej zakładki/pliku w jednym panelu/grupie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + tab&lt;/code&gt; - przechodzi do poprzedniej używanej zakładki/pliku w jednym panelu/grupie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ↑, ↓&lt;/code&gt; -  przesuwa bieżący plik do góry/na dół (jak przy poruszaniu za pomocą scrolla w myszce)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ↑, ↓&lt;/code&gt; - zamienia kolejnością sąsiadujące linie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;crtl + /&lt;/code&gt; - zakomentowuje/odkomentowuje linie kodu (w zależności od wybranego języka programowania)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + delete&lt;/code&gt; - usuwa wszystkie znaki znajdujące się po kursorze (bez przechowywania tego w schowku)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + backspace&lt;/code&gt; - usuwa wszystkie znaki przed kursorem (bez przechowywania w schowku)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + k&lt;/code&gt; - usuwa wszystkie znaki znajdujące się po kursorze (bez przechowywania tego w schowku)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + k&lt;/code&gt; - usuwa całą linię bez przechowywania wartości w schowku&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ↩&lt;/code&gt; - dodaje dodatkową linię za kursorem&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ↩&lt;/code&gt; - dodaje dodatkową linię prze kursorem&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + j&lt;/code&gt; - dołącza linię poniżej do końca bieżącej linii&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + alt + j&lt;/code&gt; - pokazuje w czytelny sposób pliki w formacie JSON, możliwość korzystania z tego skrótu dzięki dodatkowi SublimePrettyJson&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ]&lt;/code&gt; - dodaje wcięcie do zaznaczonych linii&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + [&lt;/code&gt; - usuwa wcięcie dla zaznaczonych linii&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + a&lt;/code&gt; - zaznacza cały plik&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + l&lt;/code&gt; - zaznacza całą linię&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + d&lt;/code&gt; - zaznacza słowo (powtarzanie tego skrótu pozwala na zaznaczanie kolejnych tych samych słów w pliku i pozwala na zmianę wielu miejsc w tym samym momencie)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + d&lt;/code&gt; - duplikuje linię&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + u&lt;/code&gt; - zapisuje zaznaczony tekst dużymi literami&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + l&lt;/code&gt; - zapisuje zaznaczony tekst małymi literami&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + c&lt;/code&gt; - kopiuje zaznaczony tekst do schowka, jeżeli nie było zaznaczonego tekstu kopiuje całą linię, w której znajdował się kursor&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + v&lt;/code&gt; - wkleja wybrany tekst lub całą linię ze schowka&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + x&lt;/code&gt; - wycina zaznaczony tekst lub całą linię do schowka&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + g&lt;/code&gt; - pozwala na przejście do linii o wybranym numerze&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ;&lt;/code&gt; - pozwala na przejście do wybranego w bieżącym pliku słowa&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + r&lt;/code&gt; - wyszukuje wybranego symbolu (funkcji, metody, klasy) w pliku&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + r&lt;/code&gt; - wyszykuje wybranego symbolu (funkcji, metody, klasy) w całym projekcie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + t&lt;/code&gt; - zamienia miejscami dwie sąsiednie litery&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + t&lt;/code&gt; - otwiera ostatni zamknięty plik/tab (tak jak w przeglądarce)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + h&lt;/code&gt; - zamienia jedną frazę na drugą w bieżącym pliku&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + f&lt;/code&gt; - przeszukuje plik&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + f&lt;/code&gt; - przeszukuje cały projekt/folder, można też zamienić frazę na inną w całym projekcie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + q&lt;/code&gt; - całkowicie zamyka Sublime&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + w&lt;/code&gt; - zamyka bieżący plik/zakładkę&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + w&lt;/code&gt; - zamyka bieżące okno&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + n&lt;/code&gt; - otwiera nową zakładkę/plik&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + n&lt;/code&gt; - otwiera nowe okno&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + s&lt;/code&gt; -  zapisuje plik&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + s&lt;/code&gt; - zapisuje plik z możliwością zmiany nazwy&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + o&lt;/code&gt; - otwiera plik&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + o&lt;/code&gt; - otwiera folder&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + p&lt;/code&gt; - pozwala na szybkie wyszukanie i otwarcie pliku w projekcie (można wyszukiwać po pierwszych literach każdego członu nazwy przykładowo wpisując &lt;code&gt;mnf&lt;/code&gt; można znaleźć plik &lt;code&gt;my_new_file.txt&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + p&lt;/code&gt; - linia poleceń do instalowania nowych dodatków i pakietów&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + z&lt;/code&gt; - cofa zmiany&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + z&lt;/code&gt; - przywraca ostatnie zmiany&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f6&lt;/code&gt; - sprawdza pisownie w języku, który ma się ustawiony (w moim przypadku jest to angielski)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f9&lt;/code&gt; - ustawia w kolejności alfabetycznej zaznaczone linie&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f3&lt;/code&gt; - następna wyszukiwana fraza&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f3 + shift&lt;/code&gt; - poprzednia wyszukiwana fraza&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Mam nadzieje, że będzie to dla Was pomocne. Do zobaczenia następnym razem!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
+        <link>/pl/sublime</link>
+        <guid isPermaLink="true">/pl/sublime</guid>
+        
+        <category>tools</category>
+        
+        <category>sublime</category>
+        
+        
+        <category>narzędzia</category>
+        
+        <category>sublime</category>
+        
+      </item>
     
       
       <item>
@@ -858,73 +968,6 @@ Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
         <category>narzędzia</category>
         
         <category>środowisko</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Coderetreat 2015 Kraków</title>
-        <description>&lt;p&gt;W zeszłą sobotę uczestniczyłam w niesamowitym wydarzeniu – &lt;a href=&quot;http://coderetreat.org/&quot;&gt;Global Day of Coderetreat&lt;/a&gt; w Krakowie. &lt;strong&gt;Coderetreat&lt;/strong&gt; to szczególny dzień w roku, w którym programiści poświęcają swój czas nie tyle tworzeniu nowych funkcjonalności, ale skupiają się na &lt;strong&gt;kodzie dobrej jakości&lt;/strong&gt;. Jest to dzień, w którym zatrzymujemy się na chwilę, by poświęcić czas na bycie lepszym programistą/programistką.&lt;/p&gt;
-
-&lt;h2&gt;Jak wygląda taki Coderetreat?&lt;/h2&gt;
-
-&lt;p&gt;Cały dzień podzielony jest na 6-7 sesji kodowania. W naszym przypadku było ich dokładnie 6. W każdej z tych sesji staramy się rozwiązać problem &lt;a href=&quot;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&quot;&gt;Gry w życie&lt;/a&gt;. Jest to dość prosty problem, ale rozwiązanie go nie jest głównym celem Coderetreat. Ważniejszy jest sposób dojścia do rozwiązania. Każda sesja trwa 45 minut, po czym następuje 15 minut podsumowania tego, co zostało zrobione i w jaki sposób. Przez wszystkie sesje procujemy w trybie &lt;strong&gt;ping pong pair porgramming&lt;/strong&gt; z narzuconymi pewnymi ograniczeniami. Pair programming ponieważ pracujemy w parach, ping pong bo zmieniamy się przy klawiaturze. Pierwsza osoba pisze test, druga pisze kod a później pierwsza robi refaktoryzację. Teraz nadszedł czas by powiedzieć coś na temat ograniczeń. Mogą być one na prawdę różne. Jedne są prostsze a inne trudniejsze. Poniżej zamieszczam Wam ograniczenia, jakie mieliśmy podczas naszych sesji.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Bez typów prymitywnych&lt;/strong&gt; – opakuj wszystkie typy prymitywne i ciągi znaków&lt;/p&gt;
-
-&lt;p&gt;W tej sesji nie można było przekazywać typów prostych pomiędzy klasami/obiektami. Każdy taki element musiał być otoczony bardziej złożonym obiektem. Na początku posiadanie takich prostych obiektów w projekcie jest przyjemne i łatwe. W przyszłości jednak, takie zachowanie może nas dużo kosztować, nie tylko czasu. Teraz wiem, że muszę się dwa razy zastanowić zanim zostawię taki prosty obiekt w swoim kodzie. Dodatkowo sesja ta był ciekawa jeszcze z jednego powodu. Miałam możliwość wymienienia się poglądami na ten temat z inną kobietą. Co jeszcze na razie w świecie IT jest luksusem ;]&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Programowanie funkcyjne&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Nasz cały kod nie mógł być mutowalny, to znaczy że stanu obiektu nie mógł się zmieniać wewnątrz metody. Czy pamiętacie funkcje z matematyki? One zawsze dostawały jakiś argument i zwracały wartość. Tak było też podczas tej sesji. Dodatkowo tym razem ustawiałam sobie poprzeczkę jeszcze wyżej. Nie programowałam w Ruby ale w &lt;a href=&quot;http://livescript.net/&quot;&gt;LiveScript&lt;/a&gt;. Było to moje pierwsze zetknięcie z tym językiem. Jest on bardzo podobny do &lt;a href=&quot;http://coffeescript.org/&quot;&gt;CoffeeScript&lt;/a&gt;, więc ciekawie było go spróbować. Podczas tej sesji zwróciłam szczególną uwagę na to, jak prosto testuje się takie matematyczne metody. Wystarczy sprawdzić, co zostaje zwrócone dla konkretnych argumentów i koniec.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Rozkazuj, nie proś&lt;/strong&gt; – brak właściwości, brak metod ustawiających i odczytujących pola obiektu (setter, getter)&lt;/p&gt;
-
-&lt;p&gt;Tym razem nasze metody nie mogły pytać o dane, miały mówić obiektom co mają zrobić. Każda metoda nic nie zwracała. Taki kod jest bardzo ciężki do testowania. Obiekty są w tym przypadku jak czarne skrzynki – nie wiemy co się znajduje w środku. Kod jest enkapsulowany, czyli oddzielony od tego co jest na zewnątrz, obiekty zajmują się same sobą i niczym więcej. Była to dla mnie bardzo interesująca sesja, nie tylko ze względu na ograniczenie jakie otrzymaliśmy, ale również ze względu na programowanie w parze z programistą języka Java. Kiedy pracuje się w konkretnej technologi/języku zaczynamy myśleć przez pryzmat tego języka. Nasz mózg skupia się tylko na rozwiązaniu problemu w taki sposób, jaki oferuje nam język/technologia. Nawet nie wiemy, że obok jest inne rozwiązanie. Dlatego tak ważne jest ciągłe doskonalenie i rozwijanie swoich umiejętności, &lt;strong&gt;wychodzenie poza strefę komfortu&lt;/strong&gt;. Jest to prawda nie tylko w programowaniu, ale także w życiu. Duże podziękowania i szacunek dla mojego programistycznego partnera, który ciągle chce się rozwija.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;3 minutowe cykle&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;W bieżącej sesji mieliśmy tylko 3 minuty by zakończyć jeden cykl TDD. Test, kod, refaktoring. Jeżeli nie udało nam się zakończyć całego cyklu, musieliśmy usunąć wszystko, co w tym cyklu zrobiliśmy i zacząć cykl od nowa. Ta sesja pozwoliła mi zrozumieć, że często w pracy chcemy od razu ogarnąć cały problem. Tworzymy ogrom jeszcze nie użytecznego kodu, tu trochę tam trochę, wszędzie panuje bałagan bo przecież “to nie jest jeszcze skończone”. Czasem jednak warto podejść do problemy za pomocą &lt;a href=&quot;https://en.wikipedia.org/wiki/Minimum_viable_product&quot;&gt;MVP&lt;/a&gt; (Minimum Vable Product). Małe elementy, które działają już teraz. Tak było właśnie w tej sesji. Po każdych 3 minutach mieliśmy gotową działającą małą cząstkę oprogramowania. Malutką ale działającą.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Brak pętli, brak warunków&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Podczas tej sesji pisałam kod w &lt;a href=&quot;http://es6-features.org/&quot;&gt;JavaScript ES6&lt;/a&gt; (poza moją strefą komfortu). Tym razem nie mogliśmy używać ani warunków ani pętli. To była dla mnie najtrudniejsza sesja. Każdego dnia podczas pisania kodu wielokrotnie korzystamy z pętli i warunków. Nawet nie zdajemy sobie sprawy, jak często. Zamiast pętli można wykorzystać rekurencję tylko jak wyznaczyć warunek zatrzymania? To nie było takie trywialne. Bardzo przydało się w tym momencie myślenie całkowicie poza schematem. Sesja ta dała mi dużo do myślenia.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Milcząca sesja&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Ostatnia sesja nie pozwalała nam się ze sobą komunikować. Nie mogliśmy mówić, pisać ani pokazywać. Jedyna komunikacja jaka była dozwolona, to komunikacja testy – kod. Najciekawsze jest to, że każdego dnia się z tym spotykamy. Dostajemy jakiś fragment kodu do zmiany i nie mamy możliwości porozmawiania z osobą, która go napisała. Musimy domyślić się, co dany kod robi z testów (jeżeli takie są) i z tego jak jest napisany. Podczas tej iteracji pracowałam w parze z moim najlepszym przyjacielem. Oby dwoje myśleliśmy, że skoro tak długo i dobrze się znamy, to będzie to bułka z masłem. Ale gdy nie można sobie pewnych spraw wyjaśnić lub ustalić wspólnego planu działania nie jest tak łatwo. Każdy z nas miał inne spojrzenie na ten problem. Każdym myślał o nim w innym sposób. Tylko dobre, czytelne testy i dobrej jakości, przejrzysty kod mógł pomóc w tej sytuacji. To jest po protu coś o czym każdy programista powinien pamiętać.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/coderetreat/first-session.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/first-session.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-  &lt;a href=&quot;/images/coderetreat/summary.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/coderetreat/summary2.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary2.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/coderetreat/summary3.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary3.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/coderetreat/session5.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/session5.jpg&quot;&gt;&lt;/a&gt;
-  &lt;figcaption&gt;Kilka wspomnień z tego krakowskiego Coderetreat&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&lt;br&gt;
-I oto koniec. Nasza ostatnia sesja zakończona. Podsumowując ten dzień uważam, że to był dobrze zainwestowany czas. Wiele przemyśleń i nowe spojrzenie. Kolejny raz Coderetreat otworzył mi oczy i pokazał jak ważne jest dbanie o jakość kodu. Życzę każdemu wzięcia udziału w tym wydarzeniu, zwłaszcza tak dobrze przygotowanym jak w Krakowie. Do zobaczenia w krótce. Pa!&lt;/p&gt;
-</description>
-        <pubDate>Fri, 20 Nov 2015 00:00:00 -0500</pubDate>
-        <link>/pl/coderetreat</link>
-        <guid isPermaLink="true">/pl/coderetreat</guid>
-        
-        <category>coderetreat</category>
-        
-        <category>event</category>
-        
-        <category>Kraków</category>
-        
-        
-        <category>podróże</category>
-        
-        <category>warsztaty</category>
-        
-        <category>wydarzenia</category>
         
       </item>
     

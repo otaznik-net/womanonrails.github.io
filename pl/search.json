@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Sublime Text - edytor tekstowy",
+		  "category"   : "",
+		  "url"        : "/sublime",
+		  "date"       : "2017-02-23 00:00:00 -0500",
+		  "shortdate"  : "February 23, 2017"
+		} ,
+	
+		{
 		  "title"      : "Zastosowanie metody each_with_object w Ruby",
 		  "category"   : "",
 		  "url"        : "/each-with-object",

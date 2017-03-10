@@ -5,9 +5,119 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 Jan 2017 10:34:23 -0500</pubDate>
-    <lastBuildDate>Sun, 22 Jan 2017 10:34:23 -0500</lastBuildDate>
+    <pubDate>Fri, 10 Mar 2017 11:39:10 -0500</pubDate>
+    <lastBuildDate>Fri, 10 Mar 2017 11:39:10 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      
+      <item>
+        <title>Sublime Text Editor</title>
+        <description>&lt;p&gt;I think almost every programmer has his own favourite text editor. Some people like &lt;a href=&quot;https://en.wikipedia.org/wiki/Vim_(text_editor)&quot;&gt;Vim&lt;/a&gt;, some people like &lt;a href=&quot;https://notepad-plus-plus.org/&quot;&gt;Notepad++&lt;/a&gt; and I love &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;. There is lots of usefull shortcuts, snippets and plugins which allow in fast and easy way work with code or simple text.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;I can see up to 4 file in the same time.&lt;/p&gt;
+
+&lt;p&gt;Sublime has option to see more then one file at the same time. If you add &lt;a href=&quot;https://github.com/SublimeText/Origami&quot;&gt;Origami&lt;/a&gt; plugin, you can have event more then 4 panels. To use basic Sublime splitting panels you just go to &lt;code&gt;View -&amp;gt; Layout&lt;/code&gt; and you can choose which layout you like or you can also see shortcuts for that. I like to have two files open. One for code and one for test file. This is very usefull when you work in TDD. You don&amp;#39;t need to switch between windows.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Everything is customizable&lt;/p&gt;
+
+&lt;p&gt;You just go to &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. There is everything you will need for customization. Colors, behaviors, everything. I recomend also to go through other setups in &lt;code&gt;Preferences&lt;/code&gt; menu. Spectialy &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Adding new packages&lt;/p&gt;
+
+&lt;p&gt;If you like you can extend Sublime behaviors by installing new packages. You can look on some of my favorites packages:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - for fast and easy creation of HTML or CSS&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/facelessuser/BracketHighlighter&quot;&gt;BracketHighlighter&lt;/a&gt; - to show you where you start and end brackets, this is nice specialy when you have programming language like JavaScript&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jisaacks/GitGutter&quot;&gt;Git Gutter&lt;/a&gt; - to show which part of code are changed or added (integration with git, see &lt;a href=&quot;/what-is-git&quot;&gt;what is git&lt;/a&gt; atricle)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dzhibas/SublimePrettyJson&quot;&gt;SublimePrettyJson&lt;/a&gt; - formater for JSON, this is very usefull when you have JSON in one line and you whould like to read it easly&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pderichs/sublime_rubocop&quot;&gt;RuboCop&lt;/a&gt; - to show good practices in Ruby&lt;/li&gt;
+&lt;li&gt;Linters (Coffee Script, CSS, Sass, JS) - tools which shows good practices in different languages&lt;/li&gt;
+&lt;li&gt;Colorfull syntaxt - you can add colors for different programing language syntax, when you don&amp;#39;t have specific colorization just install it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For more plugins checkout in the Internet.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Shortcuts, shortcuts, shortcuts&lt;/p&gt;
+
+&lt;p&gt;To be honest I love shortcuts. This is the reason why I write this article. As much I can work without mouse only using keyboard then better. This is less time consuming then mouse usage. And Sublime has very usefull shortcuts. You can see below:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + b&lt;/code&gt; - toggle side bar&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + 0&lt;/code&gt; - go to side bar with folders (then you can use arrows to navigate between folders and files, &lt;code&gt;enter ↩&lt;/code&gt; opens selected file and move focus to this file)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + 1,2,3,4&lt;/code&gt; - move focus between open panels/group (it depends layout you choose)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ←, →&lt;/code&gt; - go to word beginning/ending&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ←, →&lt;/code&gt; - select last/next word&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + m&lt;/code&gt; - jump to closing/opening bracket for current code&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + m&lt;/code&gt; - select all contents of the current brackets (curly brackets, square brackets, parentheses)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + PgUp, PgDn&lt;/code&gt; - go to last/next open tab (file)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + tab&lt;/code&gt; - next used tab/file open in one panel&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + tab&lt;/code&gt; - last used tab/file open in one panel&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ↑, ↓&lt;/code&gt; -  move file up/down by one line (like scroll)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ↑, ↓&lt;/code&gt; - switch lines in neighbourhood, first line goes up second goes down&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;crtl + /&lt;/code&gt; - comment/un-comment line (it depends selected programming language)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + delete&lt;/code&gt; - remove all next words (without adding to clipboard)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + backspace&lt;/code&gt; - remove all words before (without adding to clipboard)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + k&lt;/code&gt; - remove all next words (without adding to clipboard)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + k&lt;/code&gt; - remove line (without adding to clipboard)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ↩&lt;/code&gt; - insert line after&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ↩&lt;/code&gt; - insert line before&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + j&lt;/code&gt; - join line below to the end of the current line&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + alt + j&lt;/code&gt; - preatty JSON power by SublimePrettyJson&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ]&lt;/code&gt; - indent current line(s)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + [&lt;/code&gt; - un-indent current line(s)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + a&lt;/code&gt; - select all file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + l&lt;/code&gt; - select all line&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + d&lt;/code&gt; - select word (repeat select others occurrences in context for multiple editing)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + d&lt;/code&gt; - duplicate line(s)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + u&lt;/code&gt; - upper case&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + k + l&lt;/code&gt; - lower case&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + c&lt;/code&gt; - copy selected text to clipboard or when you have cursor in line without selected text copy all line to clipboard&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + v&lt;/code&gt; - paste selected text or all line from clipboard&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + x&lt;/code&gt; - cut selected text or all line (when text is not selected) to clipboard&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + g&lt;/code&gt; - go to line in current file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + ;&lt;/code&gt; - go to word in current file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + r&lt;/code&gt; - look for symbol (functions, method name, classes) in the file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + r&lt;/code&gt; - look for symbol (functions, method name, classes) in all projects&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + t&lt;/code&gt; - replace letter in neighbourhood&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + t&lt;/code&gt; - open last closed tab (just like in your browser)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + h&lt;/code&gt; - replace one phrase to another in current file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + f&lt;/code&gt; - search in file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + f&lt;/code&gt; - search in all project (directory), you can also replase phrase in this project&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + q&lt;/code&gt; - close Sublime completly&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + w&lt;/code&gt; - close current file/tab&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + w&lt;/code&gt; - close all window&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + n&lt;/code&gt; - open new tab&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + n&lt;/code&gt; - open new window&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + s&lt;/code&gt; -  save file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + s&lt;/code&gt; - save as (you can choose new name of file)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + o&lt;/code&gt; - open file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + o&lt;/code&gt; - open new directory&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + p&lt;/code&gt; - quick-open files by name in your project (you can search by first letters of each part of file name example: searching &lt;code&gt;mnf&lt;/code&gt; sublime will find &lt;code&gt;my_new_file.txt&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + p&lt;/code&gt; - command line and package installer&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + z&lt;/code&gt; - undo you last change&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + z&lt;/code&gt; - redo your last change&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f6&lt;/code&gt; - check spelling base on set dictionary (in my case english)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f9&lt;/code&gt; - do alphabetical order of selected lines&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f3&lt;/code&gt; - next searched phrase&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;f3 + shift&lt;/code&gt; - last searched phrase&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I hope you find this useful. See you next time!&lt;/p&gt;
+</description>
+        <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
+        <link>/sublime</link>
+        <guid isPermaLink="true">/sublime</guid>
+        
+        <category>tools</category>
+        
+        <category>sublime</category>
+        
+        
+        <category>sublime</category>
+        
+        <category>tools</category>
+        
+      </item>
     
       
       <item>
@@ -867,72 +977,6 @@ Our image have this inside:&lt;/p&gt;
         <category>git</category>
         
         <category>tools</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Coderetreat 2015 Crakow</title>
-        <description>&lt;p&gt;In last Saturday I was on &lt;a href=&quot;http://coderetreat.org/&quot;&gt;Global Day of Coderetreat&lt;/a&gt; in Krakow. &lt;strong&gt;Coderetreat&lt;/strong&gt; is one day in year when programmers focus not on delivery new functionality but focus on &lt;strong&gt;good code quality&lt;/strong&gt;. I think this is very important to stop for a moment and think how to be better programmer. And Coderetreat is that moment.&lt;/p&gt;
-
-&lt;h2&gt;How looks this Coderetreat day?&lt;/h2&gt;
-
-&lt;p&gt;All day is divide for 6-7 sessions of coding. In our case it was 6 sessions. In each session we try resolved &lt;a href=&quot;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&quot;&gt;Game of life&lt;/a&gt; problem. This is very simple problem but in Coderetreat main goal is not solving this problem but focus on process and code quality. One session take 45 minutes and then we have 15 minutes to discuss and sum what we did and how we did. Through all sessions we do &lt;strong&gt;ping pong pair programing&lt;/strong&gt; with some constrains. Pair programming because we work in pairs, ping pong because we change keyboard between people. One person writes test, second writes code and first one does refactoring. Now it is time to say something about constrains. They can be very different. Some of them are easy, some are very hard. Below are all constrains form Coderetreat day in this year.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;No primitives&lt;/strong&gt; – Wrap all primitives and strings&lt;/p&gt;
-
-&lt;p&gt;In this session you don’t sent any primitive type between objects. So everything must be some kind of more complex object. On beginning is easy to put primitive types to our code. In future this behavior can cost us much more then we expect (not only our time). Now I will be thinking twice before I use primitives in my code. This first session was for me very productive, especially sharing my thought and conceptions about this problem with other woman.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Functional programming&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;All code is not mutable. Every method get some argument and return results – like function in math. In this case methods cannot modifies object state. For me this session was session out of my comfort zone. First time in my life I wrote code in &lt;a href=&quot;http://livescript.net/&quot;&gt;LiveScript&lt;/a&gt;. This language is very similar to &lt;a href=&quot;http://coffeescript.org/&quot;&gt;CoffeeScript&lt;/a&gt;, so it was nice to try other alternative. After this session I realized how easy was testing code like that. You call methods and only check if result equal to something.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Tell don’t ask&lt;/strong&gt; – No getter, no setter, no properties&lt;/p&gt;
-
-&lt;p&gt;This time methods don’t ask for data from other object but tell this object do something. Each method in your code is void type (don’t return anything). This code is very hard to test. You have black box and you don’t know what is inside your object. Code is as much as possible encapsulate. Objects do only things, which are in they responsibility. There was one more think very interesting about this session. I wrote Ruby code with Java developer. It was experience which opened my mind. When we work in one technology (language) we think through this technology. Our mind focus on what we can do in this technology. And we don’t know that it is other solution, other way. So learning new thing, &lt;strong&gt;go out of your comfort zone&lt;/strong&gt; helps us thinking out of the box. This is true, not only in coding but also in our lives. Big respect for my pair programming partner for trying new things.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;3 minutes circles&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;We had only 3 minutes for finish one TDD circle. Test, code, refactoring. If we don’t finish at time we must remove all code for this one circle. This session helps me to understand that in work we sometime think about one big problem. We have lot of useless code, which don’t work because “it is not finished yet”. I can say that in this session we worked in small &lt;a href=&quot;https://en.wikipedia.org/wiki/Minimum_viable_product&quot;&gt;MVP&lt;/a&gt; (Minimum Viable Product) session. After each 3 minutes we have working functionality. It was small functionality but it’s working.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;No loops, no conditions&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;In this session I wrote code in &lt;a href=&quot;http://es6-features.org/&quot;&gt;JavaScript ES6&lt;/a&gt; (out of my comfort zone). We don’t suppose to use any loops and any conditions. This session was the hardest session for me. We use loops and condition many time per day. We even don’t realize how often we use this two tools. You can use recursion instead of loops but how stop recursion without conditions? This wasn’t easy task. I really liked this challenge. This was out of the box thinking session.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Silent session&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This was last session. This time we could not speak to each other. Even more. We could not write and show anything. Only tests and code can talk to us. And really, we do this everyday in work. You don’t have person which write code all the time available to ask about something. You need to figure out through code and tests of course, how this part of application work. In this session I worked with my best friend. I thought that we know each other so good, so we can read in our minds. But when we can not talk, we can not also choose one way to resolve problem. Each of us was thinking about this problem in different way. Only good, descriptive test and good, descriptive code can help us in this situation. All names, comments, tests are very important. This is must have!&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/coderetreat/first-session.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/first-session.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-  &lt;a href=&quot;/images/coderetreat/summary.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/coderetreat/summary2.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary2.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/coderetreat/summary3.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/summary3.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/coderetreat/session5.jpg&quot;&gt;&lt;img src=&quot;/images/coderetreat/session5.jpg&quot;&gt;&lt;/a&gt;
-  &lt;figcaption&gt;Memories of Cracow Coderetreat&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Ok, this is it. This was very productive day for me. I learn new things. Coderetreat one more time open my eyes how important is good quality code. I wish every programmer to be part of this event. See you soon. All best! Bye.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 20 Nov 2015 00:00:00 -0500</pubDate>
-        <link>/coderetreat</link>
-        <guid isPermaLink="true">/coderetreat</guid>
-        
-        <category>coderetreat</category>
-        
-        <category>event</category>
-        
-        <category>Cracow</category>
-        
-        
-        <category>events</category>
-        
-        <category>travels</category>
-        
-        <category>workshops</category>
         
       </item>
     
