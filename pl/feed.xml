@@ -5,8 +5,8 @@
     <description></description>
     <link>/pl/</link>
     <atom:link href="/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 10 Mar 2017 11:39:11 -0500</pubDate>
-    <lastBuildDate>Fri, 10 Mar 2017 11:39:11 -0500</lastBuildDate>
+    <pubDate>Sat, 11 Mar 2017 08:48:08 -0500</pubDate>
+    <lastBuildDate>Sat, 11 Mar 2017 08:48:08 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
@@ -20,10 +20,10 @@
 &lt;p&gt;Sublime ma możliwość podzielenia okna programu na kilka części. Maksymalnie cztery. Chyba, że używasz dodatku &lt;a href=&quot;https://github.com/SublimeText/Origami&quot;&gt;Origami&lt;/a&gt;. Pozwala on dzielić okno programu na dowolną ilość paneli. W podstawowej wersji Sublime można wybierać pomiędzy kilkoma dostępnymi typami paneli. Można je zaleźć w &lt;code&gt;View -&amp;gt; Layout&lt;/code&gt;. Są tam też dostępne skróty klawiszowe do zarządzania tymi panelami. Ja osobiście lubię mieć otwarte dwa panele równocześnie. To bardzo ułatwia mi pracę w &lt;strong&gt;TDD&lt;/strong&gt;. Dzięki temu cały czas mam widoczny kod i testy nad którymi pracuję.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Wszystko jest konfigurowalne&lt;/p&gt;
 
-&lt;p&gt;Wystarczy tylko wejść do &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. Są tam zapisane wszystkie ustawienia. Kolory, zachowania, skróty, ustawienia języków. Dosłownie wszystko. Polecam też przyjrzeć się innym opcją dostępnym w zakładce menu &lt;code&gt;Preferences&lt;/code&gt;. A zwłaszcza &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;Wystarczy tylko wejść do &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. Są tam zapisane wszystkie ustawienia. Kolory, zachowania, skróty, ustawienia języków. Dosłownie wszystko. Polecam też przyjrzeć się innym opcjom dostępnym w zakładce menu &lt;code&gt;Preferences&lt;/code&gt;. A zwłaszcza &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Dodatki&lt;/p&gt;
 
-&lt;p&gt;Jeżeli tylko chcesz rozszerzyć funkcjonalność Sublime to możesz wybierać w różnych dodatkach. Tutaj moje ulubione:&lt;/p&gt;
+&lt;p&gt;Jeżeli tylko chcesz rozszerzyć funkcjonalność Sublime to możesz przebierać w różnych dodatkach. Tutaj moje ulubione:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - do szybkiego i łatwego tworzenia kodu HTML lub CSS&lt;/li&gt;
@@ -59,7 +59,7 @@
 &lt;li&gt;&lt;code&gt;ctrl + k + k&lt;/code&gt; - usuwa wszystkie znaki znajdujące się po kursorze (bez przechowywania tego w schowku)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + shift + k&lt;/code&gt; - usuwa całą linię bez przechowywania wartości w schowku&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + ↩&lt;/code&gt; - dodaje dodatkową linię za kursorem&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ↩&lt;/code&gt; - dodaje dodatkową linię prze kursorem&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ↩&lt;/code&gt; - dodaje dodatkową linię przed kursorem&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + j&lt;/code&gt; - dołącza linię poniżej do końca bieżącej linii&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + alt + j&lt;/code&gt; - pokazuje w czytelny sposób pliki w formacie JSON, możliwość korzystania z tego skrótu dzięki dodatkowi SublimePrettyJson&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + ]&lt;/code&gt; - dodaje wcięcie do zaznaczonych linii&lt;/li&gt;
@@ -95,6 +95,7 @@
 &lt;li&gt;&lt;code&gt;ctrl + shift + p&lt;/code&gt; - linia poleceń do instalowania nowych dodatków i pakietów&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + z&lt;/code&gt; - cofa zmiany&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + shift + z&lt;/code&gt; - przywraca ostatnie zmiany&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + y&lt;/code&gt; - wykonuje ostatnią akcję jeszcze raz&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;f6&lt;/code&gt; - sprawdza pisownie w języku, który ma się ustawiony (w moim przypadku jest to angielski)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;f9&lt;/code&gt; - ustawia w kolejności alfabetycznej zaznaczone linie&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;f3&lt;/code&gt; - następna wyszukiwana fraza&lt;/li&gt;

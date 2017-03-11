@@ -5,40 +5,40 @@
     <description></description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 10 Mar 2017 11:39:10 -0500</pubDate>
-    <lastBuildDate>Fri, 10 Mar 2017 11:39:10 -0500</lastBuildDate>
+    <pubDate>Sat, 11 Mar 2017 08:48:07 -0500</pubDate>
+    <lastBuildDate>Sat, 11 Mar 2017 08:48:07 -0500</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       
       <item>
         <title>Sublime Text Editor</title>
-        <description>&lt;p&gt;I think almost every programmer has his own favourite text editor. Some people like &lt;a href=&quot;https://en.wikipedia.org/wiki/Vim_(text_editor)&quot;&gt;Vim&lt;/a&gt;, some people like &lt;a href=&quot;https://notepad-plus-plus.org/&quot;&gt;Notepad++&lt;/a&gt; and I love &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;. There is lots of usefull shortcuts, snippets and plugins which allow in fast and easy way work with code or simple text.&lt;/p&gt;
+        <description>&lt;p&gt;I think almost every programmer has his own favourite text editor. Some people like &lt;a href=&quot;https://en.wikipedia.org/wiki/Vim_(text_editor)&quot;&gt;Vim&lt;/a&gt;, some people like &lt;a href=&quot;https://notepad-plus-plus.org/&quot;&gt;Notepad++&lt;/a&gt; and I love &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;. There is a lots of useful shortcuts, snippets and plugins which allow in fast and easy way work with code or simple text.&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;I can see up to 4 file in the same time.&lt;/p&gt;
 
-&lt;p&gt;Sublime has option to see more then one file at the same time. If you add &lt;a href=&quot;https://github.com/SublimeText/Origami&quot;&gt;Origami&lt;/a&gt; plugin, you can have event more then 4 panels. To use basic Sublime splitting panels you just go to &lt;code&gt;View -&amp;gt; Layout&lt;/code&gt; and you can choose which layout you like or you can also see shortcuts for that. I like to have two files open. One for code and one for test file. This is very usefull when you work in TDD. You don&amp;#39;t need to switch between windows.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;Sublime has option to see more then one file at the same time. If you add &lt;a href=&quot;https://github.com/SublimeText/Origami&quot;&gt;Origami&lt;/a&gt; plugin, you can have event more then 4 panels. To use basic Sublime splitting panels you just go to &lt;code&gt;View -&amp;gt; Layout&lt;/code&gt; and you can choose which layout you like or you can also see shortcuts for that. I like to have two files open. First with code and second with tests. This is very useful when you work in TDD. You don&amp;#39;t need to switch between windows.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Everything is customizable&lt;/p&gt;
 
-&lt;p&gt;You just go to &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. There is everything you will need for customization. Colors, behaviors, everything. I recomend also to go through other setups in &lt;code&gt;Preferences&lt;/code&gt; menu. Spectialy &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;You just go to &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. There is everything you will need for customization. Colors, behaviors, everything. I recommend also to go through other setups in &lt;code&gt;Preferences&lt;/code&gt; menu. Spectialy &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Adding new packages&lt;/p&gt;
 
-&lt;p&gt;If you like you can extend Sublime behaviors by installing new packages. You can look on some of my favorites packages:&lt;/p&gt;
+&lt;p&gt;If you like you can extend Sublime behaviors by installing new packages. You can look at some of my favorites packages:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;http://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - for fast and easy creation of HTML or CSS&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/facelessuser/BracketHighlighter&quot;&gt;BracketHighlighter&lt;/a&gt; - to show you where you start and end brackets, this is nice specialy when you have programming language like JavaScript&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jisaacks/GitGutter&quot;&gt;Git Gutter&lt;/a&gt; - to show which part of code are changed or added (integration with git, see &lt;a href=&quot;/what-is-git&quot;&gt;what is git&lt;/a&gt; atricle)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dzhibas/SublimePrettyJson&quot;&gt;SublimePrettyJson&lt;/a&gt; - formater for JSON, this is very usefull when you have JSON in one line and you whould like to read it easly&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jisaacks/GitGutter&quot;&gt;Git Gutter&lt;/a&gt; - to show which part of code are changed or added (integration with git, see &lt;a href=&quot;/what-is-git&quot;&gt;what is git&lt;/a&gt; article)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dzhibas/SublimePrettyJson&quot;&gt;SublimePrettyJson&lt;/a&gt; - formatter for JSON, this is very useful when you have JSON in one line and you would like to read it easly&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/pderichs/sublime_rubocop&quot;&gt;RuboCop&lt;/a&gt; - to show good practices in Ruby&lt;/li&gt;
 &lt;li&gt;Linters (Coffee Script, CSS, Sass, JS) - tools which shows good practices in different languages&lt;/li&gt;
-&lt;li&gt;Colorfull syntaxt - you can add colors for different programing language syntax, when you don&amp;#39;t have specific colorization just install it&lt;/li&gt;
+&lt;li&gt;Colorful syntaxt - you can add colors for different programing language syntax, when you don&amp;#39;t have specific colorization just install it&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;For more plugins checkout in the Internet.&lt;/p&gt;&lt;/li&gt;
 &lt;li&gt;&lt;p&gt;Shortcuts, shortcuts, shortcuts&lt;/p&gt;
 
-&lt;p&gt;To be honest I love shortcuts. This is the reason why I write this article. As much I can work without mouse only using keyboard then better. This is less time consuming then mouse usage. And Sublime has very usefull shortcuts. You can see below:&lt;/p&gt;
+&lt;p&gt;To be honest I love shortcuts. This is the reason why I write this article. As long as I can work without mouse, only using keyboard then it&amp;#39;s better. This is less time consuming then mouse usage. And Sublime has very useful shortcuts. You can see below:&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;ctrl + k + b&lt;/code&gt; - toggle side bar&lt;/li&gt;
@@ -52,7 +52,7 @@
 &lt;li&gt;&lt;code&gt;ctrl + tab&lt;/code&gt; - next used tab/file open in one panel&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + shift + tab&lt;/code&gt; - last used tab/file open in one panel&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + ↑, ↓&lt;/code&gt; -  move file up/down by one line (like scroll)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ↑, ↓&lt;/code&gt; - switch lines in neighbourhood, first line goes up second goes down&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + ↑, ↓&lt;/code&gt; - switch lines in neighbourhood, first line goes up, second goes down&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;crtl + /&lt;/code&gt; - comment/un-comment line (it depends selected programming language)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + delete&lt;/code&gt; - remove all next words (without adding to clipboard)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + backspace&lt;/code&gt; - remove all words before (without adding to clipboard)&lt;/li&gt;
@@ -95,6 +95,7 @@
 &lt;li&gt;&lt;code&gt;ctrl + shift + p&lt;/code&gt; - command line and package installer&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + z&lt;/code&gt; - undo you last change&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ctrl + shift + z&lt;/code&gt; - redo your last change&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl + y&lt;/code&gt; - do one more time last action&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;f6&lt;/code&gt; - check spelling base on set dictionary (in my case english)&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;f9&lt;/code&gt; - do alphabetical order of selected lines&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;f3&lt;/code&gt; - next searched phrase&lt;/li&gt;
