@@ -3,11 +3,74 @@
   <channel>
     <title>Woman on Rails</title>
     <description></description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Mar 2017 11:08:28 -0400</pubDate>
-    <lastBuildDate>Sun, 19 Mar 2017 11:08:28 -0400</lastBuildDate>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 22 Apr 2017 13:26:30 -0400</pubDate>
+    <lastBuildDate>Sat, 22 Apr 2017 13:26:30 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Good preparation for interview</title>
+        <description>&lt;p&gt;From some time I do interviews. I&amp;#39;m not a HR person. I&amp;#39;m developer. I do technical interviews for my company. My responsibility is to check how experience is person which apply for job. How this person fit to our team form technical and personal point of view. This process is not about be perfect. More about be honest. Finally team and candidate should be able to work together. Today I would like to tell you a little bit about what I expect from person on interview. I would like to show my point of view on this kind of conversation.&lt;/p&gt;
+
+&lt;p&gt;For me is very important to respect others time. So I&amp;#39;m always prepare to the conversation. I read CV, prepare questions regards to skills, knowledge of person and project which she/he worked with. Each time I do that separately, because each person is different and have different experience. I spend some time on preparation to don&amp;#39;t waste others time. The same I would like to get from candidate. To &lt;strong&gt;be prepare&lt;/strong&gt; to conversation. I don&amp;#39;t expect all correct answers. I expect own opinion, logical thinking, easy moving in technologies which she/he work with. Of course on specific level. It&amp;#39;s depends of position which we offer. There are different expectations for junior and different expectations for senior.&lt;/p&gt;
+
+&lt;p&gt;As I said the most important on interview is to &lt;strong&gt;be prepared&lt;/strong&gt;. This is the key to success. Even person isn&amp;#39;t someone who we are looking for now. For example we are looking someone to backend but person have more frontend skills but have interesting point of view, and is good in her/his job. I will remember this person. And I will reach to this person when we will need someone like she/he. Even this will be another project.&lt;/p&gt;
+
+&lt;p&gt;What those mean &lt;strong&gt;be prepared&lt;/strong&gt;? What you should do to &lt;strong&gt;be prepared&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Know your CV&lt;/p&gt;
+
+&lt;p&gt;When I start my preparations I always read CV. This is base for my starting questions. I ask about projects, technologies, architecture in this projects. Everything related with information in CV. Dates, projects, approximate time of work and others skills, trainings. It is very important to be aware what you have in CV. So when you are before interview go through all information which you have in CV and remind yourself what were your responsibilities in this project? What technologies do you use? How you resolved problems? This is not good impression when you read your own CV on interview. The same when you tell that you don&amp;#39;t remember your last project and it was month ago. Of course this is normal that you don&amp;#39;t remember what you did 5 years ago. Although when you go to interview you should remind yourself last 2-3 projects. This is also good place to tell about one more think. Never, ever add to your CV elements which you don&amp;#39;t know. It is easy to check your knowledge about that and very hard to change first bad impression.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Remember projects and companies&lt;/p&gt;
+
+&lt;p&gt;This is part of first point. I would like to mark that. Who should know better projects and companies which you work for, then you? I really ask about this. About responsibilities in projects, architecture, what is project about. If you don&amp;#39;t want to talk about something or you cannot do that, maybe you shouldn&amp;#39;t put it into CV. Of course there are projects with NDA. In this cases you should also go through this project and think what you can say and what not. This is example how I prepare questions: If you put in CV that your project was done on microservices, you should know how looks like architecture? How looks like communication between services? What is for you service? Do you like this kind of architecture? Advantages and disadvantages?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;What&amp;#39;s new in your sector&lt;/p&gt;
+
+&lt;p&gt;This not only related with interview. You should know news from your environment on daily bases. In my opinion working in IT need developing skill all the time. I know it is hard to know all news. I also have problem to stay keep up to date with technology, but still trying. It is good to refresh knowledge from time to time. On interview I will ask about:  What is last version of your language? What are new features in framework? Any new libraries? New concepts or ideas? This will allow me to check how you take care about your skills. I know it is impossible to know everything if you don&amp;#39;t know something just tell me that. As I say, be honest, don&amp;#39;t lie.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Tools, workflow, interesting applications&lt;/p&gt;
+
+&lt;p&gt;I always ask about workflow, about tools, editors, system, version control. How you work? Which libraries, gems do you use? Everything related with work. How to be effective? How to have good communication in team? How to check if code is good quality? Maybe you know something about TDD, metrics, PR/MR (pull/merge request), code standards, work remote. I&amp;#39;m interested in your opinion about this topics. I would like to know if you are conscious programmer. If you know, what will make you more effective. What will increase comfort of your work?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Architecture&lt;/p&gt;
+
+&lt;p&gt;What do you do in project to have good architecture, good code quality? What do you do to be able in fast and easy way do some changes in code? Design patters? Programming rules? Code standard? Main concept of language? Frameworks?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Company information&lt;/p&gt;
+
+&lt;p&gt;This is more important for you. You apply for job. You should know:  What company do? What is product of this company? What is market for them? How looks structure of company? How looks theirs product? Sometime on interview I ask about this informations but rarely. This should be interesting for you. It is better know this informations before sending CV. You will save your and also others time.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Be prepare to show you code&lt;/p&gt;
+
+&lt;p&gt;On short conversation it is hard to ask all questions and check all knowledge. Specially code related. So I always ask about some code example, project access. It is very good when person have something to show and this is not only Rails Scaffold. This should be something which you are proud of.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Be ready to some life coding&lt;/p&gt;
+
+&lt;p&gt;I know this is very stressful situation. Specially when someone watch you each move. For me it is one of the best possibility to check your programming skills. How you handle problems, how you work in stress, how you think about problem, how look like your communications skills. In this moment don&amp;#39;t think about me just tell what you are doing, think about problem, ask when something is not clear and everything will be fine.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Methodologies&lt;/p&gt;
+
+&lt;p&gt;When this is not you first project you should be able to say something about methodologies. Do you work in team? How you work? How big was your team? How did you organize your work? Did you use any methodology? Which one? Do you use Scrum, Agile, Waterfall, Lean? What you use to communications? How you fix bugs, create new features? How you deal with your client? How you solved problems? What you like and don&amp;#39;t like in this methodology? And why?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Prepare some questions for me&lt;/p&gt;
+
+&lt;p&gt;There is lot of things you would like to ask. Maybe about our workflow. About team. About features. About code quality. Architecture. I always really happy to answer your questions. There is nothing better then person which know what he/she know or not. And have enough courage to ask, questions. Finally you also be exited to join our team.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;There is one more and very important request for you. All this tips are from my point of view. What I expect from person on interview. This is not way to cheat, but way to be better prepared. Be honest with yourself and with recruiter. In the end this is important for both sides to know each other. To check if we match together. Company can choose you, but you also need to choose the company. This is some kind of agreement. Everyone should be happy about working together.&lt;/p&gt;
+
+&lt;p&gt;Do you know any others tips how to prepare to interview? If so, please add them in comments. Have a nice time and see you next time!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/interview</link>
+        <guid isPermaLink="true">http://localhost:4000/interview</guid>
+        
+        <category>interview</category>
+        
+        <category>skills</category>
+        
+        
+        <category>interview</category>
+        
+        <category>skills</category>
+        
+      </item>
     
       
       <item>
@@ -106,8 +169,8 @@
 &lt;p&gt;I hope you find this useful. See you next time!&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>/sublime</link>
-        <guid isPermaLink="true">/sublime</guid>
+        <link>http://localhost:4000/sublime</link>
+        <guid isPermaLink="true">http://localhost:4000/sublime</guid>
         
         <category>tools</category>
         
@@ -216,8 +279,8 @@ end
 &lt;p&gt;This was quick overview for method &lt;code&gt;each_with_object&lt;/code&gt;. I hope you like this examples like I do. If you have any question leave them below and see you next time!&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>/each-with-object</link>
-        <guid isPermaLink="true">/each-with-object</guid>
+        <link>http://localhost:4000/each-with-object</link>
+        <guid isPermaLink="true">http://localhost:4000/each-with-object</guid>
         
         <category>Ruby</category>
         
@@ -257,8 +320,8 @@ end
 &lt;p&gt;I appreciate that I could come to Web Summit and be participant on this conference. But if I would buy the ticket as a developer I would be disappointed. I really love small conference where you feel like in home, where everyone (almost everyone) know each other&amp;#39;s. Where everyone care for each others. The best thing of Web Summit was amazing people which I met there. I&amp;#39;m so happy that even on that huge event I could meet so wonderful people from different countries. That&amp;#39;s all what I would like to say. I hope the next edition will be better.&lt;/p&gt;
 </description>
         <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
-        <link>/websummit-lisbon-2016</link>
-        <guid isPermaLink="true">/websummit-lisbon-2016</guid>
+        <link>http://localhost:4000/websummit-lisbon-2016</link>
+        <guid isPermaLink="true">http://localhost:4000/websummit-lisbon-2016</guid>
         
         <category>Web Summit</category>
         
@@ -494,8 +557,8 @@ end
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
-        <link>/leaflet</link>
-        <guid isPermaLink="true">/leaflet</guid>
+        <link>http://localhost:4000/leaflet</link>
+        <guid isPermaLink="true">http://localhost:4000/leaflet</guid>
         
         <category>maps</category>
         
@@ -590,8 +653,8 @@ From my perspective it is great opportunity. I very happy that I could to try.
 This is it. I hope you like this article. If you have any question please leave them below in comments. See you next time!&lt;/p&gt;
 </description>
         <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>/remote-work</link>
-        <guid isPermaLink="true">/remote-work</guid>
+        <link>http://localhost:4000/remote-work</link>
+        <guid isPermaLink="true">http://localhost:4000/remote-work</guid>
         
         <category>work</category>
         
@@ -672,8 +735,8 @@ git rebase --continue
 &lt;p&gt;This is it. I showed you how you can use &lt;code&gt;git rebase&lt;/code&gt;. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>/git-rebase</link>
-        <guid isPermaLink="true">/git-rebase</guid>
+        <link>http://localhost:4000/git-rebase</link>
+        <guid isPermaLink="true">http://localhost:4000/git-rebase</guid>
         
         <category>git</category>
         
@@ -808,8 +871,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;This is end. All you need to know to start working with Git is here. I hope you like it. If you wants know more please let me now in comments. See you next time! Bye!&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Feb 2016 00:00:00 -0500</pubDate>
-        <link>/git-usage</link>
-        <guid isPermaLink="true">/git-usage</guid>
+        <link>http://localhost:4000/git-usage</link>
+        <guid isPermaLink="true">http://localhost:4000/git-usage</guid>
         
         <category>git</category>
         
@@ -859,8 +922,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;I hope that was interesting for you. Live a comment and see you next time. Bye!&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
-        <link>/lambda</link>
-        <guid isPermaLink="true">/lambda</guid>
+        <link>http://localhost:4000/lambda</link>
+        <guid isPermaLink="true">http://localhost:4000/lambda</guid>
         
         <category>Ruby</category>
         
@@ -883,8 +946,8 @@ Place: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I really love doing things connecting in technology. This time I was participant in &lt;a href=&quot;http://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; in Cieszyn. This was my third time. &lt;strong&gt;What is Global Game Jam?&lt;/strong&gt; This is 48 hours hackaton for people which would like to create games. And each year I&amp;#39;m impressed of ideas, talent and projects realization. You can see more &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
-        <link>/global-game-jam</link>
-        <guid isPermaLink="true">/global-game-jam</guid>
+        <link>http://localhost:4000/global-game-jam</link>
+        <guid isPermaLink="true">http://localhost:4000/global-game-jam</guid>
         
         <category>GGJ</category>
         
@@ -896,88 +959,6 @@ Place: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
         <category>travels</category>
         
         <category>workshops</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>What is git?</title>
-        <description>&lt;p&gt;Today I would start quick series about &lt;strong&gt;Git&lt;/strong&gt;. This will be 2-3 article about &lt;strong&gt;basic of Git&lt;/strong&gt;. Internet has many different articles and tutorials about Git so I don’t want to do another one. If you like get know more about Git I can recommend 2 courses on CodeSchool about it. Start &lt;a href=&quot;https://www.codeschool.com/courses/try-git&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I don’t give you definition of Git because you can find definition in &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_(software)&quot;&gt;wiki&lt;/a&gt; or &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;Git documentation&lt;/a&gt;. I only say that, this is &lt;strong&gt;version control system&lt;/strong&gt; and I give you info for what cases or problems we can use Git and why is it great tool.&lt;/p&gt;
-
-&lt;p&gt;Do you have sometimes situations where you need to work on the same files with many people. Situations such as: group project in school, university or maybe big web application? Presentation or report for boss? Or other work to do when every one of team members need to share the same files. And everyone can change any files in this project. I have this situation all the time in my work. I work on web application where I cooperate with about 8 people. Or maybe you work just by your self but you don’t want to loose your changes. Maybe you are writer and you write book. So what can it goes wrong?&lt;/p&gt;
-
-&lt;h2&gt;Only my work&lt;/h2&gt;
-
-&lt;p&gt;We work alone. For example we are writing book. We are working on this project through last 2 years. And something happened: computer breaks down, we removed file through mistake, or we change something and the previous version was better and we want get back this version. What then? I know we have many choices: Dropbox, hard drive (just in case), send emails to my self. Even programs do this easy for us. They remember history of last changes and so on. But Git can handle this too. Git remember all yours files changes history. You can get back to any of your files version.&lt;/p&gt;
-
-&lt;p&gt;If you don’t now why Git can be better solution for some problems, we have second example. ;]&lt;/p&gt;
-
-&lt;h2&gt;Team case&lt;/h2&gt;
-
-&lt;p&gt;Every one in team has they own computer so they have locally on computer copy of our project. For example we have one file. We love Ruby so this file has Ruby code:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So every one have this file locally on this computer. Now I have task to change this method to return no &lt;code&gt;hello&lt;/code&gt; but &lt;code&gt;hello world&lt;/code&gt;. So I change this file:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now I need to send to all of team members this new code. How do this? E-mail? Dropbox? Pendrive? Each of this solutions can be painful. So we have problem one. &lt;strong&gt;1. Actualization of our project (how have access to current version).&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This problem we can somehow resolved. But what happened in this situation. Someone in team change something in the same file as I. For example change method name but he/she don’t know that I working on this file in the same time. So his/her code looks like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now I send my change to everyone (somehow) and the other person sends his/her changes also. Which changes are last changes? My or the other person? Or maybe we would like to have something like that:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;All changes together. How we can resolve this problem? We can have some one in team who will take care of this. We can talk with this person, tell what we changed and then this person need to go though all files check and figure out how fix conflicts. Do you also think that this is not good idea? Even worse. This is catastrophically bad idea and who wants to be this person? So second and I think the most important problem &lt;strong&gt;2. how merge all changes together easily?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Do you see that this is painful? Even more than the first example. Yes? I think that too.&lt;/p&gt;
-
-&lt;p&gt;So Git can resolved this problems for us in most cases automatically. So Git is tool to help with cooperative projects. But! (there is always some but) It is good for text files (programs, books, articles) but not good for images. Image is binary file no text file (in most cases excluded for example svg). When we change something in this file we can not read in easy way those changes.&lt;/p&gt;
-
-&lt;p&gt;Example:
-Our image have this inside:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
-00000010  00 00 04 c9 00 00 01 7e  08 06 00 00 01 ef a0 7d  |.......~.......}|
-00000020  68 00 00 00 09 70 48 59  73 00 00 2e 23 00 00 2e  |h....pHYs...#...|
-00000030  23 01 78 a5 3f 76 00 00  00 19 74 45 58 74 53 6f  |#.x.?v....tEXtSo|
-00000040  66 74 77 61 72 65 00 41  64 6f 62 65 20 49 6d 61  |ftware.Adobe Ima|
-00000050  67 65 52 65 61 64 79 71  c9 65 3c 00 00 36 8c 49  |geReadyq.e&amp;lt;..6.I|
-00000060  44 41 54 78 da ec 9c 61  6e 83 30 0c 46 47 c4 85  |DATx...an.0.FG..|
-00000070  a6 75 47 da a9 76 a4 75  da 91 98 f8 41 95 a6 31  |.uG..v.u....A..1|
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Our computer can interpret this in colors and shapes but we can’t. So when we change something on this image (one or more bits), we don’t even know what was this change. Do you know what I mean? I don’t say that we never put images to git. I say that we can not see what changed (in simple way).&lt;/p&gt;
-
-&lt;p&gt;I hope that this article help you to understand for what we use git and why it is helpful. In next article I describe how we can use it. If you have some question or suggestion please let me know in comments. See you next time. Bye!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 20 Dec 2015 00:00:00 -0500</pubDate>
-        <link>/what-is-git</link>
-        <guid isPermaLink="true">/what-is-git</guid>
-        
-        <category>git</category>
-        
-        <category>tools</category>
-        
-        
-        <category>environment</category>
-        
-        <category>git</category>
-        
-        <category>tools</category>
         
       </item>
     

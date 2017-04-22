@@ -3,11 +3,74 @@
   <channel>
     <title>Woman on Rails</title>
     <description></description>
-    <link>/pl/</link>
-    <atom:link href="/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Mar 2017 11:08:29 -0400</pubDate>
-    <lastBuildDate>Sun, 19 Mar 2017 11:08:29 -0400</lastBuildDate>
+    <link>http://localhost:4000/pl/</link>
+    <atom:link href="http://localhost:4000/pl/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 22 Apr 2017 13:26:32 -0400</pubDate>
+    <lastBuildDate>Sat, 22 Apr 2017 13:26:32 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Rozmowa kwalifikacyjna</title>
+        <description>&lt;p&gt;Od jakiegoś czasu zajmuję się rozmowami kwalifikacyjnymi. Nie jestem osobą z HR. Jestem programistką. Moje zadanie, to sprawdzenie technicznych umiejętności kandydatów aplikujących do naszej firmy. Staram się dowiedzieć czy kandydatka lub kandydat pasuje do naszego zespołu technicznie, ale również pod względem osobowości i temperamentu. Podczas takiej rozmowy nie chodzi o bycie doskonałym. Raczej o bycie szczerym, bycie sobą. Celem jest sprawdzenie czy obie strony chcą podjąć współpracę. Zarówno kandydat jak i zespół powinni do siebie pasować. Dzisiaj chciałabym się podzielić z Wami elementami, na które ja zwracam uwagę podczas prowadzenia rozmowy kwalifikacyjnej.&lt;/p&gt;
+
+&lt;p&gt;Najważniejszy jest dla mnie szacunek. Ponieważ szanuję czas innych ludzi, również tych, z którymi przeprowadzam rozmowę kwalifikacyjną, więc przygotowuje się do takiej rozmowy dobrze. Przeglądam CV, czytam o projektach, w których osoba brała udział, staram się wyodrębnić mocne strony kandydata. Na tej podstawie powstają pierwsze pytania. Tak, do każdej rozmowy przygotowuję osobny zastaw pytań. Część z nich jest podobna, ale cała reszta uwarunkowana jest doświadczeniem i wiedzą danej osoby. Poświęcam swój czas, by nie marnować czau innych. Tego też oczekuję od drugiej strony. Oczekuje przede wszystkim &lt;strong&gt;przygotowania&lt;/strong&gt; do rozmowy. Nie chodzi mi tutaj o umiejętność odpowiedzenia na wszystkie pytania prawidłowo. Zależy mi na ciekawej konwersacji dwóch osób z tej samej branży. Na wymianie poglądów, sprawdzeniu znajomości wybranej technologii, umiejętność logicznego myślenia, komunikatywności. Oczywiście czegoś innego będę oczekiwać od osoby początkującej, a czegoś innego od osoby doświadczonej.&lt;/p&gt;
+
+&lt;p&gt;Tak jak już powiedziałam. Najważniejsze dla mnie jest &lt;strong&gt;bycie przygotowanym&lt;/strong&gt; do rozmowy. To jest klucz do sukcesu. Czasami jest tak, że ktoś jest naprawdę interesującym kandydatem. Oczywiście w dobrym znaczeniu. Ale z różnych względów nie jest osobą, której teraz poszukujemy. Nie ta technologia, nie ten poziom doświadczenia. Takie osoby się zapamiętuje i jeżeli tylko nadarza się okazja w przyszłości do podjęcia współpracy, to ją wykorzystujemy.&lt;/p&gt;
+
+&lt;p&gt;Co to więc znaczy &lt;strong&gt;być dobrze przygotowanym&lt;/strong&gt;. Co trzeba zrobić by &lt;strong&gt;dobrze przygotować&lt;/strong&gt; się do rozmowy?&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Znajomość własnego CV&lt;/p&gt;
+
+&lt;p&gt;Kiedy zaczynam swoje przygotowania zawsze czytam CV. To jest taki mój punkt startowy. Pytam o projekty, technologie, architekturę, wykorzystane rozwiązania. Wszystko co zostało wymienione w CV jest dla mnie informacją o kandydacie. Daty, projekty, przybliżony czas pracy w jednej firmie, dodatkowe umiejętności, szkolenia. Dlatego znajomość tego, co się podało w CV jest ważna. Jeżeli jesteś przed rozmową kwalifikacyjną, to przejrzyj swoje CV, zastanów się i przypomnij sobie ważne informacje z nim związane. Jakie były Twoje obowiązki w projekcie? Jakie technologie były tam wykorzystane? Jak rozwiązaliście problemy, które pojawiły się po drodze? Czytanie swojego CV na rozmowie nie robi dobrego wrażenia, tak samo jak sytuacja, w której mówisz, że nie pamiętasz, co robiłeś w ostatnim projekcie. Oczywiście jest to normalne, że coś co było 5 lat temu zaciera się w pamięci. Jednak jak już idziemy na tą rozmowę, to warto przypomnieć sobie te 2 - 3 ostatnie projekty. Chciałabym tu zaznaczyć też jeszcze jedną rzecz. Wpisywanie do CV umiejętności lub technologii, o których nie mamy pojęcia, to bardzo zły pomysł. Takie rzeczy można łatwo sprawdzić, trudniej jest natomiast poprawić to kiepskie, pierwsze wrażenie.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Znajomość projektów i firmy&lt;/p&gt;
+
+&lt;p&gt;W zasadzie jest to część punktu pierwszego. Jednak chciałam to jeszcze bardziej zaznaczyć. Kto powinien znać projekty, nad którymi pracował lepiej niż Ty sam? Ja naprawdę o to pytam! O zakres obowiązków w projekcie, o architekturę i o wiele, wiele więcej. Jeżeli nie chcesz lub nie możesz o czymś mówić, to może lepiej nie umieszczać tego w CV? Zdaje sobie sprawę, że pewne elementy są objęte klauzulą poufności. Ale to Ty powinieneś przed rozmową sprawdzić, jakie informacje możesz ujawnić a jakich nie. Oto przykład jak mogą wyglądać moje pytania: Jeżeli w CV jest projekt oparty na mikroserwisach, to pewnie zapytam o wygląd tej architektury, sposób komunikacji między serwisami, o twoje zdanie na temat tego podejścia, wady, zalety, oto jak Ty rozumiesz mikroserwisy.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Co nowego w twojej technologii&lt;/p&gt;
+
+&lt;p&gt;Bycie na bieżąco, to nie tylko kwestia rozmowy kwalifikacyjnej. Praca w IT, to moim zdaniem ciągły rozwój, nie można się zatrzymać i przestać rozwijać. Każdy powinien wiedzieć, co nowego słychać w jego dziedzinie. Zdaje sobie sprawę, że nie da się wiedzieć wszystkiego. Ja sama czasem tego nie ogarniam. Warto natomiast próbować raz na jakiś czas odświeżyć swoją wiedzę. Na rozmowie pewnie zapytam o najnowszą wersje języka, o nowości w nim się pojawiające, nowe biblioteki z jakimi miałaś/miałeś styczność, nowe podejścia lub koncepcje. Te pytania mają na celu sprawdzić, czy dbasz o swój rozwój. Nie chodzi o to by wiedzieć wszystko. Jeżeli czegoś nie znasz bądź szczera/szczery.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Narzędzia, sposób pracy, używane aplikacje&lt;/p&gt;
+
+&lt;p&gt;Zawsze pytam o takie rzeczy. W jaki sposób pracujesz? Jakiego edytora używasz? Jakiego systemu używasz? O narzędzia do kontroli wersji? Jakie biblioteki, gemy? Wszystko co jest związane ze stylem/sposobem pracy. Jak być efektywnym, dobrze się komunikować, jak dbać o jakość kodu. Może wiesz coś o TDD, metrykach, PR/MR (pull/merge request), standardzie kodu, pracy zdalnej. Interesują mnie też Twoje opinie na temat. Pytam o to wszystko bo chcę wiedzieć jak świadomym programistą jesteś. Czy wiesz, że te wszystkie elementy składają się na Twoją efektywność i dobry ich dobór może polepszyć komfort Twojej pracy.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Architektura&lt;/p&gt;
+
+&lt;p&gt;Co robisz by projekt był dobrze zorganizowany pod względem architektury? Jakości kodu? Jak pisać kod tak, by był łatwy i szybki w rozwijaniu? Wzorce projektowe? Zasady programowania obiektowego/funkcyjnego? Standardy w kodzie? Założenia języka?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Informacje o firmie&lt;/p&gt;
+
+&lt;p&gt;To jest bardziej istotne dla Ciebie jako kandydata. Zdobycie jak najwięcej informacji na temat firmy, do której chcesz się zatrudnić. Czym się firma zajmuje? Jakie są produkty firmy? Na jakim rynku działa? Jak wygląda struktura firmy? Czasami podczas rozmowy zadaje pytanie odnośnie wiedzy o firmie, ale raczej rzadko. To bardziej Ciebie powinno interesować czy wizja i cele firmy są zgodne z Twoim światopoglądem. Czy to co robi firma Cię interesuje? Są to informacje, które warto wiedzieć przed wysłaniem CV. Zaoszczędzi to czas Tobie i innym.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Bądź przygotowany na pokazanie kodu&lt;/p&gt;
+
+&lt;p&gt;Na krótkiej rozmowie trudno zadać wszystkie pytania i sprawdzić całą wiedzę. Zwłaszcza związaną z pisaniem kodu. Dlatego zawsze proszę o dostęp do projektów, które mogą zaprezentować kompetencje dotyczące pisania kodu. O coś co wykracza poza umiejętność uruchomienia komendy scaffold w Rails. Coś z czego jesteś dumny.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Bądź gotowy na kodowanie na żywo&lt;/p&gt;
+
+&lt;p&gt;Wiem to dość stresująca sytuacja. Zwłaszcza gdy inna osoba praktycznie patrzy Ci na ręce. Dla mnie jest to jeden z lepszych sposobów sprawdzenia jakim programistą jesteś. W jaki sposób rozwiązujesz problemy, jak działa na Ciebie stres, w jaki sposób myślisz, jak wyglądają Twoje umiejętności komunikacyjne. W takim momencie nie myśl o tym, że ja tu jestem, po prostu mów co robisz, jak myślisz o problemie, pytaj jak coś jest nie jasne i będzie dobrze.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Metodologie&lt;/p&gt;
+
+&lt;p&gt;Jeżeli pracowałaś lub pracowałaś już przy tworzeniu jakiegoś projektu, to na pewno wiesz coś na ten temat. Zastanów się jak pracowaliście w zespole? Jaki duży był zespół? W jaki sposób organizowaliście sobie pracę? Czy towarzyszyły temu jakieś procesy? Jak one się nazywają? Agile, Scrum, Waterfall, Lean? Czego używaliście do komunikacji? Jak tworzyliście nowe funkcjonalności? Jak naprawialiście błędy? W jaki sposób podchodziliście do klientów? Jak rozwiązywaliście problemy? Co możesz powiedzieć o swoim procesie? Wady, zalety?&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Pytania do mnie&lt;/p&gt;
+
+&lt;p&gt;Jest na prawdę dużo rzeczy, o które możesz mnie zapytać. Może o to w jaki sposób pracuje nasz zespół. Nad czym teraz pracujemy. O naszą jakoś kodu, architekturę. Zawsze jestem chętna by rozwiać wszelkie wątpliwości, opowiedzieć o zespole czy projekcie. Nie ma nic lepszego niż osoba, która we czego chce i nie boi się o to zapytać. W końcu Tobie też projekt i zespół powinien odpowiadać.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Na koniec bardzo ważna sprawa. To co tutaj napisałam to sprawy, na które ja zwracam uwagę. Czego oczekuje na rozmowie kwalifikacyjnej od kandydata. To nie jest sposób na oszukanie osoby rekrutującej, lecz na lepsze przygotowanie do rozmowy. Bądź szczery ze sobą i ze swoim rozmówcą. Przecież chodzi o to, by się wzajem poznać i sprawdzić czy będzie się Wam dobrze pracowało. Pamiętaj nie tylko firma wybiera swojego pracownika, ale też pracownik firmę. Każda strona powinna być zadowolona z dokonanego wyboru.&lt;/p&gt;
+
+&lt;p&gt;To już wszystko na dziś. Znasz inne sposoby by być dobrze przygotowanym do rozmowy kwalifikacyjnej? Jeżeli tak, podziel się nimi w komentarzach. Miłego dnia i do następnego razu!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 Apr 2017 00:00:00 -0400</pubDate>
+        <link>http://localhost:4000/pl/interview</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/interview</guid>
+        
+        <category>interview</category>
+        
+        <category>umiejętności</category>
+        
+        
+        <category>rozmowa kwalifikacyjna</category>
+        
+        <category>umiejętności</category>
+        
+      </item>
     
       
       <item>
@@ -106,8 +169,8 @@
 &lt;p&gt;Mam nadzieje, że będzie to dla Was pomocne. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>/pl/sublime</link>
-        <guid isPermaLink="true">/pl/sublime</guid>
+        <link>http://localhost:4000/pl/sublime</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/sublime</guid>
         
         <category>tools</category>
         
@@ -216,8 +279,8 @@ end
 &lt;p&gt;To był krótki przegląd tego co można zrobić z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>/pl/each-with-object</link>
-        <guid isPermaLink="true">/pl/each-with-object</guid>
+        <link>http://localhost:4000/pl/each-with-object</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/each-with-object</guid>
         
         <category>Ruby</category>
         
@@ -257,13 +320,19 @@ end
 &lt;p&gt;Dziękuje za to, że mogłam wziąć udział w tego rocznym Web Summit. Jednak patrząc z perspektywy programistki, gdybym kupiła ten bilet z własnych pieniędzy, byłabym bardzo rozczarowana. Naprawdę uwielbiam konferencje bardziej kameralne, gdzie wszyscy lub prawie wszyscy się znają lub kojarzą z widzenia. Gdzie moja obecność ma znaczenie. Gdzie ludzie dbają o siebie na wzajem. Brakowało mi tego na Web Summit. Najlepszą rzeczą jaką wyniosłam z tegorocznej wydarzenia to poznanie wspaniałych ludzi. Jestem naprawdę szczęśliwa, że nawet przy tak przytłaczającym tłumie można spotkać niesamowitych ludzi z różnych krajów. To wszystko, co chciałabym powiedzieć. Mam nadzieję, że następna edycja będzie lepsza.&lt;/p&gt;
 </description>
         <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
-        <link>/pl/websummit-lisbon-2016</link>
-        <guid isPermaLink="true">/pl/websummit-lisbon-2016</guid>
+        <link>http://localhost:4000/pl/websummit-lisbon-2016</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/websummit-lisbon-2016</guid>
         
         <category>Web Summit</category>
         
         <category>Lizbona</category>
         
+        
+        <category>podróże</category>
+        
+        <category>warsztaty</category>
+        
+        <category>wydarzenia</category>
         
       </item>
     
@@ -488,8 +557,8 @@ end
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
-        <link>/pl/leaflet</link>
-        <guid isPermaLink="true">/pl/leaflet</guid>
+        <link>http://localhost:4000/pl/leaflet</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/leaflet</guid>
         
         <category>maps</category>
         
@@ -584,8 +653,8 @@ Z mojej perspektywy było to niesamowite doświadczenie. Jestem naprawdę szczę
 To wszystko na dziś. Mam nadzieje, że artykuł Wam się podobał. Jeżeli macie jakieś pytania, piszcie w komentarzach. Do następnego razu!&lt;/p&gt;
 </description>
         <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>/pl/remote-work</link>
-        <guid isPermaLink="true">/pl/remote-work</guid>
+        <link>http://localhost:4000/pl/remote-work</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/remote-work</guid>
         
         <category>praca</category>
         
@@ -666,8 +735,8 @@ git rebase --continue
 &lt;p&gt;To wszystko na dzisiaj. Pokazałam Wam jak można używać &lt;code&gt;git rebase&lt;/code&gt;. Mam nadzięję, że było to dla Was pomocne. Jeżeli miacie jakieś pytania lub sugestie zapraszam do komentowania. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>/pl/git-rebase</link>
-        <guid isPermaLink="true">/pl/git-rebase</guid>
+        <link>http://localhost:4000/pl/git-rebase</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/git-rebase</guid>
         
         <category>git</category>
         
@@ -802,8 +871,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;To na razie tyle. Szybki przegląd podstawowych poleceń używanych do obsługi systemu kontroli wersji jakim jest Git. Mam nadzieje, że Wam się podobało. Jeżeli chcielibyście dowiedzieć sie czegoś więcej lub chcielibyście bym coś bardziej wytłumaczyła zostawcie komentarz. Do zobaczenia następnym razem. Pa!&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Feb 2016 00:00:00 -0500</pubDate>
-        <link>/pl/git-usage</link>
-        <guid isPermaLink="true">/pl/git-usage</guid>
+        <link>http://localhost:4000/pl/git-usage</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/git-usage</guid>
         
         <category>git</category>
         
@@ -853,8 +922,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;Mam nadzieje, że było to dla Was interesujące. Zostawcie komentarz i do zobaczenia następnym razem.&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
-        <link>/pl/lambda</link>
-        <guid isPermaLink="true">/pl/lambda</guid>
+        <link>http://localhost:4000/pl/lambda</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/lambda</guid>
         
         <category>Ruby</category>
         
@@ -877,8 +946,8 @@ Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Uwielbiam robić rzeczy związane z technologią. Tym razem uczestniczyłam w &lt;a href=&quot;http://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; w Cieszynie. To był mój trzeci raz. &lt;strong&gt;Co to Global Game Jam?&lt;/strong&gt; To hakaton trwający 48 godzin. Gromadzą się tam ludzie, który chcą tworzyć gry komputerowe. Każdego roku jestem pod ogromnym wrażeniem pomysłowości, talentu i realizacji projektów, które tam powstają. Jeżeli chcecie zobaczyć więcej możecie zajrzeć &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
-        <link>/pl/global-game-jam</link>
-        <guid isPermaLink="true">/pl/global-game-jam</guid>
+        <link>http://localhost:4000/pl/global-game-jam</link>
+        <guid isPermaLink="true">http://localhost:4000/pl/global-game-jam</guid>
         
         <category>GGJ</category>
         
@@ -890,85 +959,6 @@ Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
         <category>warsztaty</category>
         
         <category>wydarzenia</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Co to jest git?</title>
-        <description>&lt;p&gt;Chciałabym z Wami zacząć dzisiaj krótką serię 2-3 artykułów na temat &lt;strong&gt;Gita&lt;/strong&gt;. To będzie naprawdę podstawa. W Internecie jest wiele różnego rodzaju kursów na temat Gita. A ja nie chciałabym robić kolejnego. Jeżeli chciałybyście dowiedzieć się czegoś więcej na ten temat, osobiście mogę polecić 2 kursy na temat Gita z CodeSchool. Możecie zacząć &lt;a href=&quot;https://www.codeschool.com/courses/try-git&quot;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Nie będę tutaj podawać definicji tego czym jest Git, bo możecie ją znaleźć na &lt;a href=&quot;https://en.wikipedia.org/wiki/Git_(software)&quot;&gt;wiki&lt;/a&gt; czy w &lt;a href=&quot;https://git-scm.com/documentation&quot;&gt;dokumentacji Gita&lt;/a&gt;. Powiem tylko, że git to &lt;strong&gt;system kontroli wersji&lt;/strong&gt;. Teraz zajmiemy się zrozumieniem do czego można wykorzystać Gita i dlaczego jest to naprawdę świetne narzędzie.&lt;/p&gt;
-
-&lt;p&gt;Czy zdarzają się Wam sytuacje, w których pracujecie wspólnie z innymi nad tymi samymi plikami? Sytuacje takie jak: projekt zespołowy w szkole, na uczelni? Może jakaś duża aplikacja internetowa? Prezentacja lub raport dla szefa? Lub inne zadanie, gdzie każdy w zespole ma dostęp do tych samych plików? Ja spotykam się z taką sytuacją każdego dnia w swojej pracy. Pracuję w zespole składającym się z około 8 osób. A może pracujecie tylko dla siebie, ale nie możecie sobie pozwolić na utratę Waszych danych? Może jesteście pisarzami i przykładowo piszecie książkę?&lt;/p&gt;
-
-&lt;h2&gt;Praca tylko dla siebie&lt;/h2&gt;
-
-&lt;p&gt;Załóżmy, że pracujemy sami. Piszemy książkę. Pracujemy nad nią od dwóch lat. Nagle komputer się zepsuł, przypadkowo usunęliśmy plik z danymi lub po prostu chcemy wrócić do poprzedniej wersji, bo była znacznie lepsza, niż ta po ostatnich poprawkach. Co teraz? Wiem dzisiaj istnieje już wiele sposobów, dzięki którym możemy zapobiec tego typu sytuacją. Mamy Dropbox, dyski zewnętrzne czy pocztę internetową (na którą wysyłamy koleją wersję naszych danych). Nawet programy, takie jak LibreOffice potrafią zapamiętywać ostatnie dokonane zmiany. Git też to potrafi. Pamięta on historię wszystkich zapisanych zmian. Można dzięki temu wrócić do dowolnej starszej wersji plików.&lt;/p&gt;
-
-&lt;p&gt;Jeżeli przykład ten nie przekonał Cię, że Git może być użytecznym narzędziem, to zapraszam do kolejnego przykładu.&lt;/p&gt;
-
-&lt;h2&gt;Praca zespołowa&lt;/h2&gt;
-
-&lt;p&gt;Każdy w naszym zespole ma dostęp do projektu na swoim własnym komputerze. Przykładowo mamy jeden plik. Kochamy język Ruby, więc plik będzie pisany właśnie w tym języku. A wygląda on tak:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Każdym ma ten plik lokalnie na swoim komputerze. Teraz ja dostaję zadanie, by zmienić napisaną w nim metodę, tak by zwracała nie &lt;code&gt;hello&lt;/code&gt; tylko &lt;code&gt;hello world&lt;/code&gt;. Po zmianie plik wygląda następująco:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Teraz w jakiś sposób muszę podzielić się tą zmianą z innymi osobami w zespole. Ale jak? Przez e-mail? Dropbox? Pendrive? Każde z tych rozwiązań jest dość bolesne w tym przypadku. Nasz pierwszy problem to: &lt;strong&gt;1. Aktualizacja projektu (jak mieć dostęp do bieżącej wersji projektu)&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Ten problem jest możliwy do rozwiązania. Czasem rozwiązanie może być pracochłonne i nużące, ale jesteśmy w stanie sobie z nim poradzić. Natomiast, co zrobimy w przypadku, gdy dwie osoby zmieniają dokładnie ten sam fragment kodu? Przykładowo druga osoba zmienia nazwę metody, nad którą ja w tym czasie pracuje. Kod tej osoby wygląda następująco:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Teraz ja wysyłam moje zmiany do wszystkich, druga osoba robi to samo. Które zmiany powinny zostać? Które zmiany są ważniejsze? A może zależy nam na czymś takim:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# hello_world.rb&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;say_hi&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&amp;quot;hello world&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Połączone zmiany. W jaki sposób możemy ten problem rozwiązać? Moglibyśmy mieć taką osobę w zespole, która by to dla nas przygotowywała. Rozmawialibyśmy z tą osobą o zmianach, jakie wprowadziliśmy i ona starałaby się rozwiązywać takie konflikty za nas. Czy myślicie tak jak ja że to bardzo zły pomysł? Jeżeli tak do dobrze, bo to katastrofalny pomysł. No i kto chciałby być taką osobą w zespole? Pojawia się nam drugi chyba jeszcze ważniejszy problem: &lt;strong&gt;2. W jaki sposób łatwo łączyć zmiany wprowadzone przez różne osoby?&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Git jest takim narzędziem, które w wielu przypadkach automatycznie łączy zmiany pochodzące od różnych osób. Jest to bardzo przydatne narzędzie zwłaszcza przy zespołowych projektach. Ale! (zawsze musi być jakieś ale). O ile w bardzo przystępny sposób za pomocą Gita można poruszać się po plikach tekstowych (programy, książki, artykuły) i ich zmianach. To znacznie ciężej jest poruszać się po plikach graficznych. Obrazki to pliki binarne (w większości przypadków, za wyjątkiem np. svg). Kiedy zmienimy coś w takim pliku ciężko jest nam obserwować zmiany.&lt;/p&gt;
-
-&lt;p&gt;Przykładowo, nasz obrazek może dla komputera wyglądać następująco:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
-00000010  00 00 04 c9 00 00 01 7e  08 06 00 00 01 ef a0 7d  |.......~.......}|
-00000020  68 00 00 00 09 70 48 59  73 00 00 2e 23 00 00 2e  |h....pHYs...#...|
-00000030  23 01 78 a5 3f 76 00 00  00 19 74 45 58 74 53 6f  |#.x.?v....tEXtSo|
-00000040  66 74 77 61 72 65 00 41  64 6f 62 65 20 49 6d 61  |ftware.Adobe Ima|
-00000050  67 65 52 65 61 64 79 71  c9 65 3c 00 00 36 8c 49  |geReadyq.e&amp;lt;..6.I|
-00000060  44 41 54 78 da ec 9c 61  6e 83 30 0c 46 47 c4 85  |DATx...an.0.FG..|
-00000070  a6 75 47 da a9 76 a4 75  da 91 98 f8 41 95 a6 31  |.uG..v.u....A..1|
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Nasz komputer w łatwy sposób jest wstanie zinterpretować ciągi tych liczb i literek w postaci kształtów i kolorów. My niestety nie. Więc gdy zmienimy coś na naszym obrazku, nie potrafimy po jakimś czasie stwierdzić co to była za zmiana. Chyba, że otworzymy ten obrazek w odpowiednim programie. Rozumiecie co mam na myśli? Nie chodzi o to, że nigdy nie dodajemy plików graficznych do Gita. Chodzi o to, że bez dodatkowych narzędzi ciężko nam śledzić na takich plikach zmiany.&lt;/p&gt;
-
-&lt;p&gt;Mam nadzieję, że ten artykuł był dla Was pomocny, w zrozumieniu tego po co przydaje się takie narzędzie jak Git. W następnym artykule chciałabym opisać podstawowe użycie tego narzędzia. Jeżeli macie jakieś pytania lub sugestie, dajcie znać w komentarzach. Do zobaczenia następnym razem. Pa!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 20 Dec 2015 00:00:00 -0500</pubDate>
-        <link>/pl/what-is-git</link>
-        <guid isPermaLink="true">/pl/what-is-git</guid>
-        
-        <category>git</category>
-        
-        <category>tools</category>
-        
-        
-        <category>git</category>
-        
-        <category>narzędzia</category>
-        
-        <category>środowisko</category>
         
       </item>
     
