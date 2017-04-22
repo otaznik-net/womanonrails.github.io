@@ -3,10 +3,10 @@
   <channel>
     <title>Woman on Rails</title>
     <description></description>
-    <link>http://localhost:4000/</link>
-    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 22 Apr 2017 13:26:30 -0400</pubDate>
-    <lastBuildDate>Sat, 22 Apr 2017 13:26:30 -0400</lastBuildDate>
+    <link>http://womanonrails.com/</link>
+    <atom:link href="http://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 22 Apr 2017 13:36:55 -0400</pubDate>
+    <lastBuildDate>Sat, 22 Apr 2017 13:36:55 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
@@ -58,8 +58,8 @@
 &lt;p&gt;Do you know any others tips how to prepare to interview? If so, please add them in comments. Have a nice time and see you next time!&lt;/p&gt;
 </description>
         <pubDate>Tue, 04 Apr 2017 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/interview</link>
-        <guid isPermaLink="true">http://localhost:4000/interview</guid>
+        <link>http://womanonrails.com/interview</link>
+        <guid isPermaLink="true">http://womanonrails.com/interview</guid>
         
         <category>interview</category>
         
@@ -169,8 +169,8 @@
 &lt;p&gt;I hope you find this useful. See you next time!&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/sublime</link>
-        <guid isPermaLink="true">http://localhost:4000/sublime</guid>
+        <link>http://womanonrails.com/sublime</link>
+        <guid isPermaLink="true">http://womanonrails.com/sublime</guid>
         
         <category>tools</category>
         
@@ -279,8 +279,8 @@ end
 &lt;p&gt;This was quick overview for method &lt;code&gt;each_with_object&lt;/code&gt;. I hope you like this examples like I do. If you have any question leave them below and see you next time!&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/each-with-object</link>
-        <guid isPermaLink="true">http://localhost:4000/each-with-object</guid>
+        <link>http://womanonrails.com/each-with-object</link>
+        <guid isPermaLink="true">http://womanonrails.com/each-with-object</guid>
         
         <category>Ruby</category>
         
@@ -320,8 +320,8 @@ end
 &lt;p&gt;I appreciate that I could come to Web Summit and be participant on this conference. But if I would buy the ticket as a developer I would be disappointed. I really love small conference where you feel like in home, where everyone (almost everyone) know each other&amp;#39;s. Where everyone care for each others. The best thing of Web Summit was amazing people which I met there. I&amp;#39;m so happy that even on that huge event I could meet so wonderful people from different countries. That&amp;#39;s all what I would like to say. I hope the next edition will be better.&lt;/p&gt;
 </description>
         <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/websummit-lisbon-2016</link>
-        <guid isPermaLink="true">http://localhost:4000/websummit-lisbon-2016</guid>
+        <link>http://womanonrails.com/websummit-lisbon-2016</link>
+        <guid isPermaLink="true">http://womanonrails.com/websummit-lisbon-2016</guid>
         
         <category>Web Summit</category>
         
@@ -557,8 +557,8 @@ end
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/leaflet</link>
-        <guid isPermaLink="true">http://localhost:4000/leaflet</guid>
+        <link>http://womanonrails.com/leaflet</link>
+        <guid isPermaLink="true">http://womanonrails.com/leaflet</guid>
         
         <category>maps</category>
         
@@ -653,8 +653,8 @@ From my perspective it is great opportunity. I very happy that I could to try.
 This is it. I hope you like this article. If you have any question please leave them below in comments. See you next time!&lt;/p&gt;
 </description>
         <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/remote-work</link>
-        <guid isPermaLink="true">http://localhost:4000/remote-work</guid>
+        <link>http://womanonrails.com/remote-work</link>
+        <guid isPermaLink="true">http://womanonrails.com/remote-work</guid>
         
         <category>work</category>
         
@@ -735,8 +735,8 @@ git rebase --continue
 &lt;p&gt;This is it. I showed you how you can use &lt;code&gt;git rebase&lt;/code&gt;. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>http://localhost:4000/git-rebase</link>
-        <guid isPermaLink="true">http://localhost:4000/git-rebase</guid>
+        <link>http://womanonrails.com/git-rebase</link>
+        <guid isPermaLink="true">http://womanonrails.com/git-rebase</guid>
         
         <category>git</category>
         
@@ -871,8 +871,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;This is end. All you need to know to start working with Git is here. I hope you like it. If you wants know more please let me now in comments. See you next time! Bye!&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Feb 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/git-usage</link>
-        <guid isPermaLink="true">http://localhost:4000/git-usage</guid>
+        <link>http://womanonrails.com/git-usage</link>
+        <guid isPermaLink="true">http://womanonrails.com/git-usage</guid>
         
         <category>git</category>
         
@@ -922,8 +922,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;I hope that was interesting for you. Live a comment and see you next time. Bye!&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/lambda</link>
-        <guid isPermaLink="true">http://localhost:4000/lambda</guid>
+        <link>http://womanonrails.com/lambda</link>
+        <guid isPermaLink="true">http://womanonrails.com/lambda</guid>
         
         <category>Ruby</category>
         
@@ -946,8 +946,8 @@ Place: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;I really love doing things connecting in technology. This time I was participant in &lt;a href=&quot;http://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; in Cieszyn. This was my third time. &lt;strong&gt;What is Global Game Jam?&lt;/strong&gt; This is 48 hours hackaton for people which would like to create games. And each year I&amp;#39;m impressed of ideas, talent and projects realization. You can see more &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/global-game-jam</link>
-        <guid isPermaLink="true">http://localhost:4000/global-game-jam</guid>
+        <link>http://womanonrails.com/global-game-jam</link>
+        <guid isPermaLink="true">http://womanonrails.com/global-game-jam</guid>
         
         <category>GGJ</category>
         
