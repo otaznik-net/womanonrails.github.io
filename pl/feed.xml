@@ -3,10 +3,10 @@
   <channel>
     <title>Woman on Rails</title>
     <description></description>
-    <link>http://womanonrails.com/pl/</link>
-    <atom:link href="http://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 May 2017 12:11:19 -0400</pubDate>
-    <lastBuildDate>Tue, 16 May 2017 12:11:19 -0400</lastBuildDate>
+    <link>https://womanonrails.com/pl/</link>
+    <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 27 Jul 2018 12:31:59 -0400</pubDate>
+    <lastBuildDate>Fri, 27 Jul 2018 12:31:59 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
@@ -58,8 +58,8 @@
 &lt;p&gt;To już wszystko na dziś. Znasz inne sposoby by być dobrze przygotowanym do rozmowy kwalifikacyjnej? Jeżeli tak, podziel się nimi w komentarzach. Miłego dnia i do następnego razu!&lt;/p&gt;
 </description>
         <pubDate>Tue, 04 Apr 2017 00:00:00 -0400</pubDate>
-        <link>http://womanonrails.com/pl/interview</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/interview</guid>
+        <link>https://womanonrails.com/pl/interview</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/interview</guid>
         
         <category>interview</category>
         
@@ -89,7 +89,7 @@
 &lt;p&gt;Jeżeli tylko chcesz rozszerzyć funkcjonalność Sublime to możesz przebierać w różnych dodatkach. Tutaj moje ulubione:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - do szybkiego i łatwego tworzenia kodu HTML lub CSS&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - do szybkiego i łatwego tworzenia kodu HTML lub CSS&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/facelessuser/BracketHighlighter&quot;&gt;BracketHighlighter&lt;/a&gt; - podświetla otwarcie i zamknięcie konkretnego zagłębienia nawiasów, bardzo przydatny zwłaszcza przy pracy z językami takimi jak JavaScript, gdzie tych nawiasów jest sporo&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/jisaacks/GitGutter&quot;&gt;Git Gutter&lt;/a&gt; - pokazuje zmiany jakie zaszły w kodzie (jest zintegrowany z narzędziem o nazwie &lt;strong&gt;git&lt;/strong&gt;, pisałam o nim w artykule &lt;a href=&quot;/pl/what-is-git&quot;&gt;Co to jest git?&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/dzhibas/SublimePrettyJson&quot;&gt;SublimePrettyJson&lt;/a&gt; - pozwala za pomocą kombinacji klawiszy w czytelny sposób sformatować plik zawierający dane w formacie JSON&lt;/li&gt;
@@ -169,8 +169,8 @@
 &lt;p&gt;Mam nadzieje, że będzie to dla Was pomocne. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/pl/sublime</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/sublime</guid>
+        <link>https://womanonrails.com/pl/sublime</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/sublime</guid>
         
         <category>tools</category>
         
@@ -186,7 +186,7 @@
       
       <item>
         <title>Zastosowanie metody each_with_object w Ruby</title>
-        <description>&lt;p&gt;Ostatnio pracowałam z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Jak zazwyczaj w takich sytuacjach zawsze staram się przed użyciem jakiejś metody sprawdzić jej dokumentację. Weszłam więc na &lt;a href=&quot;http://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object&quot;&gt;APIdock&lt;/a&gt; przeglądam zastosowanie oraz przykłady. Okazało się że nie było tam jednego z przypadków zastosowania. Chciałam go dodać, lecz bez powodzenia. Postanowiłam więc, że skoro czekam na rozwiązanie problemu ze strony APIdock mogę napisać krótką notatkę na temat metody &lt;code&gt;each_with_object&lt;/code&gt; tutaj.&lt;/p&gt;
+        <description>&lt;p&gt;Ostatnio pracowałam z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Jak zazwyczaj w takich sytuacjach zawsze staram się przed użyciem jakiejś metody sprawdzić jej dokumentację. Weszłam więc na &lt;a href=&quot;https://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object&quot;&gt;APIdock&lt;/a&gt; przeglądam zastosowanie oraz przykłady. Okazało się że nie było tam jednego z przypadków zastosowania. Chciałam go dodać, lecz bez powodzenia. Postanowiłam więc, że skoro czekam na rozwiązanie problemu ze strony APIdock mogę napisać krótką notatkę na temat metody &lt;code&gt;each_with_object&lt;/code&gt; tutaj.&lt;/p&gt;
 
 &lt;p&gt;Najbardziej pożytecznym i wydaje mi się również popularnym użyciem tej metody jest podanie jako argumentu tablicy lub hasha (tablicy słownikowej). Można to zrobić przykładowo:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
@@ -279,8 +279,8 @@ end
 &lt;p&gt;To był krótki przegląd tego co można zrobić z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/pl/each-with-object</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/each-with-object</guid>
+        <link>https://womanonrails.com/pl/each-with-object</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/each-with-object</guid>
         
         <category>Ruby</category>
         
@@ -320,8 +320,8 @@ end
 &lt;p&gt;Dziękuje za to, że mogłam wziąć udział w tego rocznym Web Summit. Jednak patrząc z perspektywy programistki, gdybym kupiła ten bilet z własnych pieniędzy, byłabym bardzo rozczarowana. Naprawdę uwielbiam konferencje bardziej kameralne, gdzie wszyscy lub prawie wszyscy się znają lub kojarzą z widzenia. Gdzie moja obecność ma znaczenie. Gdzie ludzie dbają o siebie na wzajem. Brakowało mi tego na Web Summit. Najlepszą rzeczą jaką wyniosłam z tegorocznej wydarzenia to poznanie wspaniałych ludzi. Jestem naprawdę szczęśliwa, że nawet przy tak przytłaczającym tłumie można spotkać niesamowitych ludzi z różnych krajów. To wszystko, co chciałabym powiedzieć. Mam nadzieję, że następna edycja będzie lepsza.&lt;/p&gt;
 </description>
         <pubDate>Sat, 19 Nov 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/pl/websummit-lisbon-2016</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/websummit-lisbon-2016</guid>
+        <link>https://womanonrails.com/pl/websummit-lisbon-2016</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/websummit-lisbon-2016</guid>
         
         <category>Web Summit</category>
         
@@ -342,7 +342,7 @@ end
         <description>&lt;p&gt;Jestem z powrotem! Tym razem chciałabym pokazać Wam trochę map. Dzisiejszym tematem będzie: Jak w prosty sposób można obsłużyć mapy na własnej stronie internetowej. Do tego potrzebne nam będzie:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt; - biblioteka JavaScript do obsługi map&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt; - biblioteka JavaScript do obsługi map&lt;/li&gt;
 &lt;li&gt;Fragmenty mapy (Maps tiles)&lt;/li&gt;
 &lt;li&gt;Ruby on Rails (nie jest wymagany, na początek wystarczy strona &lt;strong&gt;html&lt;/strong&gt;)&lt;/li&gt;
 &lt;/ol&gt;
@@ -351,7 +351,7 @@ end
 
 &lt;h2&gt;Skąd możemy dostać takie fragmenty mapy?&lt;/h2&gt;
 
-&lt;p&gt;Można zarejestrować się na stronie &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt; i skorzystać z ich darmowego pakietu do obsługi map lub użyć &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;. Jest wiele serwisów, które dostarczają map tiles, na końcu tego artykułu postaram się wymienić kilka z nich.&lt;/p&gt;
+&lt;p&gt;Można zarejestrować się na stronie &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt; i skorzystać z ich darmowego pakietu do obsługi map lub użyć &lt;a href=&quot;https://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;. Jest wiele serwisów, które dostarczają map tiles, na końcu tego artykułu postaram się wymienić kilka z nich.&lt;/p&gt;
 
 &lt;h2&gt;Przygotowania&lt;/h2&gt;
 
@@ -539,26 +539,26 @@ end
 &lt;p&gt;To co pokazałam to tylko mały wycinek tego co można zrobić dzięki bibliotece &lt;strong&gt;Leaflet&lt;/strong&gt;. Jeżeli szukasz bardziej zaawansowanych funkcji (jak na przykład rysowanie kształtów) zapraszam do zapoznania się z poniższymi linkami:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw&quot;&gt;Leaflet Draw&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://geojson.io/&quot;&gt;GeoJSON&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.liedman.net/leaflet-routing-machine/&quot;&gt;Leaflet Routing Machine&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://openlayers.org/&quot;&gt;OpenLayers&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/?csw=1&quot;&gt;Google Maps Javascript API&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/modestmaps/modestmaps-js&quot;&gt;Modest Maps&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.microsoft.com/maps/&quot;&gt;Bing maps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.microsoft.com/maps/&quot;&gt;Bing maps&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.google.pl/maps?source=tldso&quot;&gt;Google Maps&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.maptiler.com/&quot;&gt;MapTiler&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://maps.stamen.com/&quot;&gt;Maps Stamen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.mapquest.com/&quot;&gt;Map Quest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://wiki.openstreetmap.org/wiki/Tiles&quot;&gt;Tiles&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.mapquest.com/&quot;&gt;Map Quest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Tiles&quot;&gt;Tiles&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
-        <link>http://womanonrails.com/pl/leaflet</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/leaflet</guid>
+        <link>https://womanonrails.com/pl/leaflet</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/leaflet</guid>
         
         <category>maps</category>
         
@@ -653,8 +653,8 @@ Z mojej perspektywy było to niesamowite doświadczenie. Jestem naprawdę szczę
 To wszystko na dziś. Mam nadzieje, że artykuł Wam się podobał. Jeżeli macie jakieś pytania, piszcie w komentarzach. Do następnego razu!&lt;/p&gt;
 </description>
         <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>http://womanonrails.com/pl/remote-work</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/remote-work</guid>
+        <link>https://womanonrails.com/pl/remote-work</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/remote-work</guid>
         
         <category>praca</category>
         
@@ -735,8 +735,8 @@ git rebase --continue
 &lt;p&gt;To wszystko na dzisiaj. Pokazałam Wam jak można używać &lt;code&gt;git rebase&lt;/code&gt;. Mam nadzięję, że było to dla Was pomocne. Jeżeli miacie jakieś pytania lub sugestie zapraszam do komentowania. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
         <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>http://womanonrails.com/pl/git-rebase</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/git-rebase</guid>
+        <link>https://womanonrails.com/pl/git-rebase</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/git-rebase</guid>
         
         <category>git</category>
         
@@ -871,8 +871,8 @@ git config --global user.email you_email_address@example.com
 &lt;p&gt;To na razie tyle. Szybki przegląd podstawowych poleceń używanych do obsługi systemu kontroli wersji jakim jest Git. Mam nadzieje, że Wam się podobało. Jeżeli chcielibyście dowiedzieć sie czegoś więcej lub chcielibyście bym coś bardziej wytłumaczyła zostawcie komentarz. Do zobaczenia następnym razem. Pa!&lt;/p&gt;
 </description>
         <pubDate>Sat, 20 Feb 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/pl/git-usage</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/git-usage</guid>
+        <link>https://womanonrails.com/pl/git-usage</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/git-usage</guid>
         
         <category>git</category>
         
@@ -917,13 +917,13 @@ git config --global user.email you_email_address@example.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;To rozwiązanie zmniejszyło znacznie ilość powtórzeń pokazanego na początku kodu. I co najważniejsze kolekcja jest deklarowana tylko w jednym miejscu. Mówiąc szczerze ten sposób rozwiązania był tylko przejściowy, ponieważ końcowym etapem było wyodrębnienie kolekcji do osobnej klasy. Jednak na ten konkretny moment było to rozwiązanie dla mnie zupełnie satysfakcjonujące i przede wszystkim proste.&lt;/p&gt;
 
-&lt;p&gt;Jeżeli chcielibyście się dowiedzieć czegoś więcej o lambdach i programowaniu funkcyjnym, zapraszam do przejrzenia mojej prezentacji na ten temat jest dostępna &lt;a href=&quot;http://womanonrails.github.io/presentation-functional-programming-in-ruby/#1&quot;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Jeżeli chcielibyście się dowiedzieć czegoś więcej o lambdach i programowaniu funkcyjnym, zapraszam do przejrzenia mojej prezentacji na ten temat jest dostępna &lt;a href=&quot;https://womanonrails.github.io/presentation-functional-programming-in-ruby/#1&quot;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Mam nadzieje, że było to dla Was interesujące. Zostawcie komentarz i do zobaczenia następnym razem.&lt;/p&gt;
 </description>
         <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/pl/lambda</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/lambda</guid>
+        <link>https://womanonrails.com/pl/lambda</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/lambda</guid>
         
         <category>Ruby</category>
         
@@ -943,11 +943,11 @@ git config --global user.email you_email_address@example.com
 Czas: &lt;em&gt;2016-01-29 17:00 – 2016-01-31 19:00&lt;/em&gt;&lt;br&gt;
 Miejsce: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Uwielbiam robić rzeczy związane z technologią. Tym razem uczestniczyłam w &lt;a href=&quot;http://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; w Cieszynie. To był mój trzeci raz. &lt;strong&gt;Co to Global Game Jam?&lt;/strong&gt; To hakaton trwający 48 godzin. Gromadzą się tam ludzie, który chcą tworzyć gry komputerowe. Każdego roku jestem pod ogromnym wrażeniem pomysłowości, talentu i realizacji projektów, które tam powstają. Jeżeli chcecie zobaczyć więcej możecie zajrzeć &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Uwielbiam robić rzeczy związane z technologią. Tym razem uczestniczyłam w &lt;a href=&quot;https://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; w Cieszynie. To był mój trzeci raz. &lt;strong&gt;Co to Global Game Jam?&lt;/strong&gt; To hakaton trwający 48 godzin. Gromadzą się tam ludzie, który chcą tworzyć gry komputerowe. Każdego roku jestem pod ogromnym wrażeniem pomysłowości, talentu i realizacji projektów, które tam powstają. Jeżeli chcecie zobaczyć więcej możecie zajrzeć &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;tutaj&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
-        <link>http://womanonrails.com/pl/global-game-jam</link>
-        <guid isPermaLink="true">http://womanonrails.com/pl/global-game-jam</guid>
+        <link>https://womanonrails.com/pl/global-game-jam</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/global-game-jam</guid>
         
         <category>GGJ</category>
         
