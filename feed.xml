@@ -5,9 +5,39 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 22 Aug 2018 04:39:59 -0400</pubDate>
-    <lastBuildDate>Wed, 22 Aug 2018 04:39:59 -0400</lastBuildDate>
+    <pubDate>Wed, 05 Sep 2018 10:21:59 -0400</pubDate>
+    <lastBuildDate>Wed, 05 Sep 2018 10:21:59 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Wroclove.rb 2018 - Quick overview</title>
+        <description>&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Last time when I was a participant in &lt;strong&gt;Wroclove.rb&lt;/strong&gt; it was, I think, 2-3 years ago. Back then, I was sad about topics of this conference. Almost every presentation was telling us that &lt;strong&gt;Rails&lt;/strong&gt; and &lt;strong&gt;Ruby&lt;/strong&gt; are dead. But no one had any solution for this problem. I know that, this was an alert for us to wake up and take care of our community and framework, but still, it was sad to hear that.&lt;/p&gt;
+
+&lt;p&gt;This year was completely different. People came with some ideas of what we can do with our code&amp;#39;s architecture. And what we can improve with our work. Especially, in big projects. It was great to hear some new concepts (at least for the Rails community, Java or C# already know that for some time now). I don&amp;#39;t say that these solutions are prefect, but it is good to see that something is changing. I wish we had more and more power in the community. To feel that all of us have an impact on how it will look like in the next few years.&lt;/p&gt;
+
+&lt;p&gt;It was also great because I saw all my old friends there. I felt  that on Wroclove.rb we are one big family. Sometimes we are so busy that we don&amp;#39;t see each other for a long time. And conferences like this one, helps us to meet each other. Thanks to all organizations for this!&lt;/p&gt;
+
+&lt;p&gt;If you were at this conference check out my short video to bring back some memories of this time. If not, you can always be inspired by this video and join us next year. Feel free to share your thoughts in the comments. And see you next time (there will be more code juicy topic).&lt;/p&gt;
+</description>
+        <pubDate>Fri, 25 May 2018 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/wrocloverb-2018</link>
+        <guid isPermaLink="true">https://womanonrails.com/wrocloverb-2018</guid>
+        
+        <category>Wrocloverb</category>
+        
+        <category>Wroclaw</category>
+        
+        
+        <category>events</category>
+        
+        <category>travels</category>
+        
+        <category>workshops</category>
+        
+      </item>
     
       
       <item>
@@ -933,32 +963,6 @@ git config --global user.email you_email_address@example.com
         <category>Ruby</category>
         
         <category>refactoring</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Global Game Jam</title>
-        <description>&lt;p&gt;&lt;br&gt;
-Date: &lt;em&gt;2016-01-29 17:00 – 2016-01-31 19:00&lt;/em&gt;&lt;br&gt;
-Place: &lt;em&gt;Cieszyn, PL&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I really love doing things connecting in technology. This time I was participant in &lt;a href=&quot;https://globalgamejam.org/&quot;&gt;Global Game Jam&lt;/a&gt; in Cieszyn. This was my third time. &lt;strong&gt;What is Global Game Jam?&lt;/strong&gt; This is 48 hours hackaton for people which would like to create games. And each year I&amp;#39;m impressed of ideas, talent and projects realization. You can see more &lt;a href=&quot;https://www.youtube.com/watch?v=-g4BbTNCgck&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 31 Jan 2016 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/global-game-jam</link>
-        <guid isPermaLink="true">https://womanonrails.com/global-game-jam</guid>
-        
-        <category>GGJ</category>
-        
-        <category>Cieszyn</category>
-        
-        
-        <category>events</category>
-        
-        <category>travels</category>
-        
-        <category>workshops</category>
         
       </item>
     
