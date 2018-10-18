@@ -5,9 +5,391 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 09 Sep 2018 08:30:51 -0400</pubDate>
-    <lastBuildDate>Sun, 09 Sep 2018 08:30:51 -0400</lastBuildDate>
+    <pubDate>Thu, 18 Oct 2018 11:16:33 -0400</pubDate>
+    <lastBuildDate>Thu, 18 Oct 2018 11:16:33 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Ruby Refactoring step by step - part 1</title>
+        <description>&lt;p&gt;It was a long break from the last technical article. During that time I was trying many different things. You can look here: &lt;a href=&quot;https://bemore.womanonrails.com/&quot; title=&quot;Be more - Life style blog&quot; target=&quot;_blank&quot;&gt;Be More - my lifestyle blog in Polish&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/channel/UCudKRFuddrf8saaxUEoo0xQ&quot; title=&quot;Woman on Rails YouTube channel&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Woman on Rails YouTube channel&lt;/a&gt; and my &lt;a href=&quot;https://vimeo.com/womanonrails&quot; title=&quot;Woman on Rails - Vimeo channel&quot; target=&quot;_blank&quot; rel=&quot;nonofollow noopener noreferrer&quot;&gt;travel Vimeo channel&lt;/a&gt;. It was a great time to discover what I like to do and what not. But back to the topic. I prepared this article for a long time. I can say even too long. I started in 2015 and now you will see the results. Let&amp;#39;s get started.&lt;/p&gt;
+
+&lt;p&gt;Refactoring is one of my favorite topics. I love to clean up things in real life and also in code. I&amp;#39;ve worked and I&amp;#39;m still working on web application projects. And I look for answers on how to write good code. What are the reasons that after some time our code is messy and not readable? So day by day I learn how to refactor code in a good way based on my experience and the experience of others. Today I would like to share an example of refactoring with you.&lt;/p&gt;
+
+&lt;p&gt;I got a code which was written by a person on internship long time ago in &lt;a href=&quot;https://fractalsoft.org/&quot; title=&quot;Fractal Soft - Ruby on Rails web applications&quot; target=&quot;_blank&quot;&gt;my company&lt;/a&gt;. The plan was to improve this code. It was mostly one class which you can see  &lt;a href=&quot;https://github.com/womanonrails/poker/blob/55c9ae0ab921f7aa95bb7e47676d87b970a32033/lib/poker/hand.rb&quot; title=&quot;Code before refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. In this one class you have all rules in poker to check a hand only for cards without jokers. That code is not bad. When you know business logic (in this case poker rules), you will be able to move around this code. This code has also tests. So, this is good news. It will be easier to change something if tests cover all logic. If they don&amp;#39;t, we can break functionality, when we won&amp;#39;t be careful. The code looks more procedural than object oriented and it has some duplications. Sometimes this will be enough. When this is written once and you will not need to change this code for long time &lt;strong&gt;maybe&lt;/strong&gt; you don&amp;#39;t need to clean it up. But if the requirements can/will change, probably your code does too. You need to decide if it is better to refactor it now or later. (I prefer refactoring now, when I still remember logic and code, then later when I need to understand it one more time.) I would like to show you how I do refactoring base on this example.&lt;/p&gt;
+
+&lt;h1&gt;Step 1 - Preparing environment to work&lt;/h1&gt;
+
+&lt;p&gt;I updated gems which were in the project and I installed gems like Rubocop or Reek to help myself start refactoring. Those tools are helpful to see where problem in code can be. To do this, first do the overview. But those are only tools, sometimes they are right and sometimes are not. And it is easy to cheat them. But this is another topic.&lt;/p&gt;
+
+&lt;h2&gt;Stats (based on metrics):&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt; (Line of code) - 194&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt; (Line of tests) - 168&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 112.8&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 123&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 12 examples, 0 failures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Step 2 - Start first clean ups&lt;/h1&gt;
+
+&lt;p&gt;Base on tests without going deep into logic, I made some improvements in the code. I removed some condition and simplified this code.&lt;/p&gt;
+
+&lt;p&gt;Code before change:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;straight_flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Code after change:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;straight_flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;straight?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;All the code you can find &lt;a href=&quot;https://github.com/womanonrails/poker/blob/148429e4591638aef38b5b7abaab5e0198d805c0/lib/poker/hand.rb&quot; title=&quot;Code after 2nd step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. This change, in my opinion, improves readability a little bit.&lt;/p&gt;
+
+&lt;p&gt;After that all tests passed.&lt;/p&gt;
+
+&lt;h1&gt;Step 3 - Understand the logic and try to simplify it&lt;/h1&gt;
+
+&lt;p&gt;Now when code is more readable, I can start changing the logic to simplify it. I have tests, so each of my changes relies on tests. I took the first method. I removed it (remove all content inside). And start from the beginning. This is what I got.&lt;/p&gt;
+
+&lt;p&gt;Code before change:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;one_pair?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clone&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collect!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;#  (0..8).each do |elem|&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#    tmp.delete(elem)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#  end&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Code after:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;one_pair?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I repeat that approach over and over again for all methods.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Take method and remove content&lt;/li&gt;
+&lt;li&gt;Run the tests (some tests are failing), understand the logic&lt;/li&gt;
+&lt;li&gt;Write new code in a simpler way&lt;/li&gt;
+&lt;li&gt;Check the tests&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After this step you can find the code &lt;a href=&quot;https://github.com/womanonrails/poker/blob/a0bb2f6ab99bf8d977c1b68a53774b2eef7a46ac/lib/poker/hand.rb&quot; title=&quot;Code after 3rd step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. During that step I also removed commented code, Polish comments and I added some tests, which for me, were missing.&lt;/p&gt;
+
+&lt;h2&gt;Stats:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 73&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 170&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 76.3&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 63&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 12 examples, 0 failures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Step 4 - From procedural to more object oriented code&lt;/h1&gt;
+
+&lt;p&gt;I don&amp;#39;t know if you noticed this, but everywhere we put as argument &lt;code&gt;array&lt;/code&gt;. And we have class, but we don&amp;#39;t use initializer for this class. The second thing is that in many places we use something like &lt;code&gt;array.each {|item| hash [item / 4] += 1}&lt;/code&gt; let&amp;#39;s move this also for initializer and use class state instead of calculating this everywhere.&lt;/p&gt;
+
+&lt;h4&gt;Quick explanation:&lt;/h4&gt;
+
+&lt;p&gt;I think at this point I should explain a little bit how this code works. Each card has representation as a number from 0 to 51. So number 0-3 represents 2 with all colors, 4-7 represents 3 and so on. Like in this table:&lt;/p&gt;
+
+&lt;table class='table refactoring-step-by-step'&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0 &lt;/td&gt; &lt;td&gt;2&amp;spades;&lt;/td&gt;
+      &lt;td&gt;4 &lt;/td&gt; &lt;td&gt;3&amp;spades;&lt;/td&gt;
+      &lt;td&gt;8 &lt;/td&gt; &lt;td&gt;4&amp;spades;&lt;/td&gt;
+      &lt;td&gt;12&lt;/td&gt; &lt;td&gt;5&amp;spades;&lt;/td&gt;
+      &lt;td&gt;16&lt;/td&gt; &lt;td&gt;6&amp;spades;&lt;/td&gt;
+      &lt;td&gt;20&lt;/td&gt; &lt;td&gt;7&amp;spades;&lt;/td&gt;
+      &lt;td&gt;24&lt;/td&gt; &lt;td&gt;8&amp;spades;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1 &lt;/td&gt; &lt;td&gt;2&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;5 &lt;/td&gt; &lt;td&gt;3&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;9 &lt;/td&gt; &lt;td&gt;4&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;13&lt;/td&gt; &lt;td&gt;5&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;17&lt;/td&gt; &lt;td&gt;6&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;21&lt;/td&gt; &lt;td&gt;7&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;25&lt;/td&gt; &lt;td&gt;8&amp;clubs;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class='red-text'&gt;
+      &lt;td&gt;2 &lt;/td&gt; &lt;td class='red'&gt;2&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;6 &lt;/td&gt; &lt;td class='red'&gt;3&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;10&lt;/td&gt; &lt;td class='red'&gt;4&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;14&lt;/td&gt; &lt;td class='red'&gt;5&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;18&lt;/td&gt; &lt;td class='red'&gt;6&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;22&lt;/td&gt; &lt;td class='red'&gt;7&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;26&lt;/td&gt; &lt;td class='red'&gt;8&amp;hearts;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class='red-text'&gt;
+      &lt;td&gt;3 &lt;/td&gt; &lt;td class='red'&gt;2&amp;diams;&lt;/td&gt;
+      &lt;td&gt;7 &lt;/td&gt; &lt;td class='red'&gt;3&amp;diams;&lt;/td&gt;
+      &lt;td&gt;11&lt;/td&gt; &lt;td class='red'&gt;4&amp;diams;&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt; &lt;td class='red'&gt;5&amp;diams;&lt;/td&gt;
+      &lt;td&gt;19&lt;/td&gt; &lt;td class='red'&gt;6&amp;diams;&lt;/td&gt;
+      &lt;td&gt;23&lt;/td&gt; &lt;td class='red'&gt;7&amp;diams;&lt;/td&gt;
+      &lt;td&gt;27&lt;/td&gt; &lt;td class='red'&gt;8&amp;diams;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;table class='table refactoring-step-by-step'&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;28&lt;/td&gt; &lt;td&gt;9&amp;spades;&lt;/td&gt;
+      &lt;td&gt;32&lt;/td&gt; &lt;td&gt;10&amp;spades;&lt;/td&gt;
+      &lt;td&gt;36&lt;/td&gt; &lt;td&gt;J&amp;spades;&lt;/td&gt;
+      &lt;td&gt;40&lt;/td&gt; &lt;td&gt;D&amp;spades;&lt;/td&gt;
+      &lt;td&gt;44&lt;/td&gt; &lt;td&gt;K&amp;spades;&lt;/td&gt;
+      &lt;td&gt;48&lt;/td&gt; &lt;td&gt;A&amp;spades;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;29&lt;/td&gt; &lt;td&gt;9&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;33&lt;/td&gt; &lt;td&gt;10&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;37&lt;/td&gt; &lt;td&gt;J&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;41&lt;/td&gt; &lt;td&gt;D&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;45&lt;/td&gt; &lt;td&gt;K&amp;clubs;&lt;/td&gt;
+      &lt;td&gt;49&lt;/td&gt; &lt;td&gt;A&amp;clubs;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class='red-text'&gt;
+      &lt;td&gt;30&lt;/td&gt; &lt;td class='red'&gt;9&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;34&lt;/td&gt; &lt;td class='red'&gt;10&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;38&lt;/td&gt; &lt;td class='red'&gt;J&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;42&lt;/td&gt; &lt;td class='red'&gt;D&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;46&lt;/td&gt; &lt;td class='red'&gt;K&amp;hearts;&lt;/td&gt;
+      &lt;td&gt;50&lt;/td&gt; &lt;td class='red'&gt;A&amp;hearts;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr class='red-text'&gt;
+      &lt;td&gt;31&lt;/td&gt; &lt;td class='red'&gt;9&amp;diams;&lt;/td&gt;
+      &lt;td&gt;35&lt;/td&gt; &lt;td class='red'&gt;10&amp;diams;&lt;/td&gt;
+      &lt;td&gt;39&lt;/td&gt; &lt;td class='red'&gt;J&amp;diams;&lt;/td&gt;
+      &lt;td&gt;43&lt;/td&gt; &lt;td class='red'&gt;D&amp;diams;&lt;/td&gt;
+      &lt;td&gt;47&lt;/td&gt; &lt;td class='red'&gt;K&amp;diams;&lt;/td&gt;
+      &lt;td&gt;52&lt;/td&gt; &lt;td class='red'&gt;A&amp;diams;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;So code like &lt;code&gt;array.map {|item| item / 4}&lt;/code&gt; tells us which figure from 2 to ace is on card and code like this &lt;code&gt;array.map {|item| item % 4}&lt;/code&gt; represents the color of a card (&amp;spades;, &amp;clubs;, &amp;hearts;, &amp;diams;).&lt;/p&gt;
+
+&lt;p&gt;For more explanation of poker rules, please check &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_poker_hands&quot; title=&quot;Poker hands&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;wiki page to list all of poker hands&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We add an initializer:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example of a method before change:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;three_of_a_kind?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;three_of_a_kind?&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We remove some of duplication and use state of the class instance to improve our code. After this step you can find the code &lt;a href=&quot;https://github.com/womanonrails/poker/blob/83d230e969df4d27ffa5e5e34a2cf1aa43e76d90/lib/poker/hand.rb&quot; title=&quot;Code after 4th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. Quick note - I also did small refactoring on tests. I just moved the test cases to the array to also remove duplication there.&lt;/p&gt;
+
+&lt;h2&gt;Stats:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 76&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 70.9&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 57&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Step 5 - Remove duplication&lt;/h1&gt;
+
+&lt;p&gt;Base on Reek metric I noticed a lot of duplication in code. So I decided to move this code to one method and use the state of the class&amp;#39; instance one more time. You can find the whole step &lt;a href=&quot;https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb&quot; title=&quot;Code after 5th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. And this is a quick overview.&lt;/p&gt;
+
+&lt;p&gt;We change the initalizer:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_frequency&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;New method &lt;code&gt;cards_frequency&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_frequency&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Example of a method before change:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;four_of_a_kind?&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;four_of_a_kind?&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Stats:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 76&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 61.0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Step 6 - Small public interface&lt;/h1&gt;
+
+&lt;p&gt;When you will look at the code from &lt;a href=&quot;https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb&quot; title=&quot;Code after 5th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;step 5&lt;/a&gt;, you will notice that all methods are public. &lt;strong&gt;The big public interface is something hard to maintain.&lt;/strong&gt; If you will try to replace class &lt;code&gt;Hand&lt;/code&gt; by other class you need to prepare class with the same big interface. If something is public you can use it everywhere, what also can provide new dependencies in the code. In this case, when you look closer, you will see that even tests are checking only the method &lt;code&gt;check&lt;/code&gt;. I decided to declare all others method as private. This change is visible &lt;a href=&quot;https://github.com/womanonrails/poker/blob/ef117a56e3cc0fbfae9de4821ac61e5489f704fc/lib/poker/hand.rb&quot; title=&quot;Code after 6th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Stats:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 77&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 59.9&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Step 7 - More clean ups&lt;/h1&gt;
+
+&lt;p&gt;This step is similar to step 5. I removed more duplication in code and decided to change names to be more specific. I created new method &lt;code&gt;cards_figures_and_colors&lt;/code&gt; which prepare now two things: &lt;code&gt;figures&lt;/code&gt; and &lt;code&gt;colors&lt;/code&gt;. You can say now: &lt;em&gt;where is &lt;strong&gt;Single responsibility principle&lt;/strong&gt; or that is &lt;strong&gt;micro optimalization&lt;/strong&gt;&lt;/em&gt; because now I use only one loop instead 2. My intuition tells me that this is ok. But you can have a different opinion. That&amp;#39;s fine for me. I respect that. This is how this method looks like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_figures_and_colors&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;transpose&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and I&amp;#39;m open to discuss if this was a good or bad step. This change affects also our &lt;code&gt;initialize&lt;/code&gt; method:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@colors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_figures_and_colors&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_frequency&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this step I also did change in method &lt;code&gt;cards_frequency&lt;/code&gt;. I used there &lt;code&gt;each_with_object&lt;/code&gt; (you can find more about this method in my article &lt;a href=&quot;https://womanonrails.com/each-with-object&quot; title=&quot;Quick overview Ruby of each_with_object method&quot;&gt;Quick overview - each_with_object method&lt;/a&gt;) instead of &lt;code&gt;each&lt;/code&gt; like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_frequency&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each_with_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Thanks to &lt;code&gt;@colors&lt;/code&gt; instance variable I can change &lt;code&gt;flush?&lt;/code&gt; method from:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;flush?&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;to:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;flush?&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@colors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uniq&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You can see all the changes &lt;a href=&quot;https://github.com/womanonrails/poker/blob/46e12428d0d67cb90d17f417147dc936815a69e7/lib/poker/hand.rb&quot; title=&quot;Code after 7th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Stats:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 80&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 64.5&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1&gt;Summarize&lt;/h1&gt;
+
+&lt;p&gt;Let&amp;#39;s summarize what we&amp;#39;ve done till this point:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;We used metrics to do first cleanup in the code - to start&lt;/li&gt;
+&lt;li&gt;We simplified the code using tests and our understanding of logic&lt;/li&gt;
+&lt;li&gt;We changed procedural code and used for that more object oriented approach&lt;/li&gt;
+&lt;li&gt;We removed duplications&lt;/li&gt;
+&lt;li&gt;and we created a small public interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In my next article I would like to go deeper with this refactoring and focus on:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Code which is more descriptive&lt;/li&gt;
+&lt;li&gt;Metaprograming as method to write more elastic code&lt;/li&gt;
+&lt;li&gt;Preparing small independent classes, then one big class&lt;/li&gt;
+&lt;li&gt;Building classes as elements which are replaceable and possible to combine&lt;/li&gt;
+&lt;li&gt;Explanation why I used metrics on each step and what they tell us&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Stay tuned! My next article will come soon! If you like this article share your thoughts with me in the comments below. Thank you so much for being here. And see you next time. Bye!&lt;/p&gt;
+
+&lt;p&gt;&lt;hr&gt;&lt;/p&gt;
+
+&lt;h3&gt;Bibliography&lt;/h3&gt;
+
+&lt;h4&gt;Books&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&quot; title=&quot;Refactoring: Improving the Design of Existing Code&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Refactoring: Improving the Design of Existing Code - Martin Fowler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&quot; title=&quot;Clean Code: A Handbook of Agile Software Craftsmanship&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452&quot; title=&quot;Design Patterns in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Design Patterns in Ruby - Russ Olsen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530&quot; title=&quot;Test Driven Development: By Example&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Test Driven Development: By Example - Ken Beck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330&quot; title=&quot;Practical Object-Oriented Design in Ruby: An Agile Primer&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Practical Object-Oriented Design in Ruby: An Agile Primer - Sandi Metz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X&quot; title=&quot;The Pragmatic Programmer: From Journeyman to Master&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;The Pragmatic Programmer: From Journeyman to Master - Andrew Hund, David Thomas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4&gt;Presentations&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=8bZh5LMaSmE&quot; title=&quot;All the Little Things by Sandi Metz&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;All the Little Things by Sandi Metz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=5yX6ADjyqyE&quot; title=&quot;Fat Models with Patterns by Bryan Helmkamp&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;LA Ruby Conference 2013 Refactoring Fat Models with Patterns by Bryan Helmkamp&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=OMPfEXIlTVE&quot; title=&quot;Nothing is something by Sandi Metz&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Nothing is something by Sandi Metz&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://infinum.co/the-capsized-eight/best-ruby-on-rails-refactoring-talks&quot; title=&quot;8 best Ruby on Rails refactoring talks&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Best Ruby on Rails refactoring talks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 08 Oct 2018 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/refactoring-step-by-step</link>
+        <guid isPermaLink="true">https://womanonrails.com/refactoring-step-by-step</guid>
+        
+        <category>Ruby</category>
+        
+        <category>refactoring</category>
+        
+        
+        <category>Ruby</category>
+        
+        <category>refactoring</category>
+        
+      </item>
     
       
       <item>
@@ -914,55 +1296,6 @@ git config --global user.email you_email_address@example.com
         <category>git</category>
         
         <category>tools</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Lambdas in Ruby</title>
-        <description>&lt;p&gt;I had situation where I worked with many different (but in some way similar) collections in Ruby. This collections had very similar methods to search elements by name. In this particular example I decided to use lambda. Let me show you how this looks like.&lt;/p&gt;
-
-&lt;p&gt;Code which I get looks like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@first_collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is not bad code but in others places I had similar things. Collections (I mean arrays) and names were only changes. Like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@sedond_collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name1&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name2&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So I decided to use lambda. I created method which generate lambda for different collections. As an arguments lambda get &lt;code&gt;names&lt;/code&gt; of activities to select. Method looks like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;names&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;When you prepare collection, you can start looking for activities with specific names.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@collection&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collection&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;vi&quot;&gt;@collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;vi&quot;&gt;@collection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;name1&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;name2&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This solution reduce number of the same structure in our code. There is one place where collection is declared. To be honest with you this was only temporary change because at the end of my refactoring collection became separate object. But for this moment in time solution was very clear and simple.&lt;/p&gt;
-
-&lt;p&gt;If you like to know more about lambda and functional programming, you can read my presentaion availabe &lt;a href=&quot;https://womanonrails.github.io/presentation-functional-programming-in-ruby/#1&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I hope that was interesting for you. Live a comment and see you next time. Bye!&lt;/p&gt;
-</description>
-        <pubDate>Wed, 10 Feb 2016 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/lambda</link>
-        <guid isPermaLink="true">https://womanonrails.com/lambda</guid>
-        
-        <category>Ruby</category>
-        
-        <category>refactoring</category>
-        
-        
-        <category>Ruby</category>
-        
-        <category>refactoring</category>
         
       </item>
     

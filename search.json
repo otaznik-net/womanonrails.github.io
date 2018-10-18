@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Ruby Refactoring step by step - part 1",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/refactoring-step-by-step",
+		  "date"       : "2018-10-08 00:00:00 -0400",
+		  "shortdate"  : "October 08, 2018"
+		} ,
+	
+		{
 		  "title"      : "Wroclove.rb 2018 - Quick overview",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/wrocloverb-2018",

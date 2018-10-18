@@ -63,3 +63,12 @@ a.language {
 
 button.menu-button {
   right: 60px; }
+
+.table.refactoring-step-by-step tr:last-child {
+  border-bottom: 1px solid #ddd; }
+.table.refactoring-step-by-step tbody {
+  border-left: 1px solid #ddd; }
+.table.refactoring-step-by-step td:nth-child(even) {
+  border-right: 1px solid #ddd; }
+.table.refactoring-step-by-step .red-text {
+  color: #d2322d; }

@@ -201,6 +201,45 @@ Description: Awesome dude, awesome life
                  
                       
                       <h2 class="post-title text-center super lighter bordered-bottom">
+                          <a href="/custom-rails-validators">Custom Rails Validators</a>
+                      
+                      </h2>
+                      <div class="post-info text-center small">
+                          <time datetime="2015-04-15T00:00:00-04:00" class="post-time">15 Apr 2015</time>
+                          in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#Ruby on Rails" data-toggle="tooltip" title="Other posts from the Ruby on rails category" rel="tag">Ruby on rails</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.145</span> minutes read</span>
+                      </div>
+                  </header>
+                  <div class="post-body bordered-bottom">
+                  
+                  
+                      <p>For a few days I worked on custom validators in Rails. First what are validators? When you want to check some data which comes to your application, you use validators. For example: if email has specific format, if number is odd, or if you simply want to check if name is required for all of this we use validators. Rails has many different validators already in side. Check the documentation. But sometimes you want to do more. In my case I need validator for black list of words for string field. I know I can use build-in validator. But I...&hellip;</p>
+                      <div class="text-center">
+                      
+                    <a href="/custom-rails-validators" data-toggle="tooltip" title="How can I create my own validator?" class="more-link btn btn-danger btn-large">
+                        <i class="icon-link"></i> read more...
+                    </a>
+                    
+                    </div>
+                  </div>
+              </article>
+          </div>
+      
+  
+    
+    
+    
+    
+      
+          
+          
+          
+          
+          <div class="row">
+              <article class="post post col-md-8 col-md-offset-2">
+                 <header class="post-header">
+                 
+                      
+                      <h2 class="post-title text-center super lighter bordered-bottom">
                           <a href="/rvm">RVM – Ruby Version Manager</a>
                       
                       </h2>
@@ -369,43 +408,6 @@ Description: Awesome dude, awesome life
                       <div class="text-center">
                       
                     <a href="/rails-girls-cracow" data-toggle="tooltip" title="Rails Girls for young programmer" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> read more...
-                    </a>
-                    
-                    </div>
-                  </div>
-              </article>
-          </div>
-          
-          
-  
-    
-    
-    
-    
-      
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                    <figure><a href="/dwo-2014"><img src="https://womanonrails.com/images/dwo-2014/lego.jpg" alt="Open Source Days" itemprop="image"></a></figure>
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/dwo-2014"><i class="icon-picture"></i> Open Source Days</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                          <time datetime="2014-05-02T00:00:00-04:00" class="post-time">02 May 2014</time>
-                          in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#events" data-toggle="tooltip" title="Other posts from the Events category" rel="tag">Events</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#travels" data-toggle="tooltip" title="Other posts from the Travels category" rel="tag">Travels</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#workshops" data-toggle="tooltip" title="Other posts from the Workshops category" rel="tag">Workshops</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">5.11</span> minutes read</span>
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                      <p>Date: 2014-03-28 – 2014-03-30 Place: Bielsko-Biała, PL 28 March was the first day of DWO conference and in fact it was the first DWO conference for me. From the beginning I felt special character of this event. Organizations really cared about quality, interesting presentations and people. Friday Friday was good introduced to things which will be happening through all weekend. I listen four great presentations. And here is a brief summary of this: Open Source – Kamil Gałuszka When you use Open Source project try to help with their development. You can start with fixed documentation, reports bugs or issues....&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/dwo-2014" data-toggle="tooltip" title="My first DWO" class="more-link btn btn-danger btn-large">
                         <i class="icon-link"></i> read more...
                     </a>
                     
@@ -621,20 +623,14 @@ $("a#click-pages").click(function(){
 </script>
 
 
-<!-- Asynchronous Google Analytics snippet -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127731573-1"></script>
 <script>
-  var _gaq = _gaq || [];
-  var pluginUrl =
- '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-62202006-3']);
-  _gaq.push(['_trackPageview']);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  gtag('config', 'UA-127731573-1');
 </script>
 
 

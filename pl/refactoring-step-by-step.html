@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+<!--
+====================================================
+    __  ____  ______________  _______ ___    __
+   / / / /  |/  / ____/   \ \/ / ___//   |  / /
+  / /_/ / /|_/ / /_  / /| |\  /\__ \/ /| | / /
+ / __  / /  / / __/ / ___ |/ /___/ / ___ |/ /___
+/_/ /_/_/  /_/_/   /_/  |_/_//____/_/  |_/_____/
+
+====================================================
+Owner Name: Hossain Mohammad Faysal
+Profile: https://www.facebook.com/hmfaysal
+Version: 1.1
+Description: Awesome dude, awesome life
+====================================================
+-->
+<head>
+<meta charset="utf-8">
+<title>Refactoring w Ruby krok po kroku - część 1 &#8211; Woman on Rails - web development z kobiecej perspektywy</title>
+<meta name="description" content="Jak zrobić refaktoring? <br> Od kodu proceduralnego do zorientowanego obiektowo.">
+<meta name="keywords" content="Ruby, refactoring">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:title" content="Refactoring w Ruby krok po kroku - część 1">
+<meta name="twitter:description" content="Jak zrobić refaktoring? <br> Od kodu proceduralnego do zorientowanego obiektowo.">
+<meta name="twitter:creator" content="@womanonrails">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="pl">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Refactoring w Ruby krok po kroku - część 1">
+<meta property="og:description" content="Jak zrobić refaktoring? <br> Od kodu proceduralnego do zorientowanego obiektowo.">
+<meta property="og:url" content="https://womanonrails.com/refactoring-step-by-step">
+<meta property="og:site_name" content="Woman on Rails">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
+<!-- 32x32 -->
+<link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+
+
+<link rel="canonical" href="https://womanonrails.com/refactoring-step-by-step">
+<link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+    <link rel="stylesheet" href="/css/main.css">
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+</head>
+<body class="post-template" itemscope itemtype="https://schema.org/WebPage">
+<div id="fade"></div>
+<a id="slide" class="animated fade"></a>
+<aside id="sidebar">
+  <nav id="navigation">
+    <h2>MENU</h2>
+    <hr>
+    <ul>
+      
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl">Strona główna</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl/categories">Kategorie</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl/tags">Tagi</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl/about">O mnie</a>
+            
+          </li>
+        
+      
+      <li>
+        <a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed">
+          <i class="icon-rss"></i> Feed
+        </a>
+      </li>
+    </ul>
+    </nav>
+</aside>
+
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" itemscope itemtype="https://schema.org/Organization">
+
+
+    <button class="menu-button animated fade dosearch" title="Wyszukaj">
+        <i class="icon-search"></i>
+    </button>
+
+
+  
+  <a href="https://womanonrails.com/refactoring-step-by-step" class='language animated fade'>
+    en
+  </a>
+
+
+    <div class="inner">
+        <div class="container">
+            
+            <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+
+            <h1 class="blog-title light" itemprop="name">
+                Woman on Rails
+            </h1>
+
+            </a>
+            <h2 class="blog-description light bordered bordered-top" itemprop="description">
+                Premature optimization is the root of all evil.
+            </h2>
+        </div>
+    </div>
+    
+    
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+
+        </svg>
+    </div>
+    
+</header>
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/Blog">
+    <div class="container">
+        <div class="row">
+            <article class="post col-md-8 col-md-offset-2 hentry" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+            
+            
+            
+            
+                    <header class="post-header entry-header">
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Refactoring w Ruby krok po kroku - część 1</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Jak zrobić refaktoring? <br> Od kodu proceduralnego do zorientowanego obiektowo.</div>
+                        <div class="post-info text-center small">
+                            <span class="entry-date date published updated"><time datetime="2018-10-08T00:00:00-04:00" class="post-time" itemprop="datePublished">08 Oct 2018</time><span>
+                            in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#refactoring" data-toggle="tooltip" title="Other posts from the Refactoring category" rel="tag">Refactoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.42</span> minutes read</span>
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>Dużo czasu minęło od mojego ostatniego artykułu technicznego. Przez ten czas próbowałam wielu nowych rzeczy. Założyłam blog <a href="https://bemore.womanonrails.com/" title="Be More - moje przemyślenia na temat życia" target="_blank">Be more</a>, który dotyczy moich przemyśleń na temat życia, <a href="https://www.youtube.com/channel/UCudKRFuddrf8saaxUEoo0xQ" title="Woman on Rails - kanał YouTube" target="_blank" rel="nofollow noopener noreferrer">Kanał Woman on Rails na YouTube</a> i <a href="https://vimeo.com/womanonrails" title="Woman on Rails - kanał Vimeo" target="_blank" rel="nonofollow noopener noreferrer">podróżniczy kanał na Vimeo</a>. To był czas odkrywania, co sprawia mi przyjemność a co nie. Ale wracając do tematu. Do tego artykułu przygotowywałam się naprawdę długo. Może nawet za długo. Pomysł pojawił się już 2015 roku, a teraz możesz zobaczyć jego rezultaty. Zaczynajmy!</p>
+
+<p>Refaktoring jest jednym z moich ulubionych tematów. Uwielbiam porządki w prawdziwym życiu, ale też w kodzie źródłowym. Pracowałam i nadal pracuję nad aplikacjami internetowymi. I wciąż poszukuje odpowiedzi na następujące pytania: Jak pisać dobry kod? Co powoduje, że po pewnym czasie nasz kod staje się brzydki i nieczytelny? Jak radzić sobie z rosnącą złożonością w projektach? Każdego dnia uczę się jak robić dobry refaktoring. Bazuję na zdobytym przeze mnie, jak i przez innych, doświadczeniu. Dziś chciałabym się podzielić z Tobą przykładem refaktoringu zrobionego krok po kroku.</p>
+
+<p>Do tego celu wykorzystam kod, który został napisany dawno temu przez młodego programistę w <a href="https://fractalsoft.org/pl" title="Fractal Soft - Aplikacje internetowe w Ruby on Rails" target="_blank">mojej firmie</a>. Plan był następujący - ulepszyć ten kod źródłowy. W zasadzie cała logika to jedna klasa, którą możesz zobaczyć <a href="https://github.com/womanonrails/poker/blob/55c9ae0ab921f7aa95bb7e47676d87b970a32033/lib/poker/hand.rb" title="Kod przed refaktoringiem" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>. W tej klasie znajdują się wszystkie zasady potrzebne do sprawdzenia tego, co mamy w ręce grając w pokera, ale bez użycia jokera. Kod nie jest zły. Kiedy znasz logikę biznesową (w tym przypadku zasady pokera), jesteś wstanie poruszać się po tym kodzie. Ten fragment kodu posiada też testy, co jest jego zaletą. Będzie nam o wiele łatwiej zmienić cokolwiek, gdy mamy testy pilnujące logiki. Jeżeli jednak nie cała logika jest przetestowana, to możemy zepsuć fragment funkcjonalności nie zdając sobie nawet z tego sprawy. Kod ten wygląda bardziej proceduralnie niż obiektowo i będę chciała się tym zająć w odpowiednim czasie. Posiada on też wiele powtórzeń. Czasami taki fragment kodu jest w zupełności wystarczający. Wszystko zależy od projektu i wymagań. Jeżeli kod został napisany raz, działa poprawnie i nikt do niego nie będzie musiał zaglądać, to może zostawienie go w takim stanie jest w jakiś sposób uzasadnione z biznesowego punktu widzenia. Natomiast jeżeli zdarzy się, że zmienią się wymagania, to prawdopodobnie kod źródłowy też ulegnie zmianie. To Ty musisz zdecydować, czy będziesz refaktoryzowała kod teraz czy później. Ja preferuje pierwszą opcję. Dopóki pamiętam logikę i zależności łatwiej jest mi kod zmienić. Po pewnym czasie trzeba najpierw jeszcze raz zrozumieć strukturę, zanim zacznie się coś modyfikować. No to zaczynamy!</p>
+
+<h1>Krok 1 - Przygotowanie środowiska</h1>
+
+<p>Zaczęłam od zaktualizowania wszystkich gemów w projekcie oraz doinstalowania narzędzi takich jak Rubocop czy Reek. Są to <strong>metryki czyli pewnego rodzaju wskaźniki jakości kodu</strong>. Pomogą nam sprawdzić na czym stoimy i gdzie można zacząć robić porządki. Trzeba jednak pamiętać, że są to tylko narzędzia. A narzędzia mogą się mylić i można je łatwo oszukać. Ale to temat na osobny artykuł.</p>
+
+<h2>Statystyki (bazując na metrykach):</h2>
+
+<ul>
+<li><strong>LOC</strong> (Line of code - liczba linii kodu) - 194</li>
+<li><strong>LOT</strong> (Line of tests - liczba linii testów) - 168</li>
+<li><strong>Flog</strong> - 112.8</li>
+<li><strong>Flay</strong> - 123</li>
+<li><strong>Testy</strong> - 12 examples, 0 failures (12 przypadków testowych, 0 nieprzechodzących)</li>
+</ul>
+
+<h1>Krok 2 - Pierwsze porządki</h1>
+
+<p>Bazując na testach i metrykach, nie wchodząc w głębsze zrozumienie logiki, zrobiłam pierwsze usprawnienia. Usunęłam niektóre warunki i uprościłam kod.</p>
+
+<p>Kod przed zmianami:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">straight?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="n">flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kp">true</span>
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="kp">false</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Kod po zmianach:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="n">straight?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Cały kod możesz znaleźć <a href="https://github.com/womanonrails/poker/blob/148429e4591638aef38b5b7abaab5e0198d805c0/lib/poker/hand.rb" title="Drugi krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>. Te zmiany moim zdaniem poprawiły odrobinę czytelność kodu.</p>
+
+<p>Po tym kroku, wszystkie testy przechodziły.</p>
+
+<h1>Krok 3 - Zrozumienie logiki i dalsze uproszczenia</h1>
+
+<p>Teraz gdy kod jest dla mnie bardziej przejrzysty, mogę przejść do właściwej zmiany logiki. Mam testy, więc każda zmiana będzie się na nich opierała. Cel polegała na ich spełnieniu, czyli sprawieniu, że testy przechodza. Wzięłam pierwszą metodę i usunęłam całe jej wnętrze. Oto co dostałam:</p>
+
+<p>Kod przed zmianą:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="n">tmp</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">clone</span>
+  <span class="n">tmp</span><span class="o">.</span><span class="n">collect!</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
+
+<span class="c1">#  (0..8).each do |elem|</span>
+<span class="c1">#    tmp.delete(elem)</span>
+<span class="c1">#  end</span>
+
+  <span class="n">helper_array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">*</span> <span class="mi">13</span>
+
+  <span class="n">tmp</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">elem</span><span class="o">|</span>
+    <span class="n">helper_array</span><span class="o">[</span><span class="n">elem</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">end</span>
+
+  <span class="n">helper_array</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">helper_array</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Kod po zmianie:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+  <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Dla każdej metody w tej klasie powtarzałam następujące kroki:</p>
+
+<ol>
+<li>Brałam metodę i usuwałam jej zawartość</li>
+<li>Uruchamiałam testy (niektóre z nich przestały przechodzić) i na ich podstawie starałam się zrozumieć logikę</li>
+<li>Pisałam nowy kod w prostszy sposób</li>
+<li>Sprawdzałam czy wszystkie testy przechodzą</li>
+</ol>
+
+<p>Kod po moich zmianach możesz znaleźć <a href="https://github.com/womanonrails/poker/blob/a0bb2f6ab99bf8d977c1b68a53774b2eef7a46ac/lib/poker/hand.rb" title="Trzeci krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>. Podczas tego kroku usunęłam również zakomentowany kod, komentarze po polsku i dodałam kilka testów jednostkowych, których moim zdaniem brakowało.</p>
+
+<h2>Statystyki:</h2>
+
+<ul>
+<li><strong>LOC</strong> - 73</li>
+<li><strong>LOT</strong> - 170</li>
+<li><strong>Flog</strong> - 76.3</li>
+<li><strong>Flay</strong> - 63</li>
+<li><strong>Testy</strong> - 12 examples, 0 failures</li>
+</ul>
+
+<h1>Krok 4 - Od kodu proceduralnego do obiektowego</h1>
+
+<p>Nie wiem czy to zauważyłaś, ale do każdej metody przekazujemy argument <code>array</code>. Kod jest zamknięty w klasę, ale nie używamy tam inicjalizera (metody inicjującej instancję klasy). Poza tym mamy wiele miejsc, gdzie używamy <code>array.each {|item| hash [item / 4] += 1}</code>. Zacznijmy od przeniesienia tego fragmentu do inicjalizera i użyjmy stanu obiektu do przechowania tej wartości, zamiast wyliczać ją wielokrotnie.</p>
+
+<h4>Szybkie wyjaśnienie:</h4>
+
+<p>Myślę, że to dobry moment aby wytłumaczyć choć odrobinę, jak ten kod działa. Każdą kartę z talii reprezentuje jedna liczba od 0 do 51. Tak więc liczby od 0-3 reprezentują dwójki we wszystkich kolorach, liczby 4-7 reprezentują trójki itd. Całość tej zależności przedstawiona jest w tabeli poniżej:</p>
+
+<table class='table refactoring-step-by-step'>
+  <tbody>
+    <tr>
+      <td>0 </td> <td>2&spades;</td>
+      <td>4 </td> <td>3&spades;</td>
+      <td>8 </td> <td>4&spades;</td>
+      <td>12</td> <td>5&spades;</td>
+      <td>16</td> <td>6&spades;</td>
+      <td>20</td> <td>7&spades;</td>
+      <td>24</td> <td>8&spades;</td>
+    </tr>
+    <tr>
+      <td>1 </td> <td>2&clubs;</td>
+      <td>5 </td> <td>3&clubs;</td>
+      <td>9 </td> <td>4&clubs;</td>
+      <td>13</td> <td>5&clubs;</td>
+      <td>17</td> <td>6&clubs;</td>
+      <td>21</td> <td>7&clubs;</td>
+      <td>25</td> <td>8&clubs;</td>
+    </tr>
+    <tr class='red-text'>
+      <td>2 </td> <td class='red'>2&hearts;</td>
+      <td>6 </td> <td class='red'>3&hearts;</td>
+      <td>10</td> <td class='red'>4&hearts;</td>
+      <td>14</td> <td class='red'>5&hearts;</td>
+      <td>18</td> <td class='red'>6&hearts;</td>
+      <td>22</td> <td class='red'>7&hearts;</td>
+      <td>26</td> <td class='red'>8&hearts;</td>
+    </tr>
+    <tr class='red-text'>
+      <td>3 </td> <td class='red'>2&diams;</td>
+      <td>7 </td> <td class='red'>3&diams;</td>
+      <td>11</td> <td class='red'>4&diams;</td>
+      <td>15</td> <td class='red'>5&diams;</td>
+      <td>19</td> <td class='red'>6&diams;</td>
+      <td>23</td> <td class='red'>7&diams;</td>
+      <td>27</td> <td class='red'>8&diams;</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br></p>
+
+<table class='table refactoring-step-by-step'>
+  <tbody>
+    <tr>
+      <td>28</td> <td>9&spades;</td>
+      <td>32</td> <td>10&spades;</td>
+      <td>36</td> <td>J&spades;</td>
+      <td>40</td> <td>D&spades;</td>
+      <td>44</td> <td>K&spades;</td>
+      <td>48</td> <td>A&spades;</td>
+    </tr>
+    <tr>
+      <td>29</td> <td>9&clubs;</td>
+      <td>33</td> <td>10&clubs;</td>
+      <td>37</td> <td>J&clubs;</td>
+      <td>41</td> <td>D&clubs;</td>
+      <td>45</td> <td>K&clubs;</td>
+      <td>49</td> <td>A&clubs;</td>
+    </tr>
+    <tr class='red-text'>
+      <td>30</td> <td class='red'>9&hearts;</td>
+      <td>34</td> <td class='red'>10&hearts;</td>
+      <td>38</td> <td class='red'>J&hearts;</td>
+      <td>42</td> <td class='red'>D&hearts;</td>
+      <td>46</td> <td class='red'>K&hearts;</td>
+      <td>50</td> <td class='red'>A&hearts;</td>
+    </tr>
+    <tr class='red-text'>
+      <td>31</td> <td class='red'>9&diams;</td>
+      <td>35</td> <td class='red'>10&diams;</td>
+      <td>39</td> <td class='red'>J&diams;</td>
+      <td>43</td> <td class='red'>D&diams;</td>
+      <td>47</td> <td class='red'>K&diams;</td>
+      <td>52</td> <td class='red'>A&diams;</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Jeżeli mamy kod <code>array.map {|item| item / 4}</code> to tak naprawdę sprawdzamy jaką figurę od 2 do Asa reprezentuje liczba. Natomiast jeżeli mamy <code>array.map {|item| item % 4}</code> sprawdzamy jakiego koloru jest dana karta (&spades;, &clubs;, &hearts;, &diams;).</p>
+
+<p>Gdybyś potrzebowała dokładniejszego wytłumaczenia zasad pokera, to sprawdź <a href="https://en.wikipedia.org/wiki/List_of_poker_hands" title="Pokerowe ustawienia ręki" target="_blank" rel="nofollow noopener noreferrer">listę wszystkich pokerowych ustawień ręki na Wikipedii</a>.</p>
+
+<p>Dodajemy inicjalizer:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
+  <span class="vi">@cards</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Przykład metody przed zmianą:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">three_of_a_kind?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+  <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Po zmianie:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">three_of_a_kind?</span>
+  <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+  <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Usunęłam tutaj powtarzające się fragmenty kodu, używając stanu trzymanego w instancji klasy. Kod po tym kroku możesz znaleźć <a href="https://github.com/womanonrails/poker/blob/83d230e969df4d27ffa5e5e34a2cf1aa43e76d90/lib/poker/hand.rb" title="Czwarty krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>. Mała uwaga - dodatkowo zrobiłam refaktoring w testach. Postanowiłam przenieść wszystkie możliwe przypadki testowe do tablicy by uniknąć powtórzeń, jakie były widoczne również w testach.</p>
+
+<h2>Statystyki:</h2>
+
+<ul>
+<li><strong>LOC</strong> - 76</li>
+<li><strong>LOT</strong> - 190</li>
+<li><strong>Flog</strong> - 70.9</li>
+<li><strong>Flay</strong> - 57</li>
+<li><strong>Testy</strong> - 104 examples, 0 failures</li>
+</ul>
+
+<h1>Krok 5 - Usuwanie powtórzeń (duplikacji)</h1>
+
+<p>Bazując na metryce Reek zauważyłam dużo powtórzeń w kodzie. Zdecydowałam, że jeszcze raz wykorzystam stan obiektu, by się ich pozbyć. Wszystkie zmiany związane z tym krokiem możesz znaleźć <a href="https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb" title="Piąty krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>. A poniżej zamieszczam skrót tego co zrobiłam:</p>
+
+<p>Zmiana w inicjalizerze:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
+  <span class="vi">@cards</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
+  <span class="vi">@frequency</span> <span class="o">=</span> <span class="n">cards_frequency</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Dodanie nowej metody <code>cards_frequency</code>:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_frequency</span>
+  <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+  <span class="nb">hash</span><span class="o">.</span><span class="n">values</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Przykład jednej metody przed zmianą:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
+  <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+  <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Po zmianie:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
+  <span class="vi">@frequency</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<h2>Statystyki:</h2>
+
+<ul>
+<li><strong>LOC</strong> - 76</li>
+<li><strong>LOT</strong> - 190</li>
+<li><strong>Flog</strong> - 61.0</li>
+<li><strong>Flay</strong> - 0</li>
+<li><strong>Testy</strong> - 104 examples, 0 failures</li>
+</ul>
+
+<h1>Krok 6 - Mały publiczny interface</h1>
+
+<p>Kiedy spojrzysz na kod z <a href="https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb" title="Piąty krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">kroku 5</a>, to na pewno zauważysz, że mamy bardzo dużo metod dostępnych publicznie do wykorzystania na obiekcie naszej klasy. <strong>Duży publiczny interface jest ciężki w utrzymaniu.</strong> Jeżeli chciałybyśmy zastąpić naszą klasę <code>Hand</code> inną klasą, to będziemy potrzebować dokładnie tyle samo metod publicznych, jak w przypadku klasy <code>Hand</code>. Dodatkowo każda publicznie dostępna metoda może zostać wykorzystana przez inny fragment kodu, co może powodować niepotrzebne zależności między obiektami. W naszym przypadku, jak przyjrzymy się bliżej okaże się, że nawet testy nie sprawdzają wszystkich dostępnych metod. Zajmują się tylko sprawdzeniem metody <code>check</code>. Zdecydowałam więc, że jedyną publicznie dostępną metodą będzie metoda <code>check</code>. Pozostałe metody będą pomocniczymi metodami prywatnymi. Zmiany możesz zobaczyć <a href="https://github.com/womanonrails/poker/blob/ef117a56e3cc0fbfae9de4821ac61e5489f704fc/lib/poker/hand.rb" title="Szósty krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>.</p>
+
+<h2>Statystyki:</h2>
+
+<ul>
+<li><strong>LOC</strong> - 77</li>
+<li><strong>LOT</strong> - 190</li>
+<li><strong>Flog</strong> - 59.9</li>
+<li><strong>Flay</strong> - 0</li>
+<li><strong>Testy</strong> - 104 examples, 0 failures</li>
+</ul>
+
+<h1>Krok 7 - Jeszcze więcej porządków</h1>
+
+<p>Ten krok jest podobny do kroku 5. Usuwam dodatkowe powtórzenia w kodzie i zmieniam nazwy na bardziej opisowe, by ułatwić późniejsze czytanie kodu. Stworzyłam nową metodę <code>cards_figures_and_colors</code>, która przygotuje dwie rzeczy: <code>figures</code> czyli figury i <code>colors</code> czyli kolory kart. Możesz teraz powiedzieć: <em>a gdzie jest zasada <strong>pojedynczej odpowiedzialności</strong></em> lub <em><strong>to jest mikro optymalizacja</strong></em>, ponieważ zamiast dwóch pętli masz tylko jedną. Moja intuicja podpowiada mi że to, co zrobiłam jest ok. Ale Ty możesz mieć inne zdanie i to też jest ok. Szanuję je. Oto jak wygląda ta metoda:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_figures_and_colors</span>
+  <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">4</span><span class="o">]</span> <span class="p">}</span><span class="o">.</span><span class="n">transpose</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Jestem otwarta na dyskusję, czy moje podejście jest dobre czy nie. Ta zmiana pociąga za sobą także zmiany w metodzie <code>initialize</code>:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+  <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
+  <span class="vi">@figures</span><span class="p">,</span> <span class="vi">@colors</span> <span class="o">=</span> <span class="n">cards_figures_and_colors</span>
+  <span class="vi">@frequency</span> <span class="o">=</span> <span class="n">cards_frequency</span><span class="o">.</span><span class="n">values</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>W tym kroku postanowiłam zmienić również metodę <code>cards_frequency</code>. Zamiast używać <code>each</code> używam <code>each_with_object</code>. Jeżeli jesteś zainteresowana większą ilością informacji na temat <code>each_with_object</code> zachęcam Cię do przeczytania mojego artykułu o <a href="https://womanonrails.com/pl/each-with-object" title="Zastosowanie metody each_with_object w języku Ruby">użyciu metody each_with_object w Ruby</a>. Oto jak teraz wygląda kod:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_frequency</span>
+  <span class="vi">@figures</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="nb">hash</span><span class="o">|</span>
+    <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Dzięki zmiennej <code>@colors</code> mogę zmienić metodę <code>flush?</code> z:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">flush?</span>
+  <span class="n">color</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">4</span> <span class="p">}</span>
+  <span class="n">color</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>na:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">flush?</span>
+  <span class="vi">@colors</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Wszystkie zmiany możesz zobaczyć <a href="https://github.com/womanonrails/poker/blob/46e12428d0d67cb90d17f417147dc936815a69e7/lib/poker/hand.rb" title="Siódmy krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>.</p>
+
+<h2>Statystyki:</h2>
+
+<ul>
+<li><strong>LOC</strong> - 80</li>
+<li><strong>LOT</strong> - 190</li>
+<li><strong>Flog</strong> - 64.5</li>
+<li><strong>Flay</strong> - 0</li>
+<li><strong>Testy</strong> - 104 examples, 0 failures</li>
+</ul>
+
+<h1>Podsumowanie</h1>
+
+<p>Podsumujmy co do tej pory udało nam się osiągnąć:</p>
+
+<ul>
+<li>Użyłyśmy metryk do pierwszych, wstępnych porządków</li>
+<li>Uprościłyśmy kod bazując na testach i zrozumieniu logiki</li>
+<li>Zmieniłyśmy kod proceduralny na obiektowy</li>
+<li>Usunęłyśmy powtórzenia w kodzie</li>
+<li>i stworzyłyśmy mały publiczny interface</li>
+</ul>
+
+<p>W następnym artykule chciałabym wejść jeszcze głębiej w temat tego refaktoringu i skupić się na:</p>
+
+<ul>
+<li>Bardziej opisowym kodzie</li>
+<li>Meta-programowaniu jako sposobie na pisanie elastycznego kodu</li>
+<li>Przygotowaniu małych niezależnych klas, zamiast jednej dużej klasy</li>
+<li>Budowaniu klas jako elementów wymiennych i takich, które można ze sobą łączyć</li>
+<li>Wyjaśnieniu po co podawałam metryki na każdym kroku i co one nam wlaściwie mówią</li>
+</ul>
+
+<p>Trzymaj się! Mój następny artykuł pojawi się już wkrótce! Jeżeli masz jakieś pytania lub przemyślenia, to podziel się nimi w komentarzach. Do zobaczenia następnym razem. Cześć!</p>
+
+<p><hr></p>
+
+<h3>Bibliografia</h3>
+
+<h4>Książki</h4>
+
+<ul>
+<li><a href="https://helion.pl/view/10301k/refukv.htm#format/d" title="Refaktoryzacja. Ulepszanie struktury istniejącego kodu" target="_blank" rel="nofollow noopener noreferrer">Refaktoryzacja. Ulepszanie struktury istniejącego kodu - Martin Fowler</a></li>
+<li><a href="https://helion.pl/view/10301k/czykov.htm#format/d" title="Czysty kod. Podręcznik dobrego programisty" target="_blank" rel="nofollow noopener noreferrer">Czysty kod. Podręcznik dobrego programisty - Robert C. Martin</a></li>
+<li><a href="https://helion.pl/view/10301k/rubywz.htm#format/d" title="Ruby. Wzorce projektowe" target="_blank" rel="nofollow noopener noreferrer">Ruby. Wzorce projektowe - Russ Olsen</a></li>
+<li><a href="https://helion.pl/view/10301k/tddszt.htm#format/d" title="Pragmatyczny programista. Od czeladnika do mistrza" target="_blank" rel="nofollow noopener noreferrer">TDD. Sztuka tworzenia dobrego kodu - Ken Beck</a></li>
+<li><a href="https://helion.pl/view/10301k/pragpv.htm#format/d" title="Pragmatyczny programista. Od czeladnika do mistrza" target="_blank" rel="nofollow noopener noreferrer">Pragmatyczny programista. Od czeladnika do mistrza - Andrew Hund, David Thomas</a></li>
+<li><a href="https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330" title="Practical Object-Oriented Design in Ruby: An Agile Primer" target="_blank" rel="nofollow noopener noreferrer">Practical Object-Oriented Design in Ruby: An Agile Primer - Sandi Metz [EN]</a></li>
+</ul>
+
+<h4>Prezentacje angielsko języczne</h4>
+
+<ul>
+<li><a href="https://www.youtube.com/watch?v=8bZh5LMaSmE" title="All the Little Things by Sandi Metz" target="_blank" rel="nofollow noopener noreferrer">All the Little Things by Sandi Metz</a></li>
+<li><a href="https://www.youtube.com/watch?v=5yX6ADjyqyE" title="Fat Models with Patterns by Bryan Helmkamp" target="_blank" rel="nofollow noopener noreferrer">LA Ruby Conference 2013 Refactoring Fat Models with Patterns by Bryan Helmkamp</a></li>
+<li><a href="https://www.youtube.com/watch?v=OMPfEXIlTVE" title="Nothing is something by Sandi Metz" target="_blank" rel="nofollow noopener noreferrer">Nothing is something by Sandi Metz</a></li>
+<li><a href="https://infinum.co/the-capsized-eight/best-ruby-on-rails-refactoring-talks" title="8 best Ruby on Rails refactoring talks" target="_blank" rel="nofollow noopener noreferrer">Best Ruby on Rails refactoring talks</a></li>
+</ul>
+
+                        <br>
+                    
+                    
+                    <div class="entry-tags text-center">
+
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="https://womanonrails.com/tags/index.html#Ruby" data-toggle="tooltip" title="Posts tagged with Ruby" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/tags/index.html#refactoring" data-toggle="tooltip" title="Posts tagged with refactoring" rel="tag">refactoring</a>
+
+                    </div>
+                    
+                    </div>
+        </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Refactoring w Ruby krok po kroku - część 1&quot;%20https://womanonrails.com/refactoring-step-by-step%20via%20&#64;womanonrails"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=https://womanonrails.com/refactoring-step-by-step"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url=https://womanonrails.com/refactoring-step-by-step"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
+                <i class="icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+                        <div class="post-author text-center">
+	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
+	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
+</div>
+
+                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    </footer>
+            </article>
+    </div>
+</div>
+<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top">
+
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+            <li>
+                <a href="https://twitter.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Twitter" target="_blank" rel="noopener">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://facebook.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Facebook" target="_blank" rel="noopener">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="http://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
+                    <i class="icon-stackexchange"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on LinkedIn" target="_blank" rel="noopener">
+                    <i class="icon-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://instagram.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Instagram" target="_blank" rel="noopener">
+                    <i class="icon-instagram"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Github" target="_blank" rel="noopener">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+            <div>
+                
+                <a href="https://womanonrails.com/pl/about">Agnieszka Matysek</a> &copy; 2018 &bull; All rights reserved.
+            </div>
+            <ul class="menu-items">
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/"><i class="icon-home"></i></a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/categories">Categories</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/tags">Tags</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/about">About</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+        </ul>
+        </div>
+    </div>
+    
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+
+            </svg>
+        </div>
+    
+</footer>
+<script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:157104,hjsv:5};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://womanonrails.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://womanonrails.com/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="https://womanonrails.com/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="https://womanonrails.com/assets/js/script.js"></script>
+<script type='text/javascript'>$(document).ready(function(){$(".time").text(function(a,b){return Math.round(parseFloat(b))})});</script>
+
+<script type="text/javascript">
+
+/*      Slides       */
+
+$("a#slide").click(function(){
+    $("#sidebar,body,a#slide,#fade").addClass("slide")
+});
+
+$("#fade,#header,#posts-container").click(function(){
+    $("#sidebar,body,a#slide,#fade").removeClass("slide")
+});
+
+$("a#click-filter").click(function(){
+    $("#slide-filter").slideToggle("medium");
+    $("#slide-pages").slideOut("medium");
+});
+
+$("a#click-pages").click(function(){
+    $("#slide-pages").slideToggle("medium");
+    $("#slide-filter").slideOut("medium");
+});
+
+/*      End-Slides      */
+
+</script>
+
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'https://womanonrails.com/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127731573-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127731573-1');
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'womanonrails'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</body>
+</html>
