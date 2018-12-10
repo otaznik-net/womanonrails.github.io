@@ -5,8 +5,8 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Dec 2018 11:51:57 -0500</pubDate>
-    <lastBuildDate>Mon, 10 Dec 2018 11:51:57 -0500</lastBuildDate>
+    <pubDate>Mon, 10 Dec 2018 12:07:20 -0500</pubDate>
+    <lastBuildDate>Mon, 10 Dec 2018 12:07:20 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
@@ -378,7 +378,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Kiedy tworzyłam tą klasę nie przypuszczałam, że będę mogła ją wykorzystać w taki sposób. Nie myślałam, że będzie się ona nadawać do obsługi zarówno tablic jak i ciągów znaków. Wiem, że to poniekąd jest to zasługa samego języka Ruby i jego &lt;a href=&quot;https://pl.wikipedia.org/wiki/Duck_typing&quot; title=&quot;Duck typing in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;&lt;strong&gt;duck typing&amp;#39;u&lt;/strong&gt;&lt;/a&gt; ale myślę, że też prostoty kodu.&lt;/p&gt;
 
-&lt;h1&gt;Statystyki:&lt;/h1&gt;
+&lt;h2&gt;Statystyki:&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 94&lt;/li&gt;
