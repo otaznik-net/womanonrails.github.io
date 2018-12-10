@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Ruby Refactoring step by step - part 2",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/refactoring-part2",
+		  "date"       : "2018-11-25 00:00:00 -0500",
+		  "shortdate"  : "November 25, 2018"
+		} ,
+	
+		{
 		  "title"      : "Ruby Refactoring step by step - part 1",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/refactoring-step-by-step",

@@ -201,6 +201,45 @@ Description: Awesome dude, awesome life
                  
                       
                       <h2 class="post-title text-center super lighter bordered-bottom">
+                          <a href="/session-controller-refactoring">SessionsController refactoring</a>
+                      
+                      </h2>
+                      <div class="post-info text-center small">
+                          <time datetime="2015-07-17T00:00:00-04:00" class="post-time">17 Jul 2015</time>
+                          in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#Ruby" data-toggle="tooltip" title="Other posts from the Ruby category" rel="tag">Ruby</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#Ruby on Rails" data-toggle="tooltip" title="Other posts from the Ruby on rails category" rel="tag">Ruby on rails</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#refactoring" data-toggle="tooltip" title="Other posts from the Refactoring category" rel="tag">Refactoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.765</span> minutes read</span>
+                      </div>
+                  </header>
+                  <div class="post-body bordered-bottom">
+                  
+                  
+                      <p>A few weeks ago I worked on code like this: class SessionsController &lt; ApplicationController respond_to :json, only: [:create] def create @user = User.find_by(email: user_params[:email]) if @user &amp;&amp; @user.authenticate(user_params[:password]) @user.token = Session.create(user: @user).token end respond_to { |format| format.json { render_user } } end private def user_params params.require(:user).permit(:email, :password) end def render_user if @user render json: @user, status: :created else render json: { errors: &#39;Email or password was invalid&#39; }, status: :unprocessable_entity end end end When you look on this code at first time, you probably think that this is not too bad. Class isn’t to long. It have about 25 lines....&hellip;</p>
+                      <div class="text-center">
+                      
+                    <a href="/session-controller-refactoring" data-toggle="tooltip" title="How improve your code?" class="more-link btn btn-danger btn-large">
+                        <i class="icon-link"></i> read more...
+                    </a>
+                    
+                    </div>
+                  </div>
+              </article>
+          </div>
+      
+  
+    
+    
+    
+    
+      
+          
+          
+          
+          
+          <div class="row">
+              <article class="post post col-md-8 col-md-offset-2">
+                 <header class="post-header">
+                 
+                      
+                      <h2 class="post-title text-center super lighter bordered-bottom">
                           <a href="/custom-rails-validators">Custom Rails Validators</a>
                       
                       </h2>
@@ -380,43 +419,6 @@ Description: Awesome dude, awesome life
               </article>
           </div>
       
-  
-    
-    
-    
-    
-      
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                    <figure><a href="/rails-girls-cracow"><img src="https://womanonrails.com/images/rails-girls-krakow-2014/rgkrakow1.jpg" alt="RailsGirls Cracow" itemprop="image"></a></figure>
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/rails-girls-cracow"><i class="icon-picture"></i> RailsGirls Cracow</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                          <time datetime="2014-05-26T00:00:00-04:00" class="post-time">26 May 2014</time>
-                          in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#events" data-toggle="tooltip" title="Other posts from the Events category" rel="tag">Events</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#travels" data-toggle="tooltip" title="Other posts from the Travels category" rel="tag">Travels</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/categories/index.html#workshops" data-toggle="tooltip" title="Other posts from the Workshops category" rel="tag">Workshops</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;Less than 1 minute read</span>
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                      <p>This will be short note. A few weeks ago I was a coach on Rails Girls Kraków. This time workshops were differently. Girls were very young but with big motivation. I thought wonderful girls, with so much positive energy. They support me and I felt great teaching them. After all I have some new tips: No one become a programmer in one day. Try to inspire not to overwhelm with knowledge. It must be fun for all you and girls. Don’t hurry up. Do this slow but good. Oh, one more think. There will be three Rails Girls event in...&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/rails-girls-cracow" data-toggle="tooltip" title="Rails Girls for young programmer" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> read more...
-                    </a>
-                    
-                    </div>
-                  </div>
-              </article>
-          </div>
-          
-          
   
 
         <div class="row text-center text-caps">
