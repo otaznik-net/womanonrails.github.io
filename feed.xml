@@ -5,8 +5,8 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Dec 2018 12:07:18 -0500</pubDate>
-    <lastBuildDate>Mon, 10 Dec 2018 12:07:18 -0500</lastBuildDate>
+    <pubDate>Mon, 07 Jan 2019 11:50:22 -0500</pubDate>
+    <lastBuildDate>Mon, 07 Jan 2019 11:50:22 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
@@ -569,10 +569,6 @@
         
         <category>Ruby</category>
         
-        <category>refactoring</category>
-        
-        
-        <category>Ruby</category>
         
         <category>refactoring</category>
         
@@ -951,10 +947,6 @@
         
         <category>Ruby</category>
         
-        <category>refactoring</category>
-        
-        
-        <category>Ruby</category>
         
         <category>refactoring</category>
         
@@ -979,14 +971,10 @@
         
         <category>Wrocloverb</category>
         
-        <category>Wroclaw</category>
+        <category>Ruby</category>
         
         
-        <category>events</category>
-        
-        <category>travels</category>
-        
-        <category>workshops</category>
+        <category>conference</category>
         
       </item>
     
@@ -1044,12 +1032,8 @@
         
         <category>interview</category>
         
-        <category>skills</category>
         
-        
-        <category>interview</category>
-        
-        <category>skills</category>
+        <category>work</category>
         
       </item>
     
@@ -1153,12 +1137,10 @@
         <link>https://womanonrails.com/sublime</link>
         <guid isPermaLink="true">https://womanonrails.com/sublime</guid>
         
-        <category>tools</category>
+        <category>IDE</category>
         
-        <category>sublime</category>
+        <category>text editor</category>
         
-        
-        <category>sublime</category>
         
         <category>tools</category>
         
@@ -1265,12 +1247,8 @@ end
         
         <category>Ruby</category>
         
-        <category>tips</category>
         
-        
-        <category>Ruby</category>
-        
-        <category>tips</category>
+        <category>programming</category>
         
       </item>
     
@@ -1306,14 +1284,8 @@ end
         
         <category>Web Summit</category>
         
-        <category>Lisbon</category>
         
-        
-        <category>events</category>
-        
-        <category>travels</category>
-        
-        <category>workshops</category>
+        <category>conference</category>
         
       </item>
     
@@ -1541,18 +1513,12 @@ end
         <link>https://womanonrails.com/leaflet</link>
         <guid isPermaLink="true">https://womanonrails.com/leaflet</guid>
         
-        <category>maps</category>
+        <category>JavaScript</category>
         
-        <category>geo data</category>
-        
-        <category>tips</category>
+        <category>GIS</category>
         
         
-        <category>geo data</category>
-        
-        <category>maps</category>
-        
-        <category>tips</category>
+        <category>programming</category>
         
       </item>
     
@@ -1637,14 +1603,8 @@ This is it. I hope you like this article. If you have any question please leave 
         <link>https://womanonrails.com/remote-work</link>
         <guid isPermaLink="true">https://womanonrails.com/remote-work</guid>
         
-        <category>work</category>
-        
         <category>remote</category>
         
-        
-        <category>remote</category>
-        
-        <category>travels</category>
         
         <category>work</category>
         
@@ -1719,14 +1679,12 @@ git rebase --continue
         <link>https://womanonrails.com/git-rebase</link>
         <guid isPermaLink="true">https://womanonrails.com/git-rebase</guid>
         
-        <category>git</category>
-        
-        <category>tools</category>
-        
-        
         <category>environment</category>
         
         <category>git</category>
+        
+        <category>version control system</category>
+        
         
         <category>tools</category>
         

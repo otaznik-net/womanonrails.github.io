@@ -1,7 +1,7 @@
 [
 	
 		{
-		  "title"      : "Refactoring w Ruby krok po kroku - część 2",
+		  "title"      : "Refaktoring w Ruby krok po kroku - część 2",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/refactoring-part2",
 		  "date"       : "2018-11-25 00:00:00 -0500",
@@ -9,7 +9,7 @@
 		} ,
 	
 		{
-		  "title"      : "Refactoring w Ruby krok po kroku - część 1",
+		  "title"      : "Refaktoring w Ruby krok po kroku - część 1",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/refactoring-step-by-step",
 		  "date"       : "2018-10-08 00:00:00 -0400",
@@ -209,7 +209,7 @@
 		} ,
 	
 		{
-		  "title"      : "Triki dla Tablic w Ruby",
+		  "title"      : "Triki dla tablic w Ruby",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/ruby-array-tips",
 		  "date"       : "2014-03-14 00:00:00 -0400",
@@ -233,7 +233,7 @@
 		} ,
 	
 		{
-		  "title"      : "Ruby Refactoring – część 1",
+		  "title"      : "Ruby refaktoring – część 1",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/refactoring-ruby-part1",
 		  "date"       : "2013-12-30 00:00:00 -0500",
@@ -241,7 +241,7 @@
 		} ,
 	
 		{
-		  "title"      : "CoffeeScript Refactoring – część 1",
+		  "title"      : "CoffeeScript refaktoring – część 1",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/refactoring-coffee-part1",
 		  "date"       : "2013-12-06 00:00:00 -0500",

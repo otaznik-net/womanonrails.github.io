@@ -5,13 +5,13 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 10 Dec 2018 12:07:20 -0500</pubDate>
-    <lastBuildDate>Mon, 10 Dec 2018 12:07:20 -0500</lastBuildDate>
+    <pubDate>Mon, 07 Jan 2019 11:50:25 -0500</pubDate>
+    <lastBuildDate>Mon, 07 Jan 2019 11:50:25 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
       <item>
-        <title>Refactoring w Ruby krok po kroku - część 2</title>
+        <title>Refaktoring w Ruby krok po kroku - część 2</title>
         <description>&lt;p&gt;Ostatnim razem w artykule &lt;a href=&quot;https://womanonrails.com/pl/refactoring-step-by-step&quot;&gt;Refactoring w Ruby krok po kroku - część 1&lt;/a&gt; przeszłyśmy od kodu proceduralnego do kodu bardziej zorientowanego obiektowo. Tym razem będziemy kontynuować naszą podróż przez refaktoring. Będziemy mówić o małych obiektach zastępujących duże klasy, o kompozycji i o wstrzykiwaniu konkretnych zachowań do obiektów. Zaczynajmy!&lt;/p&gt;
 
 &lt;h1&gt;Krok 8 - Bardziej opisowe wyniki&lt;/h1&gt;
@@ -569,18 +569,14 @@
         
         <category>Ruby</category>
         
-        <category>refactoring</category>
         
-        
-        <category>Ruby</category>
-        
-        <category>refactoring</category>
+        <category>refaktoring</category>
         
       </item>
     
       
       <item>
-        <title>Refactoring w Ruby krok po kroku - część 1</title>
+        <title>Refaktoring w Ruby krok po kroku - część 1</title>
         <description>&lt;p&gt;Dużo czasu minęło od mojego ostatniego artykułu technicznego. Przez ten czas próbowałam wielu nowych rzeczy. Założyłam blog &lt;a href=&quot;https://bemore.womanonrails.com/&quot; title=&quot;Be More - moje przemyślenia na temat życia&quot; target=&quot;_blank&quot;&gt;Be more&lt;/a&gt;, który dotyczy moich przemyśleń na temat życia, &lt;a href=&quot;https://www.youtube.com/channel/UCudKRFuddrf8saaxUEoo0xQ&quot; title=&quot;Woman on Rails - kanał YouTube&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kanał Woman on Rails na YouTube&lt;/a&gt; i &lt;a href=&quot;https://vimeo.com/womanonrails&quot; title=&quot;Woman on Rails - kanał Vimeo&quot; target=&quot;_blank&quot; rel=&quot;nonofollow noopener noreferrer&quot;&gt;podróżniczy kanał na Vimeo&lt;/a&gt;. To był czas odkrywania, co sprawia mi przyjemność a co nie. Ale wracając do tematu. Do tego artykułu przygotowywałam się naprawdę długo. Może nawet za długo. Pomysł pojawił się już 2015 roku, a teraz możesz zobaczyć jego rezultaty. Zaczynajmy!&lt;/p&gt;
 
 &lt;p&gt;Refaktoring jest jednym z moich ulubionych tematów. Uwielbiam porządki w prawdziwym życiu, ale też w kodzie źródłowym. Pracowałam i nadal pracuję nad aplikacjami internetowymi. I wciąż poszukuje odpowiedzi na następujące pytania: Jak pisać dobry kod? Co powoduje, że po pewnym czasie nasz kod staje się brzydki i nieczytelny? Jak radzić sobie z rosnącą złożonością w projektach? Każdego dnia uczę się jak robić dobry refaktoring. Bazuję na zdobytym przeze mnie, jak i przez innych, doświadczeniu. Dziś chciałabym się podzielić z Tobą przykładem refaktoringu zrobionego krok po kroku.&lt;/p&gt;
@@ -951,12 +947,8 @@
         
         <category>Ruby</category>
         
-        <category>refactoring</category>
         
-        
-        <category>Ruby</category>
-        
-        <category>refactoring</category>
+        <category>refaktoring</category>
         
       </item>
     
@@ -979,14 +971,10 @@
         
         <category>Wrocloverb</category>
         
-        <category>Wrocław</category>
+        <category>Ruby</category>
         
         
-        <category>podróże</category>
-        
-        <category>warsztaty</category>
-        
-        <category>wydarzenia</category>
+        <category>konferencja</category>
         
       </item>
     
@@ -1042,14 +1030,10 @@
         <link>https://womanonrails.com/pl/interview</link>
         <guid isPermaLink="true">https://womanonrails.com/pl/interview</guid>
         
-        <category>interview</category>
-        
-        <category>umiejętności</category>
-        
-        
         <category>rozmowa kwalifikacyjna</category>
         
-        <category>umiejętności</category>
+        
+        <category>praca</category>
         
       </item>
     
@@ -1153,14 +1137,12 @@
         <link>https://womanonrails.com/pl/sublime</link>
         <guid isPermaLink="true">https://womanonrails.com/pl/sublime</guid>
         
-        <category>tools</category>
+        <category>IDE</category>
         
-        <category>sublime</category>
+        <category>edytor tekstowy</category>
         
         
         <category>narzędzia</category>
-        
-        <category>sublime</category>
         
       </item>
     
@@ -1265,12 +1247,8 @@ end
         
         <category>Ruby</category>
         
-        <category>tips</category>
         
-        
-        <category>Ruby</category>
-        
-        <category>tips</category>
+        <category>programowanie</category>
         
       </item>
     
@@ -1306,14 +1284,8 @@ end
         
         <category>Web Summit</category>
         
-        <category>Lizbona</category>
         
-        
-        <category>podróże</category>
-        
-        <category>warsztaty</category>
-        
-        <category>wydarzenia</category>
+        <category>konferencja</category>
         
       </item>
     
@@ -1541,18 +1513,12 @@ end
         <link>https://womanonrails.com/pl/leaflet</link>
         <guid isPermaLink="true">https://womanonrails.com/pl/leaflet</guid>
         
-        <category>maps</category>
+        <category>JavaScript</category>
         
-        <category>geo data</category>
-        
-        <category>tips</category>
+        <category>GIS</category>
         
         
-        <category>geo dane</category>
-        
-        <category>mapy</category>
-        
-        <category>tips</category>
+        <category>programowanie</category>
         
       </item>
     
@@ -1637,16 +1603,10 @@ To wszystko na dziś. Mam nadzieje, że artykuł Wam się podobał. Jeżeli maci
         <link>https://womanonrails.com/pl/remote-work</link>
         <guid isPermaLink="true">https://womanonrails.com/pl/remote-work</guid>
         
-        <category>praca</category>
-        
         <category>praca zdalna</category>
         
         
-        <category>podróże</category>
-        
         <category>praca</category>
-        
-        <category>praca zdalna</category>
         
       </item>
     
@@ -1719,16 +1679,14 @@ git rebase --continue
         <link>https://womanonrails.com/pl/git-rebase</link>
         <guid isPermaLink="true">https://womanonrails.com/pl/git-rebase</guid>
         
-        <category>git</category>
-        
-        <category>tools</category>
-        
+        <category>środowisko programistyczne</category>
         
         <category>git</category>
+        
+        <category>system kontroli wersji</category>
+        
         
         <category>narzędzia</category>
-        
-        <category>środowisko</category>
         
       </item>
     
