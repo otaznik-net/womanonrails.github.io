@@ -5,9 +5,44 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Jan 2019 11:50:25 -0500</pubDate>
-    <lastBuildDate>Mon, 07 Jan 2019 11:50:25 -0500</lastBuildDate>
+    <pubDate>Wed, 16 Jan 2019 03:06:12 -0500</pubDate>
+    <lastBuildDate>Wed, 16 Jan 2019 03:06:12 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Jak ustawić niestandardowy czas w przeglądarce dla testów aplikacji?</title>
+        <description>&lt;p&gt;Nie przepadam za zmienianiem ustawień użytkownika, gdy wszystko działa dobrze. Tym razem potrzebowałam przetestować funkcjonalność, która wymagała zrobienia tego w różnych strefach czasowych. Znalazłam sposób by zrobić to bez zmiany moich standardowych ustawień.&lt;/p&gt;
+
+&lt;p&gt;Pracuję w projekcie, gdzie używamy zewnętrznego API dla danych pogodowych, które później wyświetlamy użytkownikowi. Był tam pewien błąd z brakującymi wartościami dla konkretnych przedziałów czasowych. Gdy użytkownik prosił o dane z października, brakowało mu zawsze ostatniego dnia (31.10). Natomiast prosząc o dane z września wszystko działało poprawnie. Okazało się, że problem wynikał z przesunięcia czasu związanego z przejściem z czasu letniego (CEST) na czas zimowy (CET). W 2018 roku odbyło się to 28-go października. Brakująca godzina zmieniała się na końcu miesiąca w brakujący dzień. Problem naprawiłam, ale chciałam być pewna na 100%, że nie wystąpi on też dla innych stref czasowych, również poza Europą. Zaplanowałam sobie sesję testów manualnych. Oczywiście, na naszych komputerach jest możliwość zmiany ustawień czasu zarówno w systemie jak i dla przeglądarki. Nie chciałam jednak tego robić. Podczas ostatniej takiej próby mój kalendarz pokazywał błędne godziny, a powiadomienia o spotkaniach przychodziły po ich zakończeniu. Nauczona na błędach szukałam innego rozwiązania.&lt;/p&gt;
+
+&lt;p&gt;Z pomocą, jak zawsze, przyszedł Google. Znalazłam tam bardzo fajne rozwiązanie mojego problemu dla przeglądarki Chrome. Wystarczy stworzyć katalog dla nowego profilu przeglądarki (nazwa jest całkowicie dowolna ja wybrałam &lt;code&gt;chrome-profile&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mkdir &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/chrome-profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;następnie wybrać strefę czasową i wpisać ją do zmiennej środowiskowej &lt;code&gt;TZ&lt;/code&gt; (skrót od time zone):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;TZ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;US/Pacific&amp;#39;&lt;/span&gt; google-chrome &lt;span class=&quot;s2&quot;&gt;&amp;quot;--user-data-dir=$HOME/chrome-profile&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;po pracy wystarczy skasować katalog tego profilu:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rm -rf &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/chrome-profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To wszystko! Możesz uruchomić przeglądarkę w różnych strefach czasowych nie zmieniając swoich ustawień. Chciałabym zwrócić tutaj uwagę na jedną drobną rzecz. Musisz znać &lt;strong&gt;dokładną nazwę strefy czasowej&lt;/strong&gt;. To jest szczególnie ważne dla osób takich jak ja, które robią dużo literówek. W przypadku złej nazwy strefy przeglądarka otworzy się &lt;strong&gt;bez żadnych błędów&lt;/strong&gt;, ale będzie miała ustawioną Twoją &lt;strong&gt;standardową strefę czasową&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dzięki za przeczytanie i do następnego razu! Trzymaj się!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 09 Jan 2019 00:00:00 -0500</pubDate>
+        <link>https://womanonrails.com/pl/custom-time-in-browser</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/custom-time-in-browser</guid>
+        
+        <category>TIL</category>
+        
+        <category>przeglądarka</category>
+        
+        <category>Linuks</category>
+        
+        
+        <category>narzędzia</category>
+        
+      </item>
     
       
       <item>
@@ -1607,86 +1642,6 @@ To wszystko na dziś. Mam nadzieje, że artykuł Wam się podobał. Jeżeli maci
         
         
         <category>praca</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Git Rebase</title>
-        <description>&lt;p&gt;Poprzednie dwa artykuły wprowadzały do tego &lt;a href=&quot;/pl/what-is-git&quot;&gt;co to jest git&lt;/a&gt; i jak go &lt;a href=&quot;/pl/git-usage&quot;&gt;używać&lt;/a&gt;. Możecie tam znaleźć podstawowe informacje na temat gita. Dzisiaj chciałabym skupić się na trochę bardziej zaawansowanych rzeczach związanych z gitem. W zeszłym tygodniu robiłam krótką prezentację dotyczącą funkcji &lt;code&gt;git rebase&lt;/code&gt;, pomyślałam więc że to dobry pomysł by zrobić z tego krótką notatkę tutaj. Oto ona.&lt;/p&gt;
-
-&lt;p&gt;Kiedy używamy gita mamy dwie możliwości dociągnięcia nowych zmian ze zdalnego repozytorium. &lt;strong&gt;Merge&lt;/strong&gt; i &lt;strong&gt;rebase&lt;/strong&gt;. Jeżeli używamy funkcji &lt;strong&gt;merge&lt;/strong&gt; (jest to opcja domyślna) git stara się rozwiązać wszystkie konflikty i umieszcza nasze zmiany między zmianami innych członków zespołu, porządkując je względem linii czasu. Natomiast gdy używamy opcji &lt;strong&gt;rebase&lt;/strong&gt; git przenosi nasze lokalne zmiany do takiego tymczasowego miejsca i dociąga to co się zmieniło z zdalnego repozytoriom. Po czym każdą naszą lokalną zmianę umieszcza z powrotem na branch na samej górze wszystkich dociągniętych zmian. Mówimy wtedy, że jesteśmy na samej górze &lt;strong&gt;HEAD&lt;/strong&gt;. Można powiedzieć, że HEAD jest czymś w rodzaju takiego znacznika, która wersja jest aktualna. Kiedy na zdalnym repozytorium są zmiany, których jeszcze nie mamy u siebie na komputerze, mówimy że jesteśmy &lt;strong&gt;za HEAD&lt;/strong&gt; (czyli za tym głównym znacznikiem), jak tylko dociągniemy zmiany to będziemy &lt;strong&gt;na bieżącym HEAD&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;A teraz zobaczmy jak wizualnie wyglądają różnice między tymi dwoma metodami.&lt;/p&gt;
-
-&lt;h2&gt;Merge&lt;/h2&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Widać że zmiany, które tworzą logiczną całość po dołączeniu do gałęzi (branch) develop zostają przeplecione innymi zmianami. Wszystko powoduje wrażenie bałaganu i nieładu. Dodatkowo da się zauważyć zmiany (commit), których sami nie zrobiłyśmy. Są to właściwie informacje o tym jak zostały połączone pliki modyfikowane przez kilka osób.&lt;/p&gt;
-
-&lt;h2&gt;Rebase&lt;/h2&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Tutaj wszystko ma swoje miejsce. Zmiany są pogrupowane w jakieś logiczne całości. Dodatkowo widzimy historię naszych gałęzi (branches).&lt;/p&gt;
-
-&lt;h2&gt;W takim razie jak możemy to zrobić, gdy nasz kod był tylko zapisany lokalnie?&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Przechodzimy na gałąź (branch) develop&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout develop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Dociągamy najnowsze zmiany&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git pull
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Przełączmy się na naszą gałąź (branch) gdzie wcześniej pracowałyśmy&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout my-branch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Robimy rebase&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Możemy wrzucić zmiany na zdalne repozytorium&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Czasami gdy będziemy robić &lt;code&gt;git rebase&lt;/code&gt;, git może nie dać sobie rady sam z rozwiązywaniem konfliktów (czyli łączeniem plików modyfikowanych przez kilka osób). Wtedy do akcji wkraczamy my. Poprawnie rozwiązujemy konflikty i dodajemy nasze zmiany, tak by git je widział. Następnie możemy dalej kontynłować rebase.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
-&lt;span class=&quot;c&quot;&gt;# rozwiązanie konfliktów&lt;/span&gt;
-git add -u &lt;span class=&quot;c&quot;&gt;# dodanie wszystkich zmian do śledzenia&lt;/span&gt;
-git rebase --continue
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Musimy porozmawiać jeszcze o jedne rzeczy. Czasami nasze zmiany są już na zdalnym repozytorium a my musimy/chcemy zrobić rebase. Po zakończeniu całej operacji chcemy umieści zmiany z powrotem na zdalnym repozytorium. Jednak tym razem &lt;code&gt;git push&lt;/code&gt; nam nie zadziała. W takie sytuacji możemy zrobić tak:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push -f origin my-branch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Uwaga! Z tym poleceniem trzeba być bardzo uważnym. Polecenie to nadpisze wszystkie zmiany na wybranej przez nas gałęzi (branch) zmianami, które miałyśmy lokalnie. Jeżeli tylko my pracujemy na tej gałęzi nic się nie stanie. Jeżeli współdzielimy tą gałąź z kimś innym, trzeba myśleć o tym, że możemy usunąć czyjeś zmiany. Musimy wiedzieć co robimy i zdawać sobie sprawę z konsekwencji.&lt;/p&gt;
-
-&lt;p&gt;Gdybyśmy chcieli zrezygnować z rebase, możemy do tego celu użyć polecenia:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase --abort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To wszystko na dzisiaj. Pokazałam Wam jak można używać &lt;code&gt;git rebase&lt;/code&gt;. Mam nadzięję, że było to dla Was pomocne. Jeżeli miacie jakieś pytania lub sugestie zapraszam do komentowania. Do zobaczenia następnym razem!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>https://womanonrails.com/pl/git-rebase</link>
-        <guid isPermaLink="true">https://womanonrails.com/pl/git-rebase</guid>
-        
-        <category>środowisko programistyczne</category>
-        
-        <category>git</category>
-        
-        <category>system kontroli wersji</category>
-        
-        
-        <category>narzędzia</category>
         
       </item>
     

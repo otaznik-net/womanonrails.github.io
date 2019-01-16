@@ -5,9 +5,44 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 07 Jan 2019 11:50:22 -0500</pubDate>
-    <lastBuildDate>Mon, 07 Jan 2019 11:50:22 -0500</lastBuildDate>
+    <pubDate>Wed, 16 Jan 2019 03:06:09 -0500</pubDate>
+    <lastBuildDate>Wed, 16 Jan 2019 03:06:09 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>How to use custom time in browser to manual tests for app?</title>
+        <description>&lt;p&gt;I don&amp;#39;t like changing my setups when they work fine. This time, I wanted to test some functionality in the project in different time zones. I found a way to do that independently to my existing setups.&lt;/p&gt;
+
+&lt;p&gt;I work in a project where we use some external API to get weather data and display them to the user. There was a problem with missing values in a specific range of time. For example, when you asked about data for October you would get one day less. So you do not get 31th of October. If you asked about September, everything was fine. The problem was related to the change from CEST to CET time. In 2018 it happened on 28th of October. Missing hour in this day effected last day of this month. After fixing this problem, I wanted to be pretty sure that everything is working in Europe, but also for other countries in the world. I planned to do a manual testing for that. It is possible to change time zone for your entire system or for browser, but I had bad experience with this approach in the past. This trick completely desynchronized my calendar and notifications about meetings in it. So I didn&amp;#39;t want to get the same problems twice.&lt;/p&gt;
+
+&lt;p&gt;While searching for answers in Google, I found a clever idea to change time in the Chrome browser, but without changing your default settings. You need to create a separate folder for the new profile (name depends completely on you, I used &lt;code&gt;chrome-profile&lt;/code&gt;):&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;mkdir &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/chrome-profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;then you need to specify time zone by &lt;code&gt;TZ&lt;/code&gt; parameter:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;TZ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;US/Pacific&amp;#39;&lt;/span&gt; google-chrome &lt;span class=&quot;s2&quot;&gt;&amp;quot;--user-data-dir=$HOME/chrome-profile&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and after all this testing you can remove this profile:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rm -rf &lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/chrome-profile
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That&amp;#39;s it! You can use your browser with different time zones right now. There is one quick note here. You need to know &lt;strong&gt;the right name of time zone&lt;/strong&gt;. This is important for people like me, who do lots of misspellings. In case you will use wrong name you &lt;strong&gt;will not get error&lt;/strong&gt; and your browser will &lt;strong&gt;open in default time zone&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading and see you next time! Bye!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 09 Jan 2019 00:00:00 -0500</pubDate>
+        <link>https://womanonrails.com/custom-time-in-browser</link>
+        <guid isPermaLink="true">https://womanonrails.com/custom-time-in-browser</guid>
+        
+        <category>TIL</category>
+        
+        <category>browser</category>
+        
+        <category>Linux</category>
+        
+        
+        <category>tools</category>
+        
+      </item>
     
       
       <item>
@@ -1607,86 +1642,6 @@ This is it. I hope you like this article. If you have any question please leave 
         
         
         <category>work</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Git Rebase</title>
-        <description>&lt;p&gt;I wrote 2 articles about git: &lt;a href=&quot;/what-is-git&quot;&gt;What is git&lt;/a&gt; and &lt;a href=&quot;/git-usage&quot;&gt;Git usage&lt;/a&gt;. There are basic information about git. Today I would like to do something more advanced. Last week I did quick presentation/lighting talk about &lt;code&gt;git rebase&lt;/code&gt;. After that I realize that this is good topic to do short note. So, there you have.&lt;/p&gt;
-
-&lt;p&gt;When we use git, we have two ways to pull new changes from remote repository. &lt;strong&gt;Merge&lt;/strong&gt; and &lt;strong&gt;rebase&lt;/strong&gt;. When we use &lt;strong&gt;merge&lt;/strong&gt; (this is default option) git will try resolve conflicts and put our changes between changes of others in our team (using timeline to this). But when we use &lt;strong&gt;rebase&lt;/strong&gt;, git move our local changes to temporary area and pull all changes from remote repository. Then one by one will move each our local change to branch but on top of all downloaded changes. We say that rebase move your local changes on top of &lt;strong&gt;HEAD&lt;/strong&gt;. We can say that HEAD is something like marker which version is current. When on remote repository are new changes and we don&amp;#39;t have this changes locally we say that we are &lt;strong&gt;behind the HEAD&lt;/strong&gt;. So when we pull all changes from remote repository we are &lt;strong&gt;on HEAD&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase-diagram.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Ok, let&amp;#39;s move now to visual difference between those two method.&lt;/p&gt;
-
-&lt;h2&gt;Merge&lt;/h2&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/merge.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;You can see that even someone do some connected commits, after merge all is one big mess. Even more, we see that there are also commits with title merge and we didn&amp;#39;t create this commits.&lt;/p&gt;
-
-&lt;h2&gt;Rebase&lt;/h2&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;img src=&quot;/images/git-rebase/rebase.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Here everything is in order. Connected commits are in one group. We also see history of our branches.&lt;/p&gt;
-
-&lt;h2&gt;How we can do this when our code is only locally?&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Switch to develop branch&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout develop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Download all changes locally&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git pull
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Switch to specific branch (branch on which you work)&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git checkout my-branch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Do rebase&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Push changes to remote repository&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Sometimes when you use rebase, then it can show some conflicts. You need to resolved them and add changes. Then you can continue rebase.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase develop
-&lt;span class=&quot;c&quot;&gt;# resolve conflicts&lt;/span&gt;
-git add -u &lt;span class=&quot;c&quot;&gt;# add all changes&lt;/span&gt;
-git rebase --continue
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We need to talk about one more thing. Sometimes we have our code on remote repository and after rebase we cannot do &lt;code&gt;git push&lt;/code&gt;. In this case we can use:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git push -f origin my-branch
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;But! You need to be very &lt;strong&gt;careful&lt;/strong&gt;. This command will override all history of change on remote repository for your branch. You must be sure that you don&amp;#39;t lose any change. If you work on branch alone, it is safe but when you work on branch with others you need to be sure what you doing.&lt;/p&gt;
-
-&lt;p&gt;If you like to abort rebase. You can do that in this way.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git rebase --abort
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is it. I showed you how you can use &lt;code&gt;git rebase&lt;/code&gt;. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 10 Apr 2016 00:00:00 -0400</pubDate>
-        <link>https://womanonrails.com/git-rebase</link>
-        <guid isPermaLink="true">https://womanonrails.com/git-rebase</guid>
-        
-        <category>environment</category>
-        
-        <category>git</category>
-        
-        <category>version control system</category>
-        
-        
-        <category>tools</category>
         
       </item>
     
