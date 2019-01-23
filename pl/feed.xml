@@ -5,8 +5,8 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 16 Jan 2019 03:06:12 -0500</pubDate>
-    <lastBuildDate>Wed, 16 Jan 2019 03:06:12 -0500</lastBuildDate>
+    <pubDate>Wed, 23 Jan 2019 04:09:32 -0500</pubDate>
+    <lastBuildDate>Wed, 23 Jan 2019 04:09:32 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
@@ -1165,6 +1165,13 @@
 &lt;li&gt;&lt;code&gt;f3 + shift&lt;/code&gt; - poprzednia wyszukiwana fraza&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;Aktualizacja 23.01.2019:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ctrl + shift + l&lt;/code&gt; - dodaje kursor do każdej linii zaznaczonego tekstu&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;shift + alt + ↑, ↓&lt;/code&gt; - po każdym naciśnięciu &lt;code&gt;↑&lt;/code&gt; lub &lt;code&gt;↓&lt;/code&gt; dodaje kolejny kursor do linii powyżej lub poniżej bieżącej używanej linii&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Mam nadzieje, że będzie to dla Was pomocne. Do zobaczenia następnym razem!&lt;/p&gt;
 </description>
