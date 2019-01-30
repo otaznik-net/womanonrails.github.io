@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Wyrażenia regularne - co może pójść nie tak?",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/email-regular-expressions",
+		  "date"       : "2019-01-16 00:00:00 -0500",
+		  "shortdate"  : "January 16, 2019"
+		} ,
+	
+		{
 		  "title"      : "Jak ustawić niestandardowy czas w przeglądarce dla testów aplikacji?",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/custom-time-in-browser",
@@ -182,6 +190,14 @@
 		  "url"        : "https://womanonrails.com/mvc-design-pattern",
 		  "date"       : "2014-11-10 00:00:00 -0500",
 		  "shortdate"  : "November 10, 2014"
+		} ,
+	
+		{
+		  "title"      : "Rails Girls Silesia 2014",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/rails-girls-silesia",
+		  "date"       : "2014-10-10 00:00:00 -0400",
+		  "shortdate"  : "October 10, 2014"
 		} ,
 	
 		{

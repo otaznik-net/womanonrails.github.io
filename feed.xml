@@ -5,9 +5,69 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Jan 2019 04:16:12 -0500</pubDate>
-    <lastBuildDate>Wed, 23 Jan 2019 04:16:12 -0500</lastBuildDate>
+    <pubDate>Wed, 30 Jan 2019 02:50:18 -0500</pubDate>
+    <lastBuildDate>Wed, 30 Jan 2019 02:50:18 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Regular expressions - what can go wrong?</title>
+        <description>&lt;p&gt;Someone said: &lt;em&gt;If you have a problem, use regular expressions. You will have two problems.&lt;/em&gt; That&amp;#39;s true. At least in some cases. As a programmer, we should be responsible for our code. We should think twice about all possible usage of our code. And also, do tests for it ;]. Today I would like to share an example with using regular expressions, but without enough preparation and testing. I would like to show what was wrong and how I fixed it. This is a case study. I will not introduce the concept of regular expressions, but I will show you, what you need to consider during using them.&lt;/p&gt;
+
+&lt;p&gt;I got a bug to fix. That&amp;#39;s usually a start of a story. So, I got bug in one text area. In this text area user can put a list of emails, which should be imported as contacts to the application. The problem was that only some of those emails were imported and some of them not. My task was to discover the reason and resolve the problem. I like to think about myself as a detective in this case. I started my investigation.&lt;/p&gt;
+
+&lt;p&gt;This is how the Ruby code looks like for this feature:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:enter_emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/,/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# do something (for example add to contact list)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# render error&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The input for this code was just a string. We remove all space between parts of this string and then we check regular expression. If string fits to this expression, we split it by comma. And then do something with this data. For example, add to contact list. These are two main problems with this code:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Splitting by comma&lt;/strong&gt; - What if the user will use a semicolon or just one space or new line? This is a simple text area, he can do that. We are not able to check that.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Validation only the last part of string&lt;/strong&gt; - When we look closely we will see this problem. When we put as input: &lt;code&gt;&amp;quot;aaa@excom, bbb@ex.com&amp;quot;&lt;/code&gt; it will be valid. And when we put &lt;code&gt;&amp;quot;bbb@ex.com, aaa@excom&amp;quot;&lt;/code&gt; it won&amp;#39;t.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;What is going on? To see that kind of problems, it is good to check how our regular expression behaves for different edge cases in console or in some tool. I use and recommend &lt;a href=&quot;https://rubular.com/&quot; title=&quot;Rubular - regular expressions&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Rubular&lt;/a&gt;. At least for Ruby people. It is simple, but very useful website where you can check your regular expression.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/email-regular-expressions/rubular.png&quot;&gt;&lt;img src=&quot;/images/email-regular-expressions/rubular.png&quot; title=&quot;Rubular - regular expressions&quot; alt=&quot;Matching of regular expression&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;As you can see we only check the last part of the string.The last email address. When the last email is valid whole string is valid no matter what you have in the beginning. That&amp;#39;s not good. There are many possibilities to fix that problem. I decided to first split string and then check email&amp;#39;s regular expression. For splitting I used &lt;code&gt;/\s+|\s*,\s*|\s*;\s*/&lt;/code&gt;. So, I split the text by whitespace, commas and semicolons. There is one more thing to mention. When you split using this regular expression then you will get empty strings in array, like in the example below:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;aaa@excom,, , ,  bbb@ex.com aa&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\s+|\s*,\s*|\s*;\s*/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;aaa@excom&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bbb@ex.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;aa&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It can be enough for you or you&amp;#39;ll need to take care of your empty strings in the array. After that you can, for example, check validation of each element of the array:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;or just choose valid elements:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;bbb@ex.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Do whatever fits the best for you.&lt;/p&gt;
+
+&lt;p&gt;You can ask now, why you share that? What was your purpose? The answer is simple. I see that everywhere. We, as programmers, sometimes do not pay too much attention to resolving problems or we just rush too much. In this situation we introduce new bugs to the application. And maybe sometimes it&amp;#39;s ok, but ask yourself, do you want to go into surgery when doctor do not pay attention to your body? I know that some of our bugs are not so critical, but what if it is related to some formal documents or splitting dosage of medicine or maybe driving a car? In book &amp;quot;The Little Prince&amp;quot; the fox said: &lt;em&gt;&amp;quot;You become responsible, forever, for what you have tamed&amp;quot;&lt;/em&gt;. In this situation I say: &lt;em&gt;&amp;quot;You become responsible, forever, for what you have coded&amp;quot;&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you want, share your thoughts in the comments below. Thanks for reading! See you next time. Bye!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 16 Jan 2019 00:00:00 -0500</pubDate>
+        <link>https://womanonrails.com/email-regular-expressions</link>
+        <guid isPermaLink="true">https://womanonrails.com/email-regular-expressions</guid>
+        
+        <category>Ruby</category>
+        
+        <category>regular expressions</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       
       <item>
@@ -1561,94 +1621,6 @@ end
         
         
         <category>programming</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Working remote</title>
-        <description>&lt;p&gt;For me, there are two types of remote work. &lt;strong&gt;Synchronic&lt;/strong&gt; and &lt;strong&gt;asynchronic&lt;/strong&gt; remote work. Synchronic remote work is work from different places but in the same time. For example I&amp;#39;m working from 9am to 5pm in Europe time zone. Second one - asynchronic remote work is when you are working from different places and in different times. So, it is possible to don&amp;#39;t have chance to talk with anyone through all day work.&lt;/p&gt;
-
-&lt;p&gt;I only have experience in synchronic remote work. So this article will be about my feelings and my thoughts about this kind of remote work.&lt;/p&gt;
-
-&lt;h2&gt;Day by day work&lt;/h2&gt;
-
-&lt;p&gt;When I work remotly from my home or open space in most cases work looks like normaly day in office. But in my offce each person in team has separate room and we don&amp;#39;t go to others rooms. One time per day we have meeting (Hangout or Sykpe). And that&amp;#39;s it. Rest of my day it is normal work. I have to do my tasks and I do what I should. When I need to talk with someone I write a message on communicator (Slack or Skype). The most important thing in this kind of work is &lt;strong&gt;trust&lt;/strong&gt;. Trust that each team member does what he/she should to get things done.&lt;/p&gt;
-
-&lt;h3&gt;My observations:&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Less people around my desk, then I can better focus&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;How many times do you waste your time for funny conversations? How many times someone interrupt you in your work to ask something? How many times you need to go to boring and useless meeting? There are many reasons for break.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;I can work from any place from office, from home, from Warsaw or Krakow. It doesn&amp;#39;t matter.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;This is very nice I can work from home when I need it. Or I can go to my family and working from theirs house. Or go to another country.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;I need to be well organized to plan my work and my communication.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Because time when all team members are on one meeting is very short I need to be prepare to ask necessary questions, to announce most important informations for team. I need to be good organized when you work. Forget about wasting time for nothing. I need to be motivate to work without any supervisor around me. Remember trust. I trust that others team members working and the same have the same for me. They trust that I working also.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;I need to document all what I can.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Most of things connected to project happen in different places. I cannot tell everyone everything, so I write documentation. Work flow documentation, change log documentation, task todo documentation, environment set-up documentation and many, many more.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Australia remote work&lt;/h2&gt;
-
-&lt;p&gt;As I said earlier in remote work I can work from every place in the world. So I decided to spend 6 weeks working remotely from Australia. Sometimes remote work from Australia was very easy. Time went quickly and very productive. But sometimes it was very hard. My team is working in Europe time zone so when I moved to Australia then my work time changed from 9am to 5pm to 6pm to 2am. I decided to work only half time. Big thank you for my team that this was possible. So I worked from 6pm to 10pm. Sometime I was tired after all day but I had work to do. I worked from different places mostly from my bedroom, but also from shopping center, couch in friends living room, hotels or cars. I don&amp;#39;t recommend this last work place specially when you have motion sickness. Some of this places had trouble with Internet connection or didn&amp;#39;t have any. Then I used mobile Internet. Yes I used mobile Internet for work. And the most important sometimes I just would like to have evening just for my self to meet friends and go out.&lt;/p&gt;
-
-&lt;p&gt;Even that there was sometime many problems to deal with, this was my best time ever. I woke up at 7am Australian time. I did my exercises and some hobby stuff and then I have 8 hours to explore Australia. After that I used to sit with my computer and worked. This possibility to work remotely allowed me to visit lot of beautiful places. I felt like I was on holiday in some how. If someone will ask me if this is something worth to try I will say &lt;strong&gt;YES&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/remote/duck.jpg&quot;&gt;&lt;img src=&quot;/images/remote/duck.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-  &lt;a href=&quot;/images/remote/memo1.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo1.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/memo2.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo2.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/memo3.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo3.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/remote/formula1.jpg&quot;&gt;&lt;img src=&quot;/images/remote/formula1.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-  &lt;a href=&quot;/images/remote/memo4.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo4.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/memo5.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo5.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/victoria.jpg&quot;&gt;&lt;img src=&quot;/images/remote/victoria.jpg&quot;&gt;&lt;/a&gt;
-  &lt;figcaption&gt;Memories of Australia&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2&gt;Summary&lt;/h2&gt;
-
-&lt;p&gt;Remote work give me lot of opportunities. I can work from different places in the world and discover those places like it is impossible in normal work, because I can stay longer and try normal life in this place. You need to remember that this kind of work is not for everyone. You need to be sure that you will be able to focus and do real work. You need to be well organize and be strong in you decision that this is work time.&lt;/p&gt;
-
-&lt;p&gt;When you decide that you will be able to work like this, you need to find answer for this questions:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Is there Internet connection? WiFi?&lt;/li&gt;
-&lt;li&gt;Do I have everything what I need on my laptop?&lt;/li&gt;
-&lt;li&gt;Is there always access to electricity?&lt;/li&gt;
-&lt;li&gt;How much time do I have to work?&lt;/li&gt;
-&lt;li&gt;What will I do as my work?&lt;/li&gt;
-&lt;li&gt;Where will I be working?&lt;/li&gt;
-&lt;li&gt;How organized am I?&lt;/li&gt;
-&lt;li&gt;How motivate to work am I?&lt;/li&gt;
-&lt;li&gt;What is time zone in my destination?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br&gt;
-From my perspective it is great opportunity. I very happy that I could to try.
-This is it. I hope you like this article. If you have any question please leave them below in comments. See you next time!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>https://womanonrails.com/remote-work</link>
-        <guid isPermaLink="true">https://womanonrails.com/remote-work</guid>
-        
-        <category>remote</category>
-        
-        
-        <category>work</category>
         
       </item>
     

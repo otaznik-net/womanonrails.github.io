@@ -5,9 +5,69 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 23 Jan 2019 04:16:15 -0500</pubDate>
-    <lastBuildDate>Wed, 23 Jan 2019 04:16:15 -0500</lastBuildDate>
+    <pubDate>Wed, 30 Jan 2019 02:50:21 -0500</pubDate>
+    <lastBuildDate>Wed, 30 Jan 2019 02:50:21 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Wyrażenia regularne - co może pójść nie tak?</title>
+        <description>&lt;p&gt;Ktoś kiedyś powiedział: &lt;em&gt;Masz problem, użyj wyrażeń regularnych. Będziesz mieć dwa problemy.&lt;/em&gt; To po części prawda. Przynajmniej w niektórych przypadkach. Jako programiści powinniśmy być odpowiedzialni za to, co piszemy, za swój kod. Powinniśmy zatrzymać się i pomyśleć dwa razy o wszystkich możliwych przypadkach użycia swojego kodu. I mieć na to wszystko dowody, czyli testy. Dzisiaj chciałaby podzielić się z Tobą pewnym przypadkiem problemów z wyrażeniami regularnymi. Przypadkiem, gdzie brak dobrego przygotowania i sprawdzenia zaowocował błędem w aplikacji. W tym artykule nie będę poruszać podstaw dotyczących wyrażeń regularnych. Chcę pokazać na co warto zwrócić uwagę, korzystając z wyrażeń regularnych.&lt;/p&gt;
+
+&lt;p&gt;Dostałam błąd do naprawienia. Tak zaczyna się wiele historii. Ta też. Dostałam więc błąd w jednym z pól tekstowym w aplikacji. Do tego pola użytkownik mógł wpisać listę emalii i zaimportować je do swoich kontaktów. Problem był taki, że raz mu się to udawało a raz nie. Czasem tylko część poprawnych adresów zostawała zapisana do bazy. Moje zadanie polegało na znalezieniu przyczyny i naprawieniu problemu. W takich sytuacjach lubię myśleć o sobie jak o detektywie, więc zabrałam się za moje małe śledztwo.&lt;/p&gt;
+
+&lt;p&gt;Kod w Ruby dla tej funkcjonalności wyglądał tak:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:enter_emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/,/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# do something (for example add to contact list)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# render error&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Na wejście kod dostawał tekst. Później następowało usunięcie białych znaków, w zasadzie tylko spacji. Dalej używając wyrażenia regularnego sprawdzaliśmy poprawność formatu danych i dzieliliśmy tekst na części na podstawie przecinków. Na koniec poprawne dane zostawały poddane dalszym działaniom. Przykładowo importowane do listy kontaktów użytkownika. Patrząc na ten kod można dostrzec dwa podstawowe problemy:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Dzielenie tekstu względem przecinków&lt;/strong&gt; - Co stanie się, gdy użytkownik nie będzie myślał tak jak my? I oddzieli od siebie kolejne maile za pomocą średników, samych spacji lub nowych linii? To jest zwykłe pole tekstowe typu &lt;code&gt;textarea&lt;/code&gt;. Użytkownik może to zrobić. My jednak nie obsługujemy tych przypadków.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Walidacja tylko ostatniej części naszego tekstu&lt;/strong&gt; - Gdy przyjrzymy się bliżej zauważymy, że podając na wejście &lt;code&gt;&amp;quot;aaa@excom, bbb@ex.com&amp;quot;&lt;/code&gt; dane zostaną potraktowane jako poprawne. Natomiast gdy odwrócimy kolejność &lt;code&gt;&amp;quot;bbb@ex.com, aaa@excom&amp;quot;&lt;/code&gt; już nie.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Co tu się dzieje? By lepiej zrozumieć problem dobrze jest sprawdzić różne przypadki zachowania danych wejściowych dla wybranego przez nas wyrażenia regularnego. Można to zrobić za pomocą interaktywnej konsoli Rubiego lub używając jakiegoś narzędzia. Ja często używam i również polecam &lt;a href=&quot;https://rubular.com/&quot; title=&quot;Rubular - regular expressions&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Rubular&lt;/a&gt;. Jest to prosta stronka internetowa, gdzie łatwo można sprawdzić działanie swoich wyrażeń regularnych.&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;a href=&quot;/images/email-regular-expressions/rubular.png&quot;&gt;&lt;img src=&quot;/images/email-regular-expressions/rubular.png&quot; title=&quot;Rubular - wyrażenia regularne&quot; alt=&quot;Dopasowywanie do wyrażenia regularnego&quot;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;Jak możesz zauważyć, sprawdzamy tylko ostatnią część naszego testu. Gdy ostatni fragment jest poprawnym adresem email, cały tekst traktowany jest jako poprawny. To nie dobrze. Gdy znamy już przyczynę problemu, czas go rozwiązać. Można to zrobić na wiele sposobów. Ja zdecydowałam się najpierw podzielić ten tekst na części używając do tego wyrażenia regularnego: &lt;code&gt;/\s+|\s*,\s*|\s*;\s*/&lt;/code&gt; a dopiero później sprawdzać drugim wyrażeniem czy dana część jest poprawnym adresem email. Warto tu wspomnieć o jednej rzeczy. Gdy zastosujesz to samo wyrażenie regularne co ja, które dzieli tekst względem przecinków, średników i dowolnych białych znaków, po podzieleniu możesz otrzymać tablicę z pustymi łańcuchami. Tak jak w przykładzie poniżej:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;aaa@excom,, , ,  bbb@ex.com aa&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\s+|\s*,\s*|\s*;\s*/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;aaa@excom&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;bbb@ex.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;aa&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To może być dla Ciebie wystarczające lub nie. Tu musisz o tym zdecydować. Dalej można już sprawdzić poprawność wszystkich elementów w tablicy:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;all?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;lub wybrać tylko elementy będące poprawnymi adresami email:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;bbb@ex.com&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Wszystko zależy od tego, czego potrzebujesz.&lt;/p&gt;
+
+&lt;p&gt;Teraz możesz zapytać: Po co to wszystko? Jaki był cel tego artykułu? Odpowiedź jest prosta. Ja widzę takie rzeczy bardzo często. Jako programiści, nie przywiązujemy zbyt dużej uwagi do naszego kodu lub może po prostu zbyt się śpieszymy przy tworzeniu rozwiązań. W ten sposób wprowadzając do aplikacji błędy. Czasami to nie jest duży problem, ale czy chciałabyś by operował Cię lekarz, który nie przywiązuje wagi do szczegółów Twojego stany zdrowia podczas operacji? Czasem oprogramowanie, które tworzymy służy do błahych celów, ale co w przypadku wypełniania dokumentów urzędowych, dawkowania leków lub sterowania systemem hamowania w samochodzie? W &lt;em&gt;Małym Księciu&lt;/em&gt; lis powiedział: &lt;em&gt;&amp;quot;Stajesz się na zawsze odpowiedzialny za to co oswoiłeś&amp;quot;&lt;/em&gt;. W tym przypadku ja mówię: &lt;em&gt;&amp;quot;Stajesz się na zawsze odpowiedzialny za to co zaprogramowałeś.&amp;quot;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Jeśli masz ochotę, to podziel się swoimi myślami w komentarzach. Dzięki za przeczytanie artykułu i do następnego razu. Pa!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 16 Jan 2019 00:00:00 -0500</pubDate>
+        <link>https://womanonrails.com/pl/email-regular-expressions</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/email-regular-expressions</guid>
+        
+        <category>Ruby</category>
+        
+        <category>wyrażenia regularne</category>
+        
+        
+        <category>programowanie</category>
+        
+      </item>
     
       
       <item>
@@ -1561,94 +1621,6 @@ end
         
         
         <category>programowanie</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Praca zdalna</title>
-        <description>&lt;p&gt;Moim zdaniem pracę zdalną możemy podzielić na dwa typy. &lt;strong&gt;Synchroniczną&lt;/strong&gt; i &lt;strong&gt;asynchroniczną&lt;/strong&gt;. Synchroniczna praca zdalna jest wtedy, gdy zespół pracuje z różnych miejsc na świecie, ale pracuje w tym samym czasie (tej samej strefie czasowej). Przykładowo, ja pracuję według czasu środkowoeuropejskiego od 9:00 do 17:00. Natomiast, asynchroniczna praca zdalna, to praca nie tylko z różnych miejsc na świecie, ale również w różnych godzinach. W takim przypadku, może okazać się, że w konkretnym momencie tylko Ty pracujesz nad projektem.&lt;/p&gt;
-
-&lt;p&gt;Ponieważ mam doświadczenie tylko w synchronicznej pracy zdalnej, więc skupię się właśnie na tym sposobie pracy.&lt;/p&gt;
-
-&lt;h2&gt;Dzień po dniu&lt;/h2&gt;
-
-&lt;p&gt;Pracując zdanie czy to z domu czy z biura, przez większość czasu praca wygląda zupełnie tak samo, jakby pracowało się w normalnej stacjonarnej firmie. Można powiedzieć, że każda osoba w zespole ma swoje osobne pomieszczenie (pełen komfort), tylko że nie przemieszczamy się pomiędzy tymi pomieszczeniami. Każdy siedzi w swoim pokoju. Raz dziennie spotykamy się wspólnie, używając narzędzi takich jak Hangout czy Skype. I to tyle. Resztę czasu poświęca się na zadania, które ma się do zrobienia. Gdy ktoś z nas potrzebuje porozmawiać z inną osobą z zespołu, używamy komunikatorów tekstowych takich jak Slack czy Skype. Najważniejsze w takiej pracy jest &lt;strong&gt;zaufanie&lt;/strong&gt;. Zaufanie, że każda osoba w zespole robi to co do niej należy i że robi to najlepiej jak potrafi.&lt;/p&gt;
-
-&lt;h3&gt;Moje obserwacje:&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Im mniej ludzi wokół mnie, tym lepiej potrafię się skupić.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Ile razy zdarzyło Wam się zmarnować czas na jakieś niepotrzebne rozmowy w pracy? Ile razy ktoś przyszedł do Was, zapytać o coś lub po prostu zagadać? Ile czasu zmarnowaliście na niepotrzebne spotkania, z których i tak nic nie wynieśliście? Jest mnóstwo powodu, by nie robić tego, co się powinno w trakcie pracy.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Mogę pracować z każdego miejsca na świecie. Czy to biuro, mój dom, Warszawa, Kraków czy Australia&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;To jest jeden z największych plusów pracy zdalnej. Można pracować z domu, kiedy zajdzie taka potrzeba. Odwiedzić znajomych lub rodzinę i pracować od nich. Można też wyjechać do innego kraju.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Potrzebna jest dobra organizacja swojego czasu pracy a także komunikacji z innymi.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Ponieważ mój zespół spotyka się na raz dziennie na bardzo krótkim spotkaniu (około 15 minut), o wiele lepiej spotkanie przebiega, gdy jesteśmy do niego przygotowani. Wiemy o co zapytać, na co zwrócić uwagę i o czym poinformować resztę zespołu. Każdy z nas musi być dobrze zorganizowany. Nie ma miejsca na marnowanie czasu. Motywacja do pracy nie może pochodzić z zewnątrz. Z tego, że ktoś Cię kontroluje i patrzy Ci na ręce. Nie ma takiej osoby. Liczy się zaufanie. Ja ufam reszcie zespołu a zespół ufa mi.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;Każda rzecz w projekcie powinna być udokumentowana.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Wiele funkcjonalności w projekcie, jest tworzone równolegle przez różne osoby. Ponieważ komunikacja twarzą w twarz, przy pracy zdalnej jest ograniczona, wszystkie istotne elementy zapisuje się w dokumentacji. Pozwala to, na zapoznanie się z już istniejącymi elementami/procesami, z którymi nie mieliśmy jeszcze styczności. Dokumentacja dotyczy sposobu pracy, stawiania środowiska, dodawanej funkcjonalności, logiki i wielu innych rzeczy.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2&gt;Praca zdalna z Australii&lt;/h2&gt;
-
-&lt;p&gt;Tak jak już mówiłam, pracując zdalnie można pracować z każdego miejsca na świecie. Ja zdecydowałam, że spędzę prawie 2 miesiące w Australii i będę stamtąd pracować zdalnie. Były momenty, gdy praca z Australii była prosta. Czas płyną szybko i produktywnie. Ale były też momenty, gdy było bardzo ciężko. Mój zespół pracuje z Europy (czyli w czasie środkowoeuropejskim), kiedy więc przeniosłam się do Australii moje godziny pracy zmieniły się z 9 do 17 na od 18 do 2 nad ranem. Jak już mówiłam pracujemy w zespole synchronicznie. Zdecydowałam, że będę pracować tylko przez połowę czasu. Dziękuje bardzo mojemu zespołowi, że było to możliwe. Moimi nowymi godzinami pracy były 18 do 22. Czasami zdarzało się, że byłam zmęczona po całym dniu, ale trzeba było postawić się do pionu i zacząć pracować. Pracowałam z przeróżnych miejsc. Przez większość czasu pracowałam ze swojej sypialni, ale zdarzało się pracować z centrum handlowego, z kanapy w pokoju gościnnym znajomych, hoteli czy nawet z samochodu. Tego ostatniego miejsca nie polecam osobom z chorobą lokomocyjną. Czasem zdarzały się problemy z Internetem lub po prostu jego brak. W takich sytuacjach pracowałam przy pomocy Internetu mobilnego. Tak Internetu mobilnego! A czasem po prostu chciałam spędzić wieczór z przyjaciółmi, jednak miałam obowiązki do wykonania.&lt;/p&gt;
-
-&lt;p&gt;Chociaż zdarzały się ciężkie chwile i problemy, to stwierdzam, że to był wspaniały czas. Dzień rozpoczynałam o 7 rano czasu australijskiego. Robiła szybkie ćwiczenia, poświęcałam trochę czasu na moje zainteresowania i miałam osiem godzin na odkrywanie Australii. Wieczorami siadałam przy moim komputerze i zaczynałam pracować. Dzięki pracy zdalnej mogła zwiedzić cudowne miejsca. Przez cały czas czułam się jak na wakacjach. Bardzo długich wakacjach. Jeżeli ktoś by mnie kiedyś zapytał czy było warto, stanowczo odpowiedziałabym &lt;strong&gt;TAK&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/remote/duck.jpg&quot;&gt;&lt;img src=&quot;/images/remote/duck.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-  &lt;a href=&quot;/images/remote/memo1.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo1.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/memo2.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo2.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/memo3.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo3.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/remote/formula1.jpg&quot;&gt;&lt;img src=&quot;/images/remote/formula1.jpg&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;figure class=&quot;third&quot;&gt;
-  &lt;a href=&quot;/images/remote/memo4.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo4.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/memo5.jpg&quot;&gt;&lt;img src=&quot;/images/remote/memo5.jpg&quot;&gt;&lt;/a&gt;
-  &lt;a href=&quot;/images/remote/victoria.jpg&quot;&gt;&lt;img src=&quot;/images/remote/victoria.jpg&quot;&gt;&lt;/a&gt;
-  &lt;figcaption&gt;Wspomnienia z Australii&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;h2&gt;Podsumowując&lt;/h2&gt;
-
-&lt;p&gt;Praca zdalna daje mnóstwo możliwości. Można pracować z różnych miejsc na świecie i odkrywać je z zupełnie innej perspektywy, nie tylko z perspektywy turysty. Trzeba pamiętać, że taki sposób pracy nie jest dla wszystkich. Trzeba być pewnym, że jest się wstanie skupić i wykonywać swoje obowiązki. Dzień po dniu. Dobra organizacja pracy, samozaparcie i konsekwencja to podstawa.&lt;/p&gt;
-
-&lt;p&gt;Jeżeli zdecydujesz się na taki sposób pracy i będziesz chciała/chciał gdzieś wyjechać, to najpierw odpowiedz sobie na kilka pytań:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Czy w miejscu docelowym jest Internet? WiFi?&lt;/li&gt;
-&lt;li&gt;Czy masz wszystkie potrzebne rzeczy, oprogramowanie, projekty na swoim laptopie?&lt;/li&gt;
-&lt;li&gt;Czy zawsze będzie dostępny prąd?&lt;/li&gt;
-&lt;li&gt;Ile chcę poświęcić czasu na pracę?&lt;/li&gt;
-&lt;li&gt;Co będę robić w ramach mojej pracy?&lt;/li&gt;
-&lt;li&gt;Gdzie będziesz pracować?&lt;/li&gt;
-&lt;li&gt;Jak bardzo zorganizowana/zorganizowany jestem?&lt;/li&gt;
-&lt;li&gt;Jak bardzo zmotywowana/zmotywowany jestem?&lt;/li&gt;
-&lt;li&gt;Jaka jest strefa czasowa w miejscu przeznaczenia?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br&gt;
-Z mojej perspektywy było to niesamowite doświadczenie. Jestem naprawdę szczęśliwa, że mogłam spróbować.
-To wszystko na dziś. Mam nadzieje, że artykuł Wam się podobał. Jeżeli macie jakieś pytania, piszcie w komentarzach. Do następnego razu!&lt;/p&gt;
-</description>
-        <pubDate>Sun, 15 May 2016 00:00:00 -0400</pubDate>
-        <link>https://womanonrails.com/pl/remote-work</link>
-        <guid isPermaLink="true">https://womanonrails.com/pl/remote-work</guid>
-        
-        <category>praca zdalna</category>
-        
-        
-        <category>praca</category>
         
       </item>
     
