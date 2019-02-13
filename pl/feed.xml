@@ -5,9 +5,76 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 30 Jan 2019 02:50:21 -0500</pubDate>
-    <lastBuildDate>Wed, 30 Jan 2019 02:50:21 -0500</lastBuildDate>
+    <pubDate>Wed, 13 Feb 2019 01:16:11 -0500</pubDate>
+    <lastBuildDate>Wed, 13 Feb 2019 01:16:11 -0500</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Małe zapachy kodu</title>
+        <description>&lt;p&gt;Myślę, że każdy programista, na pewnym etapie rozwoju, chciałby zająć się rozwiązywaniem dużych problemów. Chciałby tworzyć systemy o złożonej strukturze i być tą osobą, która za pomocą swoich rozwiązań zbawi świat. Czułaś się kiedyś w ten sposób? Ja tak, i to nie jeden raz. To zabawne, ale w chwilach gdy właśnie tak się czuje, chciałabym zmienić całkowicie architekturę aplikacji, oczywiście na lepsze. ;] Zrobić refaktoring to tu, to tam. Byłabym w stanie zrobić to zupełnie sama, bez żadnej pomocy. Już widzę to wspaniałe rozwiązanie w swojej głowie. Jest prawie gotowe do użycia. W takich chwilach zapominam całkowicie, że takie rzeczy nie dzieją się same. O architekturę swoje aplikacji trzeba dbać każdego dnia w każdej linijce kodu. To jest ciężka praca. O wiele fajniej jest myśleć o integracji z Google Earth Engine niż o nazwie jakieś mało istotnej zmiennej. Prawda?&lt;/p&gt;
+
+&lt;p&gt;Oto co chciałabym Ci dzisiaj pokazać. Dostałam kod napisany w Visual Basic. Miałam ten kod przenieść do aplikacji napisanej w Ruby. Nie mogę Ci pokazać całego tego kodu, dalej obowiązuje mnie NDA (ang. non-disclosure agreement), ale możesz sobie to wyobrazić. Otwieram plik. Jeden ogromny plik - 2000 linii kodu. Zaczynam go czytać, by zrozumieć logikę tego, co jest w środku. To jest trudne, wręcz bolesne. Widzę wiele zmiennych o nazwach od &lt;code&gt;a&lt;/code&gt; do &lt;code&gt;z&lt;/code&gt;, a później kolejne zmienne od &lt;code&gt;aa&lt;/code&gt; do &lt;code&gt;zz&lt;/code&gt; bez jakiegokolwiek wytłumaczenia, co one znaczą. Jedna wielgachna metoda. Pełno powielenia kodu i na dodatek bez wcięć. Do tego rzecz, którą ostatni raz widziałam na studiach przy programowaniu mikro-kontrolerów - komenda &lt;code&gt;goto&lt;/code&gt;. Pełno jej wszędzie. Zrozumienie tego kodu zajęło mi trochę czasu. Po wielu godzinach czytania kodu okazało się, że logika wcale nie była taka złożona. Co prawda było tam trochę równań matematycznych, ale były one liniowe wywoływane w pętlach. Gdyby osoba pisząca ten kod zadbała o niego w odpowiedni sposób, ja miałabym znacznie mniej pracy. O wiele łatwiej byłoby zrozumieć ten program. Ja zaoszczędziłabym czas, a tej osobie pewnie też byłoby łatwiej poruszać się po tym co napisała.&lt;/p&gt;
+
+&lt;p&gt;Chciałabym Ci pokazać dwa przykłady prosto z tego kodu, by w pewien sposób zobrazować problem:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-basic&quot; data-lang=&quot;basic&quot;&gt;&lt;span class=&quot;vg&quot;&gt;For&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;To&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;m1&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;For&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;To&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;m1&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;If&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;Then&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;GoTo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;410&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;End&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;If&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;nl&quot;&gt;410&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;Next&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;Next&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Czy wiesz co ten kod robi? Pierwsza myśl, jaka przychodzi Ci do głowy po spojrzeniu na ten kod. Moja była muszę to przeanalizować, by zrozumieć. Dam Ci małą podpowiedź:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-basic&quot; data-lang=&quot;basic&quot;&gt;&lt;span class=&quot;vg&quot;&gt;m1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;For&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;To&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;m1&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;For&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;To&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;m1&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;If&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;Then&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;      &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;GoTo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;410&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;End&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;If&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;410&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;Next&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;Next&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Czy to coś ułatwia? Kod jest odrobinę bardziej czytelny. Przynajmniej widać, które fragmenty kodu są gdzie wywoływane. Widać też, że te pętle są wywoływane tylko dla &lt;code&gt;m1 = 2&lt;/code&gt;. Mamy, więc tylko dwa kroki dla każdej pętli. Jednak ten &lt;code&gt;goto&lt;/code&gt; utrudnia czytanie tego kodu. A co jeśli Ci powiem że ten kod robi tylko tyle:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-basic&quot; data-lang=&quot;basic&quot;&gt;&lt;span class=&quot;vg&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;il&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Od razu widać, co się dzieje. Mogę podać jeszcze jedno rozwiązanie jeżeli chciałabyś, by ta macierz była generowana dynamicznie w zależności od wielkości. W przypadku tego kodu w Visual Basic nie ma to sensu, bo zawsze jest on wywoływany dla wielkości 2, ale może w innych przypadkach ma to sens:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-basic&quot; data-lang=&quot;basic&quot;&gt;&lt;span class=&quot;vg&quot;&gt;For&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;To&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;m1&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;For&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;To&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;m1&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;If&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;Then&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;    &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;If&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;Then&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;Next&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;j&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;Next&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;i&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Drugi przykład jest znacznie krótszy. Czy wiesz czym różni się zmienna &lt;code&gt;n12&lt;/code&gt; od &lt;code&gt;n1n2&lt;/code&gt;? A może to po prostu pomyłka? No i co to w zasadzie znaczy to &lt;code&gt;n12&lt;/code&gt;? Jaki jest sens tej zmiennej?&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-basic&quot; data-lang=&quot;basic&quot;&gt;&lt;span class=&quot;vg&quot;&gt;n12&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;n1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;il&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;vg&quot;&gt;n1n2&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;n1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;vg&quot;&gt;n2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Widzimy już różnicę i widzimy, że to dwie osobne zmienne. Jednak, uważam że bardzo łatwo tutaj o pomyłkę. Przez chwilę uwagi można zamienić zmienną &lt;code&gt;n12&lt;/code&gt; na &lt;code&gt;n1n2&lt;/code&gt; i ciężko będzie znaleźć źródło błędu. Dodatkowo dalej nie znamy prawdziwego znaczenia tych zmiennych. Widzimy jak są tworzone, ale nie wiemy co oznaczają. Im więcej tego typu zmiennych w kodzie tym trudniej nam je wszystkie zapamiętać.&lt;/p&gt;
+
+&lt;p&gt;Jeżeli chcemy by w naszej aplikacji panowała dobra architektura, powinniśmy zacząć od czegoś małego. Powinniśmy zwracać uwagę na każdą najmniejszą linię naszego kodu. Tworzyć go w taki sposób, by jak najwięcej rzeczy było jasnych od samego początku, bez potrzeby dodatkowego tłumaczenia czy opisu. Łatwo jest zrobić bałagan w kodzie, trudniej każdego dnia dbać o jego jakość.&lt;/p&gt;
+
+&lt;p&gt;Dziękuję Ci za to, że tu jesteś i że chcesz pracować nad jakością swojego kodu. Podziel się swoimi myślami w komentarzach i do zobaczenia następnym razem!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 02 Feb 2019 00:00:00 -0500</pubDate>
+        <link>https://womanonrails.com/pl/small-code-smells</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/small-code-smells</guid>
+        
+        <category>Visual Basic</category>
+        
+        <category>code smells</category>
+        
+        
+        <category>refaktoring</category>
+        
+      </item>
     
       
       <item>
@@ -1388,239 +1455,6 @@ end
         
         
         <category>konferencja</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Leaflet - Wstęp do map</title>
-        <description>&lt;p&gt;Jestem z powrotem! Tym razem chciałabym pokazać Wam trochę map. Dzisiejszym tematem będzie: Jak w prosty sposób można obsłużyć mapy na własnej stronie internetowej. Do tego potrzebne nam będzie:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt; - biblioteka JavaScript do obsługi map&lt;/li&gt;
-&lt;li&gt;Fragmenty mapy (Maps tiles)&lt;/li&gt;
-&lt;li&gt;Ruby on Rails (nie jest wymagany, na początek wystarczy strona &lt;strong&gt;html&lt;/strong&gt;)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Zacznijmy od początku. Co to są &lt;strong&gt;map tiles&lt;/strong&gt;? Prostymi słowami, są to małe kwadratowe obrazki zawierające wygląd naszej mapy. Są one przygotowywane w postaci paczek, by można było na stronie wyświetlić większy fragment mapy.&lt;/p&gt;
-
-&lt;h2&gt;Skąd możemy dostać takie fragmenty mapy?&lt;/h2&gt;
-
-&lt;p&gt;Można zarejestrować się na stronie &lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt; i skorzystać z ich darmowego pakietu do obsługi map lub użyć &lt;a href=&quot;https://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;. Jest wiele serwisów, które dostarczają map tiles, na końcu tego artykułu postaram się wymienić kilka z nich.&lt;/p&gt;
-
-&lt;h2&gt;Przygotowania&lt;/h2&gt;
-
-&lt;p&gt;Gdy w naszym projekcie mamy już dołączoną bibliotekę &lt;strong&gt;Leaflet&lt;/strong&gt; i wybraliśmy z jakich talii będziemy korzystać możemy zacząć.&lt;/p&gt;
-
-&lt;p&gt;W naszym pliku &lt;code&gt;index.html&lt;/code&gt; dodajemy następująca linijkę:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Po stronie JavaScript potrzebujemy jeszcze ustawić wybranego dostawcę map tiles. W tym przykładzie będę używać CoffeeScript ale każda z prezentowanych funkcjonalności jest też możliwa do osiągnięcia w czystym JavaScript.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nx&quot;&gt;jQuery&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;-&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;map = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.301&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.654&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Mapbox tiles&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/mapbox.png&quot;&gt;&lt;img src=&quot;/images/leaflet/mapbox.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map data &amp;amp;copy; &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors, &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/2.0/&amp;quot;&amp;gt;CC-BY-SA&amp;lt;/a&amp;gt;, Imagery © &amp;lt;a href=&amp;quot;http://mapbox.com&amp;quot;&amp;gt;Mapbox&amp;lt;/a&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;id: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;your id&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;accessToken: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;your token&amp;#39;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;OpenStreetMap tiles&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/osm.png&quot;&gt;&lt;img src=&quot;/images/leaflet/osm.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map data &amp;amp;copy; &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors, &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/2.0/&amp;quot;&amp;gt;CC-BY-SA&amp;lt;/a&amp;gt;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Toner tiles&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/toner.png&quot;&gt;&lt;img src=&quot;/images/leaflet/toner.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;http://tile.stamen.com/toner/{z}/{x}/{y}.png&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map tiles by &amp;lt;a href=&amp;quot;http://stamen.com&amp;quot;&amp;gt;Stamen Design&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by/3.0&amp;quot;&amp;gt;CC BY 3.0&amp;lt;/a&amp;gt;. Data by &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://www.openstreetmap.org/copyright&amp;quot;&amp;gt;ODbL&amp;lt;/a&amp;gt;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;WaterColor tiles&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/watercolor.png&quot;&gt;&lt;img src=&quot;/images/leaflet/watercolor.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;  &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;tileLayer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;http://tile.stamen.com/watercolor/{z}/{x}/{y}.png&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;attribution: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;Map tiles by &amp;lt;a href=&amp;quot;http://stamen.com&amp;quot;&amp;gt;Stamen Design&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by/3.0&amp;quot;&amp;gt;CC BY 3.0&amp;lt;/a&amp;gt;. Data by &amp;lt;a href=&amp;quot;http://openstreetmap.org&amp;quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt;, under &amp;lt;a href=&amp;quot;http://creativecommons.org/licenses/by-sa/3.0&amp;quot;&amp;gt;CC BY SA&amp;lt;/a&amp;gt;.&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;nv&quot;&gt;maxZoom: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I to wszystko, po odświeżeniu przeglądarki powinniśmy widzieć już mapę.&lt;/p&gt;
-
-&lt;h2&gt;Dodawanie obiektów na mapę&lt;/h2&gt;
-
-&lt;p&gt;Teraz zaczyna się prawdziwa zabawa! Możemy zacząć dodawać różne obiekty na mapę. Jedną ważną rzecz watro tu zaznaczyć. Każdy obiekt, który będzie pojawiał się na mapie posiada swoje współrzędne (tak jak w układnie współrzędnych na Matematyce). Leaflet używa dwóch układów współrzędnych. Układu &lt;strong&gt;Kartezjańskiego&lt;/strong&gt; i układu typu &lt;strong&gt;Szerokość-długość geograficzna&lt;/strong&gt;. Pierwszy z nich podaje współrzędne punktu jako &lt;code&gt;[długość, szerokość]&lt;/code&gt; a drugi jako &lt;code&gt;[szerokość, długość]&lt;/code&gt;. Zapamiętanie, gdzie którego z tych systemów używamy jest bardzo proste. Dla obiektu &lt;code&gt;GeoJSON&lt;/code&gt; używamy układu &lt;strong&gt;Kartezjańskiego&lt;/strong&gt; dla pozostałych elementów układu &lt;strong&gt;Geograficznego&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h4&gt;Marker&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/marker.png&quot;&gt;&lt;img src=&quot;/images/leaflet/marker.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;marker = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.28895538456755&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.681907653808594&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Custom marker&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/custom-marker.png&quot;&gt;&lt;img src=&quot;/images/leaflet/custom-marker.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;customIcon = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;icon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;iconUrl: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;assets/womanonrails.jpg&amp;#39;&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;iconSize: &lt;/span&gt;    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;iconAnchor: &lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;className: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;round&amp;#39;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;customMarker = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29391802001304&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.665471076965332&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;icon: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;customIcon&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;HTML marker&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/html-marker.png&quot;&gt;&lt;img src=&quot;/images/leaflet/html-marker.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;divIcon = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;divIcon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;className: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;div-icon&amp;#39;&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;html: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;&amp;lt;div&amp;gt;This is my custom html&amp;lt;/div&amp;gt;&amp;#39;&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;iconSize: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.2845132498121&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.668603897094727&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;icon: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;divIcon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Okrąg&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/circle.png&quot;&gt;&lt;img src=&quot;/images/leaflet/circle.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;circle = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.290024725454515&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.640880584716797&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;color: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;red&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;fillColor: &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;#f03&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;fillOpacity: &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Wielokąt&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/poligon.png&quot;&gt;&lt;img src=&quot;/images/leaflet/poligon.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;polygon = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;polygon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29830444909283&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.61384391784668&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29619353058144&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.620710372924805&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29084727901576&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.616890907287598&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29125855046426&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.61354351043701&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.2941373510724&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;18.611998558044434&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;50.29830444909283&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.61384391784668&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Popups&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/popup.png&quot;&gt;&lt;img src=&quot;/images/leaflet/popup.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nx&quot;&gt;marker&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bindPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;lt;b&amp;gt;Hello world!&amp;lt;/b&amp;gt;&amp;lt;br&amp;gt;I am a popup.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;openPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;circle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bindPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;I am a circle.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;polygon&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bindPopup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;I am a polygon.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;popup = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setLatLng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;51.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.09&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;I am a standalone popup.&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;openOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Zdarzenia&lt;/h4&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/leaflet/event.png&quot;&gt;&lt;img src=&quot;/images/leaflet/event.png&quot;&gt;&lt;/a&gt;
-&lt;/figure&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;onMapClick = &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;(e) -&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Coordinate: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMapClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;onMapClick = &lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;(e) -&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nv&quot;&gt;popup = &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setLatLng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setContent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;You clicked the map at &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;popup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;openOn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Coordinate: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;latlng&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;#39;click&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;onMapClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;GeoJSON&lt;/h4&gt;
-
-&lt;p&gt;Myślę, że &lt;code&gt;geoJson&lt;/code&gt; jest jedną z najbardziej wszechstronnych opcji biblioteki Leaflet. Dzięki niej można wyświetlać wszystkie dotychczas poznane obiekty. Dodatkowo można w łatwy sposób zmienić style obiektów, podpinać do nich zdarzenia a także wyświetlać na mapie dane &lt;strong&gt;GIS&lt;/strong&gt; bezpośrednio z bazy danych takiej jak &lt;a href=&quot;https://www.postgresql.org/&quot;&gt;PostgreSQL&lt;/a&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-coffee&quot; data-lang=&quot;coffee&quot;&gt;&lt;span class=&quot;nv&quot;&gt;geoData = &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Feature&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;&amp;quot;properties&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;&amp;quot;geometry&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&amp;quot;type&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Polygon&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&amp;quot;coordinates&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.613758087158203&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.298386690775416&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.618135452270508&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.3022518894775&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.619508743286133&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.302279301112605&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.62457275390625&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.30570563109659&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.62959384918213&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.30510261491786&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.624873161315918&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.3016488295082&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.627877235412598&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.3005797498622&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.622384071350098&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.29600162425392&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;18.613758087158203&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;50.298386690775416&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nv&quot;&gt;style = &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;&amp;quot;color&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;#ff7800&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;&amp;quot;weight&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;s&quot;&gt;&amp;quot;opacity&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.65&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geoJson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;geoData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;style: &lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Na koniec&lt;/h2&gt;
-
-&lt;p&gt;To co pokazałam to tylko mały wycinek tego co można zrobić dzięki bibliotece &lt;strong&gt;Leaflet&lt;/strong&gt;. Jeżeli szukasz bardziej zaawansowanych funkcji (jak na przykład rysowanie kształtów) zapraszam do zapoznania się z poniższymi linkami:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Leaflet/Leaflet.draw&quot;&gt;Leaflet Draw&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://geojson.io/&quot;&gt;GeoJSON&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.liedman.net/leaflet-routing-machine/&quot;&gt;Leaflet Routing Machine&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://openlayers.org/&quot;&gt;OpenLayers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://developers.google.com/maps/documentation/javascript/?csw=1&quot;&gt;Google Maps Javascript API&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/modestmaps/modestmaps-js&quot;&gt;Modest Maps&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.microsoft.com/maps/&quot;&gt;Bing maps&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.google.pl/maps?source=tldso&quot;&gt;Google Maps&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.mapbox.com/&quot;&gt;Mapbox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.maptiler.com/&quot;&gt;MapTiler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://maps.stamen.com/&quot;&gt;Maps Stamen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.mapquest.com/&quot;&gt;Map Quest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Tiles&quot;&gt;Tiles&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sat, 13 Aug 2016 00:00:00 -0400</pubDate>
-        <link>https://womanonrails.com/pl/leaflet</link>
-        <guid isPermaLink="true">https://womanonrails.com/pl/leaflet</guid>
-        
-        <category>JavaScript</category>
-        
-        <category>GIS</category>
-        
-        
-        <category>programowanie</category>
         
       </item>
     

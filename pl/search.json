@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Małe zapachy kodu",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/small-code-smells",
+		  "date"       : "2019-02-02 00:00:00 -0500",
+		  "shortdate"  : "February 02, 2019"
+		} ,
+	
+		{
 		  "title"      : "Wyrażenia regularne - co może pójść nie tak?",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/email-regular-expressions",
@@ -78,6 +86,14 @@
 		  "url"        : "https://womanonrails.com/leaflet",
 		  "date"       : "2016-08-13 00:00:00 -0400",
 		  "shortdate"  : "August 13, 2016"
+		} ,
+	
+		{
+		  "title"      : "Rails Girls Łódź (16 – 17 Czerwiec 2016)",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/rails-girls-lodz",
+		  "date"       : "2016-06-20 00:00:00 -0400",
+		  "shortdate"  : "June 20, 2016"
 		} ,
 	
 		{
@@ -217,7 +233,7 @@
 		} ,
 	
 		{
-		  "title"      : "RailsGirls Kraków",
+		  "title"      : "Rails Girls Kraków",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/rails-girls-cracow",
 		  "date"       : "2014-05-26 00:00:00 -0400",
