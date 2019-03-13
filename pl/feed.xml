@@ -5,9 +5,32 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Feb 2019 01:56:05 -0500</pubDate>
-    <lastBuildDate>Thu, 28 Feb 2019 01:56:05 -0500</lastBuildDate>
+    <pubDate>Wed, 13 Mar 2019 05:38:02 -0400</pubDate>
+    <lastBuildDate>Wed, 13 Mar 2019 05:38:02 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Global Game Jam Cieszyn 2019</title>
+        <description>&lt;p&gt;&lt;br&gt;
+Global Game Jam to co roczny hakaton związany z grami. W tym samym czasie w wielu krajach na całym świecie graficy, dźwiękowcy i programiści spotykają się wspólnie by tworzyć gry komputerowe. Mają na to 48 godzin. Głównym celem tego hakatonu jest innowacja, eksperymentowanie i współpraca. Każdego roku uczestnicy dostają informację o nowym motywie przewodnim, jaki będzie obowiązywać podczas bieżącego game jamu. Ma to być pewnego rodzaju inspiracja dla tworzonych w tym czasie gier. Po całym weekendzie pracy gry umieszczone zostają na stronie &lt;a href=&quot;https://globalgamejam.org/&quot; title=&quot;Global Game Jam - oficjalna strona&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Global Game Jam&lt;/a&gt;. Ja, do tej pory uczestniczyłam w trzech game jamach w Cieszynie. Jeżeli jesteś zainteresowana grami jakie współtworzyłam to zerknij na mój artykuł o &lt;a href=&quot;/pl/global-game-jam&quot; title=&quot;Global Game Jam - Cieszyn 2016&quot;&gt;Global Game Jam Cieszyn 2016&lt;/a&gt; lub na mój &lt;a href=&quot;https://globalgamejam.org/users/womanonrails&quot; title=&quot;Mój profil na Global Game Jam&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;profil inicjatywy Global Game Jam&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Global Game Jam w Cieszynie jest jednym z moich ulubionych hakatonów. Uwielbiam takie inicjatywy i atmosferę panującą na nich. Człowiek naprawdę czuje, że tworzy coś co działa i jest funkcjonalne. To prawdziwa szkoła tworzenia MVP (ang. Minimum Viable Product). Masz tylko 48 godzin by stworzyć i zaprezentować gotowy produkt. Jeszcze lepiej jest, gdy masz możliwość współpracy z prawdziwymi grafikami. Naprawdę ma się wtedy zupełnie inną motywację. No i sama gra wygląda wspaniale. W tym roku motywem przewodnim game jamu było &amp;quot;What home means to you&amp;quot; czyli &amp;quot;Co znaczy dla Ciebie dom&amp;quot;. Mój zespół myślał o zwierzętach, które mają swój dom zawsze ze sobą. Zwierzętach takich jak ślimaki. W ten dość prosty, ale również zabawny sposób powstała fabuła naszej gry. Ślimak Kamil chce pomóc swojej dziewczynie Lucy odzyskać zgubioną muszlę. Postanawia wybrać się w bardzo niebezpieczną podróż, by znaleźć jej zaginiony dom. Przy okazji chciałabym zwrócić Twoją uwagę na grę słów jaką tu zastosowaliśmy. Otóż &lt;em&gt;Kamil ślimak&lt;/em&gt; to &lt;strong&gt;palindrom&lt;/strong&gt;, czyli wyrażenie brzmiące tak samo czytane od lewej do prawej jak i od prawej do lewej. Jeżeli masz ochotę zagrać w naszą &lt;em&gt;palindromową&lt;/em&gt; grę, zajrzyj &lt;a href=&quot;https://snailed-it.fractalsoft.org/play.html&quot; title=&quot;Gra Snailed it - możliwość zagrania&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;tutaj&lt;/a&gt;, i daj znać czy gra Ci się spodobała.&lt;/p&gt;
+
+&lt;p&gt;Na koniec mam dla Ciebie jeszcze dwa filmy z Global Game Jam w Cieszynie. Pierwszy z nich pokazuje prace nad naszą grą, którą nazwaliśmy &lt;a href=&quot;https://globalgamejam.org/2019/games/snailed-it&quot; title=&quot;Snailed it - Global Game Jam profil&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Snailed it&lt;/a&gt;. Drugi opowiada bardziej ogólnie o tym, co działo się w Cieszynie podczas game jamu. Dalej jestem pod ogromnym wrażeniem tego, co powstało w tym czasie. Zapraszam do oglądania! Dziękuje, że tu ze mną byłaś i do zobaczenia następnym razem!&lt;/p&gt;
+
+&lt;div class=&quot;fluid-width-video-wrapper&quot; style=&quot;padding-top: 56.2766%;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/320432291&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot; id=&quot;fitvid823973&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 06 Mar 2019 00:00:00 -0500</pubDate>
+        <link>https://womanonrails.com/pl/global-game-jam-2019</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/global-game-jam-2019</guid>
+        
+        <category>Global Game Jam</category>
+        
+        
+        <category>hakaton</category>
+        
+      </item>
     
       
       <item>
@@ -948,7 +971,7 @@
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/refukv.htm#format/d&quot; title=&quot;Refaktoryzacja. Ulepszanie struktury istniejącego kodu&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Refaktoryzacja. Ulepszanie struktury istniejącego kodu - Martin Fowler&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/czykov.htm#format/d&quot; title=&quot;Czysty kod. Podręcznik dobrego programisty&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Czysty kod. Podręcznik dobrego programisty - Robert C. Martin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/rubywz.htm#format/d&quot; title=&quot;Ruby. Wzorce projektowe&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Ruby. Wzorce projektowe - Russ Olsen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/tddszt.htm#format/d&quot; title=&quot;Pragmatyczny programista. Od czeladnika do mistrza&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;TDD. Sztuka tworzenia dobrego kodu - Ken Beck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/tddszt.htm#format/d&quot; title=&quot;TDD. Sztuka tworzenia dobrego kodu&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;TDD. Sztuka tworzenia dobrego kodu - Ken Beck&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/pragpv.htm#format/d&quot; title=&quot;Pragmatyczny programista. Od czeladnika do mistrza&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Pragmatyczny programista. Od czeladnika do mistrza - Andrew Hund, David Thomas&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330&quot; title=&quot;Practical Object-Oriented Design in Ruby: An Agile Primer&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Practical Object-Oriented Design in Ruby: An Agile Primer - Sandi Metz [EN]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1326,7 +1349,7 @@
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/refukv.htm#format/d&quot; title=&quot;Refaktoryzacja. Ulepszanie struktury istniejącego kodu&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Refaktoryzacja. Ulepszanie struktury istniejącego kodu - Martin Fowler&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/czykov.htm#format/d&quot; title=&quot;Czysty kod. Podręcznik dobrego programisty&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Czysty kod. Podręcznik dobrego programisty - Robert C. Martin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/rubywz.htm#format/d&quot; title=&quot;Ruby. Wzorce projektowe&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Ruby. Wzorce projektowe - Russ Olsen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/tddszt.htm#format/d&quot; title=&quot;Pragmatyczny programista. Od czeladnika do mistrza&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;TDD. Sztuka tworzenia dobrego kodu - Ken Beck&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/tddszt.htm#format/d&quot; title=&quot;TDD. Sztuka tworzenia dobrego kodu&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;TDD. Sztuka tworzenia dobrego kodu - Ken Beck&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://helion.pl/view/10301k/pragpv.htm#format/d&quot; title=&quot;Pragmatyczny programista. Od czeladnika do mistrza&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Pragmatyczny programista. Od czeladnika do mistrza - Andrew Hund, David Thomas&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330&quot; title=&quot;Practical Object-Oriented Design in Ruby: An Agile Primer&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Practical Object-Oriented Design in Ruby: An Agile Primer - Sandi Metz [EN]&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -1549,112 +1572,6 @@
         
         
         <category>narzędzia</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Zastosowanie metody each_with_object w Ruby</title>
-        <description>&lt;p&gt;Ostatnio pracowałam z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Jak zazwyczaj w takich sytuacjach zawsze staram się przed użyciem jakiejś metody sprawdzić jej dokumentację. Weszłam więc na &lt;a href=&quot;https://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object&quot;&gt;APIdock&lt;/a&gt; przeglądam zastosowanie oraz przykłady. Okazało się że nie było tam jednego z przypadków zastosowania. Chciałam go dodać, lecz bez powodzenia. Postanowiłam więc, że skoro czekam na rozwiązanie problemu ze strony APIdock mogę napisać krótką notatkę na temat metody &lt;code&gt;each_with_object&lt;/code&gt; tutaj.&lt;/p&gt;
-
-&lt;p&gt;Najbardziej pożytecznym i wydaje mi się również popularnym użyciem tej metody jest podanie jako argumentu tablicy lub hasha (tablicy słownikowej). Można to zrobić przykładowo:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
-  hash[item] = item.to_s.upcase
-end
- =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;lub&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object([]) do |item, array|
-  array &amp;lt;&amp;lt; item ** 2
-end
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Wiem te przykłady są trywialne, ale chodzi o to by zrozumieć samą konstrukcję użycia. Dzięki tej metodzie nie musimy deklarować tablicy przed pętlą:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;array = []
-(1..10).each do |item|
-  array &amp;lt;&amp;lt; item ** 2
-end
-array
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Oczywiście dla tego przykładu można by to zrobić z użyciem metody &lt;code&gt;map&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).map { |item| item ** 2 }
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Innym ciekawym zastosowaniem &lt;code&gt;each_with_object&lt;/code&gt; jest zliczanie częstotliwości występowania:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[&amp;#39;one&amp;#39;, &amp;#39;two&amp;#39;, &amp;#39;one&amp;#39;, &amp;#39;one&amp;#39;].each_with_object(Hash.new(0)) do |item, hash|
-  hash[item] += 1
-end
- =&amp;gt; {&amp;quot;one&amp;quot;=&amp;gt;3, &amp;quot;two&amp;quot;=&amp;gt;1}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;W tym przypadku ustawiamy domyślną wartość dla tablicy słownikowej na &lt;code&gt;0&lt;/code&gt;. Dzięki temu zliczanie ilości wystąpień elementów w tablicy jest szybkie i proste. Nie potrzebujemy warunku &lt;code&gt;if&lt;/code&gt; by zabezpieczyć się przed nieoczekiwaną wartością &lt;code&gt;nil&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;if hash[item]
-  hash[item] += 1
-else
-  hash[item] = 0
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Uwaga&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;W metodzie &lt;code&gt;each_with_object&lt;/code&gt; nie można użyć niemutowalnych (inmutable) obiektów jak liczby. Przykład poniżej nie zwróci Wam 55 tylko 0.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object(0) do |item, sum|
-  sum += item
-end
- =&amp;gt; 0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Możemy to zrobić też inaczej:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).reduce(:+)
- =&amp;gt; 55
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;lub&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject(:+)
- =&amp;gt; 55
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;lub w Ruby on Rails:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).sum
- =&amp;gt; 55
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Przy okazji czy wiecie jaka jest różnica między metodą &lt;code&gt;reduce&lt;/code&gt; a &lt;code&gt;inject&lt;/code&gt;? Nie ma różnicy. Te dwie metody to tak naprawdę jedna i ta sama metoda, ale mająca dwie nazwy tzw. &lt;a href=&quot;http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject&quot;&gt;alias&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;W tym momencie powinniśmy jeszcze wspomnieć o jednej rzeczy. Metodę &lt;code&gt;inject&lt;/code&gt; możemy stosować też bardzo podobnie do &lt;code&gt;each_with_object&lt;/code&gt;. Różnica jest w kolejności argumentów w bloku i tym że w ostatniej linii bloku dla metody &lt;code&gt;inject&lt;/code&gt; zawsze musimy zwrócić naszą wartość agregującą (przykładowo sumującą). Popatrzcie tutaj:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject([]) do |array, item|
-  array &amp;lt;&amp;lt; item ** 2
-end
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;lub&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].inject({}) do |hash, item|
-  hash[item] = item.to_s.upcase
-  hash
-end
- =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Uwaga&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Kiedy używamy &lt;code&gt;array &amp;lt;&amp;lt; item ** 2&lt;/code&gt; zawsze zostaje tu zwrócona cała tablica, ale dla przykładu drugiego &lt;code&gt;hash[item] = item.to_s.upcase&lt;/code&gt; zwraca &lt;code&gt;item.to_s.upcase&lt;/code&gt; a nie &lt;code&gt;hash&lt;/code&gt; więc musimy pamiętać by w ostatniej linii bloku zawsze zwrócić &lt;code&gt;hash&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;A teraz brakujący przypadek. Metodę &lt;code&gt;each_with_object&lt;/code&gt; można nie tylko używać na tablicy czy enumeratorze ale również na hashu (tablicy słownikowej). Taki przypadek wygląda troszkę inaczej. Zobaczcie sami:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
-  hash[key] = value**2
-end
- =&amp;gt; {:foo=&amp;gt;1, :bar=&amp;gt;4, :jazz=&amp;gt;9}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;lub&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
-  array &amp;lt;&amp;lt; { id: value, name: key }
-end
- =&amp;gt; [{:id=&amp;gt;1, :name=&amp;gt;:foo}, {:id=&amp;gt;2, :name=&amp;gt;:bar}, {:id=&amp;gt;3, :name=&amp;gt;:jazz}]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;To był krótki przegląd tego co można zrobić z metodą &lt;code&gt;each_with_object&lt;/code&gt;. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!&lt;/p&gt;
-</description>
-        <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/pl/each-with-object</link>
-        <guid isPermaLink="true">https://womanonrails.com/pl/each-with-object</guid>
-        
-        <category>Ruby</category>
-        
-        
-        <category>programowanie</category>
         
       </item>
     

@@ -5,20 +5,44 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Feb 2019 01:56:01 -0500</pubDate>
-    <lastBuildDate>Thu, 28 Feb 2019 01:56:01 -0500</lastBuildDate>
+    <pubDate>Wed, 13 Mar 2019 05:37:59 -0400</pubDate>
+    <lastBuildDate>Wed, 13 Mar 2019 05:37:59 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
       <item>
-        <title>Pattern matching in Elixir - basics</title>
-        <description>&lt;p&gt;Elixir is a functional language, created by José Valim in 2012, runs on the Erlang virtual machine. If you want to know more about Elixir, go to its &lt;a href=&quot;https://elixir-lang.org/&quot; title=&quot;Elixir - official website&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;official website&lt;/a&gt;. I would like to mention one more thing. It is Rails and Ruby reference here. José is one of the members Rails Core Team.&lt;/p&gt;
+        <title>Global Game Jam Cieszyn 2019</title>
+        <description>&lt;p&gt;&lt;br&gt;&lt;/p&gt;
 
-&lt;p&gt;The first time when I heard about Elixir, I was on Euruko 2016 in Sofia. José before his presentation talk a little bit about Elixir. Then I saw that Ruby community started to be more interested in Elixir. Even in Silesia people started doing projects in Elixir and Phoenix. And on the end of 2018, I had a possibility to be a participant on first Elixir Girls in Poland. This workshop had a place in Poznan. It was a fantastic experience. I can say mind opening. But I would like to not talk about the workshops them self. The structure is very similar to &lt;a href=&quot;/tags/#Rails%20Girls&quot; title=&quot;My previous Rails Girls articles&quot;&gt;Rails Girls&lt;/a&gt;, but you use Elixir and Phoenix instead of Ruby and Rails. I would like to show you what I really like about Eilixir - &lt;strong&gt;pattern matching&lt;/strong&gt;. It provides reducing numbers of if statements in code and simplify code structure.&lt;/p&gt;
+&lt;p&gt;Global Game Jam is an annual game hackathon. It took a place in many countries at the same time all over the world. People like designers, sound creators, programmers sit together to create games in 48h. The main purpose of this game jam is to innovate, experiment and collaborate. Each year, participants get a new theme for the game. They try to use this theme as inspiration for game storyline. After a whole weekend of work the hackathon participants put the results of their work to &lt;a href=&quot;https://globalgamejam.org/&quot; title=&quot;Global Game Jam - official website&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Global Game Jam website&lt;/a&gt;. &amp;#39;Til now I attend in three game jams in Cieszyn. If you are interested in, check out my article about &lt;a href=&quot;/global-game-jam&quot; title=&quot;Global Game Jam Cieszyn in 2016&quot;&gt;Global Game Jam Cieszyn in 2016&lt;/a&gt; or my &lt;a href=&quot;https://globalgamejam.org/users/womanonrails&quot; title=&quot;My Global Game Jam profile&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Global Game Jam profile&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Global Game Jam in Cieszyn is one of my favorite hackathons. I love this coding initiative. You really feel that you create something functional and working here. This is the true school of MVP (Minimum Viable Product). You have only 48h to prepare a working product. Like a proof of a concept. It is even better when you have the possibility to work with true graphic designers. You see the progress of the work and it looks gorgeous. This year, theme for Global Game Jam was &amp;quot;What home means to you&amp;quot;. My team was thinking about animals, which have their own home always with them, like snails. So our game story was simple but cute. Kamil, the snail, is trying to help Lucy, his girlfriend, to find her lost shell. He needs to go through a dangerous adventure to bring back lost shell his love. You can play this game &lt;a href=&quot;https://snailed-it.fractalsoft.org/play.html&quot; title=&quot;Snailed it game - try to play&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. Let me know if you like it.&lt;/p&gt;
+
+&lt;p&gt;Finally, I have for you two videos from this year Global Game Jam in Cieszyn. One is showing my team working on our &lt;a href=&quot;https://globalgamejam.org/2019/games/snailed-it&quot; title=&quot;Snailed it - Global Game Jam profile&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Snailed it&lt;/a&gt; game. Second one is more about whole Cieszyn hackathon. Check out those videos! I&amp;#39;m still impressed about games, which were created during this game jam. Thanks for being here and see you next time!&lt;/p&gt;
+
+&lt;div class=&quot;fluid-width-video-wrapper&quot; style=&quot;padding-top: 56.2766%;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/320432291&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot; id=&quot;fitvid823973&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 06 Mar 2019 00:00:00 -0500</pubDate>
+        <link>https://womanonrails.com/global-game-jam-2019</link>
+        <guid isPermaLink="true">https://womanonrails.com/global-game-jam-2019</guid>
+        
+        <category>Global Game Jam</category>
+        
+        
+        <category>hackathon</category>
+        
+      </item>
+    
+      
+      <item>
+        <title>Pattern matching in Elixir - basics</title>
+        <description>&lt;p&gt;Elixir is a functional language, created by José Valim in 2012, runs on the Erlang virtual machine. If you want to know more about Elixir, go to its &lt;a href=&quot;https://elixir-lang.org/&quot; title=&quot;Elixir - official website&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;official website&lt;/a&gt;. I would like to mention one more thing. It is Rails and Ruby reference here. José is one of the members of Rails Core Team.&lt;/p&gt;
+
+&lt;p&gt;The first time when I&amp;#39;ve heard about Elixir, I was on Euruko 2016 in Sofia. José, before his presentation, talked a little bit about Elixir. Then I saw that Ruby community started to be more interested in Elixir. Even in Silesia, people started doing projects in Elixir and Phoenix. And in the end of 2018, I had a possibility to be a participant on first Elixir Girls in Poland. This workshop took a place in Poznan. It was a fantastic experience. I can say - mind opening. But I wouldn&amp;#39;t like to talk about the workshops them self. The structure is very similar to &lt;a href=&quot;/tags/#Rails%20Girls&quot; title=&quot;My previous Rails Girls articles&quot;&gt;Rails Girls&lt;/a&gt;, but you use Elixir and Phoenix instead of Ruby and Rails. I would like to show you what I really like about Eilixir - &lt;strong&gt;pattern matching&lt;/strong&gt;. It provides reducing numbers of &amp;quot;if&amp;quot; statements in the code and simplify the code structure.&lt;/p&gt;
 
 &lt;h3&gt;Basic match operator&lt;/h3&gt;
 
-&lt;p&gt;Let&amp;#39;s start from the beginning. &lt;strong&gt;What is pattern matching?&lt;/strong&gt; Pattern matching is checking if the code is matching to the pattern. Yes, it sounds strange. I said the same thing in different words. Let&amp;#39;s imagine that we have some rules - patters and you just check if your code/text match to this pattern or no. Like in childhood putting a cubic block to square hole. Sounds familiar? Did you ever use regular expressions? I wrote one of my articles about them &lt;a href=&quot;/email-regular-expressions&quot; title=&quot;Regular expressions - what you need to think of using them?&quot;&gt;Regular expressions what can go wrong?&lt;/a&gt;. Regular expressions are one of example of pattern matching. OK, when we know more about what pattern matching is, let&amp;#39;s start from simple example.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s start from the beginning. &lt;strong&gt;What is pattern matching?&lt;/strong&gt; Pattern matching is checking if the code is matching to the pattern. Yes, it sounds strange. I said the same thing but in different words. Let&amp;#39;s imagine that we have some rules - patterns, and you just check if your code/text match to this pattern or not. Like, when you were a child and tried putting a cubic block to square hole. Sounds familiar? Did you ever use regular expressions? I wrote one of my articles about them &lt;a href=&quot;/email-regular-expressions&quot; title=&quot;Regular expressions - what you need to think of using them?&quot;&gt;Regular expressions what can go wrong?&lt;/a&gt;. Regular expressions are one of an example of pattern matching. OK, when we know more about what pattern matching is, let&amp;#39;s start from simple example.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
 &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -40,7 +64,7 @@
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MatchError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;no&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hand&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;side&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Right now comparison between left and right hand side failed. We get information about &lt;code&gt;no match&lt;/code&gt;. The similar situation will be when we will try with unknown yet variable like &lt;code&gt;y&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Right now, comparison between left and right hand side failed. We get information about &lt;code&gt;no match&lt;/code&gt;. The similar situation will be when we will try with unknown yet variable like &lt;code&gt;y&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;CompileError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -128,13 +152,13 @@
 &lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;MatchError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;no&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;match&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;right&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hand&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;side&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Using this approach we can add element on top of a list:&lt;/p&gt;
+&lt;p&gt;Using this approach we can add an element on top of a list:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;The next thing was for me very interesting. Because &lt;code&gt;&amp;#39;hello&amp;#39;&lt;/code&gt; is &lt;strong&gt;char list&lt;/strong&gt; so we can do similar things like before to this &lt;em&gt;text&lt;/em&gt;. Just remember we will get integer representation of each char.&lt;/p&gt;
+&lt;p&gt;The next thing was very interesting for me. Because &lt;code&gt;&amp;#39;hello&amp;#39;&lt;/code&gt; is &lt;strong&gt;char list&lt;/strong&gt; so we can do similar things like before to this &lt;em&gt;text&lt;/em&gt;. Just remember we will get integer representation of each char.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;head2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;hello&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;s1&quot;&gt;&amp;#39;hello&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;head1&lt;/span&gt;
@@ -213,7 +237,7 @@
 &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;minus?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;We can declare a function with different arity. We can also use different types. We see all cases explicite. I can try to do this in Ruby using default values and checking conditions, but it will not be so readable like declaring each version of function completely separately. In the end, I would like to stop for a moment on recursion:&lt;/p&gt;
+&lt;p&gt;We can declare a function with different arity. We can also use different types. We see all cases explicite. I can try to do this in Ruby using default values and checking conditions, but it will not be so readable, like declaring each version of function completely separately. In the end, I would like to stop for a moment on recursion:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-elixir&quot; data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;kd&quot;&gt;defmodule&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;accumulator&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;\\&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
@@ -231,9 +255,9 @@
 &lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; 7&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Of course we can do the same with &lt;code&gt;reduce&lt;/code&gt; in Elixir, but look at this example only from recursion perspective. We set default value for &lt;code&gt;accumulator&lt;/code&gt; and just declare twice the same function: one with &lt;em&gt;braking condition&lt;/em&gt; (last declaration) and one with &lt;em&gt;iteration&lt;/em&gt;. We clearly see what is going on here. For this simple example loop will be still readable, but think about this from the potential perspective. I like this approach very much.&lt;/p&gt;
+&lt;p&gt;Of course we can do the same with &lt;code&gt;reduce&lt;/code&gt; in Elixir, but look at this example only from recursion perspective. We set default value for &lt;code&gt;accumulator&lt;/code&gt; and just declare twice the same function: one with &lt;em&gt;braking condition&lt;/em&gt; (last declaration) and one with &lt;em&gt;iteration&lt;/em&gt;. We clearly see what is going on here. For this simple example, loop will be still readable but think about this from the potential perspective. I like this approach very much.&lt;/p&gt;
 
-&lt;p&gt;That&amp;#39;s it for today. I hope you had fun with Elixir the same as I had. I hope to see you soon, in my next article. Thank you for ready. Bye!&lt;/p&gt;
+&lt;p&gt;That&amp;#39;s it for today. I hope you had fun with Elixir the same way I had. I hope to see you soon, in my next article. Thank you for reading. Bye!&lt;/p&gt;
 </description>
         <pubDate>Wed, 20 Feb 2019 00:00:00 -0500</pubDate>
         <link>https://womanonrails.com/elixir-pattern-matching</link>
@@ -1549,112 +1573,6 @@
         
         
         <category>tools</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Quick overview Ruby each_with_object method</title>
-        <description>&lt;p&gt;I worked in last a few days with &lt;code&gt;each_with_object&lt;/code&gt; method. Every time when I would like to use some method in Ruby I try read documentation one more time and I look on some example of usage. This time I went through &lt;a href=&quot;https://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object&quot;&gt;APIdock&lt;/a&gt; and I noticed that in theirs documentation is missing one very nice example of usage &lt;code&gt;each_with_object&lt;/code&gt; method. I tried to add this missing part there, but without success. In meantime when I&amp;#39;m waiting for message from APIdoc support I decided to write short note here about this.&lt;/p&gt;
-
-&lt;p&gt;The most useful and I think the most popular usage of &lt;code&gt;each_with_object&lt;/code&gt; is putting hash or array as an argument. You can do this like in example below:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
-  hash[item] = item.to_s.upcase
-end
- =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;or&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object([]) do |item, array|
-  array &amp;lt;&amp;lt; item ** 2
-end
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I know this examples are trivial, but they show main rules. You don&amp;#39;t need to declare array or hash before your loops for example like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;array = []
-(1..10).each do |item|
-  array &amp;lt;&amp;lt; item ** 2
-end
-array
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I know this example can be also replace with &lt;code&gt;map&lt;/code&gt; use case. Like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).map { |item| item ** 2 }
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Other nice example of &lt;code&gt;each_with_object&lt;/code&gt; usage is frequency hash:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[&amp;#39;one&amp;#39;, &amp;#39;two&amp;#39;, &amp;#39;one&amp;#39;, &amp;#39;one&amp;#39;].each_with_object(Hash.new(0)) do |item, hash|
-  hash[item] += 1
-end
- =&amp;gt; {&amp;quot;one&amp;quot;=&amp;gt;3, &amp;quot;two&amp;quot;=&amp;gt;1}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In this case we use hash with default value set to &lt;code&gt;0&lt;/code&gt; and now counting occurrence is easy and quick. You don&amp;#39;t need to do &lt;code&gt;if&lt;/code&gt; statement to be sure that you are nil safe like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;if hash[item]
-  hash[item] += 1
-else
-  hash[item] = 0
-end
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Important note&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;You cannot use immutable objects like numbers. Example below does not return 55 but 0.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).each_with_object(0) do |item, sum|
-  sum += item
-end
- =&amp;gt; 0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Yes, we can do that in different way:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).reduce(:+)
- =&amp;gt; 55
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;or&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject(:+)
- =&amp;gt; 55
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;or in Rails:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).sum
- =&amp;gt; 55
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;By the way, what is difference between &lt;code&gt;reduce&lt;/code&gt; and &lt;code&gt;inject&lt;/code&gt;? There is no difference. This two methods are &lt;a href=&quot;http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject&quot;&gt;aliases&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;In this place we should add one more thing. &lt;code&gt;inject&lt;/code&gt; method we can use similar to &lt;code&gt;each_with_object&lt;/code&gt; but order of arguments in block is different and we need always remember to put in last line of block our accumulator value. Look here:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;(1..10).inject([]) do |array, item|
-  array &amp;lt;&amp;lt; item ** 2
-end
- =&amp;gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;or&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;[:foo, :bar, :jazz].inject({}) do |hash, item|
-  hash[item] = item.to_s.upcase
-  hash
-end
- =&amp;gt; {:foo=&amp;gt;&amp;quot;FOO&amp;quot;, :bar=&amp;gt;&amp;quot;BAR&amp;quot;, :jazz=&amp;gt;&amp;quot;JAZZ&amp;quot;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;strong&gt;Important note&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;When we use &lt;code&gt;array &amp;lt;&amp;lt; item ** 2&lt;/code&gt; this command always returns all array, but for this second example &lt;code&gt;hash[item] = item.to_s.upcase&lt;/code&gt; returns &lt;code&gt;item.to_s.upcase&lt;/code&gt; not all &lt;code&gt;hash&lt;/code&gt; so we need to remember about adding &lt;code&gt;hash&lt;/code&gt; on the end.&lt;/p&gt;
-
-&lt;p&gt;And now the missing part for &lt;code&gt;each_with_object&lt;/code&gt;. You can use this method also on hash not only on arrays or enumerators. This looks a little bit different than before. Let I show you:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
-  hash[key] = value**2
-end
- =&amp;gt; {:foo=&amp;gt;1, :bar=&amp;gt;4, :jazz=&amp;gt;9}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;or like this&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
-  array &amp;lt;&amp;lt; { id: value, name: key }
-end
- =&amp;gt; [{:id=&amp;gt;1, :name=&amp;gt;:foo}, {:id=&amp;gt;2, :name=&amp;gt;:bar}, {:id=&amp;gt;3, :name=&amp;gt;:jazz}]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This was quick overview for method &lt;code&gt;each_with_object&lt;/code&gt;. I hope you like this examples like I do. If you have any question leave them below and see you next time!&lt;/p&gt;
-</description>
-        <pubDate>Thu, 05 Jan 2017 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/each-with-object</link>
-        <guid isPermaLink="true">https://womanonrails.com/each-with-object</guid>
-        
-        <category>Ruby</category>
-        
-        
-        <category>programming</category>
         
       </item>
     

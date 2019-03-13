@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Global Game Jam Cieszyn 2019",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/global-game-jam-2019",
+		  "date"       : "2019-03-06 00:00:00 -0500",
+		  "shortdate"  : "March 06, 2019"
+		} ,
+	
+		{
 		  "title"      : "Pattern matching w Elixirze - podstawy",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/elixir-pattern-matching",
@@ -102,6 +110,14 @@
 		  "url"        : "https://womanonrails.com/rails-girls-lodz",
 		  "date"       : "2016-06-20 00:00:00 -0400",
 		  "shortdate"  : "June 20, 2016"
+		} ,
+	
+		{
+		  "title"      : "Rails Girls Warszawa (11 - 12 Czerwiec 2016)",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/rails-girls-warsaw-2016",
+		  "date"       : "2016-06-15 00:00:00 -0400",
+		  "shortdate"  : "June 15, 2016"
 		} ,
 	
 		{
