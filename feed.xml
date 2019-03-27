@@ -5,9 +5,363 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Mar 2019 03:04:06 -0400</pubDate>
-    <lastBuildDate>Wed, 27 Mar 2019 03:04:06 -0400</lastBuildDate>
+    <pubDate>Wed, 27 Mar 2019 11:56:35 -0400</pubDate>
+    <lastBuildDate>Wed, 27 Mar 2019 11:56:35 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Operator precedence in Ruby</title>
+        <description>&lt;p&gt;Order of math operations is very important in programming language. If you don&amp;#39;t know it well, you can get completely different results, then you expect. And your code can be just wrong. You need to know the rules. Is the order similar like in math? Or maybe the algebraic expression is interpreted from left to right? Do you know how this looks like in Ruby? Let&amp;#39;s check it.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is not 8. It is 6. You can see here that multiplication is &lt;em&gt;stronger&lt;/em&gt; then addition. In this case we will say that multiplication has &lt;strong&gt;higher operator precedence&lt;/strong&gt; then addition. This is exactly the same like we learned in school on Math classes. To show you this more precisely, we have:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;OK, but how I will know that? There are many different operators. Well, you need to remember the table of operators order, from &lt;a href=&quot;https://ruby-doc.org/core-2.2.0/doc/syntax/precedence_rdoc.html&quot; title=&quot;Ruby documentation - operators precedence&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Ruby docs&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;unary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/, %&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;+, -&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;lt;&amp;lt;, &amp;gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;amp;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;|, ^&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;gt;, &amp;gt;=, &amp;lt;, &amp;lt;=&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;lt;=&amp;gt;, ==, ===, !=, =~, !~&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;||&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;.., ...&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;?, :&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;modifier-rescue&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;=, +=, -=, etc.&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;defined?&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;not&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;or, and&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;modifier-if, modifier-unless, modifier-while, modifier-until&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;{ } blocks&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you can see here &lt;code&gt;*&lt;/code&gt; is higher than &lt;code&gt;+&lt;/code&gt;, so it has &lt;strong&gt;higher precedence&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Examples&lt;/h2&gt;
+
+&lt;h3&gt;Boolean operators&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;#39;s start with something simple. Precedence hierarchy for boolean operators.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;On the first look, logic is the same, but we get different results. But when you take a look closely, you will see the difference. Order of calculations. In first example order looks like &lt;code&gt;(1 || (2 &amp;amp;&amp;amp; nil))&lt;/code&gt;. We get &lt;code&gt;nil&lt;/code&gt; from &lt;code&gt;2 &amp;amp;&amp;amp; nil&lt;/code&gt;. And then we have &lt;code&gt;1 || nil&lt;/code&gt; so this is &lt;code&gt;1&lt;/code&gt;. Well, I lied a little bit here. Our interpreter is smarter, than you can think of. Because we have this &lt;code&gt;||&lt;/code&gt; operator. It has been truthy always when left hand side is truthy, so it checks only the first part of our expression. Check here:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the beginning, we assigned &lt;code&gt;0&lt;/code&gt; to &lt;code&gt;a&lt;/code&gt;. Then we check condition together with assignments. If we check also right hand side, we should get &lt;code&gt;2&lt;/code&gt; assigned to &lt;code&gt;a&lt;/code&gt; variable. But we get &lt;code&gt;1&lt;/code&gt;. We get &lt;code&gt;2&lt;/code&gt; only, when the left hand side is falsy. For example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the second example &lt;code&gt;1 or 2 and nil&lt;/code&gt; order of operations is completely opposite: &lt;code&gt;((1 or 2) and nil)&lt;/code&gt;. First,  we check &lt;code&gt;1 or 2&lt;/code&gt;. We get &lt;code&gt;1&lt;/code&gt; and then we check &lt;code&gt;1 and nil&lt;/code&gt;, so the final result is &lt;code&gt;nil&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To better understand the differences between these two notations, let&amp;#39;s check all possibilities here in table:&lt;/p&gt;
+
+&lt;table class='table'&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;a&lt;/th&gt;
+      &lt;th&gt;b&lt;/th&gt;
+      &lt;th&gt;c&lt;/th&gt;
+      &lt;th&gt;a || b &amp;&amp; c&lt;/th&gt;
+      &lt;th&gt;a or b and c&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;true&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;false&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;true&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;false&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;There are 2 cases, where you see the difference between operators &lt;code&gt;||&lt;/code&gt; and &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; and operators &lt;code&gt;or&lt;/code&gt; and &lt;code&gt;and&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Assigments&lt;/h3&gt;
+
+&lt;p&gt;This example is related with boolean operators, but also with assignment:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Both of this logic expressions give us &lt;code&gt;2&lt;/code&gt; as truthy result. But there is one difference here. In first case &lt;code&gt;foo&lt;/code&gt; equal to &lt;code&gt;2&lt;/code&gt; and in second example &lt;code&gt;foo&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;. This is related, of course, with operator precedence. Because &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; has higher precedence than &lt;code&gt;=&lt;/code&gt; in the first example we have:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In second example order of those operations is different. &lt;code&gt;=&lt;/code&gt; has higher precedence, then &lt;code&gt;and&lt;/code&gt; so we have:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Similar behavior we will see for &lt;code&gt;||&lt;/code&gt; and &lt;code&gt;or&lt;/code&gt; operators. This will be visible only, when the first part of the expression will be &lt;code&gt;false&lt;/code&gt; or &lt;em&gt;falsy&lt;/em&gt; value. For truthy value, we will see no difference. Both expressions will behave the same:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# first part of condition is falsy&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# first part of condition is truthy&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I would like to explain, why we don&amp;#39;t see any difference. For &lt;code&gt;foo = 1 || 2&lt;/code&gt; we should set brackets like this &lt;code&gt;foo = (1 || 2)&lt;/code&gt;. From logical condition &lt;code&gt;||&lt;/code&gt;, we get &lt;code&gt;1&lt;/code&gt; and we assign it to go&lt;code&gt;. In a second example&lt;/code&gt;foo = 1 or 2`, first, we do the assignment and then we check the condition. The result is the same, but order of those operations is different. This is worth to be remember!&lt;/p&gt;
+
+&lt;p&gt;In the end of this section, I would like to show you one more example. I think, it is a very interesting one. It is more complex because it uses  &lt;code&gt;=&lt;/code&gt;, &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code&gt;and&lt;/code&gt; and &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;23&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;13&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#39;s go step by step to understand, what is going on here. In the first example we have &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;. We know that, it has quite high precedence, but predecence for &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; is higher, than &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;. So the order of calculations here looks like: &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; (s &amp;lt;&amp;lt; &amp;#39;3&amp;#39;))&lt;/code&gt;. First, we concat &lt;code&gt;&amp;#39;3&amp;#39;&lt;/code&gt; to string. We get &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; &amp;#39;23&amp;#39;)&lt;/code&gt;. Now we do &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, so the result is &lt;code&gt;&amp;#39;23&amp;#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the second example we have order like &lt;code&gt;(s = &amp;#39;1&amp;#39;) and (s &amp;lt;&amp;lt; &amp;#39;3&amp;#39;)&lt;/code&gt;. We start from assignments. So &lt;code&gt;s&lt;/code&gt; is now &lt;code&gt;&amp;#39;1&amp;#39;&lt;/code&gt; not &lt;code&gt;&amp;#39;2&amp;#39;&lt;/code&gt;. Then we calculate right hand side part and we get &lt;code&gt;&amp;#39;1&amp;#39; and &amp;#39;13&amp;#39;&lt;/code&gt;, so the final result is &lt;code&gt;&amp;#39;13&amp;#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Methods &amp;amp; boolean operators&lt;/h3&gt;
+
+&lt;p&gt;We still are in an area of boolean operators. This example will show you, how they behave with method calls without specifying brackets. As you know, in Ruby, you can omit brackets in some cases. But when you work with boolean at the same time, you need to be careful.&lt;/p&gt;
+
+&lt;p&gt;We declare our method and first example of usage:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# declare method&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;My char id &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# example 1&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In this example, first operator &lt;code&gt;||&lt;/code&gt; will be called. We will get &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt; from it. This is why we see &lt;code&gt;&amp;quot;My char id a&amp;quot;&lt;/code&gt; text. But because the method is displaying only the test and it doesn&amp;#39;t return anything, we see &lt;code&gt;nil&lt;/code&gt; value in the end. This is important, that our method always return &lt;code&gt;nil&lt;/code&gt;. You will see why in the next examples. Order of operations was: &lt;code&gt;method(&amp;#39;a&amp;#39; || &amp;#39;b&amp;#39;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s go to the next example:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example 2&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the second example, the order is the same &lt;code&gt;method(&amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;)&lt;/code&gt;. First, we do &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; operation and we get &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt; from it. Then we call our method. So this is why &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt; is in our text.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example 3&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the example 3 you can notice different behavior. As we already know, the order will be &lt;code&gt;method(&amp;#39;a&amp;#39;) or &amp;#39;b&amp;#39;&lt;/code&gt;. This is why we see &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt; in text, but then we need to finish this logical expression. Because our method return &lt;code&gt;nil&lt;/code&gt; and this is &lt;em&gt;falsy&lt;/em&gt; value, we have &lt;code&gt;nil or &amp;#39;b&amp;#39;&lt;/code&gt;. In the end, we see &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt; is returned, not from the method, but from all expression.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example 4&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For example number 4, the order of operation is the same like for example 3. We have &lt;code&gt;method(&amp;#39;a&amp;#39;) and &amp;#39;b&amp;#39;&lt;/code&gt;. Text is &lt;code&gt;&amp;quot;My char id a&amp;quot;&lt;/code&gt; because of a &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt; argument in the method. Then function return &lt;code&gt;nil&lt;/code&gt;, so we have &lt;code&gt;nil and &amp;#39;b&amp;#39;&lt;/code&gt;. This is why we see one more time &lt;code&gt;nil&lt;/code&gt; in the end.&lt;/p&gt;
+
+&lt;p&gt;OK, and now we will still stay in method calls context, but with different example. We declare two methods, one with no arguments and one with an argument.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method1&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Call Method 1&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Call Method 2 with &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we check, what will happen to &lt;code&gt;or&lt;/code&gt; and &lt;code&gt;||&lt;/code&gt; conditions.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;method1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method2&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Call&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Method&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Call&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Method&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;First example looks OK. We call &lt;code&gt;method1&lt;/code&gt;, which display &lt;code&gt;&amp;quot;Call Method 1&amp;quot;&lt;/code&gt; text and return &lt;code&gt;nil&lt;/code&gt; (as we know from example above). Then, we call &lt;code&gt;method2&lt;/code&gt; with one argument &lt;code&gt;&amp;#39;foo&amp;#39;&lt;/code&gt;. We display text and return &lt;code&gt;nil&lt;/code&gt;. Order of operations: &lt;code&gt;method1() or method2(&amp;#39;foo&amp;#39;)&lt;/code&gt;. Everything is fine. Let&amp;#39;s look at the second example.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;method1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method2&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;SyntaxError ((irb):32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or &amp;#39;{&amp;#39; or &amp;#39;(&amp;#39;)&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;method1 || method2 &amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;                   ^&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Something went wrong. We got an error. This is because of precedence. Order of operations in this case is: &lt;code&gt;(method1 || method2) &amp;#39;foo&amp;#39;&lt;/code&gt;. We can show it in a more descriptive way &lt;code&gt;(method1() || method2()) &amp;#39;foo&amp;#39;&lt;/code&gt;. Our interpreter don&amp;#39;t now what to do because of two reasons. One, &lt;code&gt;method2&lt;/code&gt; should have one argument and it didn&amp;#39;t get any. And the second one, more important, which we see in the error message. Interpreter see some &lt;em&gt;free&lt;/em&gt; text &lt;code&gt;&amp;#39;foo&amp;#39;&lt;/code&gt; without any operator in the same line with calling methods. To fix that, we need to say explicitly, what we want: &lt;code&gt;method1 || method2(&amp;#39;foo&amp;#39;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The same problem you will get when instead of &lt;code&gt;method2&lt;/code&gt; you will use &lt;code&gt;raise&lt;/code&gt; or &lt;code&gt;return&lt;/code&gt; or any other method. If you like, just play a little bit with them.&lt;/p&gt;
+
+&lt;h3&gt;Blocks&lt;/h3&gt;
+
+&lt;p&gt;Time for blocks. We need to be aware that &lt;strong&gt;blocks with &lt;code&gt;{}&lt;/code&gt; have higher precedence than blocks &lt;code&gt;do ... end&lt;/code&gt;&lt;/strong&gt;. This is not exactly specified in our order table, but in the documentation, you can find a small note about it. So, let&amp;#39;s check this out. We will prepare two methods with blocks. In one we will call the block with &lt;code&gt;{}&lt;/code&gt; and in second with &lt;code&gt;do ... end&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Foo has block: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;block_given?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Bar has block: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;block_given?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Bar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Bar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;In the example one, the order is like here: &lt;code&gt;foo(a: (bar { 1 }))&lt;/code&gt;. First, we will call &lt;code&gt;bar&lt;/code&gt; method with a block. It will return &lt;code&gt;nil&lt;/code&gt; and then we will call method &lt;code&gt;foo&lt;/code&gt; with only hash parameter. It will look like this: &lt;code&gt;foo(a: nil)&lt;/code&gt;. So, this is why we don&amp;#39;t get a block in method &lt;code&gt;foo&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In second example order is different: &lt;code&gt;foo(a: bar) do 1 end&lt;/code&gt;. It will be even better, to split it into separate lines. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;At first we call method &lt;code&gt;bar&lt;/code&gt;, but without any arguments and without block. This is why we see in text: &lt;code&gt;&amp;quot;Bar has block: false&amp;quot;&lt;/code&gt;. Then we call method &lt;code&gt;foo&lt;/code&gt; with hash &lt;code&gt;{ a: nil }&lt;/code&gt; as &lt;code&gt;options&lt;/code&gt; and with block. We could even omit this hash parameter in the call of these two methods. It will be working the same. At least for displaying text on a screen. You can try, to do that your own &lt;code&gt;foo bar { 1 }&lt;/code&gt; and &lt;code&gt;foo bar do 1 end&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Others examples&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This example behaves like we expect. First, we sum &lt;code&gt;a&lt;/code&gt; and &lt;code&gt;b&lt;/code&gt; and then we put value in the array. If you check in our precedence table &lt;code&gt;+&lt;/code&gt; has higher precedence than &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In next example also everything will be all right. &lt;code&gt;+=&lt;/code&gt; and &lt;code&gt;*=&lt;/code&gt; has lower precedence than &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;*&lt;/code&gt;. So you can omit brackets:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;multi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;multi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;multi&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now precedence related to ranges. Because &lt;code&gt;+&lt;/code&gt; and &lt;code&gt;-&lt;/code&gt; has higher precedence than range, you can omit brackets here and everything will be fine:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;
+
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is like doing &lt;code&gt;1..(n - 1)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Summary&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Be aware of operators precedence in Ruby.&lt;/li&gt;
+&lt;li&gt;If you are not sure about precedence, put the right brackets or even better check in the documentation. Do tests also ;]&lt;/li&gt;
+&lt;li&gt;Sometimes, even I know precedences in Ruby, I like to leave brackets. It is more readable for me. Like here: &lt;code&gt;method(&amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;)&lt;/code&gt;. I know that this notation &lt;code&gt;method &amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;&lt;/code&gt; is correct and do exactly, what I want, but I like to be more specific here. This is more &lt;strong&gt;&amp;quot;Tell don&amp;#39;t ask&amp;quot;&lt;/strong&gt; approach.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;#39;s it. If you have any other precedence examples, which were not mentioned here, feel free to share them in the comments. Thank you for reading and see you next time!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Mar 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/operator-precedence-ruby</link>
+        <guid isPermaLink="true">https://womanonrails.com/operator-precedence-ruby</guid>
+        
+        <category>Ruby</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       
       <item>
@@ -1457,122 +1811,6 @@
         
         
         <category>work</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Sublime Text Editor</title>
-        <description>&lt;p&gt;I think almost every programmer has his own favourite text editor. Some people like &lt;a href=&quot;https://en.wikipedia.org/wiki/Vim_(text_editor)&quot;&gt;Vim&lt;/a&gt;, some people like &lt;a href=&quot;https://notepad-plus-plus.org/&quot;&gt;Notepad++&lt;/a&gt; and I love &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;. There is a lots of useful shortcuts, snippets and plugins which allow in fast and easy way work with code or simple text.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;I can see up to 4 file in the same time.&lt;/p&gt;
-
-&lt;p&gt;Sublime has option to see more then one file at the same time. If you add &lt;a href=&quot;https://github.com/SublimeText/Origami&quot;&gt;Origami&lt;/a&gt; plugin, you can have event more then 4 panels. To use basic Sublime splitting panels you just go to &lt;code&gt;View -&amp;gt; Layout&lt;/code&gt; and you can choose which layout you like or you can also see shortcuts for that. I like to have two files open. First with code and second with tests. This is very useful when you work in TDD. You don&amp;#39;t need to switch between windows.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Everything is customizable&lt;/p&gt;
-
-&lt;p&gt;You just go to &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. There is everything you will need for customization. Colors, behaviors, everything. I recommend also to go through other setups in &lt;code&gt;Preferences&lt;/code&gt; menu. Spectialy &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Adding new packages&lt;/p&gt;
-
-&lt;p&gt;If you like you can extend Sublime behaviors by installing new packages. You can look at some of my favorites packages:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - for fast and easy creation of HTML or CSS&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/facelessuser/BracketHighlighter&quot;&gt;BracketHighlighter&lt;/a&gt; - to show you where you start and end brackets, this is nice specialy when you have programming language like JavaScript&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jisaacks/GitGutter&quot;&gt;Git Gutter&lt;/a&gt; - to show which part of code are changed or added (integration with git, see &lt;a href=&quot;/what-is-git&quot;&gt;what is git&lt;/a&gt; article)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dzhibas/SublimePrettyJson&quot;&gt;SublimePrettyJson&lt;/a&gt; - formatter for JSON, this is very useful when you have JSON in one line and you would like to read it easly&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pderichs/sublime_rubocop&quot;&gt;RuboCop&lt;/a&gt; - to show good practices in Ruby&lt;/li&gt;
-&lt;li&gt;Linters (Coffee Script, CSS, Sass, JS) - tools which shows good practices in different languages&lt;/li&gt;
-&lt;li&gt;Colorful syntaxt - you can add colors for different programing language syntax, when you don&amp;#39;t have specific colorization just install it&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;For more plugins checkout in the Internet.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Shortcuts, shortcuts, shortcuts&lt;/p&gt;
-
-&lt;p&gt;To be honest I love shortcuts. This is the reason why I write this article. As long as I can work without mouse, only using keyboard then it&amp;#39;s better. This is less time consuming then mouse usage. And Sublime has very useful shortcuts. You can see below:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + b&lt;/code&gt; - toggle side bar&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + 0&lt;/code&gt; - go to side bar with folders (then you can use arrows to navigate between folders and files, &lt;code&gt;enter ↩&lt;/code&gt; opens selected file and move focus to this file)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + 1,2,3,4&lt;/code&gt; - move focus between open panels/group (it depends layout you choose)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ←, →&lt;/code&gt; - go to word beginning/ending&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ←, →&lt;/code&gt; - select last/next word&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + m&lt;/code&gt; - jump to closing/opening bracket for current code&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + m&lt;/code&gt; - select all contents of the current brackets (curly brackets, square brackets, parentheses)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + PgUp, PgDn&lt;/code&gt; - go to last/next open tab (file)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + tab&lt;/code&gt; - next used tab/file open in one panel&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + tab&lt;/code&gt; - last used tab/file open in one panel&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ↑, ↓&lt;/code&gt; -  move file up/down by one line (like scroll)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ↑, ↓&lt;/code&gt; - switch lines in neighbourhood, first line goes up, second goes down&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;crtl + /&lt;/code&gt; - comment/un-comment line (it depends selected programming language)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + delete&lt;/code&gt; - remove all next words (without adding to clipboard)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + backspace&lt;/code&gt; - remove all words before (without adding to clipboard)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + k&lt;/code&gt; - remove all next words (without adding to clipboard)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + k&lt;/code&gt; - remove line (without adding to clipboard)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ↩&lt;/code&gt; - insert line after&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ↩&lt;/code&gt; - insert line before&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + j&lt;/code&gt; - join line below to the end of the current line&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + alt + j&lt;/code&gt; - preatty JSON power by SublimePrettyJson&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ]&lt;/code&gt; - indent current line(s)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + [&lt;/code&gt; - un-indent current line(s)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + a&lt;/code&gt; - select all file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + l&lt;/code&gt; - select all line&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + d&lt;/code&gt; - select word (repeat select others occurrences in context for multiple editing)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + d&lt;/code&gt; - duplicate line(s)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + u&lt;/code&gt; - upper case&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + l&lt;/code&gt; - lower case&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + c&lt;/code&gt; - copy selected text to clipboard or when you have cursor in line without selected text copy all line to clipboard&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + v&lt;/code&gt; - paste selected text or all line from clipboard&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + x&lt;/code&gt; - cut selected text or all line (when text is not selected) to clipboard&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + g&lt;/code&gt; - go to line in current file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ;&lt;/code&gt; - go to word in current file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + r&lt;/code&gt; - look for symbol (functions, method name, classes) in the file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + r&lt;/code&gt; - look for symbol (functions, method name, classes) in all projects&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + t&lt;/code&gt; - replace letter in neighbourhood&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + t&lt;/code&gt; - open last closed tab (just like in your browser)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + h&lt;/code&gt; - replace one phrase to another in current file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + f&lt;/code&gt; - search in file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + f&lt;/code&gt; - search in all project (directory), you can also replase phrase in this project&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + q&lt;/code&gt; - close Sublime completly&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + w&lt;/code&gt; - close current file/tab&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + w&lt;/code&gt; - close all window&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + n&lt;/code&gt; - open new tab&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + n&lt;/code&gt; - open new window&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + s&lt;/code&gt; -  save file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + s&lt;/code&gt; - save as (you can choose new name of file)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + o&lt;/code&gt; - open file&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + o&lt;/code&gt; - open new directory&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + p&lt;/code&gt; - quick-open files by name in your project (you can search by first letters of each part of file name example: searching &lt;code&gt;mnf&lt;/code&gt; sublime will find &lt;code&gt;my_new_file.txt&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + p&lt;/code&gt; - command line and package installer&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + z&lt;/code&gt; - undo you last change&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + z&lt;/code&gt; - redo your last change&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + y&lt;/code&gt; - do one more time last action&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f6&lt;/code&gt; - check spelling base on set dictionary (in my case english)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f9&lt;/code&gt; - do alphabetical order of selected lines&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f3&lt;/code&gt; - next searched phrase&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f3 + shift&lt;/code&gt; - last searched phrase&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Update 23.01.2019:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + l&lt;/code&gt; - add cursor to the end of each selected line of code/text&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;shift + alt + ↑, ↓&lt;/code&gt; - each time after press &lt;code&gt;↑&lt;/code&gt; or &lt;code&gt;↓&lt;/code&gt; add cursor to line above or below current line&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I hope you find this useful. See you next time!&lt;/p&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/sublime</link>
-        <guid isPermaLink="true">https://womanonrails.com/sublime</guid>
-        
-        <category>IDE</category>
-        
-        <category>text editor</category>
-        
-        
-        <category>tools</category>
         
       </item>
     

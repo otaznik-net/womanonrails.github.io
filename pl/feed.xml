@@ -5,9 +5,363 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Mar 2019 03:04:09 -0400</pubDate>
-    <lastBuildDate>Wed, 27 Mar 2019 03:04:09 -0400</lastBuildDate>
+    <pubDate>Wed, 27 Mar 2019 11:56:38 -0400</pubDate>
+    <lastBuildDate>Wed, 27 Mar 2019 11:56:38 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Kolejność wykonywania działań w Ruby</title>
+        <description>&lt;p&gt;Kolejność działań matematycznych w programowaniu jest bardzo ważna. Jeżeli nie znasz ich dobrze, możesz dostać całkowicie inny wynik, niż się spodziewasz. Twój program może nawet przestać działać. Dlatego warto znać zasady, na jakich jest oparta kolejność działań w programowaniu. W tym przypadku w języku Ruby. Czy powinnyśmy postępować zgodnie z zasadami jakich nauczyłyśmy się w szkole na lekcjach matematyki? A może wystarczy stosować kolejność od lewej do prawej? Sprawdźmy.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To wyrażenie nie jest równe 8. Jest równe 6. W tym przykładzie możesz zauważyć, że mnożenie jest na swój sposób &lt;em&gt;silniejsze&lt;/em&gt; od dodawania. W takim przypadku mówimy, że mnożenie jest bardziej priorytetowe lub że ma &lt;strong&gt;wyższy priorytet&lt;/strong&gt;. W języku angielskim powiemy &lt;strong&gt;higher operator precedence&lt;/strong&gt;. Tak, to jest dokładnie tak samo, czego uczyłyśmy się w szkole. By pokazać to jeszcze bardziej dokładnie, spójrz na przykład poniżej:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Dobrze, ale w programowaniu, w szczególności w języku Ruby, mamy więcej możliwych operacji. Skąd będziemy wiedzieć jaka jest ich kolejność? Z pomocą przychodzi nam &lt;a href=&quot;https://ruby-doc.org/core-2.2.0/doc/syntax/precedence_rdoc.html&quot; title=&quot;Dokumentacja Ruby - kolejność działań&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;dokumentacja Ruby&lt;/a&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;unary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/, %&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;+, -&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;lt;&amp;lt;, &amp;gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;amp;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;|, ^&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;gt;, &amp;gt;=, &amp;lt;, &amp;lt;=&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;lt;=&amp;gt;, ==, ===, !=, =~, !~&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;||&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;.., ...&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;?, :&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;modifier-rescue&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;=, +=, -=, etc.&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;defined?&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;not&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;or, and&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;modifier-if, modifier-unless, modifier-while, modifier-until&lt;/span&gt;
+&lt;span class=&quot;sr&quot;&gt;{ } blocks&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Jak widzisz tutaj &lt;code&gt;*&lt;/code&gt; (czyli mnożenie), ma większy priorytet niż &lt;code&gt;+&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Przykłady&lt;/h2&gt;
+
+&lt;h3&gt;Operatory logiczne&lt;/h3&gt;
+
+&lt;p&gt;Zacznijmy od operatorów logicznych. Zobaczmy jak kolejność wykonywania działań wygląda w tym przypadku.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Przy pierwszym spojrzeniu logika (nie zapis) wygląda dokładnie tak samo. Jednak, gdy przyjrzymy się bliżej, zauważymy pewne różnice. Jak można się domyślić, chodzi o kolejność działań. W pierwszym przypadku kolejność wygląda następująco: &lt;code&gt;(1 || (2 &amp;amp;&amp;amp; nil))&lt;/code&gt;. Najpierw wykonujemy &lt;code&gt;2 &amp;amp;&amp;amp; nil&lt;/code&gt; i dostajemy &lt;code&gt;nil&lt;/code&gt;. Następnie wyrażenie to, upraszcza się nam do postaci &lt;code&gt;1 || nil&lt;/code&gt;, z czego otrzymujemy &lt;code&gt;1&lt;/code&gt;. W zasadzie, to trochę Cię tu oszukałam. Nasz interpreter jest &lt;em&gt;mądrzejszy&lt;/em&gt; niż nam się mogło wydawać na początku. Wyrażenie logiczne zawierające &lt;code&gt;||&lt;/code&gt; jest prawdziwe, gdy człon wyrażenia stojący po lewej stronie, jest prawdziwy. Dlatego w tym przypadku zostanie sprawdzona tylko pierwsza cześć warunku. O czym możesz przekonać się tutaj:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Przypisujemy do zmiennej &lt;code&gt;a&lt;/code&gt; wartość &lt;code&gt;0&lt;/code&gt;. I zaczynamy sprawdzać warunek razem z przypisaniem. Jeżeli druga część warunku byłaby wykonana, to na koniec &lt;code&gt;a&lt;/code&gt; było by równe &lt;code&gt;2&lt;/code&gt;. Tak się nie dzieje. Wywołanie prawej strony możemy uzyskać tylko w przypadku, gdy lewa strona nie jest prawdą.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W drugim przypadku, gdy mamy do czynienia z &lt;code&gt;1 or 2 and nil&lt;/code&gt;, kolejność działań jest inna: &lt;code&gt;((1 or 2) and nil)&lt;/code&gt;. Najpierw sprawdzamy &lt;code&gt;1 or 2&lt;/code&gt;. Jako wynik otrzymujemy &lt;code&gt;1&lt;/code&gt;. Następnie sprawdzamy &lt;code&gt;1 and nil&lt;/code&gt;, więc końcowy wynik jest &lt;code&gt;nil&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;By lepiej zrozumieć różnice pomiędzy tymi operatorami, przejrzyj poniższa tabelę wartość logicznych dla każdego możliwego przypadku:&lt;/p&gt;
+
+&lt;table class='table'&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;a&lt;/th&gt;
+      &lt;th&gt;b&lt;/th&gt;
+      &lt;th&gt;c&lt;/th&gt;
+      &lt;th&gt;a || b &amp;&amp; c&lt;/th&gt;
+      &lt;th&gt;a or b and c&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;true&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;false&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;true&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;&lt;code&gt;false&lt;/code&gt;&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;false&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code&gt;true&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;W naszej tabeli są dwa przypadki gdzie można dostrzec różnice między operatorami &lt;code&gt;||&lt;/code&gt; i &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; a operatorami &lt;code&gt;or&lt;/code&gt; i &lt;code&gt;and&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Przypisanie&lt;/h3&gt;
+
+&lt;p&gt;W najbliższych kilku przykładach będziemy krążyć wokół tematyki operatorów logicznych, ale zobaczymy też jak zachowują się one w stosunku do operatora przypisania:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W obu przypadkach wartość końcowa wyrażenia jest &lt;code&gt;2&lt;/code&gt;. Jednak to, co zostało przypisane do zmiennej &lt;code&gt;foo&lt;/code&gt; różni się od siebie. W pierwszym przypadku &lt;code&gt;foo&lt;/code&gt; jest równe &lt;code&gt;2&lt;/code&gt;. Jest to związane oczywiście z kolejnością działań. Operator &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; ma wyższy priorytet niż operator &lt;code&gt;=&lt;/code&gt;. W tym przypadku mamy dokładnie:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W drugim przypadku jest na odwrót. To operator &lt;code&gt;=&lt;/code&gt; ma wyższy priorytet niż &lt;code&gt;and&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Podobne zachowanie zaobserwujemy dla &lt;code&gt;||&lt;/code&gt; i &lt;code&gt;or&lt;/code&gt;. Rożnica będzie widoczna tylko w przypadku, gdy po lewej stronie wyrażenia logicznego będzie wartość fałszywa np. &lt;code&gt;false&lt;/code&gt;. Gdy będzie tam jednak jakaś wartość prawdziwa, nie zauważymy różnicy. Oto przykład:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# first part of condition is falsy&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# first part of condition is truthy&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Chciałabym tutaj wyjaśnić, dlaczego w jednym z tych przypadków nie widzimy różnicy. Otóż, dla wyrażenia &lt;code&gt;foo = 1 || 2&lt;/code&gt; rozkład nawiasów wygląda następująco: &lt;code&gt;foo = (1 || 2)&lt;/code&gt;. Z warunku logicznego &lt;code&gt;||&lt;/code&gt; otrzymujemy &lt;code&gt;1&lt;/code&gt;. Co zostaje wpisane do zmiennej &lt;code&gt;foo&lt;/code&gt;. W drugim przypadku &lt;code&gt;foo = 1 or 2&lt;/code&gt;, najpierw realizowane jest przypisanie a dopiero później wyliczany jest warunek logiczny. Wynik jest ten sam, ale kolejność działań jest inna. Warto o tym pamiętać!&lt;/p&gt;
+
+&lt;p&gt;Na koniec tej sekcji, chciałabym pokazać Ci jeszcze jeden przykład. Moim zdaniem jest on bardzo interesujący. Dodatkowo jest odrobinę bardziej złożony od poprzedniego, ponieważ poza &lt;code&gt;=&lt;/code&gt;, &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code&gt;and&lt;/code&gt; mamy jeszcze &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;23&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;13&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Rozpracujmy go krok po korku. Wiemy już, że operator &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; ma dość wysoki priorytet, jednak operator &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; ma większy priorytet od &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;. Kolejność działań będzie wyglądać następująco: &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; (s &amp;lt;&amp;lt; &amp;#39;3&amp;#39;))&lt;/code&gt;. Na początek dopiszemy do zmiennej &lt;code&gt;s&lt;/code&gt; wartość &lt;code&gt;&amp;#39;3&amp;#39;&lt;/code&gt;. Dostaniemy wtedy wyrażenie &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; &amp;#39;23&amp;#39;)&lt;/code&gt;, a w zmiennej &lt;code&gt;s&lt;/code&gt; będzie &lt;code&gt;&amp;#39;23&amp;#39;&lt;/code&gt;. Teraz wykonamy operację logiczną &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, z której otrzymamy wynik &lt;code&gt;23&lt;/code&gt;. Nadpisze on w ten sposób bieżącą wartość zmiennej &lt;code&gt;s&lt;/code&gt;, dokładnie tą samą wartością. Końcowy rezultat będzie równy właśnie &lt;code&gt;&amp;#39;23&amp;#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;W drugim przypadku kolejność jest następująca: &lt;code&gt;(s = &amp;#39;1&amp;#39;) and (s &amp;lt;&amp;lt; &amp;#39;3&amp;#39;)&lt;/code&gt;. Zaczynamy od przypisania. W zmiennej &lt;code&gt;s&lt;/code&gt; zamiast &lt;code&gt;&amp;#39;2&amp;#39;&lt;/code&gt; mamy teraz &lt;code&gt;&amp;#39;1&amp;#39;&lt;/code&gt;. Następnie wykonujemy operację &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; i w zmiennej &lt;code&gt;s&lt;/code&gt; mamy &lt;code&gt;&amp;#39;13&amp;#39;&lt;/code&gt;. Na koniec wykonuje się operacja logiczna &lt;code&gt;and&lt;/code&gt; i otrzymujemy wynik &lt;code&gt;&amp;#39;13&amp;#39;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Metody i operatory logiczne&lt;/h3&gt;
+
+&lt;p&gt;Pozostajemy w temacie operatorów logicznych. Tym razem sprawdzimy, co dzieje się, gdy połączymy je z metodami. W języku Ruby mamy możliwość opuszczenia nawiasów, nawet podczas wywołania metod. W takim przypadku też musimy pamiętać o kolejności działań. Tym razem konsekwencje błędu są jeszcze bardziej widoczne.&lt;/p&gt;
+
+&lt;p&gt;Zacznijmy od deklaracji naszej metody oraz pierwszego przykładu:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# declare method&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;My char id &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# example 1&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W tym przypadku najpierw wywołany zostanie operator &lt;code&gt;||&lt;/code&gt;. Wynikiem tego działania będzie &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt;, które zostanie przekazane jako argument do metody i pojawi się w napisie widocznym na ekranie: &lt;code&gt;&amp;quot;My char id a&amp;quot;&lt;/code&gt;. Ponieważ metoda zajmuje się tylko wypisaniem na ekran napisu i nic nie zwraca, jako końcowy efekt naszych działań zobaczymy &lt;code&gt;nil&lt;/code&gt;. Ten szczegół przyda się nam w dalszych przykładach. Kolejność wykonywanych operacji jest taka: &lt;code&gt;method(&amp;#39;a&amp;#39; || &amp;#39;b&amp;#39;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Przejdźmy do następnego przykładu:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example 2&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W tym przypadku, kolejność działań jest taka sama: &lt;code&gt;method(&amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;)&lt;/code&gt;. Najpierw operator &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; a dopiero później wywołanie metody z argumentem &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt;. To dlatego widzimy &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt; w wyświetlonym napisie. Ponieważ metoda zwraca &lt;code&gt;nil&lt;/code&gt;, to końcowym wynikiem jest właśnie &lt;code&gt;nil&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example 3&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W trzecim przykładzie mamy do czynienia z innym zachowaniem. Dla operatora &lt;code&gt;or&lt;/code&gt; kolejność działań jest: &lt;code&gt;method(&amp;#39;a&amp;#39;) or &amp;#39;b&amp;#39;&lt;/code&gt;. Widzimy, że najpierw wykonujemy metodę, wyświetlamy tekst zawierający &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt;, a dopiero na koniec zajmujemy się operatorem logicznym &lt;code&gt;or&lt;/code&gt;. Ponieważ nasza ostatnia operacja wygląda tak: &lt;code&gt;nil or &amp;#39;b&amp;#39;&lt;/code&gt;, to ostatecznym wynikiem będzie &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt;, a nie &lt;code&gt;nil&lt;/code&gt; jak w poprzednich przykładach.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example 4&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W czwartym przypadku mamy podobne zachowanie jak w trzecim. Wyrażenie z nawiasami wygląda tak: &lt;code&gt;method(&amp;#39;a&amp;#39;) and &amp;#39;b&amp;#39;&lt;/code&gt;. Wyświetla się napis &lt;code&gt;&amp;quot;My char id a&amp;quot;&lt;/code&gt;, ze względu na argument metody równy &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt;. Dalej metoda zwraca &lt;code&gt;nil&lt;/code&gt;, więc końcowy rezultat po sprawdzeniu warunku logicznego jest &lt;code&gt;nil&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Teraz chciałabym Ci pokazać bardzo ważny przykład. Na początek zadeklarujmy dwie metody: jedną bez argumentów a drugą z jednym argumentem.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method1&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Call Method 1&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;method2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Call Method 2 with &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A teraz sprawdzimy, co się stanie w przypadku użycia tych metod z &lt;code&gt;or&lt;/code&gt; i &lt;code&gt;||&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;method1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method2&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Call&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Method&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Call&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Method&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pierwszy przypadek wygląda OK. Wywołujemy metodę &lt;code&gt;method1&lt;/code&gt;, która wyświetla &lt;code&gt;&amp;quot;Call Method 1&amp;quot;&lt;/code&gt; i zwraca &lt;code&gt;nil&lt;/code&gt;. Później wywołujemy metodę &lt;code&gt;method2&lt;/code&gt; z argumentem &lt;code&gt;&amp;#39;foo&amp;#39;&lt;/code&gt;. Wyświetla tekst i zwraca &lt;code&gt;nil&lt;/code&gt;. Kolejność działań wygląda następująco: &lt;code&gt;method1() or method2(&amp;#39;foo&amp;#39;)&lt;/code&gt;. Wszystko jest dobrze. Przejdźmy teraz do drugiego przypadku:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;method1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;method2&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;SyntaxError ((irb):32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or &amp;#39;{&amp;#39; or &amp;#39;(&amp;#39;)&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;method1 || method2 &amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;                   ^&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Coś ewidentnie poszło nie tak. Problem wynika z kolejności działań. Oto jak kolejność wygląda w tym przypadku: &lt;code&gt;(method1 || method2) &amp;#39;foo&amp;#39;&lt;/code&gt;. By pokazać, co się dokładnie dzieje, zapiszemy to tak: &lt;code&gt;(method1() || method2()) &amp;#39;foo&amp;#39;&lt;/code&gt;. Nasz interpreter nie wie, co zrobić z dwóch powodów. Po pierwsze, &lt;code&gt;method2&lt;/code&gt; powinna mieć jeden argument a nie ma. Po drugie, w naszym wyrażeniu pojawia się &lt;em&gt;wolno stojący&lt;/em&gt; napis &lt;code&gt;&amp;#39;foo&amp;#39;&lt;/code&gt;. Nie jest on połączony z resztą wyrażenia operatorem czy metodą, stąd błąd który dostajemy. By naprawić ten problem trzeba wprost napisać, o co nam chodzi: &lt;code&gt;method1 || method2(&amp;#39;foo&amp;#39;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;To samo zachowanie interpretera możemy obserwować w przypadku konkretnych metod. Takich jak: &lt;code&gt;raise&lt;/code&gt; czy &lt;code&gt;return&lt;/code&gt;. Zapraszam Cię do samodzielnego sprawdzenia wyników.&lt;/p&gt;
+
+&lt;h3&gt;Bloki&lt;/h3&gt;
+
+&lt;p&gt;Czas na zajęcie się blokami (ang. blocks). Musimy być świadome, że &lt;strong&gt;blok &lt;code&gt;{}&lt;/code&gt; ma większy priorytet, niż blok &lt;code&gt;do ... end&lt;/code&gt;&lt;/strong&gt;. Nie zobaczymy tego w naszej tabeli z kolejnością operacji w języku Ruby. W dokumentacji jest jednak mała informacja na ten temat. Sprawdźmy to! Zdefiniujemy dwie metody. Jedną z nich wywołamy z blokiem &lt;code&gt;{}&lt;/code&gt; a drugą z &lt;code&gt;do ... end&lt;/code&gt;. &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Foo has block: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;block_given?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Bar has block: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;block_given?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Bar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Bar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;has&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;W pierwszym przypadku kolejność jest: &lt;code&gt;foo(a: (bar { 1 }))&lt;/code&gt;. Najpierw wywołujemy metodę &lt;code&gt;bar&lt;/code&gt; z blokiem. Po wywołaniu zwróci ona &lt;code&gt;nil&lt;/code&gt;. Nasze wyrażenie uprości się w tym momencie do &lt;code&gt;foo(a: nil)&lt;/code&gt;. Metoda &lt;code&gt;foo&lt;/code&gt; zostanie wywołana z argumentem w postaci hasha, ale bez bloku. &lt;/p&gt;
+
+&lt;p&gt;W drugim przypadku kolejność wygląda następująco: &lt;code&gt;foo(a: bar) do 1 end&lt;/code&gt;. Będzie przejrzyściej, gdy podzielimy sobie to wyrażenie na osobne linie:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Na początku wywoływana jest metoda &lt;code&gt;bar&lt;/code&gt; bez argumentów i również bez bloku. Dlatego widzimy tekst: &lt;code&gt;&amp;quot;Bar has block: false&amp;quot;&lt;/code&gt;. Później wywołana zostaje metoda &lt;code&gt;foo&lt;/code&gt; z argumentem &lt;code&gt;{ a: nil }&lt;/code&gt; jako &lt;code&gt;options&lt;/code&gt; oraz z blokiem. W naszym przykładzie mogłybyśmy całkowicie pominąć argument &lt;code&gt;options&lt;/code&gt;. Działanie kodu będzie takie same. Przynajmniej jeżeli chodzi o wyświetlane napisy. Sprawdź sama: &lt;code&gt;foo bar { 1 }&lt;/code&gt; oraz &lt;code&gt;foo bar do 1 end&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Inne przykłady&lt;/h3&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Ten przypadek zachowuje się tak, jakbyśmy tego oczekiwały. Najpierw wywołana jest suma &lt;code&gt;a&lt;/code&gt; i &lt;code&gt;b&lt;/code&gt;, a dopiero później wynik jest wstawiany do tablicy za pomocą operatora &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;. Jak wynika z naszej tabeli &lt;code&gt;+&lt;/code&gt; ma większy priorytet od &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;W następnym przykładzie też wszystko wykona się po naszej myśli. Operatory &lt;code&gt;+=&lt;/code&gt; i &lt;code&gt;*=&lt;/code&gt; mają niższy priorytet od &lt;code&gt;+&lt;/code&gt; i &lt;code&gt;*&lt;/code&gt;. Dlatego możemy pominąć nawiasy:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;multiply&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;multiply&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;multiply&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;A teraz jak wygląda priorytet dla zakresów. Ponieważ &lt;code&gt;+&lt;/code&gt; i &lt;code&gt;-&lt;/code&gt; mają wyższy priorytet, nawiasy są nam nie potrzebne:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;
+
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;.n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;to_a&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To jak zrobienie: &lt;code&gt;1..(n - 1)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Podsumowanie&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Bądź świadoma kolejności działań w języku Ruby.&lt;/li&gt;
+&lt;li&gt;Jeżeli nie jesteś pewna kolejności, dodaj nawiasy, a najlepiej sprawdź w dokumentacji. Napisz też testy. ;]&lt;/li&gt;
+&lt;li&gt;Czasami, nawet jeżeli wiem, jaka jest kolejność wykonywania działań w Ruby, wolę zostawić nawiasy dla większej czytelności. Tak jak w tym przypadku: &lt;code&gt;method(&amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;)&lt;/code&gt;. Wiem, że mogę zrobić tak: &lt;code&gt;method &amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;&lt;/code&gt;. To poprawna notacja i robi dokładnie to co chcę, jednak wole zostawić nawiasy. Jest to podejście w stylu &lt;strong&gt;&amp;quot;Tell don&amp;#39;t ask&amp;quot;&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To tyle na dzisiaj. Jeżeli znasz inne ciekawe przykłady z kolejnością działań w Ruby, podziel się w komentarzu. Dzięki i do zobaczenia następnym razem!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Mar 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/pl/operator-precedence-ruby</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/operator-precedence-ruby</guid>
+        
+        <category>Ruby</category>
+        
+        
+        <category>programowanie</category>
+        
+      </item>
     
       
       <item>
@@ -1456,122 +1810,6 @@ Global Game Jam to co roczny hakaton związany z grami. W tym samym czasie w wie
         
         
         <category>praca</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Sublime Text - edytor tekstowy</title>
-        <description>&lt;p&gt;Myślę, że prawie każdy programista ma swój ulubiony edytor tekstowy. Jedni lubią edytory takie jak &lt;a href=&quot;https://en.wikipedia.org/wiki/Vim_(text_editor)&quot;&gt;Vim&lt;/a&gt;, inni jak &lt;a href=&quot;https://notepad-plus-plus.org/&quot;&gt;Notepad++&lt;/a&gt; a ja uwielbiam &lt;a href=&quot;https://www.sublimetext.com/&quot;&gt;Sublime Text&lt;/a&gt;. Posiada on wiele skrótów klawiszowych, dodatków czy snippetów ułatwiających pracę z kodem lub ze zwykłym tekstem. Oto moim zadaniem najważniejsze zalety Sublime:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Możesz jednocześnie przeglądać 4 pliki w tym samym czasie.&lt;/p&gt;
-
-&lt;p&gt;Sublime ma możliwość podzielenia okna programu na kilka części. Maksymalnie cztery. Chyba, że używasz dodatku &lt;a href=&quot;https://github.com/SublimeText/Origami&quot;&gt;Origami&lt;/a&gt;. Pozwala on dzielić okno programu na dowolną ilość paneli. W podstawowej wersji Sublime można wybierać pomiędzy kilkoma dostępnymi typami paneli. Można je zaleźć w &lt;code&gt;View -&amp;gt; Layout&lt;/code&gt;. Są tam też dostępne skróty klawiszowe do zarządzania tymi panelami. Ja osobiście lubię mieć otwarte dwa panele równocześnie. To bardzo ułatwia mi pracę w &lt;strong&gt;TDD&lt;/strong&gt;. Dzięki temu cały czas mam widoczny kod i testy nad którymi pracuję.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Wszystko jest konfigurowalne&lt;/p&gt;
-
-&lt;p&gt;Wystarczy tylko wejść do &lt;code&gt;Preferences -&amp;gt; Settings&lt;/code&gt;. Są tam zapisane wszystkie ustawienia. Kolory, zachowania, skróty, ustawienia języków. Dosłownie wszystko. Polecam też przyjrzeć się innym opcjom dostępnym w zakładce menu &lt;code&gt;Preferences&lt;/code&gt;. A zwłaszcza &lt;code&gt;Packages&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Dodatki&lt;/p&gt;
-
-&lt;p&gt;Jeżeli tylko chcesz rozszerzyć funkcjonalność Sublime to możesz przebierać w różnych dodatkach. Tutaj moje ulubione:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://emmet.io/&quot;&gt;Emmet&lt;/a&gt; - do szybkiego i łatwego tworzenia kodu HTML lub CSS&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/facelessuser/BracketHighlighter&quot;&gt;BracketHighlighter&lt;/a&gt; - podświetla otwarcie i zamknięcie konkretnego zagłębienia nawiasów, bardzo przydatny zwłaszcza przy pracy z językami takimi jak JavaScript, gdzie tych nawiasów jest sporo&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jisaacks/GitGutter&quot;&gt;Git Gutter&lt;/a&gt; - pokazuje zmiany jakie zaszły w kodzie (jest zintegrowany z narzędziem o nazwie &lt;strong&gt;git&lt;/strong&gt;, pisałam o nim w artykule &lt;a href=&quot;/pl/what-is-git&quot;&gt;Co to jest git?&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dzhibas/SublimePrettyJson&quot;&gt;SublimePrettyJson&lt;/a&gt; - pozwala za pomocą kombinacji klawiszy w czytelny sposób sformatować plik zawierający dane w formacie JSON&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pderichs/sublime_rubocop&quot;&gt;RuboCop&lt;/a&gt; - pokazuje dobre praktyki pisania kodu w języku Ruby&lt;/li&gt;
-&lt;li&gt;Linters (Coffee Script, CSS, Sass, JS) - narzędzia, które pokazują dobre praktyki pisania kodu w różnych językach w zależności od wybranego lintera&lt;/li&gt;
-&lt;li&gt;Colorfull syntaxt - kolorowanie składni języka, jeżeli tylko brakuje Ci składni jakiegoś języka programowania zawsze można taką funkcjonalność doinstalować&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Zachęcam do samodzielnego poszukania innych dodatków.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Skróty, skróty skróty klawiszowe&lt;/p&gt;
-
-&lt;p&gt;Jak mam być szczera uwielbiam skróty klawiszowe. To jest też główny powód, dla którego robię ten artykuł. Jak tylko jest to możliwe, to pracuje wyłącznie z klawiaturą. Dzięki temu oszczędzam czas. Sublime oferuje nam niezliczony zasób takich właśnie skrótów. Te z których korzystam na co dzień zamieściłam poniżej:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + b&lt;/code&gt; - włącza/wyłącza pasek boczny (z projektami)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + 0&lt;/code&gt; - przechodzi do paska bocznego, gdzie znajdują się katalogi z projektami (wtedy za pomocą strzałek można poruszać się pomiędzy plikami i katalogami, naciskając &lt;code&gt;enter ↩&lt;/code&gt; otwieramy plik w oknie głównym i przenosimy tam kursor)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + 1,2,3,4&lt;/code&gt; - przenosi kursor pomiędzy panelami wewnątrz okna głównego (w zależności od wybranej ilości paneli)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ←, →&lt;/code&gt; - przechodzi do początku/końca słowa&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ←, →&lt;/code&gt; - zaznacza poprzednie/następne słowo&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + m&lt;/code&gt; - przeskakuje pomiędzy początkiem a końcem nawiasów w bieżącym fragmencie kodu&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + m&lt;/code&gt; - zaznacza całe wnętrze nawiasu lub cudzysłowu&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + PgUp, PgDn&lt;/code&gt; - przechodzi do poprzedniej/następnej zakładki/pliku&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + tab&lt;/code&gt; - przechodzi do następnej używanej zakładki/pliku w jednym panelu/grupie&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + tab&lt;/code&gt; - przechodzi do poprzedniej używanej zakładki/pliku w jednym panelu/grupie&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ↑, ↓&lt;/code&gt; -  przesuwa bieżący plik do góry/na dół (jak przy poruszaniu za pomocą scrolla w myszce)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ↑, ↓&lt;/code&gt; - zamienia kolejnością sąsiadujące linie&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;crtl + /&lt;/code&gt; - zakomentowuje/odkomentowuje linie kodu (w zależności od wybranego języka programowania)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + delete&lt;/code&gt; - usuwa wszystkie znaki znajdujące się po kursorze (bez przechowywania tego w schowku)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + backspace&lt;/code&gt; - usuwa wszystkie znaki przed kursorem (bez przechowywania w schowku)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + k&lt;/code&gt; - usuwa wszystkie znaki znajdujące się po kursorze (bez przechowywania tego w schowku)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + k&lt;/code&gt; - usuwa całą linię bez przechowywania wartości w schowku&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ↩&lt;/code&gt; - dodaje dodatkową linię za kursorem&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + ↩&lt;/code&gt; - dodaje dodatkową linię przed kursorem&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + j&lt;/code&gt; - dołącza linię poniżej do końca bieżącej linii&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + alt + j&lt;/code&gt; - pokazuje w czytelny sposób pliki w formacie JSON, możliwość korzystania z tego skrótu dzięki dodatkowi SublimePrettyJson&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ]&lt;/code&gt; - dodaje wcięcie do zaznaczonych linii&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + [&lt;/code&gt; - usuwa wcięcie dla zaznaczonych linii&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + a&lt;/code&gt; - zaznacza cały plik&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + l&lt;/code&gt; - zaznacza całą linię&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + d&lt;/code&gt; - zaznacza słowo (powtarzanie tego skrótu pozwala na zaznaczanie kolejnych tych samych słów w pliku i pozwala na zmianę wielu miejsc w tym samym momencie)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + d&lt;/code&gt; - duplikuje linię&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + u&lt;/code&gt; - zapisuje zaznaczony tekst dużymi literami&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + k + l&lt;/code&gt; - zapisuje zaznaczony tekst małymi literami&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + c&lt;/code&gt; - kopiuje zaznaczony tekst do schowka, jeżeli nie było zaznaczonego tekstu kopiuje całą linię, w której znajdował się kursor&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + v&lt;/code&gt; - wkleja wybrany tekst lub całą linię ze schowka&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + x&lt;/code&gt; - wycina zaznaczony tekst lub całą linię do schowka&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + g&lt;/code&gt; - pozwala na przejście do linii o wybranym numerze&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + ;&lt;/code&gt; - pozwala na przejście do wybranego w bieżącym pliku słowa&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + r&lt;/code&gt; - wyszukuje wybranego symbolu (funkcji, metody, klasy) w pliku&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + r&lt;/code&gt; - wyszykuje wybranego symbolu (funkcji, metody, klasy) w całym projekcie&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + t&lt;/code&gt; - zamienia miejscami dwie sąsiednie litery&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + t&lt;/code&gt; - otwiera ostatni zamknięty plik/tab (tak jak w przeglądarce)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + h&lt;/code&gt; - zamienia jedną frazę na drugą w bieżącym pliku&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + f&lt;/code&gt; - przeszukuje plik&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + f&lt;/code&gt; - przeszukuje cały projekt/folder, można też zamienić frazę na inną w całym projekcie&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + q&lt;/code&gt; - całkowicie zamyka Sublime&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + w&lt;/code&gt; - zamyka bieżący plik/zakładkę&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + w&lt;/code&gt; - zamyka bieżące okno&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + n&lt;/code&gt; - otwiera nową zakładkę/plik&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + n&lt;/code&gt; - otwiera nowe okno&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + s&lt;/code&gt; -  zapisuje plik&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + s&lt;/code&gt; - zapisuje plik z możliwością zmiany nazwy&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + o&lt;/code&gt; - otwiera plik&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + o&lt;/code&gt; - otwiera folder&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + p&lt;/code&gt; - pozwala na szybkie wyszukanie i otwarcie pliku w projekcie (można wyszukiwać po pierwszych literach każdego członu nazwy przykładowo wpisując &lt;code&gt;mnf&lt;/code&gt; można znaleźć plik &lt;code&gt;my_new_file.txt&lt;/code&gt;)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + p&lt;/code&gt; - linia poleceń do instalowania nowych dodatków i pakietów&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + z&lt;/code&gt; - cofa zmiany&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + z&lt;/code&gt; - przywraca ostatnie zmiany&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl + y&lt;/code&gt; - wykonuje ostatnią akcję jeszcze raz&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f6&lt;/code&gt; - sprawdza pisownie w języku, który ma się ustawiony (w moim przypadku jest to angielski)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f9&lt;/code&gt; - ustawia w kolejności alfabetycznej zaznaczone linie&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f3&lt;/code&gt; - następna wyszukiwana fraza&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;f3 + shift&lt;/code&gt; - poprzednia wyszukiwana fraza&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Aktualizacja 23.01.2019:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ctrl + shift + l&lt;/code&gt; - dodaje kursor do każdej linii zaznaczonego tekstu&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;shift + alt + ↑, ↓&lt;/code&gt; - po każdym naciśnięciu &lt;code&gt;↑&lt;/code&gt; lub &lt;code&gt;↓&lt;/code&gt; dodaje kolejny kursor do linii powyżej lub poniżej bieżącej używanej linii&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Mam nadzieje, że będzie to dla Was pomocne. Do zobaczenia następnym razem!&lt;/p&gt;
-</description>
-        <pubDate>Thu, 23 Feb 2017 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/pl/sublime</link>
-        <guid isPermaLink="true">https://womanonrails.com/pl/sublime</guid>
-        
-        <category>IDE</category>
-        
-        <category>edytor tekstowy</category>
-        
-        
-        <category>narzędzia</category>
         
       </item>
     

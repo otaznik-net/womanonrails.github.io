@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Kolejność wykonywania działań w Ruby",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/operator-precedence-ruby",
+		  "date"       : "2019-03-25 00:00:00 -0400",
+		  "shortdate"  : "March 25, 2019"
+		} ,
+	
+		{
 		  "title"      : "Global Game Jam Cieszyn 2019",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/global-game-jam-2019",
