@@ -5,25 +5,25 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 27 Mar 2019 11:56:35 -0400</pubDate>
-    <lastBuildDate>Wed, 27 Mar 2019 11:56:35 -0400</lastBuildDate>
+    <pubDate>Wed, 03 Apr 2019 03:33:53 -0400</pubDate>
+    <lastBuildDate>Wed, 03 Apr 2019 03:33:53 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
     
       
       <item>
         <title>Operator precedence in Ruby</title>
-        <description>&lt;p&gt;Order of math operations is very important in programming language. If you don&amp;#39;t know it well, you can get completely different results, then you expect. And your code can be just wrong. You need to know the rules. Is the order similar like in math? Or maybe the algebraic expression is interpreted from left to right? Do you know how this looks like in Ruby? Let&amp;#39;s check it.&lt;/p&gt;
+        <description>&lt;p&gt;Order of math operations is very important in programming language. If you don&amp;#39;t know it well, you can get completely different results, than you expect. And your code can be just wrong. You need to know the rules. Is the order similar like in math? Or maybe the algebraic expression is interpreted from left to right? Do you know how does this look like in Ruby? Let&amp;#39;s check it.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is not 8. It is 6. You can see here that multiplication is &lt;em&gt;stronger&lt;/em&gt; then addition. In this case we will say that multiplication has &lt;strong&gt;higher operator precedence&lt;/strong&gt; then addition. This is exactly the same like we learned in school on Math classes. To show you this more precisely, we have:&lt;/p&gt;
+&lt;p&gt;This is not 8. It is 6. You can see here that multiplication is &lt;em&gt;stronger&lt;/em&gt; then addition. In this case we will say that multiplication has &lt;strong&gt;higher operator precedence&lt;/strong&gt; then addition. This is exactly the same like we have learned at school on Math classes. To show you this more precisely, we have:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
 
 &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;OK, but how I will know that? There are many different operators. Well, you need to remember the table of operators order, from &lt;a href=&quot;https://ruby-doc.org/core-2.2.0/doc/syntax/precedence_rdoc.html&quot; title=&quot;Ruby documentation - operators precedence&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Ruby docs&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;OK, but how will I know that? There are many different operators. Well, you need to remember the table of operators order, from &lt;a href=&quot;https://ruby-doc.org/core-2.2.0/doc/syntax/precedence_rdoc.html&quot; title=&quot;Ruby documentation - operators precedence&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Ruby docs&lt;/a&gt;:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;unary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;
@@ -59,7 +59,7 @@
 &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;On the first look, logic is the same, but we get different results. But when you take a look closely, you will see the difference. Order of calculations. In first example order looks like &lt;code&gt;(1 || (2 &amp;amp;&amp;amp; nil))&lt;/code&gt;. We get &lt;code&gt;nil&lt;/code&gt; from &lt;code&gt;2 &amp;amp;&amp;amp; nil&lt;/code&gt;. And then we have &lt;code&gt;1 || nil&lt;/code&gt; so this is &lt;code&gt;1&lt;/code&gt;. Well, I lied a little bit here. Our interpreter is smarter, than you can think of. Because we have this &lt;code&gt;||&lt;/code&gt; operator. It has been truthy always when left hand side is truthy, so it checks only the first part of our expression. Check here:&lt;/p&gt;
+&lt;p&gt;On the first look, logic is the same, but we get different results. But when you take a look closely, you will see the difference. Order of calculations. In the first example, the order looks like &lt;code&gt;(1 || (2 &amp;amp;&amp;amp; nil))&lt;/code&gt;. We get &lt;code&gt;nil&lt;/code&gt; from &lt;code&gt;2 &amp;amp;&amp;amp; nil&lt;/code&gt;. And then we have &lt;code&gt;1 || nil&lt;/code&gt; so this is &lt;code&gt;1&lt;/code&gt;. Well, I lied a little bit here. Our interpreter is smarter, than you can think of. Because we have this &lt;code&gt;||&lt;/code&gt; operator. It has been truthy always when left hand side is truthy, so it checks only the first part of our expression. Check here:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
 
@@ -78,7 +78,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In the second example &lt;code&gt;1 or 2 and nil&lt;/code&gt; order of operations is completely opposite: &lt;code&gt;((1 or 2) and nil)&lt;/code&gt;. First,  we check &lt;code&gt;1 or 2&lt;/code&gt;. We get &lt;code&gt;1&lt;/code&gt; and then we check &lt;code&gt;1 and nil&lt;/code&gt;, so the final result is &lt;code&gt;nil&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;To better understand the differences between these two notations, let&amp;#39;s check all possibilities here in table:&lt;/p&gt;
+&lt;p&gt;To understand better the differences between these two notations, let&amp;#39;s check all possibilities here in table:&lt;/p&gt;
 
 &lt;table class='table'&gt;
   &lt;thead&gt;
@@ -165,10 +165,10 @@
 &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Both of this logic expressions give us &lt;code&gt;2&lt;/code&gt; as truthy result. But there is one difference here. In first case &lt;code&gt;foo&lt;/code&gt; equal to &lt;code&gt;2&lt;/code&gt; and in second example &lt;code&gt;foo&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;. This is related, of course, with operator precedence. Because &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; has higher precedence than &lt;code&gt;=&lt;/code&gt; in the first example we have:&lt;/p&gt;
+&lt;p&gt;Both of this logic expressions give us &lt;code&gt;2&lt;/code&gt; as truthy result. But there is one difference here. In first case &lt;code&gt;foo&lt;/code&gt; equals to &lt;code&gt;2&lt;/code&gt; and in second example &lt;code&gt;foo&lt;/code&gt; is &lt;code&gt;1&lt;/code&gt;. This is related, of course, with operator precedence. Because &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt; has higher precedence than &lt;code&gt;=&lt;/code&gt; in the first example we have:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In second example order of those operations is different. &lt;code&gt;=&lt;/code&gt; has higher precedence, then &lt;code&gt;and&lt;/code&gt; so we have:&lt;/p&gt;
+&lt;p&gt;In second example,  order of those operations is different. &lt;code&gt;=&lt;/code&gt; has higher precedence, then &lt;code&gt;and&lt;/code&gt; so we have:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Similar behavior we will see for &lt;code&gt;||&lt;/code&gt; and &lt;code&gt;or&lt;/code&gt; operators. This will be visible only, when the first part of the expression will be &lt;code&gt;false&lt;/code&gt; or &lt;em&gt;falsy&lt;/em&gt; value. For truthy value, we will see no difference. Both expressions will behave the same:&lt;/p&gt;
@@ -194,7 +194,7 @@
 &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I would like to explain, why we don&amp;#39;t see any difference. For &lt;code&gt;foo = 1 || 2&lt;/code&gt; we should set brackets like this &lt;code&gt;foo = (1 || 2)&lt;/code&gt;. From logical condition &lt;code&gt;||&lt;/code&gt;, we get &lt;code&gt;1&lt;/code&gt; and we assign it to go&lt;code&gt;. In a second example&lt;/code&gt;foo = 1 or 2`, first, we do the assignment and then we check the condition. The result is the same, but order of those operations is different. This is worth to be remember!&lt;/p&gt;
+&lt;p&gt;I would like to explain, why we don&amp;#39;t see any difference. For &lt;code&gt;foo = 1 || 2&lt;/code&gt; we should set brackets like this &lt;code&gt;foo = (1 || 2)&lt;/code&gt;. From logical condition &lt;code&gt;||&lt;/code&gt;, we get &lt;code&gt;1&lt;/code&gt; and we assign it to go&lt;code&gt;. In a second example&lt;/code&gt;foo = 1 or 2`, first, we do the assignment and then we check the condition. The result is the same, but order of those operations is different. This is worth to be remembered!&lt;/p&gt;
 
 &lt;p&gt;In the end of this section, I would like to show you one more example. I think, it is a very interesting one. It is more complex because it uses  &lt;code&gt;=&lt;/code&gt;, &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code&gt;and&lt;/code&gt; and &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
@@ -207,7 +207,7 @@
 &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;1&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;13&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Let&amp;#39;s go step by step to understand, what is going on here. In the first example we have &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;. We know that, it has quite high precedence, but predecence for &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; is higher, than &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;. So the order of calculations here looks like: &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; (s &amp;lt;&amp;lt; &amp;#39;3&amp;#39;))&lt;/code&gt;. First, we concat &lt;code&gt;&amp;#39;3&amp;#39;&lt;/code&gt; to string. We get &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; &amp;#39;23&amp;#39;)&lt;/code&gt;. Now we do &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, so the result is &lt;code&gt;&amp;#39;23&amp;#39;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s go step by step to understand, what is going on in here. In the first example we have &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;. We know that, it has quite high precedence, but predecence for &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt; is higher, than &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;. So the order of calculations here looks like: &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; (s &amp;lt;&amp;lt; &amp;#39;3&amp;#39;))&lt;/code&gt;. First, we concat &lt;code&gt;&amp;#39;3&amp;#39;&lt;/code&gt; to string. We get &lt;code&gt;s = (&amp;#39;1&amp;#39; &amp;amp;&amp;amp; &amp;#39;23&amp;#39;)&lt;/code&gt;. Now we do &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, so the result is &lt;code&gt;&amp;#39;23&amp;#39;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;In the second example we have order like &lt;code&gt;(s = &amp;#39;1&amp;#39;) and (s &amp;lt;&amp;lt; &amp;#39;3&amp;#39;)&lt;/code&gt;. We start from assignments. So &lt;code&gt;s&lt;/code&gt; is now &lt;code&gt;&amp;#39;1&amp;#39;&lt;/code&gt; not &lt;code&gt;&amp;#39;2&amp;#39;&lt;/code&gt;. Then we calculate right hand side part and we get &lt;code&gt;&amp;#39;1&amp;#39; and &amp;#39;13&amp;#39;&lt;/code&gt;, so the final result is &lt;code&gt;&amp;#39;13&amp;#39;&lt;/code&gt;.&lt;/p&gt;
 
@@ -240,7 +240,7 @@
 &lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In the example 3 you can notice different behavior. As we already know, the order will be &lt;code&gt;method(&amp;#39;a&amp;#39;) or &amp;#39;b&amp;#39;&lt;/code&gt;. This is why we see &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt; in text, but then we need to finish this logical expression. Because our method return &lt;code&gt;nil&lt;/code&gt; and this is &lt;em&gt;falsy&lt;/em&gt; value, we have &lt;code&gt;nil or &amp;#39;b&amp;#39;&lt;/code&gt;. In the end, we see &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt; is returned, not from the method, but from all expression.&lt;/p&gt;
+&lt;p&gt;In the example 3 you can notice a different behavior. As we already know, the order will be &lt;code&gt;method(&amp;#39;a&amp;#39;) or &amp;#39;b&amp;#39;&lt;/code&gt;. This is why we see &lt;code&gt;&amp;#39;a&amp;#39;&lt;/code&gt; in text, but then we need to finish this logical expression. Because our method return &lt;code&gt;nil&lt;/code&gt; and this is &lt;em&gt;falsy&lt;/em&gt; value, we have &lt;code&gt;nil or &amp;#39;b&amp;#39;&lt;/code&gt;. In the end, we see &lt;code&gt;&amp;#39;b&amp;#39;&lt;/code&gt; is returned, not from the method, but from all expression.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# example 4&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;a&amp;#39;&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;b&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;My&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
@@ -271,13 +271,13 @@
 &lt;span class=&quot;sb&quot;&gt;method1 || method2 &amp;#39;foo&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;sb&quot;&gt;                   ^&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Something went wrong. We got an error. This is because of precedence. Order of operations in this case is: &lt;code&gt;(method1 || method2) &amp;#39;foo&amp;#39;&lt;/code&gt;. We can show it in a more descriptive way &lt;code&gt;(method1() || method2()) &amp;#39;foo&amp;#39;&lt;/code&gt;. Our interpreter don&amp;#39;t now what to do because of two reasons. One, &lt;code&gt;method2&lt;/code&gt; should have one argument and it didn&amp;#39;t get any. And the second one, more important, which we see in the error message. Interpreter see some &lt;em&gt;free&lt;/em&gt; text &lt;code&gt;&amp;#39;foo&amp;#39;&lt;/code&gt; without any operator in the same line with calling methods. To fix that, we need to say explicitly, what we want: &lt;code&gt;method1 || method2(&amp;#39;foo&amp;#39;)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Something went wrong. We got an error. This is because of precedence. Order of operations in this case is: &lt;code&gt;(method1 || method2) &amp;#39;foo&amp;#39;&lt;/code&gt;. We can show it in a more descriptive way &lt;code&gt;(method1() || method2()) &amp;#39;foo&amp;#39;&lt;/code&gt;. Our interpreter doesn&amp;#39;t know what to do because of two reasons. One, &lt;code&gt;method2&lt;/code&gt; should have one argument and it didn&amp;#39;t get any. And the second one, more important, which we see in the error message. Interpreter see some &lt;em&gt;free&lt;/em&gt; text &lt;code&gt;&amp;#39;foo&amp;#39;&lt;/code&gt; without any operator in the same line with calling methods. To fix that, we need to say explicitly, what we want: &lt;code&gt;method1 || method2(&amp;#39;foo&amp;#39;)&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;The same problem you will get when instead of &lt;code&gt;method2&lt;/code&gt; you will use &lt;code&gt;raise&lt;/code&gt; or &lt;code&gt;return&lt;/code&gt; or any other method. If you like, just play a little bit with them.&lt;/p&gt;
 
 &lt;h3&gt;Blocks&lt;/h3&gt;
 
-&lt;p&gt;Time for blocks. We need to be aware that &lt;strong&gt;blocks with &lt;code&gt;{}&lt;/code&gt; have higher precedence than blocks &lt;code&gt;do ... end&lt;/code&gt;&lt;/strong&gt;. This is not exactly specified in our order table, but in the documentation, you can find a small note about it. So, let&amp;#39;s check this out. We will prepare two methods with blocks. In one we will call the block with &lt;code&gt;{}&lt;/code&gt; and in second with &lt;code&gt;do ... end&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Time for blocks. We need to be aware that &lt;strong&gt;blocks with &lt;code&gt;{}&lt;/code&gt; have higher precedence than blocks &lt;code&gt;do ... end&lt;/code&gt;&lt;/strong&gt;. This is not exactly specified in our order table, but in the documentation, you can find a small note about it. So, let&amp;#39;s check this out. We will prepare two methods with blocks. In one we will call the block with &lt;code&gt;{}&lt;/code&gt; and in the second with &lt;code&gt;do ... end&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{},&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Foo has block: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;block_given?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
@@ -298,14 +298,14 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;In the example one, the order is like here: &lt;code&gt;foo(a: (bar { 1 }))&lt;/code&gt;. First, we will call &lt;code&gt;bar&lt;/code&gt; method with a block. It will return &lt;code&gt;nil&lt;/code&gt; and then we will call method &lt;code&gt;foo&lt;/code&gt; with only hash parameter. It will look like this: &lt;code&gt;foo(a: nil)&lt;/code&gt;. So, this is why we don&amp;#39;t get a block in method &lt;code&gt;foo&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;In second example order is different: &lt;code&gt;foo(a: bar) do 1 end&lt;/code&gt;. It will be even better, to split it into separate lines. &lt;/p&gt;
+&lt;p&gt;In second example the order is different: &lt;code&gt;foo(a: bar) do 1 end&lt;/code&gt;. It will be even better, to split it into separate lines.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
   &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;At first we call method &lt;code&gt;bar&lt;/code&gt;, but without any arguments and without block. This is why we see in text: &lt;code&gt;&amp;quot;Bar has block: false&amp;quot;&lt;/code&gt;. Then we call method &lt;code&gt;foo&lt;/code&gt; with hash &lt;code&gt;{ a: nil }&lt;/code&gt; as &lt;code&gt;options&lt;/code&gt; and with block. We could even omit this hash parameter in the call of these two methods. It will be working the same. At least for displaying text on a screen. You can try, to do that your own &lt;code&gt;foo bar { 1 }&lt;/code&gt; and &lt;code&gt;foo bar do 1 end&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;At first, we call method &lt;code&gt;bar&lt;/code&gt;, but without any arguments and without a block. This is why we see this in the text: &lt;code&gt;&amp;quot;Bar has block: false&amp;quot;&lt;/code&gt;. Then we call method &lt;code&gt;foo&lt;/code&gt; with hash &lt;code&gt;{ a: nil }&lt;/code&gt; as &lt;code&gt;options&lt;/code&gt; and with block. We could even omit this hash parameter in the call of these two methods. It would be working the same. At least for displaying text on a screen. You can try to do that your own &lt;code&gt;foo bar { 1 }&lt;/code&gt; and &lt;code&gt;foo bar do 1 end&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Others examples&lt;/h3&gt;
+&lt;h3&gt;Other examples&lt;/h3&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
@@ -346,8 +346,8 @@
 
 &lt;ul&gt;
 &lt;li&gt;Be aware of operators precedence in Ruby.&lt;/li&gt;
-&lt;li&gt;If you are not sure about precedence, put the right brackets or even better check in the documentation. Do tests also ;]&lt;/li&gt;
-&lt;li&gt;Sometimes, even I know precedences in Ruby, I like to leave brackets. It is more readable for me. Like here: &lt;code&gt;method(&amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;)&lt;/code&gt;. I know that this notation &lt;code&gt;method &amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;&lt;/code&gt; is correct and do exactly, what I want, but I like to be more specific here. This is more &lt;strong&gt;&amp;quot;Tell don&amp;#39;t ask&amp;quot;&lt;/strong&gt; approach.&lt;/li&gt;
+&lt;li&gt;If you are not sure about precedence, put the right brackets or even better: check in the documentation.Also do the tests ;]&lt;/li&gt;
+&lt;li&gt;Sometimes, even if I know precedences in Ruby, I like to leave brackets. It is more readable for me. Like here: &lt;code&gt;method(&amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;)&lt;/code&gt;. I know that this notation &lt;code&gt;method &amp;#39;a&amp;#39; &amp;amp;&amp;amp; &amp;#39;b&amp;#39;&lt;/code&gt; is correct and do exactly, what I want, but I like to be more specific here. This is more &lt;strong&gt;&amp;quot;Tell, don&amp;#39;t ask&amp;quot;&lt;/strong&gt; approach.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;That&amp;#39;s it. If you have any other precedence examples, which were not mentioned here, feel free to share them in the comments. Thank you for reading and see you next time!&lt;/p&gt;
