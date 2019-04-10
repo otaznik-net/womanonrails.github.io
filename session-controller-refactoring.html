@@ -198,7 +198,7 @@ Description: Awesome dude, awesome life
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>A few weeks ago I worked on code like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -229,7 +229,7 @@ Description: Awesome dude, awesome life
 <p>In this code is bug. When user want to login and send correct email but wrong password, method returns status <code>:created</code>. This mean that user is correctly login. But this is not true, because <code>Session</code> for user wasn’t created.</p>
 
 <p>So, how we can deal with this bug? First we create a test, which show us this bug.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rails_helper&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">require</span> <span class="s1">&#39;rails_helper&#39;</span>
 
 <span class="no">RSpec</span><span class="o">.</span><span class="n">describe</span> <span class="no">SessionsController</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:controller</span> <span class="k">do</span>
   <span class="n">describe</span> <span class="s1">&#39;POST #create&#39;</span> <span class="k">do</span>
@@ -241,15 +241,15 @@ Description: Awesome dude, awesome life
       <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_http_status</span><span class="p">(</span><span class="ss">:unprocessable_entity</span><span class="p">)</span>
     <span class="k">end</span>
 
-    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+    <span class="o">...</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Test failed. Now we can closely look to this code.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
 </code></pre></div>
 <p>Something strange happened in this line. We call method <code>respond_t</code>o and in this method we call <code>render</code>. On first look we don’t see this because <code>render</code> is hidden in <code>render_user</code> method. So, I decide to remove this method and move <code>render</code> to <code>create</code> method in our controller. For now I create method <code>user</code> where I set correctly user.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -288,7 +288,7 @@ Description: Awesome dude, awesome life
 </ol>
 
 <p>Why we cannot do this refactoring? We can try leave this code better then we found.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -318,10 +318,10 @@ Description: Awesome dude, awesome life
 <p>Tests are still passing. I think this code is better than before but it is not perfect. We can think why we let <code>@user</code> to be <code>nil</code> (when we use <code>find_by</code> method)? I leave here <code>find_by</code> not <code>find</code> or <code>find_by!</code> because this two methods give me exception which I don’t want. <code>ActiveRecord::RecordNotFound</code> exception give me status <code>:not_found</code> but I want <code>:unprocessable_entity</code> status.</p>
 
 <p>Next we can think about</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
 <p>If you not seen I recommend to look on <strong>Sandi Metz</strong> presentation about <strong>Null Object Pattern</strong> (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). We can here create something like <code>TrustedUser</code> and use everywhere objects without checking <code>nil</code>. Then we can come back to simply <code>render</code> and set token in <code>create</code> method. Let’s we see how this can look.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>

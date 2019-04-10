@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Wroclove.rb 2019",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/wrocloverb-2019",
+		  "date"       : "2019-04-05 00:00:00 -0400",
+		  "shortdate"  : "April 05, 2019"
+		} ,
+	
+		{
 		  "title"      : "Operator precedence in Ruby",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/operator-precedence-ruby",
@@ -340,24 +348,24 @@
 		  "title"      : "RuPy",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/rupy",
-		  "date"       : "2013-10-13 19:00:00 -0400",
-		  "shortdate"  : "October 13, 2013"
+		  "date"       : "2013-10-14 00:00:00 +0100",
+		  "shortdate"  : "October 14, 2013"
 		} ,
 	
 		{
 		  "title"      : "Rails Girls Rules",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/rails-girls-rules",
-		  "date"       : "2013-09-07 19:00:00 -0400",
-		  "shortdate"  : "September 07, 2013"
+		  "date"       : "2013-09-08 00:00:00 +0100",
+		  "shortdate"  : "September 08, 2013"
 		} ,
 	
 		{
 		  "title"      : "Introduction",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/introduction",
-		  "date"       : "2013-09-05 19:00:00 -0400",
-		  "shortdate"  : "September 05, 2013"
+		  "date"       : "2013-09-06 00:00:00 +0100",
+		  "shortdate"  : "September 06, 2013"
 		} 
 	
 ]

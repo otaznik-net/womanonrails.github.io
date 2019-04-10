@@ -200,24 +200,24 @@ Description: Awesome dude, awesome life
                         <p>Niedawno miałam sytuację w której pracowałam z różnymi (choć pod pewnymi względami podobnymi) kolekcjami w Ruby. Te kolekcje miały bardzo podobne metody do przeszukiwania względem nazwy. W tym konkretnym przypadku zdecydowałam się na skorzystanie z lambdy. Zobaczcie jak to wyglądało.</p>
 
 <p>Tak wyglądał kod przed zmianą:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@first_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@first_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
   <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name&#39;</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>To nie jest zły kod, ale w innych miejscach można było spotkać coś bardzo podobnego. Przykładowo:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@sedond_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@sedond_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
   <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name1&#39;</span> <span class="o">||</span> <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name2&#39;</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Zdecydowałam się na użycie lambda. Stworzyłam metodę, która generowała mi lambdę dla różnych kolekcji a jako argument otrzymywała nazwy, po których miała przeszukiwać kolekcję. Oto ta metoda:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
   <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|*</span><span class="n">names</span><span class="o">|</span>
     <span class="n">collection</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span> <span class="n">names</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Jak można tego użyć?</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@collection</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@collection</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
 
 <span class="vi">@collection</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
 <span class="vi">@collection</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;name1&#39;</span><span class="p">,</span> <span class="s1">&#39;name2&#39;</span><span class="p">)</span>

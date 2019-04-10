@@ -200,24 +200,24 @@ Description: Awesome dude, awesome life
                         <p>I had situation where I worked with many different (but in some way similar) collections in Ruby. This collections had very similar methods to search elements by name. In this particular example I decided to use lambda. Let me show you how this looks like.</p>
 
 <p>Code which I get looks like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@first_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@first_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
   <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name&#39;</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>This is not bad code but in others places I had similar things. Collections (I mean arrays) and names were only changes. Like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@sedond_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@sedond_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
   <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name1&#39;</span> <span class="o">||</span> <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name2&#39;</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>So I decided to use lambda. I created method which generate lambda for different collections. As an arguments lambda get <code>names</code> of activities to select. Method looks like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
   <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|*</span><span class="n">names</span><span class="o">|</span>
     <span class="n">collection</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span> <span class="n">names</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>When you prepare collection, you can start looking for activities with specific names.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@collection</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@collection</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
 
 <span class="vi">@collection</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
 <span class="vi">@collection</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;name1&#39;</span><span class="p">,</span> <span class="s1">&#39;name2&#39;</span><span class="p">)</span>

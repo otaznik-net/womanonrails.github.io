@@ -200,13 +200,13 @@ Description: Awesome dude, awesome life
                         <p>This will be the first article about refactoring. I love refactoring, so let’s start.</p>
 
 <p>I think that the best way to do this is to put some code on the beginning and then change it. Today I would like to show you a piece of CoffeeScript code:</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="k">if</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="k">if</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span>
   <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 <span class="k">else</span>
   <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
 </code></pre></div>
 <p>This code is simple. I check if number of selected items is same as number of all items. And then I select (or not) a checkbox on a web page. As I said it’s simple but can be improved:</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span><span class="p">)</span>
 </code></pre></div>
 <p>The same functionality in one line. I like this refactoring very much. If You see how can I improve this code, simply let me know.</p>
 

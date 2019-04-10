@@ -198,7 +198,7 @@ Description: Awesome dude, awesome life
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>Kilka tygodni temu pracowałam z następującym kodem:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -229,7 +229,7 @@ Description: Awesome dude, awesome life
 <p>Okazuje się jednak, że kod ten ma błąd. Gdy użytkownik chce się zalogować i poda poprawny email ale błędne hasło, metoda zwróci status <code>:created</code>. Oznacza to, że użytkownik poprawnie się zalogował, co nie jest prawdą. Sesja nie nie została dla niego utworzona.</p>
 
 <p>Jak poradzimy sobie z tym błędem? Wpierw napiszemy test, który wykryje nasz błąd.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">require</span> <span class="s1">&#39;rails_helper&#39;</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">require</span> <span class="s1">&#39;rails_helper&#39;</span>
 
 <span class="no">RSpec</span><span class="o">.</span><span class="n">describe</span> <span class="no">SessionsController</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:controller</span> <span class="k">do</span>
   <span class="n">describe</span> <span class="s1">&#39;POST #create&#39;</span> <span class="k">do</span>
@@ -241,17 +241,17 @@ Description: Awesome dude, awesome life
       <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_http_status</span><span class="p">(</span><span class="ss">:unprocessable_entity</span><span class="p">)</span>
     <span class="k">end</span>
 
-    <span class="o">.</span><span class="n">.</span><span class="o">.</span>
+    <span class="o">...</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Test nie przechodzi. Możemy zacząć działać. Przyjrzyjmy się bliżej naszej klasie.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
 </code></pre></div>
 <p>Coś dziwnego dzieje się w tym kodzie. Wywołujemy metodę <code>respond_to</code>, w której wywołujemy <code>render</code>. Nie widać tego na pierwszy rzut oka ponieważ <code>render</code> ukryty jest w metodzie <code>render_user</code>.</p>
 
 <p>Postanowiłam, że usunę tą metodę i przeniosę <code>render</code> do metody <code>create</code> w naszym kontrolerze. Dodatkowo stworzyłam tymczasowo metodę <code>user</code> by poprawnie był ustawiany użytkownik.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -290,7 +290,7 @@ Description: Awesome dude, awesome life
 </ol>
 
 <p>Dlaczego my nie możemy poprawić tego kodu już teraz? Dlaczego nie zastosować się do zasady zostaw fragment kodu który modyfikujesz lepszym niż go zastałeś.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -320,10 +320,10 @@ Description: Awesome dude, awesome life
 <p>Testy dalej przechodzą. Myślę, że ten kod jest lepszy niż poprzednia wersja ale są rzeczy, które da się jeszcze poprawić. Możemy się zastanowić na przykład nad zmienną <code>@user</code>. Raz jest ona obiektem typu <code>User</code> a raz <code>nil</code> (wynika to z używania metody <code>find_by</code>). Nie używamy tutaj ani <code>find</code> ani <code>find_by!</code> ponieważ status naszej odpowiedzi byłby inny niż oczekujemy. Wyjątek <code>ActiveRecord::RecordNotFound</code> zwróci nam status <code>:not_found</code> a my chcielibśmy <code>:unprocessable_entity</code>.</p>
 
 <p>Natępnie możemy zastanowić się nad warunkiem:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
 </code></pre></div>
 <p>Jeżeli nie widzieliście prezentacji <strong>Sandi Metz</strong> na temat <strong>Null Object Pattern</strong> to polecam (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). Możemy stworzyć klasę <code>TrustedUser</code> i używać wszędzie tego obiektu bez sprawdzania czy mamy przyjemność z <code>nil</code>. Dalej możemy przenieść z powrotem metodę <code>render</code> i ustawiania tokenu do metody <code>create</code>. Zobaczmy jak nasz kod wygląda po zmianach:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>

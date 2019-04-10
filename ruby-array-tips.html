@@ -202,41 +202,41 @@ Description: Awesome dude, awesome life
 <ul>
 <li>Create Array with strings:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sx">%w{ 1 2 3 4 }</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="sx">%w{ 1 2 3 4 }</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="o">]</span>
 </code></pre></div>
 <ul>
 <li>Create Array with the same number:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">[</span><span class="mi">2</span><span class="o">]*</span><span class="mi">5</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="o">[</span><span class="mi">2</span><span class="o">]*</span><span class="mi">5</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
 </code></pre></div>
 <ul>
 <li>Create Array with ordered numbers:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 </code></pre></div>
 <ul>
 <li>Create Array with even numbers:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="n">.</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
 </code></pre></div>
 <ul>
 <li>Show last element in Array:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">array</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span>
  <span class="o">=&gt;</span> <span class="mi">4</span>
 </code></pre></div>
 <ul>
 <li>Show part of Array:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">2</span><span class="o">]</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">2</span><span class="o">]</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="o">.</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="o">]</span>
  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
 <span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
   <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
@@ -244,13 +244,13 @@ Description: Awesome dude, awesome life
 <ul>
 <li>Array decomposition:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">c</span> <span class="o">=&gt;</span> <span class="mi">3</span>
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">c</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
@@ -258,25 +258,25 @@ Description: Awesome dude, awesome life
 <ul>
 <li>Sum all elements in Array:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="n">array</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span>
  <span class="o">=&gt;</span> <span class="mi">10</span>
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span> <span class="p">(</span><span class="k">for</span> <span class="n">parallel</span> <span class="n">calculations</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span> <span class="p">(</span><span class="k">for</span> <span class="n">parallel</span> <span class="n">calculations</span><span class="p">)</span>
  <span class="o">=&gt;</span> <span class="mi">10</span>
 </code></pre></div>
 <ul>
 <li>Removed specific elements from Array:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="n">array</span><span class="o">.</span><span class="n">slice!</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="n">.</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="n">array</span><span class="o">.</span><span class="n">slice!</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">array</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 </code></pre></div>
 <ul>
 <li>Array operations:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># Sum</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># Sum</span>
 <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">|</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
 <span class="c1"># Concatenation</span>
 <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>

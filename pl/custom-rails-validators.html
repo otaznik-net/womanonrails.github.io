@@ -218,7 +218,7 @@ Description: Awesome dude, awesome life
 <h2>Zdecydowałam, więc że stworze swój własny walidator.</h2>
 
 <p>Zajrzałam do dokumentacji i znalazłam <a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">to</a>. Wybrałam <code>ActiveModel::EachValidator</code>, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: <code>validate_each</code>. Całość wyglądała następująco:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/validators/blacklist_validator.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># app/validators/blacklist_validator.rb</span>
 
 <span class="c1"># Validate list of words that can not be use in specifig field</span>
 <span class="k">class</span> <span class="nc">BlacklistValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
@@ -236,20 +236,20 @@ Description: Awesome dude, awesome life
 <h2>Jak to działa?</h2>
 
 <p>Dodaje błąd <code>:on_blacklist</code> do record tylko wtedy gdy value znajduje się na czarnej liście. Plik z czarną listą słów nazwałam <code>blacklist.txt</code> i umieściłam w Railsowym katalogu <code>config</code>. By teraz móc używać tego walidatora wystarczy dodać do naszego modelu:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist</span><span class="p">:</span> <span class="kp">true</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist</span><span class="p">:</span> <span class="kp">true</span>
 </code></pre></div>
 <h2>Zapamiętajcie konwencje:</h2>
 
 <p>Kiedy Wasz walidator nazywa się <code>BlacklistValidator</code> to w modelu używacie parametru do walidacji w następujący sposób: <code>blacklist: true</code>.</p>
 
 <p>To rozwiązanie było dla mnie idealne. Ale co jeżeli chcielibyśmy przekazać do walidatora jakiś dodatkowy parametr. Przykładowo:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
 </code></pre></div>
 <p>To żaden problem. We własnych walidatorach mamy dostęp do zmiennej <code>options</code>, która mówi nam dokładnie jakie parametry zostały przekazane. Jeżeli wywołamy options dla naszego przykładu zobaczymy następujący wynik:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
 </code></pre></div>
 <p>Użyłam tej funkcjonalności, by sprawdzić za pomocą walidatora minimalną długość tablicy:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/validators/array_lenght_validator.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># app/validators/array_lenght_validator.rb</span>
 
 <span class="c1"># Validate if array is not too short</span>
 <span class="k">class</span> <span class="nc">ArrayLenghtValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
@@ -267,12 +267,12 @@ Description: Awesome dude, awesome life
 <p>Na początku sprawdzam, czy w ogóle parametr <code>:minimum</code> został ustawiony. Liczę ilość elementów w tablicy i sprawdzam czy <code>array_size</code> jest mniejsze od <code>minimum</code>. Jeżeli tak jest dodaje do rekordu błąd <code>:too_short_array</code>.</p>
 
 <p>Walidator mogę wywołać następująco:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
 </code></pre></div>
 <p>Została jeszcze jedna kwestia do omówienia. <strong>W jaki sposób dodać tłumaczenia błędów w katalogu <code>locales</code>?</strong></p>
 
 <p>Używamy konwencji w Rails. Poniżej przedstawiam jeden ze sposobów (inne możliwości dostępne w dokumentacji <a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">pl:
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>pl:
   activerecord:
     errors:
       models:

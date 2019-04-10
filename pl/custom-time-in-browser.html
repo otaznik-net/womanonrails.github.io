@@ -202,13 +202,13 @@ Description: Awesome dude, awesome life
 <p>Pracuję w projekcie, gdzie używamy zewnętrznego API dla danych pogodowych, które później wyświetlamy użytkownikowi. Był tam pewien błąd z brakującymi wartościami dla konkretnych przedziałów czasowych. Gdy użytkownik prosił o dane z października, brakowało mu zawsze ostatniego dnia (31.10). Natomiast prosząc o dane z września wszystko działało poprawnie. Okazało się, że problem wynikał z przesunięcia czasu związanego z przejściem z czasu letniego (CEST) na czas zimowy (CET). W 2018 roku odbyło się to 28-go października. Brakująca godzina zmieniała się na końcu miesiąca w brakujący dzień. Problem naprawiłam, ale chciałam być pewna na 100%, że nie wystąpi on też dla innych stref czasowych, również poza Europą. Zaplanowałam sobie sesję testów manualnych. Oczywiście, na naszych komputerach jest możliwość zmiany ustawień czasu zarówno w systemie jak i dla przeglądarki. Nie chciałam jednak tego robić. Podczas ostatniej takiej próby mój kalendarz pokazywał błędne godziny, a powiadomienia o spotkaniach przychodziły po ich zakończeniu. Nauczona na błędach szukałam innego rozwiązania.</p>
 
 <p>Z pomocą, jak zawsze, przyszedł Google. Znalazłam tam bardzo fajne rozwiązanie mojego problemu dla przeglądarki Chrome. Wystarczy stworzyć katalog dla nowego profilu przeglądarki (nazwa jest całkowicie dowolna ja wybrałam <code>chrome-profile</code>):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir <span class="nv">$HOME</span>/chrome-profile
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>mkdir <span class="nv">$HOME</span>/chrome-profile
 </code></pre></div>
 <p>następnie wybrać strefę czasową i wpisać ją do zmiennej środowiskowej <code>TZ</code> (skrót od time zone):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">TZ</span><span class="o">=</span><span class="s1">&#39;US/Pacific&#39;</span> google-chrome <span class="s2">&quot;--user-data-dir=$HOME/chrome-profile&quot;</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">TZ</span><span class="o">=</span><span class="s1">&#39;US/Pacific&#39;</span> google-chrome <span class="s2">&quot;--user-data-dir=</span><span class="nv">$HOME</span><span class="s2">/chrome-profile&quot;</span>
 </code></pre></div>
 <p>po pracy wystarczy skasować katalog tego profilu:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">rm -rf <span class="nv">$HOME</span>/chrome-profile
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rm -rf <span class="nv">$HOME</span>/chrome-profile
 </code></pre></div>
 <p>To wszystko! Możesz uruchomić przeglądarkę w różnych strefach czasowych nie zmieniając swoich ustawień. Chciałabym zwrócić tutaj uwagę na jedną drobną rzecz. Musisz znać <strong>dokładną nazwę strefy czasowej</strong>. To jest szczególnie ważne dla osób takich jak ja, które robią dużo literówek. W przypadku złej nazwy strefy przeglądarka otworzy się <strong>bez żadnych błędów</strong>, ale będzie miała ustawioną Twoją <strong>standardową strefę czasową</strong>.</p>
 

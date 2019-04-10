@@ -222,7 +222,7 @@ Description: Awesome dude, awesome life
 <p>Base on tests without going deep into logic, I made some improvements in the code. I removed some condition and simplified this code.</p>
 
 <p>Code before change:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="k">if</span> <span class="n">straight?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="n">flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="k">return</span> <span class="kp">true</span>
   <span class="k">else</span>
@@ -231,7 +231,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div>
 <p>Code after change:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="n">straight?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -244,7 +244,7 @@ Description: Awesome dude, awesome life
 <p>Now when code is more readable, I can start changing the logic to simplify it. I have tests, so each of my changes relies on tests. I took the first method. I removed it (remove all content inside). And start from the beginning. This is what I got.</p>
 
 <p>Code before change:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="n">tmp</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">clone</span>
   <span class="n">tmp</span><span class="o">.</span><span class="n">collect!</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
 
@@ -264,7 +264,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div>
 <p>Code after:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -384,20 +384,20 @@ Description: Awesome dude, awesome life
 <p>For more explanation of poker rules, please check <a href="https://en.wikipedia.org/wiki/List_of_poker_hands" title="Poker hands" target="_blank" rel="nofollow noopener noreferrer">wiki page to list all of poker hands</a>.</p>
 
 <p>We add an initializer:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
   <span class="vi">@cards</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Example of a method before change:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">three_of_a_kind?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">three_of_a_kind?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>After:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">three_of_a_kind?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">three_of_a_kind?</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -420,28 +420,28 @@ Description: Awesome dude, awesome life
 <p>Base on Reek metric I noticed a lot of duplication in code. So I decided to move this code to one method and use the state of the class&#39; instance one more time. You can find the whole step <a href="https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb" title="Code after 5th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>. And this is a quick overview.</p>
 
 <p>We change the initalizer:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
   <span class="vi">@cards</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
   <span class="vi">@frequency</span> <span class="o">=</span> <span class="n">cards_frequency</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>New method <code>cards_frequency</code>:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_frequency</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">cards_frequency</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Example of a method before change:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>After:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
   <span class="vi">@frequency</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -472,32 +472,32 @@ Description: Awesome dude, awesome life
 <h1>Step 7 - More clean ups</h1>
 
 <p>This step is similar to step 5. I removed more duplication in code and decided to change names to be more specific. I created new method <code>cards_figures_and_colors</code> which prepare now two things: <code>figures</code> and <code>colors</code>. You can say now: <em>where is <strong>Single responsibility principle</strong> or that is <strong>micro optimalization</strong></em> because now I use only one loop instead 2. My intuition tells me that this is ok. But you can have a different opinion. That&#39;s fine for me. I respect that. This is how this method looks like:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_figures_and_colors</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">cards_figures_and_colors</span>
   <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">4</span><span class="o">]</span> <span class="p">}</span><span class="o">.</span><span class="n">transpose</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>and I&#39;m open to discuss if this was a good or bad step. This change affects also our <code>initialize</code> method:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
   <span class="vi">@figures</span><span class="p">,</span> <span class="vi">@colors</span> <span class="o">=</span> <span class="n">cards_figures_and_colors</span>
   <span class="vi">@frequency</span> <span class="o">=</span> <span class="n">cards_frequency</span><span class="o">.</span><span class="n">values</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>In this step I also did change in method <code>cards_frequency</code>. I used there <code>each_with_object</code> (you can find more about this method in my article <a href="https://womanonrails.com/each-with-object" title="Quick overview Ruby of each_with_object method">Quick overview - each_with_object method</a>) instead of <code>each</code> like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_frequency</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">cards_frequency</span>
   <span class="vi">@figures</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="nb">hash</span><span class="o">|</span>
     <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Thanks to <code>@colors</code> instance variable I can change <code>flush?</code> method from:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">flush?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">flush?</span>
   <span class="n">color</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">4</span> <span class="p">}</span>
   <span class="n">color</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>to:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">flush?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">flush?</span>
   <span class="vi">@colors</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
 <span class="k">end</span>
 </code></pre></div>

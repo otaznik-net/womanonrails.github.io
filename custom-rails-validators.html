@@ -218,7 +218,7 @@ Description: Awesome dude, awesome life
 <h2>So I decide to do my own validator.</h2>
 
 <p>I look to documentation and I find <a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">this</a>. I choosed <code>ActiveModel::EachValidator</code> where I have access to whole record, specific attribute to check and the value of this attribute. This was all I needed. To do my custom validator I must only write one method: <code>validate_each</code>. It look like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/validators/blacklist_validator.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># app/validators/blacklist_validator.rb</span>
 
 <span class="c1"># Validate list of words that can not be use in specifig field</span>
 <span class="k">class</span> <span class="nc">BlacklistValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
@@ -236,20 +236,20 @@ Description: Awesome dude, awesome life
 <h2>How this works?</h2>
 
 <p>I add error <code>:on_blacklist</code> to record when value is located on black list. I put my black list – <code>blacklist.txt</code> – in Rails <code>config</code> directory. To use this validator we put something like this in our model:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist</span><span class="p">:</span> <span class="kp">true</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist</span><span class="p">:</span> <span class="kp">true</span>
 </code></pre></div>
 <h2>Remember convention:</h2>
 
 <p>When your valdator class is named <code>BlacklistValidator</code> then in your model you use <code>blacklist: true</code> parameter.</p>
 
 <p>This was perfect for me, but what about put some custom parameters to validator? Something like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
 </code></pre></div>
 <p>This is not a problem. In custom validators you have available something like <code>options</code>, where you have access to all custom parameters. When you call <code>options</code> for our example you see:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
 </code></pre></div>
 <p>I use this for array validator, where I check size of array:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># app/validators/array_lenght_validator.rb</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># app/validators/array_lenght_validator.rb</span>
 
 <span class="c1"># Validate if array is not too short</span>
 <span class="k">class</span> <span class="nc">ArrayLenghtValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
@@ -267,12 +267,12 @@ Description: Awesome dude, awesome life
 <p>I check if <code>:minimum</code> parameter is set. I count number of elements in array. If <code>array_size</code> is lower then <code>minimum</code> size, I add error <code>:too_short_array</code> to record.</p>
 
 <p>I can call this validator like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
 </code></pre></div>
 <p>It is one more think to say. <strong>How put translation to our validators in <code>locales</code>?</strong></p>
 
 <p>We use Rails Convention. This is one but not only way to do this (all convention is explain in <a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">en:
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>en:
   activerecord:
     errors:
       models:

@@ -200,19 +200,19 @@ Description: Awesome dude, awesome life
                         <p>I worked in last a few days with <code>each_with_object</code> method. Every time when I would like to use some method in Ruby I try read documentation one more time and I look on some example of usage. This time I went through <a href="https://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object">APIdock</a> and I noticed that in theirs documentation is missing one very nice example of usage <code>each_with_object</code> method. I tried to add this missing part there, but without success. In meantime when I&#39;m waiting for message from APIdoc support I decided to write short note here about this.</p>
 
 <p>The most useful and I think the most popular usage of <code>each_with_object</code> is putting hash or array as an argument. You can do this like in example below:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
   hash[item] = item.to_s.upcase
 end
  =&gt; {:foo=&gt;&quot;FOO&quot;, :bar=&gt;&quot;BAR&quot;, :jazz=&gt;&quot;JAZZ&quot;}
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).each_with_object([]) do |item, array|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).each_with_object([]) do |item, array|
   array &lt;&lt; item ** 2
 end
  =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </code></pre></div>
 <p>I know this examples are trivial, but they show main rules. You don&#39;t need to declare array or hash before your loops for example like this:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">array = []
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>array = []
 (1..10).each do |item|
   array &lt;&lt; item ** 2
 end
@@ -220,17 +220,17 @@ array
  =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </code></pre></div>
 <p>I know this example can be also replace with <code>map</code> use case. Like this:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).map { |item| item ** 2 }
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).map { |item| item ** 2 }
  =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </code></pre></div>
 <p>Other nice example of <code>each_with_object</code> usage is frequency hash:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">[&#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;one&#39;].each_with_object(Hash.new(0)) do |item, hash|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>[&#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;one&#39;].each_with_object(Hash.new(0)) do |item, hash|
   hash[item] += 1
 end
  =&gt; {&quot;one&quot;=&gt;3, &quot;two&quot;=&gt;1}
 </code></pre></div>
 <p>In this case we use hash with default value set to <code>0</code> and now counting occurrence is easy and quick. You don&#39;t need to do <code>if</code> statement to be sure that you are nil safe like this:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">if hash[item]
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>if hash[item]
   hash[item] += 1
 else
   hash[item] = 0
@@ -239,33 +239,33 @@ end
 <p><strong>Important note</strong></p>
 
 <p>You cannot use immutable objects like numbers. Example below does not return 55 but 0.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).each_with_object(0) do |item, sum|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).each_with_object(0) do |item, sum|
   sum += item
 end
  =&gt; 0
 </code></pre></div>
 <p>Yes, we can do that in different way:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).reduce(:+)
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).reduce(:+)
  =&gt; 55
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).inject(:+)
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).inject(:+)
  =&gt; 55
 </code></pre></div>
 <p>or in Rails:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).sum
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).sum
  =&gt; 55
 </code></pre></div>
 <p>By the way, what is difference between <code>reduce</code> and <code>inject</code>? There is no difference. This two methods are <a href="http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject">aliases</a>.</p>
 
 <p>In this place we should add one more thing. <code>inject</code> method we can use similar to <code>each_with_object</code> but order of arguments in block is different and we need always remember to put in last line of block our accumulator value. Look here:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">(1..10).inject([]) do |array, item|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).inject([]) do |array, item|
   array &lt;&lt; item ** 2
 end
  =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </code></pre></div>
 <p>or</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">[:foo, :bar, :jazz].inject({}) do |hash, item|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>[:foo, :bar, :jazz].inject({}) do |hash, item|
   hash[item] = item.to_s.upcase
   hash
 end
@@ -276,13 +276,13 @@ end
 <p>When we use <code>array &lt;&lt; item ** 2</code> this command always returns all array, but for this second example <code>hash[item] = item.to_s.upcase</code> returns <code>item.to_s.upcase</code> not all <code>hash</code> so we need to remember about adding <code>hash</code> on the end.</p>
 
 <p>And now the missing part for <code>each_with_object</code>. You can use this method also on hash not only on arrays or enumerators. This looks a little bit different than before. Let I show you:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
   hash[key] = value**2
 end
  =&gt; {:foo=&gt;1, :bar=&gt;4, :jazz=&gt;9}
 </code></pre></div>
 <p>or like this</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
   array &lt;&lt; { id: value, name: key }
 end
  =&gt; [{:id=&gt;1, :name=&gt;:foo}, {:id=&gt;2, :name=&gt;:bar}, {:id=&gt;3, :name=&gt;:jazz}]

@@ -227,35 +227,35 @@ Description: Awesome dude, awesome life
 
 <ol>
 <li><p>Switch to develop branch</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout develop
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git checkout develop
 </code></pre></div></li>
 <li><p>Download all changes locally</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git pull
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git pull
 </code></pre></div></li>
 <li><p>Switch to specific branch (branch on which you work)</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout my-branch
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git checkout my-branch
 </code></pre></div></li>
 <li><p>Do rebase</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git rebase develop
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase develop
 </code></pre></div></li>
 <li><p>Push changes to remote repository</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git push
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git push
 </code></pre></div></li>
 </ol>
 
 <p>Sometimes when you use rebase, then it can show some conflicts. You need to resolved them and add changes. Then you can continue rebase.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git rebase develop
-<span class="c"># resolve conflicts</span>
-git add -u <span class="c"># add all changes</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase develop
+<span class="c1"># resolve conflicts</span>
+git add -u <span class="c1"># add all changes</span>
 git rebase --continue
 </code></pre></div>
 <p>We need to talk about one more thing. Sometimes we have our code on remote repository and after rebase we cannot do <code>git push</code>. In this case we can use:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git push -f origin my-branch
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git push -f origin my-branch
 </code></pre></div>
 <p>But! You need to be very <strong>careful</strong>. This command will override all history of change on remote repository for your branch. You must be sure that you don&#39;t lose any change. If you work on branch alone, it is safe but when you work on branch with others you need to be sure what you doing.</p>
 
 <p>If you like to abort rebase. You can do that in this way.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">git rebase --abort
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase --abort
 </code></pre></div>
 <p>This is it. I showed you how you can use <code>git rebase</code>. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!</p>
 

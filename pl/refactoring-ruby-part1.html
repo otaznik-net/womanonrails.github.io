@@ -198,7 +198,7 @@ Description: Awesome dude, awesome life
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>Tym razem będę zmieniać kody Ruby. Mój mały potwór wygląda następująco:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">sum_array</span> <span class="o">=</span>  <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span>
     <span class="o">[</span><span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">column</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
   <span class="k">end</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span> <span class="p">}</span>
@@ -208,7 +208,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div>
 <p>Jeżeli na pierwszy rzut oka wiecie co ten kod robi, macie moje wyrazy szacunku. Ja osobiście stwierdzam, że ten kod jest straszny i muszę coś z nim zrobić. Dobrze, zacznijmy od początku. Metoda ta pobiera dane w postaci tablicy tablic liczby naturalnych np. <code>[[1, 2, 3], [4, 5, 6]]</code> . Następnie grupuje je względem pierwszej i ostatniej kolumny i sumuje po środkowej. Gdy macie dane jak te:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span>
@@ -217,14 +217,14 @@ Description: Awesome dude, awesome life
 <span class="o">]</span>
 </code></pre></div>
 <p>to metoda zwraca:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">result</span> <span class="o">=</span> <span class="o">[</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">[</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>
 <span class="o">]</span>
 </code></pre></div>
 <p>Zacznijmy zmiany. Metoda ta zwraca tablicę podobną do result. Zadeklarujmy więc tablicę na początku. Później pogrupujmy nasze dane po pierwszej i ostatniej kolumnie. Na koniec w pętli zsumujmy kolumnę środkową i zwróćmy dane w tablicy. Teraz metoda ta wygląda tak:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
   <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="o">[</span><span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">column</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span> <span class="p">}</span>
   <span class="n">grouped_data</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
@@ -235,7 +235,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div>
 <p>Po tych zmianach doszłam do wniosku, że kolejność kolumn w danych wejściowych i wyjściowych nie ma dla mnie znaczenia. Oto jak wyglądają obecnie:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
   <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
@@ -250,9 +250,9 @@ Description: Awesome dude, awesome life
 <span class="o">]</span>
 </code></pre></div>
 <p>Metoda zmieniła się tylko odrobinę:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
   <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
-  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
+  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
   <span class="n">grouped_data</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
     <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">))</span>
   <span class="k">end</span>
@@ -260,8 +260,8 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div>
 <p>Teraz kod ten wygląda lepiej, ale czy da się jeszcze coś ulepszyć? Zobaczmy… może zamienimy each na map:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">.</span><span class="n">.</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
   <span class="n">grouped_data</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="o">[*</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span><span class="o">]</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div>

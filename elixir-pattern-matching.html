@@ -204,15 +204,15 @@ Description: Awesome dude, awesome life
 <h3>Basic match operator</h3>
 
 <p>Let&#39;s start from the beginning. <strong>What is pattern matching?</strong> Pattern matching is checking if the code is matching to the pattern. Yes, it sounds strange. I said the same thing but in different words. Let&#39;s imagine that we have some rules - patterns, and you just check if your code/text match to this pattern or not. Like, when you were a child and tried putting a cubic block to square hole. Sounds familiar? Did you ever use regular expressions? I wrote one of my articles about them <a href="/email-regular-expressions" title="Regular expressions - what you need to think of using them?">Regular expressions what can go wrong?</a>. Regular expressions are one of an example of pattern matching. OK, when we know more about what pattern matching is, let&#39;s start from simple example.</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="n">x</span> <span class="p">=</span> <span class="mi">4</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="mi">4</span>
 </code></pre></div>
 <p>Wait a moment it is just assignment. Well, not exactly. Not in Elixir. In Elixir <code>=</code> is the <strong>match operator</strong>. So we check if the left hand side expression can match to right hand side expression. This is why we can do:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="mi">4</span> <span class="p">=</span> <span class="n">x</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="mi">4</span> <span class="o">=</span> <span class="n">x</span>
 <span class="mi">4</span>
 </code></pre></div>
 <p>This is a valid operation. It is matched from both sides to 4. We cannot do something like that in Ruby.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">irb</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">irb</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
  <span class="o">=&gt;</span> <span class="mi">4</span>
 <span class="n">irb</span><span class="o">&gt;</span> <span class="mi">4</span> <span class="o">=</span> <span class="n">x</span>
 <span class="no">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
@@ -222,29 +222,29 @@ Description: Awesome dude, awesome life
 <span class="sb">  ^</span>
 </code></pre></div>
 <p>On the other hand when we go back to Elixir and we check <code>5 = x</code>. We will see:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="p">=</span> <span class="n">x</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="o">=</span> <span class="n">x</span>
 <span class="o">**</span> <span class="p">(</span><span class="nc">MatchError</span><span class="p">)</span> <span class="n">no</span> <span class="n">match</span> <span class="n">of</span> <span class="n">right</span> <span class="n">hand</span> <span class="n">side</span> <span class="ss">value</span><span class="p">:</span> <span class="mi">4</span>
 </code></pre></div>
 <p>Right now, comparison between left and right hand side failed. We get information about <code>no match</code>. The similar situation will be when we will try with unknown yet variable like <code>y</code>.</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="p">=</span> <span class="n">y</span>
-<span class="o">**</span> <span class="p">(</span><span class="nc">CompileError</span><span class="p">)</span> <span class="n">iex</span><span class="err">:</span><span class="mi">6</span><span class="err">:</span> <span class="n">undefined</span> <span class="n">function</span> <span class="n">y</span><span class="o">/</span><span class="mi">0</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="o">=</span> <span class="n">y</span>
+<span class="o">**</span> <span class="p">(</span><span class="nc">CompileError</span><span class="p">)</span> <span class="n">iex</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">function</span> <span class="n">y</span><span class="o">/</span><span class="mi">0</span>
 </code></pre></div>
 <p>Elixir doesn&#39;t know variable <code>y</code> so it&#39;s trying to find a function with zero arguments. This expression also failed. To fulfill this expression we can do:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="n">y</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="mi">5</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="p">=</span> <span class="n">y</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="o">=</span> <span class="n">y</span>
 <span class="mi">5</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="p">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="mi">5</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="mi">5</span>
 </code></pre></div>
 <p>It is worth to mention one more thing here. Each time you will do comparison like <code>x = 3</code> you will <em>overrides</em> <code>x</code> value. If you want to match against the current value of a variable use the <code>^</code> operator:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="o">^</span><span class="n">x</span> <span class="p">=</span> <span class="mi">4</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="o">^</span><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="mi">4</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="o">^</span><span class="n">x</span> <span class="p">=</span> <span class="mi">5</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="o">^</span><span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="o">**</span> <span class="p">(</span><span class="nc">MatchError</span><span class="p">)</span> <span class="n">no</span> <span class="n">match</span> <span class="n">of</span> <span class="n">right</span> <span class="n">hand</span> <span class="n">side</span> <span class="ss">value</span><span class="p">:</span> <span class="mi">5</span>
 </code></pre></div>
 <p>If you want to just check if <code>x</code> has specific value use <code>==</code> like in Ruby.</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">5</span>
 <span class="no">false</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">4</span>
 <span class="no">true</span>
@@ -252,13 +252,13 @@ Description: Awesome dude, awesome life
 <h3>Tuples</h3>
 
 <p>Let&#39;s do the next step on more complex elements:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">}</span> <span class="p">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
 <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">a</span>
 <span class="mi">1</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">b</span>
 <span class="mi">2</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">}</span> <span class="p">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
 <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">a</span>
 <span class="s2">&quot;one&quot;</span>
@@ -266,11 +266,11 @@ Description: Awesome dude, awesome life
 <span class="mi">2</span>
 </code></pre></div>
 <p>As you see, we can use in pattern matching more complex objects. We can also check something like that:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span> <span class="p">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
 <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="mi">3</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
 <span class="o">**</span> <span class="p">(</span><span class="nc">MatchError</span><span class="p">)</span> <span class="n">no</span> <span class="n">match</span> <span class="n">of</span> <span class="n">right</span> <span class="n">hand</span> <span class="n">side</span> <span class="ss">value</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="p">}</span> <span class="p">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="p">{</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span> <span class="p">}</span>
 <span class="o">**</span> <span class="p">(</span><span class="nc">MatchError</span><span class="p">)</span> <span class="n">no</span> <span class="n">match</span> <span class="n">of</span> <span class="n">right</span> <span class="n">hand</span> <span class="n">side</span> <span class="ss">value</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
 </code></pre></div>
 <p>We can have on the left hand side not only variables but also values. So in this case when on the left side, we don&#39;t have 2, we get an error. We didn&#39;t match to the pattern. The same situation is for a size of the tuple. If the side is different between sides, we also get an error.</p>
@@ -278,7 +278,7 @@ Description: Awesome dude, awesome life
 <h3>Lists</h3>
 
 <p>Now time to list. We can do similar things like for tuples.</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">a</span>
 <span class="mi">4</span>
@@ -286,7 +286,7 @@ Description: Awesome dude, awesome life
 <span class="mi">5</span>
 </code></pre></div>
 <p>We can do even more. We can take out the first element in the list and decrease output list by 1 element.</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head</span> <span class="p">|</span> <span class="n">tail</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">iex</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">head</span>
 <span class="mi">4</span>
@@ -294,7 +294,7 @@ Description: Awesome dude, awesome life
 <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </code></pre></div>
 <p>As you see, <code>head</code> is the first element of our list, but <code>tail</code> is still list minus one element. You can play with this:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head1</span> <span class="p">|</span> <span class="p">[</span><span class="n">head2</span> <span class="p">|</span> <span class="n">tail</span><span class="p">]]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head1</span> <span class="o">|</span> <span class="p">[</span><span class="n">head2</span> <span class="o">|</span> <span class="n">tail</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">head1</span>
 <span class="mi">4</span>
@@ -304,23 +304,23 @@ Description: Awesome dude, awesome life
 <span class="p">[</span><span class="mi">6</span><span class="p">]</span>
 </code></pre></div>
 <p>Similar like for tuples, if we have not enough elements in the list we will get an error:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head</span> <span class="p">|</span> <span class="n">tail</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">4</span><span class="p">]</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">head</span>
 <span class="mi">4</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">tail</span>
 <span class="p">[]</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head</span> <span class="p">|</span> <span class="n">tail</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="o">**</span> <span class="p">(</span><span class="nc">MatchError</span><span class="p">)</span> <span class="n">no</span> <span class="n">match</span> <span class="n">of</span> <span class="n">right</span> <span class="n">hand</span> <span class="n">side</span> <span class="ss">value</span><span class="p">:</span> <span class="p">[]</span>
 </code></pre></div>
 <p>Using this approach we can add an element on top of a list:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="n">list</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
-<span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">3</span> <span class="p">|</span> <span class="n">list</span><span class="p">]</span>
+<span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="mi">3</span> <span class="o">|</span> <span class="n">list</span><span class="p">]</span>
 <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 </code></pre></div>
 <p>The next thing was very interesting for me. Because <code>&#39;hello&#39;</code> is <strong>char list</strong> so we can do similar things like before to this <em>text</em>. Just remember we will get integer representation of each char.</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head1</span> <span class="p">|</span> <span class="p">[</span><span class="n">head2</span> <span class="p">|</span> <span class="n">tail</span><span class="p">]]</span> <span class="p">=</span> <span class="s1">&#39;hello&#39;</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="p">[</span><span class="n">head1</span> <span class="o">|</span> <span class="p">[</span><span class="n">head2</span> <span class="o">|</span> <span class="n">tail</span><span class="p">]]</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span>
 <span class="s1">&#39;hello&#39;</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">head1</span>
 <span class="mi">104</span>
@@ -332,77 +332,77 @@ Description: Awesome dude, awesome life
 <h3>Case</h3>
 
 <p>We use pattern matching in Elixir also in <code>case</code>:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="k">case</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span> <span class="k">do</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="p">-&gt;</span> <span class="s2">&quot;One&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="p">}</span> <span class="p">-&gt;</span> <span class="s2">&quot;Two </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="bp">_</span> <span class="p">-&gt;</span> <span class="s2">&quot;Three&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="k">end</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="k">case</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span> <span class="k">do</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="s2">&quot;One&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="p">}</span> <span class="o">-&gt;</span> <span class="s2">&quot;Two </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="bp">_</span> <span class="o">-&gt;</span> <span class="s2">&quot;Three&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="k">end</span>
 <span class="s2">&quot;Two 6&quot;</span>
 </code></pre></div>
 <p>We check matching from a top. First fit is <code>{4, 5, x}</code>. We even get assignment for free. If we remove the second pattern we will match to the last one. Any input data will match to <code>_</code>. We can also add extra condition as <strong>guards</strong>:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="k">case</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span> <span class="k">do</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="p">}</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">6</span> <span class="p">-&gt;</span> <span class="s2">&quot;One&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="p">}</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="p">-&gt;</span> <span class="s2">&quot;Two </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="bp">_</span> <span class="p">-&gt;</span> <span class="s2">&quot;Three&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="k">end</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="k">case</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">}</span> <span class="k">do</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="p">}</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">6</span> <span class="o">-&gt;</span> <span class="s2">&quot;One&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">x</span><span class="p">}</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">6</span> <span class="o">-&gt;</span> <span class="s2">&quot;Two </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="bp">_</span> <span class="o">-&gt;</span> <span class="s2">&quot;Three&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="k">end</span>
 <span class="s2">&quot;Two 6&quot;</span>
 </code></pre></div>
 <p>Remember not all errors in guards will be discovered. Some of them will not show error, but will just fail the guards.</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">iex</span><span class="o">&gt;</span> <span class="n">hd</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">iex</span><span class="o">&gt;</span> <span class="n">hd</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="mi">5</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="n">hd</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="o">**</span> <span class="p">(</span><span class="nc">ArgumentError</span><span class="p">)</span> <span class="n">argument</span> <span class="n">error</span>
-    <span class="ss">:erlang</span><span class="p">.</span><span class="n">hd</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="ss">:erlang</span><span class="o">.</span><span class="n">hd</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">iex</span><span class="o">&gt;</span> <span class="k">case</span> <span class="mi">5</span> <span class="k">do</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">when</span> <span class="n">hd</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="s2">&quot;One&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="s2">&quot;Two&quot;</span>
-<span class="p">...</span><span class="o">&gt;</span> <span class="k">end</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="n">x</span> <span class="ow">when</span> <span class="n">hd</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;One&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="s2">&quot;Two&quot;</span>
+<span class="n">...</span><span class="o">&gt;</span> <span class="k">end</span>
 <span class="s2">&quot;Two&quot;</span>
 </code></pre></div>
 <h3>Functions</h3>
 
 <p>Finally we came to functions, where all the beauty of pattern matching will show. Starting from anonymous functions:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="n">sum</span> <span class="p">=</span> <span class="k">fn</span>
-  <span class="n">x</span><span class="p">,</span> <span class="mi">0</span> <span class="p">-&gt;</span> <span class="n">x</span>
-  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">-&gt;</span> <span class="o">-</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="n">sum</span> <span class="o">=</span> <span class="k">fn</span>
+  <span class="n">x</span><span class="p">,</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">x</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="o">-</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+  <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">when</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 <span class="k">end</span>
 
-<span class="n">sum</span><span class="p">.(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sum</span><span class="o">.</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">#=&gt; 3</span>
-<span class="n">sum</span><span class="p">.(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">sum</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">#=&gt; 3</span>
-<span class="n">sum</span><span class="p">.(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">sum</span><span class="o">.</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1">#=&gt; 1</span>
-<span class="n">sum</span><span class="p">.(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">sum</span><span class="o">.</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="c1">#=&gt; -1</span>
 </code></pre></div>
 <p>We can handle many different cases in a clear way. I know this example is not a live example and we don&#39;t cover all edge cases like <code>sum.(0, 1)</code>. When we look closely we can probably simplify it even more. But this is not the topic of this article. Take a look for the next example with named function:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="kd">defmodule</span> <span class="nc">Math</span> <span class="k">do</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="kd">defmodule</span> <span class="nc">Math</span> <span class="k">do</span>
   <span class="kd">def</span> <span class="n">minus?</span><span class="p">(),</span> <span class="ss">do</span><span class="p">:</span> <span class="s2">&quot;No number&quot;</span>
   <span class="kd">def</span> <span class="n">minus?</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="ss">do</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span>
   <span class="kd">def</span> <span class="n">minus?</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="ss">do</span><span class="p">:</span> <span class="s2">&quot;Suprice </span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">!&quot;</span>
   <span class="kd">def</span> <span class="n">minus?</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="ss">do</span><span class="p">:</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mi">0</span>
 <span class="k">end</span>
 
-<span class="nc">Math</span><span class="p">.</span><span class="n">minus?</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">minus?</span>
 <span class="c1">#=&gt; &quot;No number&quot;</span>
-<span class="nc">Math</span><span class="p">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1">#=&gt; false</span>
-<span class="nc">Math</span><span class="p">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="c1">#=&gt; &quot;Suprice 1!&quot;</span>
-<span class="nc">Math</span><span class="p">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="c1">#=&gt; false</span>
-<span class="nc">Math</span><span class="p">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">minus?</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1">#=&gt; false</span>
-<span class="nc">Math</span><span class="p">.</span><span class="n">minus?</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">minus?</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="c1">#=&gt; true</span>
 </code></pre></div>
 <p>We can declare a function with different arity. We can also use different types. We see all cases explicite. I can try to do this in Ruby using default values and checking conditions, but it will not be so readable, like declaring each version of function completely separately. In the end, I would like to stop for a moment on recursion:</p>
-<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span class="kd">defmodule</span> <span class="nc">Math</span> <span class="k">do</span>
+<div class="highlight"><pre><code class="language-elixir" data-lang="elixir"><span></span><span class="kd">defmodule</span> <span class="nc">Math</span> <span class="k">do</span>
   <span class="kd">def</span> <span class="n">sum_list</span><span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="n">accumulator</span> <span class="p">\\</span> <span class="mi">0</span><span class="p">)</span>
 
-  <span class="kd">def</span> <span class="n">sum_list</span><span class="p">([</span><span class="n">head</span> <span class="p">|</span> <span class="n">tail</span><span class="p">],</span> <span class="n">accumulator</span><span class="p">)</span> <span class="k">do</span>
+  <span class="kd">def</span> <span class="n">sum_list</span><span class="p">([</span><span class="n">head</span> <span class="o">|</span> <span class="n">tail</span><span class="p">],</span> <span class="n">accumulator</span><span class="p">)</span> <span class="k">do</span>
     <span class="n">sum_list</span><span class="p">(</span><span class="n">tail</span><span class="p">,</span> <span class="n">head</span> <span class="o">+</span> <span class="n">accumulator</span><span class="p">)</span>
   <span class="k">end</span>
 
@@ -411,9 +411,9 @@ Description: Awesome dude, awesome life
   <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="nc">Math</span><span class="p">.</span><span class="n">sum_list</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">sum_list</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="c1">#=&gt; 6</span>
-<span class="nc">Math</span><span class="p">.</span><span class="n">sum_list</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nc">Math</span><span class="o">.</span><span class="n">sum_list</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
 <span class="c1">#=&gt; 7</span>
 </code></pre></div>
 <p>Of course we can do the same with <code>reduce</code> in Elixir, but look at this example only from recursion perspective. We set default value for <code>accumulator</code> and just declare twice the same function: one with <em>braking condition</em> (last declaration) and one with <em>iteration</em>. We clearly see what is going on here. For this simple example, loop will be still readable but think about this from the potential perspective. I like this approach very much.</p>

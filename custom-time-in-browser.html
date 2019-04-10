@@ -202,13 +202,13 @@ Description: Awesome dude, awesome life
 <p>I work in a project where we use some external API to get weather data and display them to the user. There was a problem with missing values in a specific range of time. For example, when you asked about data for October you would get one day less. So you do not get 31th of October. If you asked about September, everything was fine. The problem was related to the change from CEST to CET time. In 2018 it happened on 28th of October. Missing hour in this day effected last day of this month. After fixing this problem, I wanted to be pretty sure that everything is working in Europe, but also for other countries in the world. I planned to do a manual testing for that. It is possible to change time zone for your entire system or for browser, but I had bad experience with this approach in the past. This trick completely desynchronized my calendar and notifications about meetings in it. So I didn&#39;t want to get the same problems twice.</p>
 
 <p>While searching for answers in Google, I found a clever idea to change time in the Chrome browser, but without changing your default settings. You need to create a separate folder for the new profile (name depends completely on you, I used <code>chrome-profile</code>):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir <span class="nv">$HOME</span>/chrome-profile
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>mkdir <span class="nv">$HOME</span>/chrome-profile
 </code></pre></div>
 <p>then you need to specify time zone by <code>TZ</code> parameter:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">TZ</span><span class="o">=</span><span class="s1">&#39;US/Pacific&#39;</span> google-chrome <span class="s2">&quot;--user-data-dir=$HOME/chrome-profile&quot;</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">TZ</span><span class="o">=</span><span class="s1">&#39;US/Pacific&#39;</span> google-chrome <span class="s2">&quot;--user-data-dir=</span><span class="nv">$HOME</span><span class="s2">/chrome-profile&quot;</span>
 </code></pre></div>
 <p>and after all this testing you can remove this profile:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">rm -rf <span class="nv">$HOME</span>/chrome-profile
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rm -rf <span class="nv">$HOME</span>/chrome-profile
 </code></pre></div>
 <p>That&#39;s it! You can use your browser with different time zones right now. There is one quick note here. You need to know <strong>the right name of time zone</strong>. This is important for people like me, who do lots of misspellings. In case you will use wrong name you <strong>will not get error</strong> and your browser will <strong>open in default time zone</strong>.</p>
 

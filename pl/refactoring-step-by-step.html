@@ -222,7 +222,7 @@ Description: Awesome dude, awesome life
 <p>Bazując na testach i metrykach, nie wchodząc w głębsze zrozumienie logiki, zrobiłam pierwsze usprawnienia. Usunęłam niektóre warunki i uprościłam kod.</p>
 
 <p>Kod przed zmianami:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="k">if</span> <span class="n">straight?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="n">flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="k">return</span> <span class="kp">true</span>
   <span class="k">else</span>
@@ -231,7 +231,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div>
 <p>Kod po zmianach:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">straight_flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="n">straight?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">flush?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -244,7 +244,7 @@ Description: Awesome dude, awesome life
 <p>Teraz gdy kod jest dla mnie bardziej przejrzysty, mogę przejść do właściwej zmiany logiki. Mam testy, więc każda zmiana będzie się na nich opierała. Cel polegała na ich spełnieniu, czyli sprawieniu, że testy przechodza. Wzięłam pierwszą metodę i usunęłam całe jej wnętrze. Oto co dostałam:</p>
 
 <p>Kod przed zmianą:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="n">tmp</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">clone</span>
   <span class="n">tmp</span><span class="o">.</span><span class="n">collect!</span><span class="p">{</span><span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
 
@@ -264,7 +264,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div>
 <p>Kod po zmianie:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">one_pair?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -384,20 +384,20 @@ Description: Awesome dude, awesome life
 <p>Gdybyś potrzebowała dokładniejszego wytłumaczenia zasad pokera, to sprawdź <a href="https://en.wikipedia.org/wiki/List_of_poker_hands" title="Pokerowe ustawienia ręki" target="_blank" rel="nofollow noopener noreferrer">listę wszystkich pokerowych ustawień ręki na Wikipedii</a>.</p>
 
 <p>Dodajemy inicjalizer:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
   <span class="vi">@cards</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Przykład metody przed zmianą:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">three_of_a_kind?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">three_of_a_kind?</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="n">array</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Po zmianie:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">three_of_a_kind?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">three_of_a_kind?</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -420,28 +420,28 @@ Description: Awesome dude, awesome life
 <p>Bazując na metryce Reek zauważyłam dużo powtórzeń w kodzie. Zdecydowałam, że jeszcze raz wykorzystam stan obiektu, by się ich pozbyć. Wszystkie zmiany związane z tym krokiem możesz znaleźć <a href="https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb" title="Piąty krok refaktoringu" target="_blank" rel="nofollow noopener noreferrer">tutaj</a>. A poniżej zamieszczam skrót tego co zrobiłam:</p>
 
 <p>Zmiana w inicjalizerze:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
   <span class="vi">@cards</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
   <span class="vi">@frequency</span> <span class="o">=</span> <span class="n">cards_frequency</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Dodanie nowej metody <code>cards_frequency</code>:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_frequency</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">cards_frequency</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Przykład jednej metody przed zmianą:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
   <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
   <span class="vi">@cards</span><span class="o">.</span><span class="n">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
   <span class="nb">hash</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Po zmianie:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">four_of_a_kind?</span>
   <span class="vi">@frequency</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="k">end</span>
 </code></pre></div>
@@ -472,32 +472,32 @@ Description: Awesome dude, awesome life
 <h1>Krok 7 - Jeszcze więcej porządków</h1>
 
 <p>Ten krok jest podobny do kroku 5. Usuwam dodatkowe powtórzenia w kodzie i zmieniam nazwy na bardziej opisowe, by ułatwić późniejsze czytanie kodu. Stworzyłam nową metodę <code>cards_figures_and_colors</code>, która przygotuje dwie rzeczy: <code>figures</code> czyli figury i <code>colors</code> czyli kolory kart. Możesz teraz powiedzieć: <em>a gdzie jest zasada <strong>pojedynczej odpowiedzialności</strong></em> lub <em><strong>to jest mikro optymalizacja</strong></em>, ponieważ zamiast dwóch pętli masz tylko jedną. Moja intuicja podpowiada mi że to, co zrobiłam jest ok. Ale Ty możesz mieć inne zdanie i to też jest ok. Szanuję je. Oto jak wygląda ta metoda:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_figures_and_colors</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">cards_figures_and_colors</span>
   <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="o">[</span><span class="n">item</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">4</span><span class="o">]</span> <span class="p">}</span><span class="o">.</span><span class="n">transpose</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Jestem otwarta na dyskusję, czy moje podejście jest dobre czy nie. Ta zmiana pociąga za sobą także zmiany w metodzie <code>initialize</code>:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
   <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">sort</span>
   <span class="vi">@figures</span><span class="p">,</span> <span class="vi">@colors</span> <span class="o">=</span> <span class="n">cards_figures_and_colors</span>
   <span class="vi">@frequency</span> <span class="o">=</span> <span class="n">cards_frequency</span><span class="o">.</span><span class="n">values</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>W tym kroku postanowiłam zmienić również metodę <code>cards_frequency</code>. Zamiast używać <code>each</code> używam <code>each_with_object</code>. Jeżeli jesteś zainteresowana większą ilością informacji na temat <code>each_with_object</code> zachęcam Cię do przeczytania mojego artykułu o <a href="https://womanonrails.com/pl/each-with-object" title="Zastosowanie metody each_with_object w języku Ruby">użyciu metody each_with_object w Ruby</a>. Oto jak teraz wygląda kod:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">cards_frequency</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">cards_frequency</span>
   <span class="vi">@figures</span><span class="o">.</span><span class="n">each_with_object</span><span class="p">(</span><span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="nb">hash</span><span class="o">|</span>
     <span class="nb">hash</span><span class="o">[</span><span class="n">item</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>Dzięki zmiennej <code>@colors</code> mogę zmienić metodę <code>flush?</code> z:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">flush?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">flush?</span>
   <span class="n">color</span> <span class="o">=</span> <span class="vi">@array</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">4</span> <span class="p">}</span>
   <span class="n">color</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>na:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">flush?</span>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">flush?</span>
   <span class="vi">@colors</span><span class="o">.</span><span class="n">uniq</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span>
 <span class="k">end</span>
 </code></pre></div>

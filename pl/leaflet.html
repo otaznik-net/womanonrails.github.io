@@ -216,10 +216,10 @@ Description: Awesome dude, awesome life
 <p>Gdy w naszym projekcie mamy już dołączoną bibliotekę <strong>Leaflet</strong> i wybraliśmy z jakich talii będziemy korzystać możemy zacząć.</p>
 
 <p>W naszym pliku <code>index.html</code> dodajemy następująca linijkę:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#39;map&#39;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;map&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>Po stronie JavaScript potrzebujemy jeszcze ustawić wybranego dostawcę map tiles. W tym przykładzie będę używać CoffeeScript ale każda z prezentowanych funkcjonalności jest też możliwa do osiągnięcia w czystym JavaScript.</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">jQuery</span> <span class="nf">-&gt;</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nx">jQuery</span> <span class="nf">-&gt;</span>
   <span class="nv">map = </span><span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s">&#39;map&#39;</span><span class="p">).</span><span class="nx">setView</span><span class="p">([</span><span class="mf">50.301</span><span class="p">,</span> <span class="mf">18.654</span><span class="p">],</span> <span class="mi">13</span><span class="p">)</span>
 </code></pre></div>
 <h4>Mapbox tiles</h4>
@@ -227,7 +227,7 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/mapbox.png"><img src="/images/leaflet/mapbox.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee">  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nv">attribution: </span><span class="s">&#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;</span><span class="p">,</span>
       <span class="nv">maxZoom: </span><span class="mi">18</span><span class="p">,</span>
       <span class="nv">id: </span><span class="s">&#39;your id&#39;</span><span class="p">,</span>
@@ -239,7 +239,7 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/osm.png"><img src="/images/leaflet/osm.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee">  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nv">attribution: </span><span class="s">&#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;&#39;</span><span class="p">,</span>
       <span class="nv">maxZoom: </span><span class="mi">18</span>
   <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
@@ -249,7 +249,7 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/toner.png"><img src="/images/leaflet/toner.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee">  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://tile.stamen.com/toner/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://tile.stamen.com/toner/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nv">attribution: </span><span class="s">&#39;Map tiles by &lt;a href=&quot;http://stamen.com&quot;&gt;Stamen Design&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;ODbL&lt;/a&gt;.&#39;</span><span class="p">,</span>
       <span class="nv">maxZoom: </span><span class="mi">18</span>
   <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
@@ -259,7 +259,7 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/watercolor.png"><img src="/images/leaflet/watercolor.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee">  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://tile.stamen.com/watercolor/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://tile.stamen.com/watercolor/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
       <span class="nv">attribution: </span><span class="s">&#39;Map tiles by &lt;a href=&quot;http://stamen.com&quot;&gt;Stamen Design&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/3.0&quot;&gt;CC BY SA&lt;/a&gt;.&#39;</span><span class="p">,</span>
       <span class="nv">maxZoom: </span><span class="mi">18</span>
   <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
@@ -275,14 +275,14 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/marker.png"><img src="/images/leaflet/marker.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">marker = </span><span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="mf">50.28895538456755</span><span class="p">,</span> <span class="mf">18.681907653808594</span><span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">marker = </span><span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="mf">50.28895538456755</span><span class="p">,</span> <span class="mf">18.681907653808594</span><span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
 </code></pre></div>
 <h4>Custom marker</h4>
 
 <figure>
   <a href="/images/leaflet/custom-marker.png"><img src="/images/leaflet/custom-marker.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">customIcon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">icon</span><span class="p">(</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">customIcon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">icon</span><span class="p">(</span>
   <span class="nv">iconUrl: </span><span class="s">&#39;assets/womanonrails.jpg&#39;</span>
   <span class="nv">iconSize: </span>    <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
   <span class="nv">iconAnchor: </span>  <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
@@ -299,7 +299,7 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/html-marker.png"><img src="/images/leaflet/html-marker.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">divIcon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">divIcon</span><span class="p">(</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">divIcon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">divIcon</span><span class="p">(</span>
   <span class="nv">className: </span><span class="s">&#39;div-icon&#39;</span>
   <span class="nv">html: </span><span class="s">&#39;&lt;div&gt;This is my custom html&lt;/div&gt;&#39;</span>
   <span class="nv">iconSize: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
@@ -312,7 +312,7 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/circle.png"><img src="/images/leaflet/circle.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">circle = </span><span class="nx">L</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">circle = </span><span class="nx">L</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span>
   <span class="p">[</span><span class="mf">50.290024725454515</span><span class="p">,</span> <span class="mf">18.640880584716797</span><span class="p">],</span> <span class="mi">500</span><span class="p">,</span>
   <span class="nv">color: </span><span class="s">&#39;red&#39;</span><span class="p">,</span>
   <span class="nv">fillColor: </span><span class="s">&#39;#f03&#39;</span><span class="p">,</span>
@@ -324,7 +324,7 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/poligon.png"><img src="/images/leaflet/poligon.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">polygon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">polygon</span><span class="p">([</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">polygon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">polygon</span><span class="p">([</span>
   <span class="p">[</span><span class="mf">50.29830444909283</span><span class="p">,</span> <span class="mf">18.61384391784668</span><span class="p">],</span>
   <span class="p">[</span><span class="mf">50.29619353058144</span><span class="p">,</span> <span class="mf">18.620710372924805</span><span class="p">],</span>
   <span class="p">[</span><span class="mf">50.29084727901576</span><span class="p">,</span> <span class="mf">18.616890907287598</span><span class="p">],</span>
@@ -338,10 +338,10 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/popup.png"><img src="/images/leaflet/popup.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nx">marker</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s">&quot;&lt;b&gt;Hello world!&lt;/b&gt;&lt;br&gt;I am a popup.&quot;</span><span class="p">).</span><span class="nx">openPopup</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nx">marker</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s">&quot;&lt;b&gt;Hello world!&lt;/b&gt;&lt;br&gt;I am a popup.&quot;</span><span class="p">).</span><span class="nx">openPopup</span><span class="p">()</span>
 <span class="nx">circle</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s">&quot;I am a circle.&quot;</span><span class="p">)</span>
 <span class="nx">polygon</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s">&quot;I am a polygon.&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">popup = </span><span class="nx">L</span><span class="p">.</span><span class="nx">popup</span><span class="p">()</span>
+</code></pre></div><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">popup = </span><span class="nx">L</span><span class="p">.</span><span class="nx">popup</span><span class="p">()</span>
   <span class="p">.</span><span class="nx">setLatLng</span><span class="p">([</span><span class="mf">51.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.09</span><span class="p">])</span>
   <span class="p">.</span><span class="nx">setContent</span><span class="p">(</span><span class="s">&quot;I am a standalone popup.&quot;</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">openOn</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
@@ -351,9 +351,9 @@ Description: Awesome dude, awesome life
 <figure>
   <a href="/images/leaflet/event.png"><img src="/images/leaflet/event.png"></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">onMapClick = </span><span class="nf">(e) -&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Coordinate: </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="si">}</span><span class="s">&quot;</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">onMapClick = </span><span class="nf">(e) -&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Coordinate: </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="si">}</span><span class="s">&quot;</span>
 <span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">,</span> <span class="nx">onMapClick</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">onMapClick = </span><span class="nf">(e) -&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">onMapClick = </span><span class="nf">(e) -&gt;</span>
   <span class="nv">popup = </span><span class="nx">L</span><span class="p">.</span><span class="nx">popup</span><span class="p">()</span>
   <span class="nx">popup</span><span class="p">.</span><span class="nx">setLatLng</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="p">)</span>
   <span class="nx">popup</span><span class="p">.</span><span class="nx">setContent</span><span class="p">(</span><span class="s">&quot;You clicked the map at </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
@@ -365,7 +365,7 @@ Description: Awesome dude, awesome life
 <h4>GeoJSON</h4>
 
 <p>Myślę, że <code>geoJson</code> jest jedną z najbardziej wszechstronnych opcji biblioteki Leaflet. Dzięki niej można wyświetlać wszystkie dotychczas poznane obiekty. Dodatkowo można w łatwy sposób zmienić style obiektów, podpinać do nich zdarzenia a także wyświetlać na mapie dane <strong>GIS</strong> bezpośrednio z bazy danych takiej jak <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span class="nv">geoData = </span><span class="p">{</span>
+<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">geoData = </span><span class="p">{</span>
   <span class="s">&quot;type&quot;</span><span class="o">:</span> <span class="s">&quot;Feature&quot;</span><span class="p">,</span>
   <span class="s">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{},</span>
   <span class="s">&quot;geometry&quot;</span><span class="o">:</span> <span class="p">{</span>
