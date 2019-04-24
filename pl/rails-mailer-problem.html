@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<!--
+====================================================
+    __  ____  ______________  _______ ___    __
+   / / / /  |/  / ____/   \ \/ / ___//   |  / /
+  / /_/ / /|_/ / /_  / /| |\  /\__ \/ /| | / /
+ / __  / /  / / __/ / ___ |/ /___/ / ___ |/ /___
+/_/ /_/_/  /_/_/   /_/  |_/_//____/_/  |_/_____/
+
+====================================================
+Owner Name: Hossain Mohammad Faysal
+Profile: https://www.facebook.com/hmfaysal
+Version: 1.1
+Description: Awesome dude, awesome life
+====================================================
+-->
+<head>
+<meta charset="utf-8">
+<title>Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach? - Woman on Rails - web development z kobiecej perspektywy</title>
+<meta name="description" content="Co może pójść nie tak gdy korzystasz z workerów do wysyłania maili? - studium przypadku.">
+<meta name="keywords" content="Ruby">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:title" content="Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach?">
+<meta name="twitter:description" content="Co może pójść nie tak gdy korzystasz z workerów do wysyłania maili? - studium przypadku.">
+<meta name="twitter:creator" content="@womanonrails">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="pl">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach?">
+<meta property="og:description" content="Co może pójść nie tak gdy korzystasz z workerów do wysyłania maili? - studium przypadku.">
+<meta property="og:url" content="https://womanonrails.com/rails-mailer-problem">
+<meta property="og:site_name" content="Woman on Rails">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
+<!-- 32x32 -->
+<link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+
+
+<link rel="canonical" href="https://womanonrails.com/rails-mailer-problem">
+<link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+    <link rel="stylesheet" href="/css/main.css">
+
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search...">
+        <i class="icon-remove-sign"></i>
+        <ul class="search-results post-list"></ul><!-- /.search-results -->
+    </div><!-- /.search-form -->
+</div><!-- ./search-wrapper -->
+
+
+
+</head>
+<body class="post-template" itemscope itemtype="https://schema.org/WebPage">
+<div id="fade"></div>
+<a id="slide" class="animated fade"></a>
+<aside id="sidebar">
+  <nav id="navigation">
+    <h2>MENU</h2>
+    <hr>
+    <ul>
+      
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl">Strona główna</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl/categories">Kategorie</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl/tags">Tagi</a>
+            
+          </li>
+        
+          <li>
+            
+              <a href="https://womanonrails.com/pl/about">O mnie</a>
+            
+          </li>
+        
+      
+      <li>
+        <a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed">
+          <i class="icon-rss"></i> Feed
+        </a>
+      </li>
+    </ul>
+    </nav>
+</aside>
+
+
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" itemscope itemtype="https://schema.org/Organization">
+
+
+    <button class="menu-button animated fade dosearch" title="Wyszukaj">
+        <i class="icon-search"></i>
+    </button>
+
+
+  
+  <a href="https://womanonrails.com/rails-mailer-problem" class='language animated fade'>
+    en
+  </a>
+
+
+    <div class="inner">
+        <div class="container">
+            
+            <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+
+            <h1 class="blog-title light" itemprop="name">
+                Woman on Rails
+            </h1>
+
+            </a>
+            <h2 class="blog-description light bordered bordered-top" itemprop="description">
+                Przedwczesna optymalizacja to źródło wszelkiego zła.
+            </h2>
+        </div>
+    </div>
+    
+    
+    <div class="decor-wrapper">
+        <svg id="header-decor" class="decor bottom" xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+            <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+            <path class="medium left" d="M0 100 L50 50 L0 33.3" fill="rgba(255,255,255, .3)"></path>
+            <path class="medium right" d="M100 100 L50 50 L100 33.3" fill="rgba(255,255,255, .3)"></path>
+
+            <path class="small left" d="M0 100 L50 50 L0 66.6" fill="rgba(255,255,255, .5)"></path>
+            <path class="small right" d="M100 100 L50 50 L100 66.6" fill="rgba(255,255,255, .5)"></path>
+
+            <path d="M0 99.9 L50 49.9 L100 99.9 L0 99.9" fill="rgba(255,255,255, 1)"></path>
+
+            <path d="M48 52 L50 49 L52 52 L48 52" fill="rgba(255,255,255, 1)"></path>
+
+        </svg>
+    </div>
+    
+</header>
+
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/Blog">
+    <div class="container">
+        <div class="row">
+            <article class="post col-md-8 col-md-offset-2 hentry" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+            
+            
+            
+            
+                    <header class="post-header entry-header">
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach?</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Co może pójść nie tak gdy korzystasz z workerów do wysyłania maili? - studium przypadku.</div>
+                        <div class="post-info text-center small">
+                            <span class="entry-date date published updated"><time datetime="2019-04-20T00:00:00-04:00" class="post-time" itemprop="datePublished">20 Apr 2019</time><span>
+                            in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#programowanie" data-toggle="tooltip" title="Other posts from the Programowanie category" rel="tag">Programowanie</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">4.445</span> minutes read</span>
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>Wysyłanie wiadomości email przez aplikację do jej użytkowników jest czymś bardzo powszechnym. Wysyłamy maile związane z rejestracją, nowymi zmianami w aplikacji, reklamami, ostatnimi aktywnościami czy z zaproszeniem do grona znajomych. Można powiedzieć, że jest to chleb powszedni dzisiejszych aplikacji internetowych. Pomimo tego, że tak często aplikacje posiadają tą funkcjonalność, zdarzają się w niej błędy. Dziś chciałabym się takim błędem z Tobą podzielić.</p>
+
+<p>Jako ludzie mamy problem z robieniem dwóch rzeczy równocześnie. Nie jesteśmy dobrzy w multitaskingu. Zawsze coś lub ktoś cierpi przy takim podejściu. Czasami jest to dość błaha sprawa. Przykładowo nie pamiętamy ostatniego paragrafu tekstu, który czytaliśmy. Czasem jest to jednak coś o wiele bardziej poważnego. Jak prowadzenie samochodu i korzystanie z telefonu komórkowego. I muszę przyznać, że zdarza się to obecnie coraz częściej. Ludzie z tego powodu wjeżdżają na przeciwległy pas, gubią drogę lub nie zauważają samochodu przed nimi. To wszystko może doprowadzić do wypadku drogowego. Dlatego proszę nie prowadź samochodu jednocześnie korzystając z telefonu! Dobrze, ale wracając do tematu. Tak samo, jak trudno przychodzi nam równoczesne prowadzenie samochodu i korzystanie z telefonu, tak samo trudno jest nam zrozumieć równoległe procesy w komputerze. Nie jest to nie możliwe, ale trudne. Niezwykle ciężko jest przewidzieć jakie sytuacje i komplikacje mogą się w takim momencie zdarzyć. O wiele łatwiej myśleć o rzeczach sekwencyjnie. Najpierw to, a później tamto. Krok po kroku widzimy, co się będzie działo. Dlatego też tak nie lubimy mechanizmu callbacków w JavaScript ;] Trudno jest przewidzieć w jakim stanie będzie aplikacja, gdy zacznie wywoływać się kod znajdując się w callbacku.</p>
+
+<p>Przykład, który chciałabym Ci pokazać jest jednym z tych <em>równoległych</em>. Znalazłam ten problem jakiś czas temu. A był on w aplikacji zanim ja zaczęłam nad nią pracować. Aplikacja pozwalała na zapraszanie znajomych. Kiedy użytkownik chciał zaprosić znajomego dwie rzeczy działy się w aplikacji równocześnie. Tworzony był obiekt <code>Invitation</code> odpowiedzialny za zaproszenie i zostawał wysyłany email do osoby z tego właśnie zaproszenia. Kiedy aplikacja była jeszcze mała - na początku rozwoju aplikacji, wszystko działało jak należy. Później aplikacja zaczęła się rozrastać. Podjęto decyzję o dockeryzacji. Od tej pory bazy danych, główna aplikacja, workery i wiele innych usług zostało zamknięte w dockerowych kontenerach. Powstały osobne kolejki dla różnych zadań. W tym dla wysyłania wiadomości email. Wtedy zaczęło dziać się coś dziwnego.</p>
+
+<h2>Problem</h2>
+
+<p>Kiedy jeden z użytkowników zaprosił swojego znajomego, Sidekiq (narzędzie do obsługi procesów w tle w Ruby) zwrócił nam (programistom) informację, że takie zaproszenie nie istnieje w bazie danych: <code>Invitation not found</code>. Sprawdziłam czy jest tak faktycznie. Okazało się, że zaproszenie jest w bazie zapisane poprawnie. Po jakimś czasie Sidekiq ponowił próbę wysłania wiadomości email i wszystko poszło jak należy. Mail został wysłany. Pomyślałam: <em>Zdarzył się tylko jeden taki przypadek, może to po prostu jakaś pomyłka?</em> Postanowiłam na razie odłożyć sprawę i monitorować, czy wszystko działa jak należy. Problem jednak powrócił. Tym razem to nie mógł być już przypadek. Zaczęłam, więc sprawdzać w kodzie, co się dzieje:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">Invitation</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">after_save</span> <span class="ss">:send_invitation_email</span>
+
+  <span class="c1"># (...)</span>
+
+  <span class="k">def</span> <span class="nf">send_invitation_email</span>
+    <span class="no">AppMailer</span><span class="o">.</span><span class="n">invitation_email</span><span class="p">(</span>
+      <span class="ss">user_id</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="ss">recipient_email</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span> <span class="ss">invitation_id</span><span class="p">:</span> <span class="nb">self</span><span class="o">.</span><span class="n">id</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">deliver_later</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Kod wyglądał OK. No może nie był piękny, ale nic złożonego. Wywoływany był callback <code>after_save</code>, który odpowiadał za wysłanie wiadomości email. Spróbowałam odtworzyć problem lokalnie. Nic z tego. Zostało prześledzenie błędu na serwerze testowym.</p>
+
+<h2>Znalezienie powodu</h2>
+
+<p>Po głębszym zapoznaniu się z logiką. Zrozumiałam gdzie leży problem. Po pierwsze trzeba przyjrzeć się kolejności callbacków dla modelu w Railsach:</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">before_validation</span>
+<span class="n">after_validation</span>
+<span class="n">before_save</span>
+<span class="n">around_save</span>
+<span class="n">before_create</span>
+<span class="n">around_create</span>
+<span class="n">after_create</span>
+<span class="n">after_save</span>
+<span class="n">after_commit</span><span class="o">/</span><span class="n">after_rollback</span>
+</code></pre></div>
+<p>Callback <code>after_save</code> nie jest ostatnią rzeczą dziejącą się w trakcie i po zapisaniu na trwałe obiektu w bazie danych. W tym momencie mamy już informację o <code>id</code> obiektu, ale transakcja w bazie danych jeszcze się nie zakończyła. Po drugie nasz problem występował tylko, gdy Sidekiq nie miał nic w swojej kolejce do wysyłania emaili. Okazało się, że proces zlecenia wysłania wiadomości email (1) i (2) odbywał się tak szybko, w tym przypadku, że transakcja w bazie danych (3) nie zdążała się zakończyć. Dlatego też proces wysyłania wiadomości email nie widział odpowiedniego rekordu w bazie danych. W tamtej chwili faktycznie go tam jeszcze nie było.</p>
+
+<figure>
+  <img src="/images/rails-mailer-problem/mailer-in-rails-model.jpg" alt='Schemat model - baza danych - worker'>
+  <figcaption>Schemat zapisu zaproszenia w bazie danych i wysyłania wiadomości email</figcaption>
+</figure>
+
+<p><br></p>
+
+<p>Nie sądzisz, że nie jest to intuicyjne? Logiczne, na pewno, gdy już się pozna przyczynę problemu, ale na pewno nie intuicyjne. Przynajmniej nie dla mnie.</p>
+
+<h2>Możliwe rozwiązania</h2>
+
+<p>Mnie osobiście do głowy przyszły 3 sposoby naprawienia tego błędu:</p>
+
+<ul>
+<li>zmienić  <code>after_save</code> na <code>after_commit</code>  - W tym przypadku będziemy pewni, że rekord jest zapisany w bazie. Jednak nasz model dalej będzie zajmować się wysyłaniem wiadomości email.</li>
+<li>zmienić <code>deliver_later</code> na <code>deliver_later(wait: 10.seconds)</code> - jest to jakieś rozwiązanie, ale co jeżeli zapis do bazy z jakichś przyczyn zajmowałby więcej niż 10 sekund?</li>
+<li>wyciągnąć wysyłanie maili z modelu - To nie jest odpowiedzialność modelu by wysyłać maile z zaproszeniami do korzystania aplikacji. Myślę, że powinien być za to odpowiedzialny pewnego rodzaju proces (możemy go nazwać serwisem lub workflow), który dokładnie wie jakie trzeba podjąć kroki przy zaproszeniu użytkownika do aplikacji. W tym przypadku są 2 kroki: stworzenie obiektu <code>Invitation</code> i wysyłanie emaila.</li>
+</ul>
+
+<p>Myślę, że ostatni sposób jest najlepszy. Nie powinniśmy zaśmiecać naszego modelu. Jego odpowiedzialnością jest przetwarzanie danych z bazy danych.</p>
+
+<p>A Ty jak myślisz? Które rozwiązanie byś wybrała i dlaczego? A może przychodzi Ci do głowy jeszcze inna możliwość rozwiązania tego problemu? Podziel się swoimi przemyśleniami w komentarzu poniżej. Jeśli podobał Ci się artykuł, wyślij go znajomym a ja będę wdzięczna za każdą informację zwrotną.</p>
+
+                        <br>
+                    
+                    
+                    <div class="entry-tags text-center">
+
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="https://womanonrails.com/tags/index.html#Ruby" data-toggle="tooltip" title="Posts tagged with Ruby" rel="tag">Ruby</a>
+
+                    </div>
+                    
+                    </div>
+        </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach?&quot;%20https://womanonrails.com/rails-mailer-problem%20via%20&#64;womanonrails"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=https://womanonrails.com/rails-mailer-problem"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+        <li>
+            <a href="https://plus.google.com/share?url=https://womanonrails.com/rails-mailer-problem"
+           onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" data-toggle="tooltip" title="Share on Google plus" itemprop="GooglePlus">
+                <i class="icon-google-plus"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+                        <div class="post-author text-center">
+	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
+	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
+</div>
+
+                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    </footer>
+            </article>
+    </div>
+</div>
+<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top">
+
+    <div class="inner">
+        <div class="container">
+
+            <ul class="social-icons">
+            <li>
+                <a href="https://twitter.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Twitter" target="_blank" rel="noopener">
+                    <i class="icon-twitter"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://facebook.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Facebook" target="_blank" rel="noopener">
+                    <i class="icon-facebook"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
+                    <i class="icon-stackexchange"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on LinkedIn" target="_blank" rel="noopener">
+                    <i class="icon-linkedin"></i>
+                </a>
+            </li>
+            <li>
+                <a href="https://instagram.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Instagram" target="_blank" rel="noopener">
+                    <i class="icon-instagram"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on Github" target="_blank" rel="noopener">
+                    <i class="icon-github"></i>
+                </a>
+            </li>
+        </ul>
+            <div>
+                
+                <a href="https://womanonrails.com/pl/about">Agnieszka Matysek</a> &copy; 2019 &bull; All rights reserved.
+            </div>
+            <ul class="menu-items">
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/"><i class="icon-home"></i></a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/categories">Categories</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/tags">Tags</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li>
+                
+                    <a href="https://womanonrails.com/about">About</a>&nbsp;&bull;
+                
+            </li>
+            
+            <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
+        </ul>
+        </div>
+    </div>
+    
+        <div class="decor-wrapper">
+            <svg id="footer-decor" class="decor top" xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
+
+                <path class="large left" d="M0 0 L50 50 L0 100" fill="rgba(255,255,255, .1)"></path>
+                <path class="large right" d="M100 0 L50 50 L100 100" fill="rgba(255,255,255, .1)"></path>
+
+                <path class="medium left" d="M0 0 L50 50 L0 66.6" fill="rgba(255,255,255, .3)"></path>
+                <path class="medium right" d="M100 0 L50 50 L100 66.6" fill="rgba(255,255,255, .3)"></path>
+
+                <path class="small left" d="M0 0 L50 50 L0 33.3" fill="rgba(255,255,255, .5)"></path>
+                <path class="small right" d="M100 0 L50 50 L100 33.3" fill="rgba(255,255,255, .5)"></path>
+
+                <path d="M0 0 L50 50 L100 0 L0 0" fill="rgba(255,255,255, 1)"></path>
+
+                <path d="M48 48 L50 51 L52 48 L48 48" fill="rgba(255,255,255, 1)"></path>
+
+            </svg>
+        </div>
+    
+</footer>
+<script>
+  (function(h,o,t,j,a,r){
+    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+    h._hjSettings={hjid:157104,hjsv:5};
+    a=o.getElementsByTagName('head')[0];
+    r=o.createElement('script');r.async=1;
+    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://womanonrails.com/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://womanonrails.com/assets/js/scripts.min.js"></script>
+<script type="text/javascript" src="https://womanonrails.com/assets/js/waypoints.min.js"></script>
+<script type="text/javascript" src="https://womanonrails.com/assets/js/script.js"></script>
+<script type='text/javascript'>$(document).ready(function(){$(".time").text(function(a,b){return Math.round(parseFloat(b))})});</script>
+
+<script type="text/javascript">
+
+/*      Slides       */
+
+$("a#slide").click(function(){
+    $("#sidebar,body,a#slide,#fade").addClass("slide")
+});
+
+$("#fade,#header,#posts-container").click(function(){
+    $("#sidebar,body,a#slide,#fade").removeClass("slide")
+});
+
+$("a#click-filter").click(function(){
+    $("#slide-filter").slideToggle("medium");
+    $("#slide-pages").slideOut("medium");
+});
+
+$("a#click-pages").click(function(){
+    $("#slide-pages").slideToggle("medium");
+    $("#slide-filter").slideOut("medium");
+});
+
+/*      End-Slides      */
+
+</script>
+
+
+<!-- Jekyll Simple Search option -->
+<script>
+  $(document).ready(function() {
+      $('.search-field').simpleJekyllSearch({
+          jsonFile : 'https://womanonrails.com/search.json',
+          searchResults : '.search-results',
+          template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
+          noResults: '<p>Nothing found.</p>'
+        });
+  });
+
+  (function( $, window, undefined ) {
+
+     var bs = {
+          close: $(".icon-remove-sign"),
+          searchform: $(".search-form"),
+          canvas: $("body"),
+          dothis: $('.dosearch')
+      };
+
+    bs.dothis.on('click', function() {
+      $('.search-wrapper').css({ display: "block" });
+      bs.searchform.toggleClass('active');
+      bs.searchform.find('input').focus();
+      bs.canvas.toggleClass('search-overlay');
+    });
+
+      bs.close.on('click', function() {
+        $('.search-wrapper').removeAttr( 'style' );
+        bs.searchform.toggleClass('active');
+        bs.canvas.removeClass('search-overlay');
+    });
+  })( jQuery, window );
+</script>
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-127731573-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-127731573-1');
+</script>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'womanonrails'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</body>
+</html>

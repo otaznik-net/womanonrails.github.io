@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach?",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/rails-mailer-problem",
+		  "date"       : "2019-04-20 00:00:00 -0400",
+		  "shortdate"  : "April 20, 2019"
+		} ,
+	
+		{
 		  "title"      : "Wroclove.rb 2019",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/wrocloverb-2019",
@@ -110,6 +118,14 @@
 		  "url"        : "https://womanonrails.com/websummit-lisbon-2016",
 		  "date"       : "2016-11-19 00:00:00 -0500",
 		  "shortdate"  : "November 19, 2016"
+		} ,
+	
+		{
+		  "title"      : "Rails Girls Poznań (02 – 03 Wrzesień 2016)",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/rails-girls-poznan",
+		  "date"       : "2016-09-15 00:00:00 -0400",
+		  "shortdate"  : "September 15, 2016"
 		} ,
 	
 		{

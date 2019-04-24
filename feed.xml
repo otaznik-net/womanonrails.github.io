@@ -5,9 +5,84 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 10 Apr 2019 06:31:03 -0400</pubDate>
-    <lastBuildDate>Wed, 10 Apr 2019 06:31:03 -0400</lastBuildDate>
+    <pubDate>Wed, 24 Apr 2019 10:38:30 -0400</pubDate>
+    <lastBuildDate>Wed, 24 Apr 2019 10:38:30 -0400</lastBuildDate>
     <generator>Jekyll v3.4.2</generator>
+    
+      
+      <item>
+        <title>Why you should not use mailers inside Rails model?</title>
+        <description>&lt;p&gt;Sending emails in web application to users is very often process. We send emails related to registration, new changes in application, advertising, last activities or friends&amp;#39; invitations. This is very common. Even we create that functionality in ours apps frequently, we still have bugs there. I would like to share with you one of the bugs examples.&lt;/p&gt;
+
+&lt;p&gt;As humans, we have, problems with doing things in parallel. We are not multitasking beasts. Always something or someone is suffering, when we switch to parallel process. Sometimes it is something trivial, that we don&amp;#39;t know what was the last paragraph of read book. But sometimes it is more important. For example, driving a car and talking by phone. It is sad to say, but I see that often on the road. People changing lane???, even didn&amp;#39;t notice that. They cannot find a way or even don&amp;#39;t see the car in front of them. This can provide to accidents. So, please do not drive and use your phone at the same time. But back to the topic. The same problem, which we have in our cars, we also have with a parallel work, do it by computer. It is hard to understand. It is possible, but hard to do. It is hard to imagine, what can go wrong, when our code is running parallel. It is much easier to understand sequential code. First this and then that. We see step by step, what will be run, what will be called. This is why we don&amp;#39;t like callback in JavaScript ;] It is hard to predict in which state, our system will be, when callback will start running.&lt;/p&gt;
+
+&lt;p&gt;In example, which I would like to show you, is one of this &lt;em&gt;parallel&lt;/em&gt; examples. I found this bug some time ago. And it was there before I even started working in this project. In this application, there was possible to invite a friend. When the user wanted to invite his friend to the app, two things happened in parallel. One, the application created invitation object and saved it into the database. Second, application was sending email to the user&amp;#39;s friend. When application was small and everything was in one place invitation process looks OK. Everything was fine. But then, the application started to grow. Infrastructure changed. Database, workers, core application and other services went to dockers containers. Many queues were created for workers. Service for handling emails had also its own queue. And something was not right.&lt;/p&gt;
+
+&lt;h2&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;When a user sends invitation to his friend, we get information from Sidekiq (a tool for background processing in Ruby), that this invitation is not found in database. I checked that based on what we had in logs and everything looks fine. Invitation in database exist. After some time Sidekiq retry to run process for sending emails with success. At first I thought, &lt;em&gt;This happened only one time, maybe this is some kind of a  mistake?&lt;/em&gt; I decided not to investigate this problem and just monitor the application. Record in DB exists, mail was sent to the user. Nothing to worry. But the problem came back. This time I am known, that this was not a mistake and something is wrong. I started debugging this problem. At first, I looked to code and I get:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Invitation&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;after_save&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:send_invitation_email&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# (...)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;send_invitation_email&lt;/span&gt;
+    &lt;span class=&quot;no&quot;&gt;AppMailer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;invitation_email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;user_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;recipient_email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;invitation_id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deliver_later&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The code was ok. Not great, but nothing very complex. I had &lt;code&gt;after_save&lt;/code&gt; callback and simple method using mailers. When I try to reproduce this problem locally, never happened. So for debugging this problem only staging environment was helpful.&lt;/p&gt;
+
+&lt;h2&gt;Finding the reason&lt;/h2&gt;
+
+&lt;p&gt;After some time I understood, what was the problem. First, very important is the order of callback in Rails models:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;before_validation&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;after_validation&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;before_save&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;around_save&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;before_create&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;around_create&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;after_create&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;after_save&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;after_commit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;after_rollback&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you see &lt;code&gt;after_save&lt;/code&gt; isn&amp;#39;t the last one. I already had id for our invitation, but this invitation is still not persist and in the database. Second, this problem with &lt;code&gt;Invitation not found&lt;/code&gt; happened only when our Sidekiq had no work to do. So, when queue is empty. Our process related to sending email was so fast, that it was faster than saving a record in the database (finishing transaction related with save). So, looking below on this scheme actions (1) and (2), were faster, then (3).&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/images/rails-mailer-problem/mailer-in-rails-model.jpg&quot; alt='Scheme model - database - worker'&gt;
+  &lt;figcaption&gt;Scheme of saving invitation in database and sending email&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;Don&amp;#39;t you think it isn&amp;#39;t intuitive? It is logical, when you know that already, but it is not intuitive. At least, not for me.&lt;/p&gt;
+
+&lt;h2&gt;Posible solutions&lt;/h2&gt;
+
+&lt;p&gt;We have three possible solutions:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;change &lt;code&gt;after_save&lt;/code&gt; to &lt;code&gt;after_commit&lt;/code&gt;  - We will be pretty sure that the record is in the database, but our model will still take care of sending emails.&lt;/li&gt;
+&lt;li&gt;change &lt;code&gt;deliver_later&lt;/code&gt; to &lt;code&gt;deliver_later(wait: 10.seconds)&lt;/code&gt; - It is not ideal, because what if saving a record in the database will take longer?&lt;/li&gt;
+&lt;li&gt;extract completely sending email from model - This is not responsibility of the model, to send any emails. I think we should create some kind of process (we can call it service or workflow) to do a sequence of steps when a user wants to invite a friend to our app.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I think the last solution is the best. We should remove all external actions, not related to data persistency out from the model.&lt;/p&gt;
+
+&lt;p&gt;Which solution you will choose and why? Or maybe you see another solution? Let me know in the comments below. If you like this article share with your friends and I will be so grateful for all your feedback.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 20 Apr 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/rails-mailer-problem</link>
+        <guid isPermaLink="true">https://womanonrails.com/rails-mailer-problem</guid>
+        
+        <category>Ruby</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       
       <item>
@@ -84,7 +159,7 @@
       
       <item>
         <title>Operator precedence in Ruby</title>
-        <description>&lt;p&gt;Order of math operations is very important in programming language. If you don&amp;#39;t know it well, you can get completely different results, than you expect. And your code can be just wrong. You need to know the rules. Is the order similar like in math? Or maybe the algebraic expression is interpreted from left to right? Do you know how does this look like in Ruby? Let&amp;#39;s check it.&lt;/p&gt;
+        <description>&lt;p&gt;The order of math operations is very important in programming language. If you don&amp;#39;t know them well, you can get completely different results, than you expect. And your code can be just wrong. You need to know the rules. Is the order similar like in math? Or maybe the algebraic expression is interpreted from the left to the right? Do you know how does this look like in Ruby? Let&amp;#39;s check it.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -266,7 +341,7 @@
 &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I would like to explain, why we don&amp;#39;t see any difference. For &lt;code&gt;foo = 1 || 2&lt;/code&gt; we should set brackets like this &lt;code&gt;foo = (1 || 2)&lt;/code&gt;. From logical condition &lt;code&gt;||&lt;/code&gt;, we get &lt;code&gt;1&lt;/code&gt; and we assign it to go&lt;code&gt;. In a second example&lt;/code&gt;foo = 1 or 2`, first, we do the assignment and then we check the condition. The result is the same, but order of those operations is different. This is worth to be remembered!&lt;/p&gt;
+&lt;p&gt;I would like to explain, why we don&amp;#39;t see any difference. For &lt;code&gt;foo = 1 || 2&lt;/code&gt; we should set brackets like this &lt;code&gt;foo = (1 || 2)&lt;/code&gt;. From logical condition &lt;code&gt;||&lt;/code&gt;, we get &lt;code&gt;1&lt;/code&gt; and we assign it to &lt;code&gt;foo&lt;/code&gt;. In a second example &lt;code&gt;foo = 1 or 2&lt;/code&gt;, first, we do the assignment and then we check the condition. The result is the same, but order of those operations is different. This is worth to be remembered!&lt;/p&gt;
 
 &lt;p&gt;In the end of this section, I would like to show you one more example. I think, it is a very interesting one. It is more complex because it uses  &lt;code&gt;=&lt;/code&gt;, &lt;code&gt;&amp;amp;&amp;amp;&lt;/code&gt;, &lt;code&gt;and&lt;/code&gt; and &lt;code&gt;&amp;lt;&amp;lt;&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;2&amp;#39;&lt;/span&gt;
@@ -1798,32 +1873,6 @@
         
         
         <category>refactoring</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Wroclove.rb 2018 - Quick overview</title>
-        <description>&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-&lt;p&gt;Last time when I was a participant in &lt;strong&gt;Wroclove.rb&lt;/strong&gt; it was, I think, 2-3 years ago. Back then, I was sad about topics of this conference. Almost every presentation was telling us that &lt;strong&gt;Rails&lt;/strong&gt; and &lt;strong&gt;Ruby&lt;/strong&gt; are dead. But no one had any solution for this problem. I know that, this was an alert for us to wake up and take care of our community and framework, but still, it was sad to hear that.&lt;/p&gt;
-
-&lt;p&gt;This year was completely different. People came with some ideas of what we can do with our code&amp;#39;s architecture. And what we can improve with our work. Especially, in big projects. It was great to hear some new concepts (at least for the Rails community, Java or C# already know that for some time now). I don&amp;#39;t say that these solutions are prefect, but it is good to see that something is changing. I wish we had more and more power in the community. To feel that all of us have an impact on how it will look like in the next few years.&lt;/p&gt;
-
-&lt;p&gt;It was also great because I saw all my old friends there. I felt  that on Wroclove.rb we are one big family. Sometimes we are so busy that we don&amp;#39;t see each other for a long time. And conferences like this one, helps us to meet each other. Thanks to all organizations for this!&lt;/p&gt;
-
-&lt;p&gt;If you were at this conference check out my short video to bring back some memories of this time. If not, you can always be inspired by this video and join us next year. Feel free to share your thoughts in the comments. And see you next time (there will be more code juicy topic).&lt;/p&gt;
-</description>
-        <pubDate>Fri, 25 May 2018 00:00:00 -0400</pubDate>
-        <link>https://womanonrails.com/wrocloverb-2018</link>
-        <guid isPermaLink="true">https://womanonrails.com/wrocloverb-2018</guid>
-        
-        <category>Wrocloverb</category>
-        
-        <category>Ruby</category>
-        
-        
-        <category>conference</category>
         
       </item>
     
