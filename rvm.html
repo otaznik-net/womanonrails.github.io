@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="RVM – Ruby Version Manager">
 <meta name="twitter:description" content="How can I manage different Ruby versions?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="How can I manage different Ruby versions?">
 <meta property="og:url" content="https://womanonrails.com/rvm">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -199,54 +199,69 @@ Description: Awesome dude, awesome life
                         
                         <p>I hit on an idea how to show: What exactly is RVM? RVM is like house with flowers. Each flower need special living conditions. One of them likes water, other doesn’t like strong light. If we want to flowers grown, we need to take care about this specific living conditions. In this cases help us RVM. Each project wrote in Ruby on Rails needs special environment. RVM help as to keep environments separate without problems.</p>
 
-<h2>How can we use RVM?</h2>
+<h2 id="how-can-we-use-rvm">How can we use RVM?</h2>
 
 <p>It’s easy, look:</p>
 
 <ul>
-<li>list of Ruby versions (type of ground):</li>
+  <li>list of Ruby versions (type of ground):</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm list
-</code></pre></div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm list
+</code></pre>
+</div>
+
 <p>it can look like:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm rubies
 
-     jruby-1.7.4 [ x86_64 ]
-     ruby-2.0.0-p195 [ x86_64 ]
-  =* ruby-2.0.0-p247 [ x86_64 ]
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm rubies
 
-  # =&gt; - current
-  # =* - current &amp;&amp; default
-  #  * - default
-</code></pre></div>
+     jruby-1.7.4 <span class="o">[</span> x86_64 <span class="o">]</span>
+     ruby-2.0.0-p195 <span class="o">[</span> x86_64 <span class="o">]</span>
+  <span class="o">=</span><span class="k">*</span> ruby-2.0.0-p247 <span class="o">[</span> x86_64 <span class="o">]</span>
+
+  <span class="c"># =&gt; - current</span>
+  <span class="c"># =* - current &amp;&amp; default</span>
+  <span class="c">#  * - default</span>
+</code></pre>
+</div>
+
 <ul>
-<li>list of gemsets (living conditions):</li>
+  <li>list of gemsets (living conditions):</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm gemset list
 
-  =&gt; (default)
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm gemset list
+
+  <span class="o">=</span>&gt; <span class="o">(</span>default<span class="o">)</span>
      global
      woman_on_rails
-</code></pre></div>
+</code></pre>
+</div>
+
 <ul>
-<li>change gemset to woman<em>on</em>rails:</li>
+  <li>change gemset to woman_on_rails:</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm gemset use woman_on_rails
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm gemset use woman_on_rails
 
   Using ruby-2.0.0-p247 with gemset woman_on_rails
-</code></pre></div>
-<p>When we look into gemset list now, we can see:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm gemset list
+</code></pre>
+</div>
 
-   (default)
+<p>When we look into gemset list now, we can see:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm gemset list
+
+   <span class="o">(</span>default<span class="o">)</span>
    global
-=&gt; woman_on_rails
-</code></pre></div>
-<h2>OK, but how can we install RVM?</h2>
+<span class="gp">=&gt; </span>woman_on_rails
+</code></pre>
+</div>
+
+<h2 id="ok-but-how-can-we-install-rvm">OK, but how can we install RVM?</h2>
 
 <ul>
-<li>Try use official <a href="http://rvm.io/rvm/install">RVM page</a></li>
-<li>Or try <a href="https://github.com/fractalsoft/dotfiles">https://github.com/fractalsoft/dotfiles</a> – There is instruction how create your own environment from the begin. If you have system and the rest, you can use only dotfiles to install rvm.</li>
+  <li>Try use official <a href="http://rvm.io/rvm/install">RVM page</a></li>
+  <li>Or try <a href="https://github.com/fractalsoft/dotfiles">https://github.com/fractalsoft/dotfiles</a> – There is instruction how create your own environment from the begin. If you have system and the rest, you can use only dotfiles to install rvm.</li>
 </ul>
 
 <p>I hope that, my entry helps you understood what RVM is. I love feedback. Please live your comment.
@@ -290,7 +305,7 @@ This article is a simple sample of RVM. If you want more knowladge please check 
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -316,7 +331,6 @@ This article is a simple sample of RVM. If you want more knowladge please check 
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

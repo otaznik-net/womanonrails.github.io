@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Woman on Rails - web development from woman perspective">
 <meta name="twitter:description" content="Ruby on Rails programmer fascinated by design patterns, building good application architecture, code refactoring and connecting web development with remote work and travels.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Ruby on Rails programmer fascinated by design patterns, building good application architecture, code refactoring and connecting web development with remote work and travels.">
 <meta property="og:url" content="https://womanonrails.com/page8/">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -147,7 +147,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                    <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                    <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -212,7 +212,7 @@ Description: Awesome dude, awesome life
                   <div class="post-body bordered-bottom">
                   
                   
-                      <p>This will be the first article about refactoring. I love refactoring, so let’s start. I think that the best way to do this is to put some code on the beginning and then change it. Today I would like to show you a piece of CoffeeScript code: if checked_items == all_items $(&#39;#myId&#39;).prop(&#39;checked&#39;, true) else $(&#39;#myId&#39;).prop(&#39;checked&#39;, false) This code is simple. I check if number of selected items is same as number of all items. And then I select (or not) a checkbox on a web page. As I said it’s simple but can be improved: $(&#39;#myId&#39;).prop(&#39;checked&#39;, checked_items == all_items) The...&hellip;</p>
+                      <p>This will be the first article about refactoring. I love refactoring, so let’s start. I think that the best way to do this is to put some code on the beginning and then change it. Today I would like to show you a piece of CoffeeScript code: if checked_items == all_items $('#myId').prop('checked', true) else $('#myId').prop('checked', false) This code is simple. I check if number of selected items is same as number of all items. And then I select (or not) a checkbox on a web page. As I said it’s simple but can be improved: $('#myId').prop('checked', checked_items == all_items) The...&hellip;</p>
                       <div class="text-center">
                       
                     <a href="/refactoring-coffee-part1" data-toggle="tooltip" title="Small refactoring in CoffeeScript" class="more-link btn btn-danger btn-large">
@@ -320,7 +320,7 @@ Description: Awesome dude, awesome life
                       
                       </h2>
                       <div class="post-info text-center small">
-                          <time datetime="2013-10-13T19:00:00-04:00" class="post-time">14 Oct 2013</time>
+                          <time datetime="2013-10-14T00:00:00-04:00" class="post-time">14 Oct 2013</time>
                           in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#conference" data-toggle="tooltip" title="Other posts from the Conference category" rel="tag">Conference</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">2.345</span> minutes read</span>
                       </div>
                   </header>
@@ -359,7 +359,7 @@ Description: Awesome dude, awesome life
                       
                       </h2>
                       <div class="post-info text-center small">
-                          <time datetime="2013-09-07T19:00:00-04:00" class="post-time">08 Sep 2013</time>
+                          <time datetime="2013-09-08T00:00:00-04:00" class="post-time">08 Sep 2013</time>
                           in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#workshops" data-toggle="tooltip" title="Other posts from the Workshops category" rel="tag">Workshops</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;1 minute read</span>
                       </div>
                   </header>
@@ -389,7 +389,8 @@ Description: Awesome dude, awesome life
               <article class="post col-md-10 col-md-offset-1">
                  <header class="post-header">
                       <h2 class="post-title text-center super lighter status">
-                          <a href="/introduction"><i class="icon-retweet"></i> "Let&#39;s start blog&#39;s adventure. Feel free to read!
+                          <a href="/introduction"><i class="icon-retweet"></i> "Let’s start blog’s adventure. Feel free to read!
+
 "</a>
                       </h2>
                       <p class="light small text-center">
@@ -416,7 +417,7 @@ Description: Awesome dude, awesome life
                           </li>
                       </ul>
                       <div class="post-info text-center small">
-                          Status posted @ <time datetime="2013-09-05T19:00:00-04:00" class="post-time">06 Sep 2013</time>
+                          Status posted @ <time datetime="2013-09-06T00:00:00-04:00" class="post-time">06 Sep 2013</time>
                           in <span class="post-tags"></span>&nbsp;<span class="post-tags">by Agnieszka Matysek</span>
                           <div class="post-body bordered-bottom"></div>
                       </div>
@@ -469,7 +470,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>
@@ -639,7 +639,26 @@ $("a#click-pages").click(function(){
   gtag('config', 'UA-127731573-1');
 </script>
 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'womanonrails'; // required: replace example with your forum shortname
 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </body>
 </html>

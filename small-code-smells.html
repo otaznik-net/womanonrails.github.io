@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Small code smells">
 <meta name="twitter:description" content="We think about big architecture concepts, but we have problems with small code smells.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="We think about big architecture concepts, but we have problems with small code smells.">
 <meta property="og:url" content="https://womanonrails.com/small-code-smells">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,52 +197,67 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>I think every programmer, at least at some point, wanted to resolve some big problems, focus on big architecture and be the one, who will fix the entire world. Did you ever feel that way? I did, more than once. It&#39;s funny because at that moment I feel that I can change application completely, for the better of course ;] I can do some refactoring here and there. I can do that alone, without any help. I see the solution inside my head. It is almost done. But after this moment of excitement, I know that this is a daily base work. To have good architecture, we need to take care of each small line of code. This will not happen by night. It is hard work and sometimes we forget about it. It is much more fun to think about integration with Google Earth Engine then about naming of one small variable. Don&#39;t you think?</p>
+                        <p>I think every programmer, at least at some point, wanted to resolve some big problems, focus on big architecture and be the one, who will fix the entire world. Did you ever feel that way? I did, more than once. It’s funny because at that moment I feel that I can change application completely, for the better of course ;] I can do some refactoring here and there. I can do that alone, without any help. I see the solution inside my head. It is almost done. But after this moment of excitement, I know that this is a daily base work. To have good architecture, we need to take care of each small line of code. This will not happen by night. It is hard work and sometimes we forget about it. It is much more fun to think about integration with Google Earth Engine then about naming of one small variable. Don’t you think?</p>
 
-<p>Here is what I would like to show you. I got Visual Basic code to rewrite it in Ruby. I cannot show you all of this code. It is still under NDA (non-disclosure agreement). But you can image this situation. I opened the file. One big file. 2000 lines of code. I started reading the code to understand the logic. It was hard. Very hard. It was painful. Many variables almost from <code>a</code> to <code>z</code>, then form <code>aa</code> to <code>zz</code> without any explanation what they meant. One big method. Lot of duplications and no indentations. And something what I&#39;ve seen last time on my University during classes about micro-controllers programing. Lot of <code>goto</code> commands, almost everywhere. It took me some time to understand it. Logic was quite easy, after spending hours of reading this code. Yes, there were many math calculations, but after all, those were linear equations to solve in loops. If the person who prepared this code, took care of it in the proper way, I would have much less work to do. I would spend less time to understand it. And it would be a pleasure to work with this code. I think even for that person the code would be much easier with a good design.</p>
+<p>Here is what I would like to show you. I got Visual Basic code to rewrite it in Ruby. I cannot show you all of this code. It is still under NDA (non-disclosure agreement). But you can image this situation. I opened the file. One big file. 2000 lines of code. I started reading the code to understand the logic. It was hard. Very hard. It was painful. Many variables almost from <code class="highlighter-rouge">a</code> to <code class="highlighter-rouge">z</code>, then form <code class="highlighter-rouge">aa</code> to <code class="highlighter-rouge">zz</code> without any explanation what they meant. One big method. Lot of duplications and no indentations. And something what I’ve seen last time on my University during classes about micro-controllers programing. Lot of <code class="highlighter-rouge">goto</code> commands, almost everywhere. It took me some time to understand it. Logic was quite easy, after spending hours of reading this code. Yes, there were many math calculations, but after all, those were linear equations to solve in loops. If the person who prepared this code, took care of it in the proper way, I would have much less work to do. I would spend less time to understand it. And it would be a pleasure to work with this code. I think even for that person the code would be much easier with a good design.</p>
 
 <p>I will give you two small examples of this code, to show you the problem:</p>
-<div class="highlight"><pre><code class="language-basic" data-lang="basic"><span></span><span class="vg">For</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">m1</span>
-<span class="vg">For</span><span class="w"> </span><span class="vg">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">m1</span>
-<span class="vg">If</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="vg">j</span><span class="w"> </span><span class="vg">Then</span>
-<span class="vg">s3</span><span class="p">(</span><span class="vg">i</span><span class="p">,</span><span class="w"> </span><span class="vg">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span>
-<span class="vg">GoTo</span><span class="w"> </span><span class="il">410</span>
-<span class="vg">End</span><span class="w"> </span><span class="vg">If</span>
-<span class="vg">s3</span><span class="p">(</span><span class="vg">i</span><span class="p">,</span><span class="w"> </span><span class="vg">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span>
-<span class="nl">410</span><span class="w"> </span><span class="vg">Next</span><span class="w"> </span><span class="vg">j</span>
-<span class="vg">Next</span><span class="w"> </span><span class="vg">i</span>
-</code></pre></div>
+
+<div class="language-visualbasic highlighter-rouge"><pre class="highlight"><code><span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">m1</span>
+<span class="k">For</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">m1</span>
+<span class="k">If</span> <span class="n">i</span> <span class="o">&lt;&gt;</span> <span class="n">j</span> <span class="k">Then</span>
+<span class="n">s3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">GoTo</span> <span class="mi">410</span>
+<span class="k">End</span> <span class="k">If</span>
+<span class="n">s3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="mi">410</span> <span class="k">Next</span> <span class="n">j</span>
+<span class="k">Next</span> <span class="n">i</span>
+</code></pre>
+</div>
+
 <p>Do you know what this code does? First look, first thought. No idea. You need to analyze it to understand it. OK, let me give you a hand here:</p>
-<div class="highlight"><pre><code class="language-basic" data-lang="basic"><span></span><span class="vg">m1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">2</span>
-<span class="vg">For</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">m1</span>
-<span class="w">  </span><span class="vg">For</span><span class="w"> </span><span class="vg">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">m1</span>
-<span class="w">    </span><span class="vg">If</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="vg">j</span><span class="w"> </span><span class="vg">Then</span>
-<span class="w">      </span><span class="vg">s3</span><span class="p">(</span><span class="vg">i</span><span class="p">,</span><span class="w"> </span><span class="vg">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span>
-<span class="w">      </span><span class="vg">GoTo</span><span class="w"> </span><span class="il">410</span>
-<span class="w">    </span><span class="vg">End</span><span class="w"> </span><span class="vg">If</span>
-<span class="w">  </span><span class="vg">s3</span><span class="p">(</span><span class="vg">i</span><span class="p">,</span><span class="w"> </span><span class="vg">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span>
-<span class="w">  </span><span class="il">410</span><span class="w"> </span><span class="vg">Next</span><span class="w"> </span><span class="vg">j</span>
-<span class="vg">Next</span><span class="w"> </span><span class="vg">i</span>
-</code></pre></div>
-<p>It is more readable, because we know which code is inside the other. And we see that <code>m1 = 2</code> so we have only 2 steps for each loop. But this <code>goto</code> breaks the flow of reading it. What if I told you that this code is no more than this:</p>
-<div class="highlight"><pre><code class="language-basic" data-lang="basic"><span></span><span class="vg">array</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
-<span class="w">  </span><span class="p">[</span><span class="il">1</span><span class="p">,</span><span class="w"> </span><span class="il">0</span><span class="p">],</span>
-<span class="w">  </span><span class="p">[</span><span class="il">0</span><span class="p">,</span><span class="w"> </span><span class="il">1</span><span class="p">]</span>
-<span class="p">]</span>
-</code></pre></div>
+
+<div class="language-visualbasic highlighter-rouge"><pre class="highlight"><code><span class="n">m1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">m1</span>
+  <span class="k">For</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">m1</span>
+    <span class="k">If</span> <span class="n">i</span> <span class="o">&lt;&gt;</span> <span class="n">j</span> <span class="k">Then</span>
+      <span class="n">s3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="k">GoTo</span> <span class="mi">410</span>
+    <span class="k">End</span> <span class="k">If</span>
+  <span class="n">s3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="mi">410</span> <span class="k">Next</span> <span class="n">j</span>
+<span class="k">Next</span> <span class="n">i</span>
+</code></pre>
+</div>
+
+<p>It is more readable, because we know which code is inside the other. And we see that <code class="highlighter-rouge">m1 = 2</code> so we have only 2 steps for each loop. But this <code class="highlighter-rouge">goto</code> breaks the flow of reading it. What if I told you that this code is no more than this:</p>
+
+<div class="language-visualbasic highlighter-rouge"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="err">[</span>
+  <span class="err">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="err">]</span><span class="p">,</span>
+  <span class="err">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="err">]</span>
+<span class="err">]</span>
+</code></pre>
+</div>
+
 <p>Much easier to understand. I can show you another solution just in case you want to stay with dynamic generation of this matrix based on size. In this Visual Basic code we use only the size of 2, so for me it does not make sense to do that dynamically, but who knows.</p>
-<div class="highlight"><pre><code class="language-basic" data-lang="basic"><span></span><span class="vg">For</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">m1</span>
-<span class="w">  </span><span class="vg">For</span><span class="w"> </span><span class="vg">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span><span class="w"> </span><span class="vg">To</span><span class="w"> </span><span class="vg">m1</span>
-<span class="w">    </span><span class="vg">If</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="vg">j</span><span class="w"> </span><span class="vg">Then</span><span class="w"> </span><span class="vg">s3</span><span class="p">(</span><span class="vg">i</span><span class="p">,</span><span class="w"> </span><span class="vg">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">0</span>
-<span class="w">    </span><span class="vg">If</span><span class="w"> </span><span class="vg">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">j</span><span class="w"> </span><span class="vg">Then</span><span class="w"> </span><span class="vg">s3</span><span class="p">(</span><span class="vg">i</span><span class="p">,</span><span class="w"> </span><span class="vg">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="il">1</span>
-<span class="w">  </span><span class="vg">Next</span><span class="w"> </span><span class="vg">j</span>
-<span class="vg">Next</span><span class="w"> </span><span class="vg">i</span>
-</code></pre></div>
-<p>The second example is quick. Do you know the difference between <code>n12</code> and <code>n1n2</code> variables? Maybe this is just a misspell? And after all what is this <code>n12</code>? What does it mean?</p>
-<div class="highlight"><pre><code class="language-basic" data-lang="basic"><span></span><span class="vg">n12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">n1</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="il">2</span>
-<span class="vg">n1n2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vg">n1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="vg">n2</span>
-</code></pre></div>
-<p>It is not hard to do a mistake here. Names are so similar, that you can easily put second variable instead of first. We still don&#39;t know what is the real meaning of these variables, but at least we know the difference. When you have lots of this kind of variables in code it is almost impossible to remember them.</p>
+
+<div class="language-visualbasic highlighter-rouge"><pre class="highlight"><code><span class="k">For</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">m1</span>
+  <span class="k">For</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">To</span> <span class="n">m1</span>
+    <span class="k">If</span> <span class="n">i</span> <span class="o">&lt;&gt;</span> <span class="n">j</span> <span class="k">Then</span> <span class="n">s3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">If</span> <span class="n">i</span> <span class="o">=</span> <span class="n">j</span> <span class="k">Then</span> <span class="n">s3</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">Next</span> <span class="n">j</span>
+<span class="k">Next</span> <span class="n">i</span>
+</code></pre>
+</div>
+
+<p>The second example is quick. Do you know the difference between <code class="highlighter-rouge">n12</code> and <code class="highlighter-rouge">n1n2</code> variables? Maybe this is just a misspell? And after all what is this <code class="highlighter-rouge">n12</code>? What does it mean?</p>
+
+<div class="language-visualbasic highlighter-rouge"><pre class="highlight"><code><span class="n">n12</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">^</span> <span class="mi">2</span>
+<span class="n">n1n2</span> <span class="o">=</span> <span class="n">n1</span> <span class="o">*</span> <span class="n">n2</span>
+</code></pre>
+</div>
+
+<p>It is not hard to do a mistake here. Names are so similar, that you can easily put second variable instead of first. We still don’t know what is the real meaning of these variables, but at least we know the difference. When you have lots of this kind of variables in code it is almost impossible to remember them.</p>
 
 <p>If we want to have the overall good architecture, we should start small. We should put attention to each line of code. We should explicite show the meaning of our code. It is easy to make a mess, but good code needs more work and engagement.</p>
 
@@ -286,7 +301,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -312,7 +327,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

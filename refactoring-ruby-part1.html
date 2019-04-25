@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Ruby Refactoring – part 1">
 <meta name="twitter:description" content="Sum elements in array columns - Refactoring">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Sum elements in array columns - Refactoring">
 <meta property="og:url" content="https://womanonrails.com/refactoring-ruby-part1">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -198,73 +198,94 @@ Description: Awesome dude, awesome life
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>This time I will change Ruby code. My little monster looks like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">sum_array</span> <span class="o">=</span>  <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span>
-    <span class="o">[</span><span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">column</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
-  <span class="k">end</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span> <span class="p">}</span>
-  <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span>
-    <span class="o">[</span><span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">column</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
-  <span class="k">end</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">sum_array</span><span class="p">)</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span> <span class="o">[</span><span class="n">first</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">last</span><span class="p">,</span> <span class="n">first</span><span class="o">[</span><span class="mi">1</span><span class="o">]]</span> <span class="p">}</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>If You know what this code does I say: Wow! I wrote this code but it’s terrible. I must do something with it. OK, lets start from the beginning. This method gets data as an array of integer arrays. Like this: <code>[[1, 2, 3], [4, 5, 6]]</code>. Then groups the data by first and last column and sums by middle column. When You have data like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>
-<span class="o">]</span>
-</code></pre></div>
-<p>then our method returns</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">result</span> <span class="o">=</span> <span class="o">[</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span>
-<span class="o">]</span>
-</code></pre></div>
-<p>I decided to change this method. On the end I need an array similar to result. So I declared an array. Then I grouped my array by first and last column. Finally I summed the middle column in loop and put all data into array. Now our method looks like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
-  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="o">[</span><span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">column</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span> <span class="p">}</span>
-  <span class="n">grouped_data</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
-    <span class="n">sum</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">1</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span>
-    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="o">[</span><span class="n">key</span><span class="o">.</span><span class="n">first</span><span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">key</span><span class="o">.</span><span class="n">last</span><span class="o">]</span>
-  <span class="k">end</span>
-  <span class="n">array</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>After that I noticed that order in the data array doesn’t matter. My input and output changed to:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">data</span> <span class="o">=</span> <span class="o">[</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
-<span class="o">]</span>
 
-<span class="n">result</span> <span class="o">=</span> <span class="o">[</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span><span class="p">,</span>
-  <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
-<span class="o">]</span>
-</code></pre></div>
-<p>The method changed only a little:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
-  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
-  <span class="n">grouped_data</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
-    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">))</span>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">sum_array</span> <span class="o">=</span>  <span class="n">data</span><span class="p">.</span><span class="nf">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span>
+    <span class="p">[</span><span class="n">column</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">column</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+  <span class="k">end</span><span class="p">.</span><span class="nf">values</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span><span class="p">.</span><span class="nf">transpose</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">inject</span><span class="p">(:</span><span class="o">+</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">data</span><span class="p">.</span><span class="nf">group_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span>
+    <span class="p">[</span><span class="n">column</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">column</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+  <span class="k">end</span><span class="p">.</span><span class="nf">keys</span><span class="p">.</span><span class="nf">zip</span><span class="p">(</span><span class="n">sum_array</span><span class="p">).</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="o">|</span> <span class="p">[</span><span class="n">first</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">last</span><span class="p">,</span> <span class="n">first</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>If You know what this code does I say: Wow! I wrote this code but it’s terrible. I must do something with it. OK, lets start from the beginning. This method gets data as an array of integer arrays. Like this: <code class="highlighter-rouge">[[1, 2, 3], [4, 5, 6]]</code>. Then groups the data by first and last column and sums by middle column. When You have data like this:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre>
+</div>
+
+<p>then our method returns</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre>
+</div>
+
+<p>I decided to change this method. On the end I need an array similar to result. So I declared an array. Then I grouped my array by first and last column. Finally I summed the middle column in loop and put all data into array. Now our method looks like this:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="p">[</span><span class="n">column</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">column</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span> <span class="p">}</span>
+  <span class="n">grouped_data</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+    <span class="n">sum</span> <span class="o">=</span> <span class="n">value</span><span class="p">.</span><span class="nf">transpose</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nf">inject</span><span class="p">(:</span><span class="o">+</span><span class="p">)</span>
+    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="p">[</span><span class="n">key</span><span class="p">.</span><span class="nf">first</span><span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">key</span><span class="p">.</span><span class="nf">last</span><span class="p">]</span>
   <span class="k">end</span>
   <span class="n">array</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>OK, it looks better now but what else can I do to improve it? Let me see… Maybe I can replace each with map:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="o">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">1</span><span class="o">]</span> <span class="p">}</span>
-  <span class="n">grouped_data</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="o">[*</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">.</span><span class="n">transpose</span><span class="o">[</span><span class="mi">2</span><span class="o">].</span><span class="n">inject</span><span class="p">(</span><span class="ss">:+</span><span class="p">)</span><span class="o">]</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>After that I noticed that order in the data array doesn’t matter. My input and output changed to:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre>
+</div>
+
+<p>The method changed only a little:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">1</span><span class="p">]</span> <span class="p">}</span>
+  <span class="n">grouped_data</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+    <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">key</span> <span class="o">&lt;&lt;</span> <span class="n">value</span><span class="p">.</span><span class="nf">transpose</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">inject</span><span class="p">(:</span><span class="o">+</span><span class="p">))</span>
+  <span class="k">end</span>
+  <span class="n">array</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
+<p>OK, it looks better now but what else can I do to improve it? Let me see… Maybe I can replace each with map:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">sum_by_column</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="n">grouped_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="nf">group_by</span> <span class="p">{</span> <span class="o">|</span><span class="n">column</span><span class="o">|</span> <span class="n">column</span><span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="nf">.</span><span class="mi">1</span><span class="p">]</span> <span class="p">}</span>
+  <span class="n">grouped_data</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="p">[</span><span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">.</span><span class="nf">transpose</span><span class="p">[</span><span class="mi">2</span><span class="p">].</span><span class="nf">inject</span><span class="p">(:</span><span class="o">+</span><span class="p">)]</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
 <p>Yeyyy… It looks fine now. Finally this method is acceptable for me. If you have any suggestions how can I change this method, please left your comment.</p>
 
                         <br>
@@ -305,7 +326,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -331,7 +352,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

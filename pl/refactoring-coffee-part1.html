@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="CoffeeScript refaktoring – część 1">
 <meta name="twitter:description" content="Mały refaktoring w CoffeeScript">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Mały refaktoring w CoffeeScript">
 <meta property="og:url" content="https://womanonrails.com/refactoring-coffee-part1">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,17 +200,24 @@ Description: Awesome dude, awesome life
                         <p>To będzie mój pierwszy wpis o refaktoringu. Uwielbiam refaktoring, więc bierzmy się do pracy.</p>
 
 <p>Myślę, że najlepszym sposobem by to zrobić będzie zapisanie na początku fragmentu kodu a później wprowadzenie zmian. Dzisiaj chciałabym zaprezentować Wam kilka linijek kodu w CoffeeScript:</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="k">if</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">'#myId'</span><span class="p">).</span><span class="na">prop</span><span class="p">(</span><span class="s">'checked'</span><span class="p">,</span> <span class="no">true</span><span class="p">)</span>
 <span class="k">else</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
-</code></pre></div>
+  <span class="nx">$</span><span class="p">(</span><span class="s">'#myId'</span><span class="p">).</span><span class="na">prop</span><span class="p">(</span><span class="s">'checked'</span><span class="p">,</span> <span class="no">false</span><span class="p">)</span>
+</code></pre>
+</div>
+
 <p>Ten kod jest naprawdę prosty. Sprawdzam czy ilość zaznaczonych elementów jest równa ilości wszystkich elementów. I w zależności od odpowiedzi zaznaczam (lub nie) checkbox na stronie internetowej. Tak jak powiedziałam jest to prosty kod, ale może być ładniejszy:</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span><span class="p">)</span>
-</code></pre></div>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s">'#myId'</span><span class="p">).</span><span class="na">prop</span><span class="p">(</span><span class="s">'checked'</span><span class="p">,</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span><span class="p">)</span>
+</code></pre>
+</div>
+
 <p>Ta sama funkcjonalność w jednej linijce. Bardzo mi się podoba ten refaktoring. Jeśli widzicie jak można by jeszcze ulepszyć ten fragment kodu dajcie znać.</p>
 
 <p>Do zobaczenia następnym razem!</p>
+
 
                         <br>
                     
@@ -250,7 +257,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -276,7 +283,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

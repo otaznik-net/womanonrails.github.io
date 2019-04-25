@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Operator precedence in Ruby">
 <meta name="twitter:description" content="What do you need to know about order of mathematical operations and not only about them?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="What do you need to know about order of mathematical operations and not only about them?">
 <meta property="og:url" content="https://womanonrails.com/operator-precedence-ruby">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,55 +197,68 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>The order of math operations is very important in programming language. If you don&#39;t know them well, you can get completely different results, than you expect. And your code can be just wrong. You need to know the rules. Is the order similar like in math? Or maybe the algebraic expression is interpreted from the left to the right? Do you know how does this look like in Ruby? Let&#39;s check it.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
+                        <p>The order of math operations is very important in programming language. If you don’t know them well, you can get completely different results, than you expect. And your code can be just wrong. You need to know the rules. Is the order similar like in math? Or maybe the algebraic expression is interpreted from the left to the right? Do you know how does this look like in Ruby? Let’s check it.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">6</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>This is not 8. It is 6. You can see here that multiplication is <em>stronger</em> then addition. In this case we will say that multiplication has <strong>higher operator precedence</strong> then addition. This is exactly the same like we have learned at school on Math classes. To show you this more precisely, we have:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
  <span class="o">=&gt;</span> <span class="mi">6</span>
 
 <span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">8</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>OK, but how will I know that? There are many different operators. Well, you need to remember the table of operators order, from <a href="https://ruby-doc.org/core-2.2.0/doc/syntax/precedence_rdoc.html" title="Ruby documentation - operators precedence" target="_blank" rel="nofollow noopener noreferrer">Ruby docs</a>:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="o">!</span><span class="p">,</span> <span class="o">~</span><span class="p">,</span> <span class="n">unary</span> <span class="o">+</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="o">!</span><span class="p">,</span> <span class="o">~</span><span class="p">,</span> <span class="n">unary</span> <span class="o">+</span>
 <span class="o">**</span>
 <span class="n">unary</span> <span class="o">-</span>
-<span class="o">*</span><span class="p">,</span> <span class="sr">/, %</span>
-<span class="sr">+, -</span>
-<span class="sr">&lt;&lt;, &gt;&gt;</span>
-<span class="sr">&amp;</span>
-<span class="sr">|, ^</span>
-<span class="sr">&gt;, &gt;=, &lt;, &lt;=</span>
-<span class="sr">&lt;=&gt;, ==, ===, !=, =~, !~</span>
-<span class="sr">&amp;&amp;</span>
-<span class="sr">||</span>
-<span class="sr">.., ...</span>
-<span class="sr">?, :</span>
-<span class="sr">modifier-rescue</span>
-<span class="sr">=, +=, -=, etc.</span>
-<span class="sr">defined?</span>
-<span class="sr">not</span>
-<span class="sr">or, and</span>
-<span class="sr">modifier-if, modifier-unless, modifier-while, modifier-until</span>
-<span class="sr">{ } blocks</span>
-</code></pre></div>
-<p>As you can see here <code>*</code> is higher than <code>+</code>, so it has <strong>higher precedence</strong>.</p>
+<span class="o">*</span><span class="p">,</span> <span class="sr">/, %
++, -
+&lt;&lt;, &gt;&gt;
+&amp;
+|, ^
+&gt;, &gt;=, &lt;, &lt;=
+&lt;=&gt;, ==, ===, !=, =~, !~
+&amp;&amp;
+||
+.., ...
+?, :
+modifier-rescue
+=, +=, -=, etc.
+defined?
+not
+or, and
+modifier-if, modifier-unless, modifier-while, modifier-until
+{ } blocks
+</span></code></pre>
+</div>
 
-<h2>Examples</h2>
+<p>As you can see here <code class="highlighter-rouge">*</code> is higher than <code class="highlighter-rouge">+</code>, so it has <strong>higher precedence</strong>.</p>
 
-<h3>Boolean operators</h3>
+<h2 id="examples">Examples</h2>
 
-<p>Let&#39;s start with something simple. Precedence hierarchy for boolean operators.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="mi">1</span> <span class="o">||</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="kp">nil</span>
+<h3 id="boolean-operators">Boolean operators</h3>
+
+<p>Let’s start with something simple. Precedence hierarchy for boolean operators.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="mi">1</span> <span class="o">||</span> <span class="mi">2</span> <span class="o">&amp;&amp;</span> <span class="kp">nil</span>
  <span class="o">=&gt;</span> <span class="mi">1</span>
 
-<span class="mi">1</span> <span class="ow">or</span> <span class="mi">2</span> <span class="ow">and</span> <span class="kp">nil</span>
+<span class="mi">1</span> <span class="n">or</span> <span class="mi">2</span> <span class="n">and</span> <span class="kp">nil</span>
  <span class="o">=&gt;</span> <span class="kp">nil</span>
-</code></pre></div>
-<p>On the first look, logic is the same, but we get different results. But when you take a look closely, you will see the difference. Order of calculations. In the first example, the order looks like <code>(1 || (2 &amp;&amp; nil))</code>. We get <code>nil</code> from <code>2 &amp;&amp; nil</code>. And then we have <code>1 || nil</code> so this is <code>1</code>. Well, I lied a little bit here. Our interpreter is smarter, than you can think of. Because we have this <code>||</code> operator. It has been truthy always when left hand side is truthy, so it checks only the first part of our expression. Check here:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+</code></pre>
+</div>
+
+<p>On the first look, logic is the same, but we get different results. But when you take a look closely, you will see the difference. Order of calculations. In the first example, the order looks like <code class="highlighter-rouge">(1 || (2 &amp;&amp; nil))</code>. We get <code class="highlighter-rouge">nil</code> from <code class="highlighter-rouge">2 &amp;&amp; nil</code>. And then we have <code class="highlighter-rouge">1 || nil</code> so this is <code class="highlighter-rouge">1</code>. Well, I lied a little bit here. Our interpreter is smarter, than you can think of. Because we have this <code class="highlighter-rouge">||</code> operator. It has been truthy always when left hand side is truthy, so it checks only the first part of our expression. Check here:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
  <span class="o">=&gt;</span> <span class="mi">0</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
@@ -253,25 +266,30 @@ Description: Awesome dude, awesome life
 
 <span class="n">a</span>
  <span class="o">=&gt;</span> <span class="mi">1</span>
-</code></pre></div>
-<p>In the beginning, we assigned <code>0</code> to <code>a</code>. Then we check condition together with assignments. If we check also right hand side, we should get <code>2</code> assigned to <code>a</code> variable. But we get <code>1</code>. We get <code>2</code> only, when the left hand side is falsy. For example:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">a</span> <span class="o">=</span> <span class="kp">false</span> <span class="o">||</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre>
+</div>
+
+<p>In the beginning, we assigned <code class="highlighter-rouge">0</code> to <code class="highlighter-rouge">a</code>. Then we check condition together with assignments. If we check also right hand side, we should get <code class="highlighter-rouge">2</code> assigned to <code class="highlighter-rouge">a</code> variable. But we get <code class="highlighter-rouge">1</code>. We get <code class="highlighter-rouge">2</code> only, when the left hand side is falsy. For example:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="kp">false</span> <span class="o">||</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
 
 <span class="n">a</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
-</code></pre></div>
-<p>In the second example <code>1 or 2 and nil</code> order of operations is completely opposite: <code>((1 or 2) and nil)</code>. First,  we check <code>1 or 2</code>. We get <code>1</code> and then we check <code>1 and nil</code>, so the final result is <code>nil</code>.</p>
+</code></pre>
+</div>
 
-<p>To understand better the differences between these two notations, let&#39;s check all possibilities here in table:</p>
+<p>In the second example <code class="highlighter-rouge">1 or 2 and nil</code> order of operations is completely opposite: <code class="highlighter-rouge">((1 or 2) and nil)</code>. First,  we check <code class="highlighter-rouge">1 or 2</code>. We get <code class="highlighter-rouge">1</code> and then we check <code class="highlighter-rouge">1 and nil</code>, so the final result is <code class="highlighter-rouge">nil</code>.</p>
 
-<table class='table'>
+<p>To understand better the differences between these two notations, let’s check all possibilities here in table:</p>
+
+<table class="table">
   <thead>
     <tr>
       <th>a</th>
       <th>b</th>
       <th>c</th>
-      <th>a || b && c</th>
+      <th>a || b &amp;&amp; c</th>
       <th>a or b and c</th>
     </tr>
   </thead>
@@ -335,35 +353,45 @@ Description: Awesome dude, awesome life
   </tbody>
 </table>
 
-<p>There are 2 cases, where you see the difference between operators <code>||</code> and <code>&amp;&amp;</code> and operators <code>or</code> and <code>and</code>.</p>
+<p>There are 2 cases, where you see the difference between operators <code class="highlighter-rouge">||</code> and <code class="highlighter-rouge">&amp;&amp;</code> and operators <code class="highlighter-rouge">or</code> and <code class="highlighter-rouge">and</code>.</p>
 
-<h3>Assigments</h3>
+<h3 id="assigments">Assigments</h3>
 
 <p>This example is related with boolean operators, but also with assignment:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="mi">2</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">foo</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
 
-<span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="mi">2</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">and</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">foo</span>
  <span class="o">=&gt;</span> <span class="mi">1</span>
-</code></pre></div>
-<p>Both of this logic expressions give us <code>2</code> as truthy result. But there is one difference here. In first case <code>foo</code> equals to <code>2</code> and in second example <code>foo</code> is <code>1</code>. This is related, of course, with operator precedence. Because <code>&amp;&amp;</code> has higher precedence than <code>=</code> in the first example we have:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">foo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-<p>In second example,  order of those operations is different. <code>=</code> has higher precedence, then <code>and</code> so we have:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="mi">2</span>
-</code></pre></div>
-<p>Similar behavior we will see for <code>||</code> and <code>or</code> operators. This will be visible only, when the first part of the expression will be <code>false</code> or <em>falsy</em> value. For truthy value, we will see no difference. Both expressions will behave the same:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># first part of condition is falsy</span>
+</code></pre>
+</div>
+
+<p>Both of this logic expressions give us <code class="highlighter-rouge">2</code> as truthy result. But there is one difference here. In first case <code class="highlighter-rouge">foo</code> equals to <code class="highlighter-rouge">2</code> and in second example <code class="highlighter-rouge">foo</code> is <code class="highlighter-rouge">1</code>. This is related, of course, with operator precedence. Because <code class="highlighter-rouge">&amp;&amp;</code> has higher precedence than <code class="highlighter-rouge">=</code> in the first example we have:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">foo</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>In second example,  order of those operations is different. <code class="highlighter-rouge">=</code> has higher precedence, then <code class="highlighter-rouge">and</code> so we have:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="n">and</span> <span class="mi">2</span>
+</code></pre>
+</div>
+
+<p>Similar behavior we will see for <code class="highlighter-rouge">||</code> and <code class="highlighter-rouge">or</code> operators. This will be visible only, when the first part of the expression will be <code class="highlighter-rouge">false</code> or <em>falsy</em> value. For truthy value, we will see no difference. Both expressions will behave the same:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># first part of condition is falsy</span>
 <span class="n">foo</span> <span class="o">=</span> <span class="kp">false</span> <span class="o">||</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">foo</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
 
-<span class="n">foo</span> <span class="o">=</span> <span class="kp">false</span> <span class="ow">or</span> <span class="mi">2</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="kp">false</span> <span class="n">or</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">foo</span>
  <span class="o">=&gt;</span> <span class="kp">false</span>
@@ -374,133 +402,169 @@ Description: Awesome dude, awesome life
 <span class="n">foo</span>
  <span class="o">=&gt;</span> <span class="mi">1</span>
 
-<span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="mi">2</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="mi">1</span> <span class="n">or</span> <span class="mi">2</span>
  <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="n">foo</span>
  <span class="o">=&gt;</span> <span class="mi">1</span>
-</code></pre></div>
-<p>I would like to explain, why we don&#39;t see any difference. For <code>foo = 1 || 2</code> we should set brackets like this <code>foo = (1 || 2)</code>. From logical condition <code>||</code>, we get <code>1</code> and we assign it to <code>foo</code>. In a second example <code>foo = 1 or 2</code>, first, we do the assignment and then we check the condition. The result is the same, but order of those operations is different. This is worth to be remembered!</p>
+</code></pre>
+</div>
 
-<p>In the end of this section, I would like to show you one more example. I think, it is a very interesting one. It is more complex because it uses  <code>=</code>, <code>&amp;&amp;</code>, <code>and</code> and <code>&lt;&lt;</code>.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+<p>I would like to explain, why we don’t see any difference. For <code class="highlighter-rouge">foo = 1 || 2</code> we should set brackets like this <code class="highlighter-rouge">foo = (1 || 2)</code>. From logical condition <code class="highlighter-rouge">||</code>, we get <code class="highlighter-rouge">1</code> and we assign it to <code class="highlighter-rouge">foo</code>. In a second example <code class="highlighter-rouge">foo = 1 or 2</code>, first, we do the assignment and then we check the condition. The result is the same, but order of those operations is different. This is worth to be remembered!</p>
 
-<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;3&#39;</span>
- <span class="o">=&gt;</span> <span class="s2">&quot;23&quot;</span>
+<p>In the end of this section, I would like to show you one more example. I think, it is a very interesting one. It is more complex because it uses  <code class="highlighter-rouge">=</code>, <code class="highlighter-rouge">&amp;&amp;</code>, <code class="highlighter-rouge">and</code> and <code class="highlighter-rouge">&lt;&lt;</code>.</p>
 
-<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span> <span class="s1">'2'</span>
 
-<span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span> <span class="ow">and</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="s1">&#39;3&#39;</span>
- <span class="o">=&gt;</span> <span class="s2">&quot;13&quot;</span>
-</code></pre></div>
-<p>Let&#39;s go step by step to understand, what is going on in here. In the first example we have <code>&amp;&amp;</code>. We know that, it has quite high precedence, but predecence for <code>&lt;&lt;</code> is higher, than <code>&amp;&amp;</code>. So the order of calculations here looks like: <code>s = (&#39;1&#39; &amp;&amp; (s &lt;&lt; &#39;3&#39;))</code>. First, we concat <code>&#39;3&#39;</code> to string. We get <code>s = (&#39;1&#39; &amp;&amp; &#39;23&#39;)</code>. Now we do <code>&amp;&amp;</code>, so the result is <code>&#39;23&#39;</code>.</p>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="o">&amp;&amp;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="s1">'3'</span>
+ <span class="o">=&gt;</span> <span class="s2">"23"</span>
 
-<p>In the second example we have order like <code>(s = &#39;1&#39;) and (s &lt;&lt; &#39;3&#39;)</code>. We start from assignments. So <code>s</code> is now <code>&#39;1&#39;</code> not <code>&#39;2&#39;</code>. Then we calculate right hand side part and we get <code>&#39;1&#39; and &#39;13&#39;</code>, so the final result is <code>&#39;13&#39;</code>.</p>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">'2'</span>
 
-<h3>Methods &amp; boolean operators</h3>
+<span class="n">s</span> <span class="o">=</span> <span class="s1">'1'</span> <span class="n">and</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="s1">'3'</span>
+ <span class="o">=&gt;</span> <span class="s2">"13"</span>
+</code></pre>
+</div>
+
+<p>Let’s go step by step to understand, what is going on in here. In the first example we have <code class="highlighter-rouge">&amp;&amp;</code>. We know that, it has quite high precedence, but predecence for <code class="highlighter-rouge">&lt;&lt;</code> is higher, than <code class="highlighter-rouge">&amp;&amp;</code>. So the order of calculations here looks like: <code class="highlighter-rouge">s = ('1' &amp;&amp; (s &lt;&lt; '3'))</code>. First, we concat <code class="highlighter-rouge">'3'</code> to string. We get <code class="highlighter-rouge">s = ('1' &amp;&amp; '23')</code>. Now we do <code class="highlighter-rouge">&amp;&amp;</code>, so the result is <code class="highlighter-rouge">'23'</code>.</p>
+
+<p>In the second example we have order like <code class="highlighter-rouge">(s = '1') and (s &lt;&lt; '3')</code>. We start from assignments. So <code class="highlighter-rouge">s</code> is now <code class="highlighter-rouge">'1'</code> not <code class="highlighter-rouge">'2'</code>. Then we calculate right hand side part and we get <code class="highlighter-rouge">'1' and '13'</code>, so the final result is <code class="highlighter-rouge">'13'</code>.</p>
+
+<h3 id="methods--boolean-operators">Methods &amp; boolean operators</h3>
 
 <p>We still are in an area of boolean operators. This example will show you, how they behave with method calls without specifying brackets. As you know, in Ruby, you can omit brackets in some cases. But when you work with boolean at the same time, you need to be careful.</p>
 
 <p>We declare our method and first example of usage:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># declare method</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># declare method</span>
 <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;My char id </span><span class="si">#{</span><span class="n">char</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="nb">puts</span> <span class="s2">"My char id </span><span class="si">#{</span><span class="n">char</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 
 <span class="c1"># example 1</span>
-<span class="nb">method</span> <span class="s1">&#39;a&#39;</span> <span class="o">||</span> <span class="s1">&#39;b&#39;</span>
+<span class="nb">method</span> <span class="s1">'a'</span> <span class="o">||</span> <span class="s1">'b'</span>
 <span class="no">My</span> <span class="n">char</span> <span class="nb">id</span> <span class="n">a</span>
  <span class="o">=&gt;</span> <span class="kp">nil</span>
-</code></pre></div>
-<p>In this example, first operator <code>||</code> will be called. We will get <code>&#39;a&#39;</code> from it. This is why we see <code>&quot;My char id a&quot;</code> text. But because the method is displaying only the test and it doesn&#39;t return anything, we see <code>nil</code> value in the end. This is important, that our method always return <code>nil</code>. You will see why in the next examples. Order of operations was: <code>method(&#39;a&#39; || &#39;b&#39;)</code>.</p>
+</code></pre>
+</div>
 
-<p>Let&#39;s go to the next example:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># example 2</span>
-<span class="nb">method</span> <span class="s1">&#39;a&#39;</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;b&#39;</span>
+<p>In this example, first operator <code class="highlighter-rouge">||</code> will be called. We will get <code class="highlighter-rouge">'a'</code> from it. This is why we see <code class="highlighter-rouge">"My char id a"</code> text. But because the method is displaying only the test and it doesn’t return anything, we see <code class="highlighter-rouge">nil</code> value in the end. This is important, that our method always return <code class="highlighter-rouge">nil</code>. You will see why in the next examples. Order of operations was: <code class="highlighter-rouge">method('a' || 'b')</code>.</p>
+
+<p>Let’s go to the next example:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># example 2</span>
+<span class="nb">method</span> <span class="s1">'a'</span> <span class="o">&amp;&amp;</span> <span class="s1">'b'</span>
 <span class="no">My</span> <span class="n">char</span> <span class="nb">id</span> <span class="n">b</span>
  <span class="o">=&gt;</span> <span class="kp">nil</span>
-</code></pre></div>
-<p>In the second example, the order is the same <code>method(&#39;a&#39; &amp;&amp; &#39;b&#39;)</code>. First, we do <code>&amp;&amp;</code> operation and we get <code>&#39;b&#39;</code> from it. Then we call our method. So this is why <code>&#39;b&#39;</code> is in our text.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># example 3</span>
-<span class="nb">method</span> <span class="s1">&#39;a&#39;</span> <span class="ow">or</span> <span class="s1">&#39;b&#39;</span>
+</code></pre>
+</div>
+
+<p>In the second example, the order is the same <code class="highlighter-rouge">method('a' &amp;&amp; 'b')</code>. First, we do <code class="highlighter-rouge">&amp;&amp;</code> operation and we get <code class="highlighter-rouge">'b'</code> from it. Then we call our method. So this is why <code class="highlighter-rouge">'b'</code> is in our text.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># example 3</span>
+<span class="nb">method</span> <span class="s1">'a'</span> <span class="n">or</span> <span class="s1">'b'</span>
 <span class="no">My</span> <span class="n">char</span> <span class="nb">id</span> <span class="n">a</span>
- <span class="o">=&gt;</span> <span class="s2">&quot;b&quot;</span>
-</code></pre></div>
-<p>In the example 3 you can notice a different behavior. As we already know, the order will be <code>method(&#39;a&#39;) or &#39;b&#39;</code>. This is why we see <code>&#39;a&#39;</code> in text, but then we need to finish this logical expression. Because our method return <code>nil</code> and this is <em>falsy</em> value, we have <code>nil or &#39;b&#39;</code>. In the end, we see <code>&#39;b&#39;</code> is returned, not from the method, but from all expression.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># example 4</span>
-<span class="nb">method</span> <span class="s1">&#39;a&#39;</span> <span class="ow">and</span> <span class="s1">&#39;b&#39;</span>
+ <span class="o">=&gt;</span> <span class="s2">"b"</span>
+</code></pre>
+</div>
+
+<p>In the example 3 you can notice a different behavior. As we already know, the order will be <code class="highlighter-rouge">method('a') or 'b'</code>. This is why we see <code class="highlighter-rouge">'a'</code> in text, but then we need to finish this logical expression. Because our method return <code class="highlighter-rouge">nil</code> and this is <em>falsy</em> value, we have <code class="highlighter-rouge">nil or 'b'</code>. In the end, we see <code class="highlighter-rouge">'b'</code> is returned, not from the method, but from all expression.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># example 4</span>
+<span class="nb">method</span> <span class="s1">'a'</span> <span class="n">and</span> <span class="s1">'b'</span>
 <span class="no">My</span> <span class="n">char</span> <span class="nb">id</span> <span class="n">a</span>
  <span class="o">=&gt;</span> <span class="kp">nil</span>
-</code></pre></div>
-<p>For example number 4, the order of operation is the same like for example 3. We have <code>method(&#39;a&#39;) and &#39;b&#39;</code>. Text is <code>&quot;My char id a&quot;</code> because of a <code>&#39;a&#39;</code> argument in the method. Then function return <code>nil</code>, so we have <code>nil and &#39;b&#39;</code>. This is why we see one more time <code>nil</code> in the end.</p>
+</code></pre>
+</div>
+
+<p>For example number 4, the order of operation is the same like for example 3. We have <code class="highlighter-rouge">method('a') and 'b'</code>. Text is <code class="highlighter-rouge">"My char id a"</code> because of a <code class="highlighter-rouge">'a'</code> argument in the method. Then function return <code class="highlighter-rouge">nil</code>, so we have <code class="highlighter-rouge">nil and 'b'</code>. This is why we see one more time <code class="highlighter-rouge">nil</code> in the end.</p>
 
 <p>OK, and now we will still stay in method calls context, but with different example. We declare two methods, one with no arguments and one with an argument.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">method1</span>
-  <span class="nb">puts</span> <span class="s1">&#39;Call Method 1&#39;</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">method1</span>
+  <span class="nb">puts</span> <span class="s1">'Call Method 1'</span>
 <span class="k">end</span>
 
 <span class="k">def</span> <span class="nf">method2</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Call Method 2 with </span><span class="si">#{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="nb">puts</span> <span class="s2">"Call Method 2 with </span><span class="si">#{</span><span class="n">text</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>Now we check, what will happen to <code>or</code> and <code>||</code> conditions.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">method1</span> <span class="ow">or</span> <span class="n">method2</span> <span class="s1">&#39;foo&#39;</span>
+</code></pre>
+</div>
+
+<p>Now we check, what will happen to <code class="highlighter-rouge">or</code> and <code class="highlighter-rouge">||</code> conditions.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">method1</span> <span class="n">or</span> <span class="n">method2</span> <span class="s1">'foo'</span>
 <span class="no">Call</span> <span class="no">Method</span> <span class="mi">1</span>
 <span class="no">Call</span> <span class="no">Method</span> <span class="mi">2</span> <span class="n">with</span> <span class="n">foo</span>
  <span class="o">=&gt;</span> <span class="kp">nil</span>
-</code></pre></div>
-<p>First example looks OK. We call <code>method1</code>, which display <code>&quot;Call Method 1&quot;</code> text and return <code>nil</code> (as we know from example above). Then, we call <code>method2</code> with one argument <code>&#39;foo&#39;</code>. We display text and return <code>nil</code>. Order of operations: <code>method1() or method2(&#39;foo&#39;)</code>. Everything is fine. Let&#39;s look at the second example.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">method1</span> <span class="o">||</span> <span class="n">method2</span> <span class="s1">&#39;foo&#39;</span>
+</code></pre>
+</div>
+
+<p>First example looks OK. We call <code class="highlighter-rouge">method1</code>, which display <code class="highlighter-rouge">"Call Method 1"</code> text and return <code class="highlighter-rouge">nil</code> (as we know from example above). Then, we call <code class="highlighter-rouge">method2</code> with one argument <code class="highlighter-rouge">'foo'</code>. We display text and return <code class="highlighter-rouge">nil</code>. Order of operations: <code class="highlighter-rouge">method1() or method2('foo')</code>. Everything is fine. Let’s look at the second example.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">method1</span> <span class="o">||</span> <span class="n">method2</span> <span class="s1">'foo'</span>
 <span class="no">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-        <span class="mi">1</span><span class="p">:</span> <span class="n">from</span> <span class="sr">/home/</span><span class="n">agnieszka</span><span class="o">/.</span><span class="n">rvm</span><span class="o">/</span><span class="n">rubies</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="ss">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;&#39;</span>
-<span class="sb">SyntaxError ((irb):32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or &#39;{&#39; or &#39;(&#39;)</span>
-<span class="sb">method1 || method2 &#39;foo&#39;</span>
-<span class="sb">                   ^</span>
-</code></pre></div>
-<p>Something went wrong. We got an error. This is because of precedence. Order of operations in this case is: <code>(method1 || method2) &#39;foo&#39;</code>. We can show it in a more descriptive way <code>(method1() || method2()) &#39;foo&#39;</code>. Our interpreter doesn&#39;t know what to do because of two reasons. One, <code>method2</code> should have one argument and it didn&#39;t get any. And the second one, more important, which we see in the error message. Interpreter see some <em>free</em> text <code>&#39;foo&#39;</code> without any operator in the same line with calling methods. To fix that, we need to say explicitly, what we want: <code>method1 || method2(&#39;foo&#39;)</code></p>
+        <span class="mi">1</span><span class="p">:</span> <span class="n">from</span> <span class="sr">/home/</span><span class="n">agnieszka</span><span class="o">/</span><span class="p">.</span><span class="nf">rvm</span><span class="o">/</span><span class="n">rubies</span><span class="o">/</span><span class="n">ruby</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">irb</span><span class="p">:</span><span class="mi">11</span><span class="ss">:in</span> <span class="sb">`&lt;main&gt;'
+SyntaxError ((irb):32: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '(')
+method1 || method2 'foo'
+                   ^
+</span></code></pre>
+</div>
 
-<p>The same problem you will get when instead of <code>method2</code> you will use <code>raise</code> or <code>return</code> or any other method. If you like, just play a little bit with them.</p>
+<p>Something went wrong. We got an error. This is because of precedence. Order of operations in this case is: <code class="highlighter-rouge">(method1 || method2) 'foo'</code>. We can show it in a more descriptive way <code class="highlighter-rouge">(method1() || method2()) 'foo'</code>. Our interpreter doesn’t know what to do because of two reasons. One, <code class="highlighter-rouge">method2</code> should have one argument and it didn’t get any. And the second one, more important, which we see in the error message. Interpreter see some <em>free</em> text <code class="highlighter-rouge">'foo'</code> without any operator in the same line with calling methods. To fix that, we need to say explicitly, what we want: <code class="highlighter-rouge">method1 || method2('foo')</code></p>
 
-<h3>Blocks</h3>
+<p>The same problem you will get when instead of <code class="highlighter-rouge">method2</code> you will use <code class="highlighter-rouge">raise</code> or <code class="highlighter-rouge">return</code> or any other method. If you like, just play a little bit with them.</p>
 
-<p>Time for blocks. We need to be aware that <strong>blocks with <code>{}</code> have higher precedence than blocks <code>do ... end</code></strong>. This is not exactly specified in our order table, but in the documentation, you can find a small note about it. So, let&#39;s check this out. We will prepare two methods with blocks. In one we will call the block with <code>{}</code> and in the second with <code>do ... end</code>.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Foo has block: </span><span class="si">#{</span><span class="nb">block_given?</span><span class="si">}</span><span class="s2">&quot;</span>
+<h3 id="blocks">Blocks</h3>
+
+<p>Time for blocks. We need to be aware that <strong>blocks with <code class="highlighter-rouge"><span class="p">{}</span></code> have higher precedence than blocks <code class="highlighter-rouge">do ... end</code></strong>. This is not exactly specified in our order table, but in the documentation, you can find a small note about it. So, let’s check this out. We will prepare two methods with blocks. In one we will call the block with <code class="highlighter-rouge"><span class="p">{}</span></code> and in the second with <code class="highlighter-rouge">do ... end</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">foo</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Foo has block: </span><span class="si">#{</span><span class="nb">block_given?</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 
 <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Bar has block: </span><span class="si">#{</span><span class="nb">block_given?</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="nb">puts</span> <span class="s2">"Bar has block: </span><span class="si">#{</span><span class="nb">block_given?</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
 
-<span class="n">foo</span> <span class="ss">a</span><span class="p">:</span> <span class="n">bar</span> <span class="p">{</span> <span class="mi">1</span> <span class="p">}</span>
-<span class="no">Bar</span> <span class="n">has</span> <span class="ss">block</span><span class="p">:</span> <span class="kp">true</span>
-<span class="no">Foo</span> <span class="n">has</span> <span class="ss">block</span><span class="p">:</span> <span class="kp">false</span>
+<span class="n">foo</span> <span class="ss">a: </span><span class="n">bar</span> <span class="p">{</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="no">Bar</span> <span class="n">has</span> <span class="ss">block: </span><span class="kp">true</span>
+<span class="no">Foo</span> <span class="n">has</span> <span class="ss">block: </span><span class="kp">false</span>
  <span class="o">=&gt;</span> <span class="kp">nil</span>
 
-<span class="n">foo</span> <span class="ss">a</span><span class="p">:</span> <span class="n">bar</span> <span class="k">do</span> <span class="mi">1</span> <span class="k">end</span>
-<span class="no">Bar</span> <span class="n">has</span> <span class="ss">block</span><span class="p">:</span> <span class="kp">false</span>
-<span class="no">Foo</span> <span class="n">has</span> <span class="ss">block</span><span class="p">:</span> <span class="kp">true</span>
+<span class="n">foo</span> <span class="ss">a: </span><span class="n">bar</span> <span class="k">do</span> <span class="mi">1</span> <span class="k">end</span>
+<span class="no">Bar</span> <span class="n">has</span> <span class="ss">block: </span><span class="kp">false</span>
+<span class="no">Foo</span> <span class="n">has</span> <span class="ss">block: </span><span class="kp">true</span>
  <span class="o">=&gt;</span> <span class="kp">nil</span>
-</code></pre></div>
-<p>In the example one, the order is like here: <code>foo(a: (bar { 1 }))</code>. First, we will call <code>bar</code> method with a block. It will return <code>nil</code> and then we will call method <code>foo</code> with only hash parameter. It will look like this: <code>foo(a: nil)</code>. So, this is why we don&#39;t get a block in method <code>foo</code>.</p>
+</code></pre>
+</div>
 
-<p>In second example the order is different: <code>foo(a: bar) do 1 end</code>. It will be even better, to split it into separate lines.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">foo</span><span class="p">(</span><span class="ss">a</span><span class="p">:</span> <span class="n">bar</span><span class="p">)</span> <span class="k">do</span>
+<p>In the example one, the order is like here: <code class="highlighter-rouge">foo(a: (bar { 1 }))</code>. First, we will call <code class="highlighter-rouge">bar</code> method with a block. It will return <code class="highlighter-rouge">nil</code> and then we will call method <code class="highlighter-rouge">foo</code> with only hash parameter. It will look like this: <code class="highlighter-rouge">foo(a: nil)</code>. So, this is why we don’t get a block in method <code class="highlighter-rouge">foo</code>.</p>
+
+<p>In second example the order is different: <code class="highlighter-rouge">foo(a: bar) do 1 end</code>. It will be even better, to split it into separate lines.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">foo</span><span class="p">(</span><span class="ss">a: </span><span class="n">bar</span><span class="p">)</span> <span class="k">do</span>
   <span class="mi">1</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>At first, we call method <code>bar</code>, but without any arguments and without a block. This is why we see this in the text: <code>&quot;Bar has block: false&quot;</code>. Then we call method <code>foo</code> with hash <code>{ a: nil }</code> as <code>options</code> and with block. We could even omit this hash parameter in the call of these two methods. It would be working the same. At least for displaying text on a screen. You can try to do that your own <code>foo bar { 1 }</code> and <code>foo bar do 1 end</code>.</p>
+</code></pre>
+</div>
 
-<h3>Other examples</h3>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[]</span>
+<p>At first, we call method <code class="highlighter-rouge">bar</code>, but without any arguments and without a block. This is why we see this in the text: <code class="highlighter-rouge">"Bar has block: false"</code>. Then we call method <code class="highlighter-rouge">foo</code> with hash <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">a:</span><span class="w"> </span><span class="err">nil</span><span class="w"> </span><span class="p">}</span></code> as <code class="highlighter-rouge">options</code> and with block. We could even omit this hash parameter in the call of these two methods. It would be working the same. At least for displaying text on a screen. You can try to do that your own <code class="highlighter-rouge">foo bar { 1 }</code> and <code class="highlighter-rouge">foo bar do 1 end</code>.</p>
+
+<h3 id="other-examples">Other examples</h3>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">3</span><span class="o">]</span>
-</code></pre></div>
-<p>This example behaves like we expect. First, we sum <code>a</code> and <code>b</code> and then we put value in the array. If you check in our precedence table <code>+</code> has higher precedence than <code>&lt;&lt;</code>.</p>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<p>In next example also everything will be all right. <code>+=</code> and <code>*=</code> has lower precedence than <code>+</code> and <code>*</code>. So you can omit brackets:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<p>This example behaves like we expect. First, we sum <code class="highlighter-rouge">a</code> and <code class="highlighter-rouge">b</code> and then we put value in the array. If you check in our precedence table <code class="highlighter-rouge">+</code> has higher precedence than <code class="highlighter-rouge">&lt;&lt;</code>.</p>
+
+<p>In next example also everything will be all right. <code class="highlighter-rouge">+=</code> and <code class="highlighter-rouge">*=</code> has lower precedence than <code class="highlighter-rouge">+</code> and <code class="highlighter-rouge">*</code>. So you can omit brackets:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">multi</span> <span class="o">=</span> <span class="mi">1</span>
@@ -514,28 +578,33 @@ Description: Awesome dude, awesome life
  <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">multi</span>
  <span class="o">=&gt;</span> <span class="mi">2</span>
-</code></pre></div>
-<p>Now precedence related to ranges. Because <code>+</code> and <code>-</code> has higher precedence than range, you can omit brackets here and everything will be fine:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">9</span>
+</code></pre>
+</div>
+
+<p>Now precedence related to ranges. Because <code class="highlighter-rouge">+</code> and <code class="highlighter-rouge">-</code> has higher precedence than range, you can omit brackets here and everything will be fine:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="mi">9</span>
  <span class="o">=&gt;</span> <span class="mi">9</span>
 
-<span class="mi">1</span><span class="o">..</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
- <span class="o">=&gt;</span> <span class="mi">1</span><span class="o">..</span><span class="mi">8</span>
+<span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span>
+ <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">8</span>
 
-<span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="o">]</span>
-</code></pre></div>
-<p>This is like doing <code>1..(n - 1)</code>.</p>
+<span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">).</span><span class="nf">to_a</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</code></pre>
+</div>
 
-<h2>Summary</h2>
+<p>This is like doing <code class="highlighter-rouge">1..(n - 1)</code>.</p>
+
+<h2 id="summary">Summary</h2>
 
 <ul>
-<li>Be aware of operators precedence in Ruby.</li>
-<li>If you are not sure about precedence, put the right brackets or even better: check in the documentation.Also do the tests ;]</li>
-<li>Sometimes, even if I know precedences in Ruby, I like to leave brackets. It is more readable for me. Like here: <code>method(&#39;a&#39; &amp;&amp; &#39;b&#39;)</code>. I know that this notation <code>method &#39;a&#39; &amp;&amp; &#39;b&#39;</code> is correct and do exactly, what I want, but I like to be more specific here. This is more <strong>&quot;Tell, don&#39;t ask&quot;</strong> approach.</li>
+  <li>Be aware of operators precedence in Ruby.</li>
+  <li>If you are not sure about precedence, put the right brackets or even better: check in the documentation.Also do the tests ;]</li>
+  <li>Sometimes, even if I know precedences in Ruby, I like to leave brackets. It is more readable for me. Like here: <code class="highlighter-rouge">method('a' &amp;&amp; 'b')</code>. I know that this notation <code class="highlighter-rouge">method 'a' &amp;&amp; 'b'</code> is correct and do exactly, what I want, but I like to be more specific here. This is more <strong>“Tell, don’t ask”</strong> approach.</li>
 </ul>
 
-<p>That&#39;s it. If you have any other precedence examples, which were not mentioned here, feel free to share them in the comments. Thank you for reading and see you next time!</p>
+<p>That’s it. If you have any other precedence examples, which were not mentioned here, feel free to share them in the comments. Thank you for reading and see you next time!</p>
 
                         <br>
                     
@@ -575,7 +644,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -601,7 +670,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

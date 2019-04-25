@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="RVM – zarządzanie wersjami Ruby">
 <meta name="twitter:description" content="Jak zarządzać wieloma wersjami Ruby?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Jak zarządzać wieloma wersjami Ruby?">
 <meta property="og:url" content="https://womanonrails.com/rvm">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -199,54 +199,69 @@ Description: Awesome dude, awesome life
                         
                         <p>Wpadł mi do głowy pewien pomysł jak pokazać czym jest <strong>RVM</strong>. Otóż RVM jest trochę jak dom z kwiatami. Każdy kwiatek potrzebuje osobnego środowiska jeden lubi dużo wody, inny nie przepada za silnym światłem. Jeżeli chcemy by nasze kwiatki ładnie nam rosły to musimy dostosować ten nasz domek do ich potrzeb. W tym właśnie pomaga nam RVM. Każdy projekt pisany w Ruby on Rails potrzebuje osobnego środowiska. RVM pomoże nam rozdzielić środowiska dla poszczególnych projektów bez większych przeszkód.</p>
 
-<h2>No dobrze, ale jak możemy użyć RVM?</h2>
+<h2 id="no-dobrze-ale-jak-możemy-użyć-rvm">No dobrze, ale jak możemy użyć RVM?</h2>
 
 <p>To bardzo proste. Spójrz:</p>
 
 <ul>
-<li>lista wersji Ruby (to nasze podłoże):</li>
+  <li>lista wersji Ruby (to nasze podłoże):</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm list
-</code></pre></div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm list
+</code></pre>
+</div>
+
 <p>Na ekranie może to wyglądać tak:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm rubies
 
-     jruby-1.7.4 [ x86_64 ]
-     ruby-2.0.0-p195 [ x86_64 ]
-  =* ruby-2.0.0-p247 [ x86_64 ]
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm rubies
 
-  # =&gt; - current
-  # =* - current &amp;&amp; default
-  #  * - default
-</code></pre></div>
+     jruby-1.7.4 <span class="o">[</span> x86_64 <span class="o">]</span>
+     ruby-2.0.0-p195 <span class="o">[</span> x86_64 <span class="o">]</span>
+  <span class="o">=</span><span class="k">*</span> ruby-2.0.0-p247 <span class="o">[</span> x86_64 <span class="o">]</span>
+
+  <span class="c"># =&gt; - current</span>
+  <span class="c"># =* - current &amp;&amp; default</span>
+  <span class="c">#  * - default</span>
+</code></pre>
+</div>
+
 <ul>
-<li>lista gemsetów (środowiska)</li>
+  <li>lista gemsetów (środowiska)</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm gemset list
 
-  =&gt; (default)
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm gemset list
+
+  <span class="o">=</span>&gt; <span class="o">(</span>default<span class="o">)</span>
      global
      woman_on_rails
-</code></pre></div>
+</code></pre>
+</div>
+
 <ul>
-<li>zmiana gemsetu na woman<em>on</em>rails</li>
+  <li>zmiana gemsetu na woman_on_rails</li>
 </ul>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm gemset use woman_on_rails
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm gemset use woman_on_rails
 
   Using ruby-2.0.0-p247 with gemset woman_on_rails
-</code></pre></div>
-<p>Jeżeli teraz spojrzymy na listę gemsetów, zobaczymy:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>rvm gemset list
+</code></pre>
+</div>
 
-   (default)
+<p>Jeżeli teraz spojrzymy na listę gemsetów, zobaczymy:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>rvm gemset list
+
+   <span class="o">(</span>default<span class="o">)</span>
    global
-=&gt; woman_on_rails
-</code></pre></div>
-<h2>OK, a jak zainstalować RVM?</h2>
+<span class="gp">=&gt; </span>woman_on_rails
+</code></pre>
+</div>
+
+<h2 id="ok-a-jak-zainstalować-rvm">OK, a jak zainstalować RVM?</h2>
 
 <ul>
-<li>Spróbuj skorzystać z oficjalnej <a href="http://rvm.io/rvm/install">strony projektu RVM</a>.</li>
-<li>Lub przetestuj <a href="https://github.com/fractalsoft/dotfiles">https://github.com/fractalsoft/dotfiles</a> – Znajdziesz tam instrukcję jak stworzyć całe środowisko od podstaw. Jeżeli masz już system operacyjny to możesz skorzystać z samych dotfiles do zainstalowania RVM i nie tylko.</li>
+  <li>Spróbuj skorzystać z oficjalnej <a href="http://rvm.io/rvm/install">strony projektu RVM</a>.</li>
+  <li>Lub przetestuj <a href="https://github.com/fractalsoft/dotfiles">https://github.com/fractalsoft/dotfiles</a> – Znajdziesz tam instrukcję jak stworzyć całe środowisko od podstaw. Jeżeli masz już system operacyjny to możesz skorzystać z samych dotfiles do zainstalowania RVM i nie tylko.</li>
 </ul>
 
 <p>Mam nadzieje, że ten wpis pomógł Ci zrozumieć czym jest RVM. Uwielbiam feedback. Proszę zostaw swój komentarz.
@@ -290,7 +305,7 @@ Ten artykuł jest tylko wstępem do RVM. Jeżeli chcesz więcej zerknij na oficj
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -316,7 +331,6 @@ Ten artykuł jest tylko wstępem do RVM. Jeżeli chcesz więcej zerknij na oficj
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

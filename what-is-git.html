@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="What is git?">
 <meta name="twitter:description" content="Git - basic">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Git - basic">
 <meta property="og:url" content="https://womanonrails.com/what-is-git">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -203,40 +203,52 @@ Description: Awesome dude, awesome life
 
 <p>Do you have sometimes situations where you need to work on the same files with many people. Situations such as: group project in school, university or maybe big web application? Presentation or report for boss? Or other work to do when every one of team members need to share the same files. And everyone can change any files in this project. I have this situation all the time in my work. I work on web application where I cooperate with about 8 people. Or maybe you work just by your self but you don’t want to loose your changes. Maybe you are writer and you write book. So what can it goes wrong?</p>
 
-<h2>Only my work</h2>
+<h2 id="only-my-work">Only my work</h2>
 
 <p>We work alone. For example we are writing book. We are working on this project through last 2 years. And something happened: computer breaks down, we removed file through mistake, or we change something and the previous version was better and we want get back this version. What then? I know we have many choices: Dropbox, hard drive (just in case), send emails to my self. Even programs do this easy for us. They remember history of last changes and so on. But Git can handle this too. Git remember all yours files changes history. You can get back to any of your files version.</p>
 
 <p>If you don’t now why Git can be better solution for some problems, we have second example. ;]</p>
 
-<h2>Team case</h2>
+<h2 id="team-case">Team case</h2>
 
 <p>Every one in team has they own computer so they have locally on computer copy of our project. For example we have one file. We love Ruby so this file has Ruby code:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># hello_world.rb</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
-  <span class="s2">&quot;hello&quot;</span>
+  <span class="s2">"hello"</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>So every one have this file locally on this computer. Now I have task to change this method to return no <code>hello</code> but <code>hello world</code>. So I change this file:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># hello_world.rb</span>
+</code></pre>
+</div>
+
+<p>So every one have this file locally on this computer. Now I have task to change this method to return no <code class="highlighter-rouge">hello</code> but <code class="highlighter-rouge">hello world</code>. So I change this file:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
-  <span class="s2">&quot;hello world&quot;</span>
+  <span class="s2">"hello world"</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Now I need to send to all of team members this new code. How do this? E-mail? Dropbox? Pendrive? Each of this solutions can be painful. So we have problem one. <strong>1. Actualization of our project (how have access to current version).</strong></p>
 
 <p>This problem we can somehow resolved. But what happened in this situation. Someone in team change something in the same file as I. For example change method name but he/she don’t know that I working on this file in the same time. So his/her code looks like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># hello_world.rb</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">say_hi</span>
-  <span class="s2">&quot;hello&quot;</span>
+  <span class="s2">"hello"</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Now I send my change to everyone (somehow) and the other person sends his/her changes also. Which changes are last changes? My or the other person? Or maybe we would like to have something like that:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># hello_world.rb</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">say_hi</span>
-  <span class="s2">&quot;hello world&quot;</span>
+  <span class="s2">"hello world"</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>All changes together. How we can resolve this problem? We can have some one in team who will take care of this. We can talk with this person, tell what we changed and then this person need to go though all files check and figure out how fix conflicts. Do you also think that this is not good idea? Even worse. This is catastrophically bad idea and who wants to be this person? So second and I think the most important problem <strong>2. how merge all changes together easily?</strong></p>
 
 <p>Do you see that this is painful? Even more than the first example. Yes? I think that too.</p>
@@ -245,7 +257,8 @@ Description: Awesome dude, awesome life
 
 <p>Example:
 Our image have this inside:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
+
+<div class="highlighter-rouge"><pre class="highlight"><code>00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
 00000010  00 00 04 c9 00 00 01 7e  08 06 00 00 01 ef a0 7d  |.......~.......}|
 00000020  68 00 00 00 09 70 48 59  73 00 00 2e 23 00 00 2e  |h....pHYs...#...|
 00000030  23 01 78 a5 3f 76 00 00  00 19 74 45 58 74 53 6f  |#.x.?v....tEXtSo|
@@ -254,7 +267,9 @@ Our image have this inside:</p>
 00000060  44 41 54 78 da ec 9c 61  6e 83 30 0c 46 47 c4 85  |DATx...an.0.FG..|
 00000070  a6 75 47 da a9 76 a4 75  da 91 98 f8 41 95 a6 31  |.uG..v.u....A..1|
 ...
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Our computer can interpret this in colors and shapes but we can’t. So when we change something on this image (one or more bits), we don’t even know what was this change. Do you know what I mean? I don’t say that we never put images to git. I say that we can not see what changed (in simple way).</p>
 
 <p>I hope that this article help you to understand for what we use git and why it is helpful. In next article I describe how we can use it. If you have some question or suggestion please let me know in comments. See you next time. Bye!</p>
@@ -297,7 +312,7 @@ Our image have this inside:</p>
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -323,7 +338,6 @@ Our image have this inside:</p>
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Regular expressions - what can go wrong?">
 <meta name="twitter:description" content="Regular expression is just a tool. We, as programmers, need to use it responsible.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Regular expression is just a tool. We, as programmers, need to use it responsible.">
 <meta property="og:url" content="https://womanonrails.com/email-regular-expressions">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,49 +197,66 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Someone said: <em>If you have a problem, use regular expressions. You will have two problems.</em> That&#39;s true. At least in some cases. As a programmer, we should be responsible for our code. We should think twice about all possible usage of our code. And also, do tests for it ;]. Today I would like to share an example with using regular expressions, but without enough preparation and testing. I would like to show what was wrong and how I fixed it. This is a case study. I will not introduce the concept of regular expressions, but I will show you, what you need to consider during using them.</p>
+                        <p>Someone said: <em>If you have a problem, use regular expressions. You will have two problems.</em> That’s true. At least in some cases. As a programmer, we should be responsible for our code. We should think twice about all possible usage of our code. And also, do tests for it ;]. Today I would like to share an example with using regular expressions, but without enough preparation and testing. I would like to show what was wrong and how I fixed it. This is a case study. I will not introduce the concept of regular expressions, but I will show you, what you need to consider during using them.</p>
 
-<p>I got a bug to fix. That&#39;s usually a start of a story. So, I got bug in one text area. In this text area user can put a list of emails, which should be imported as contacts to the application. The problem was that only some of those emails were imported and some of them not. My task was to discover the reason and resolve the problem. I like to think about myself as a detective in this case. I started my investigation.</p>
+<p>I got a bug to fix. That’s usually a start of a story. So, I got bug in one text area. In this text area user can put a list of emails, which should be imported as contacts to the application. The problem was that only some of those emails were imported and some of them not. My task was to discover the reason and resolve the problem. I like to think about myself as a detective in this case. I started my investigation.</p>
 
 <p>This is how the Ruby code looks like for this feature:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:enter_emails</span><span class="o">].</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:enter_emails</span><span class="p">].</span><span class="nf">delete</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">emails</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span>
-  <span class="n">emails</span> <span class="o">=</span> <span class="n">emails</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/,/</span><span class="p">)</span>
+  <span class="n">emails</span> <span class="o">=</span> <span class="n">emails</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">/,/</span><span class="p">)</span>
   <span class="c1"># do something (for example add to contact list)</span>
 <span class="k">else</span>
   <span class="c1"># render error</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>The input for this code was just a string. We remove all space between parts of this string and then we check regular expression. If string fits to this expression, we split it by comma. And then do something with this data. For example, add to contact list. These are two main problems with this code:</p>
 
 <ol>
-<li><p><strong>Splitting by comma</strong> - What if the user will use a semicolon or just one space or new line? This is a simple text area, he can do that. We are not able to check that.</p></li>
-<li><p><strong>Validation only the last part of string</strong> - When we look closely we will see this problem. When we put as input: <code>&quot;aaa@excom, bbb@ex.com&quot;</code> it will be valid. And when we put <code>&quot;bbb@ex.com, aaa@excom&quot;</code> it won&#39;t.</p></li>
+  <li>
+    <p><strong>Splitting by comma</strong> - What if the user will use a semicolon or just one space or new line? This is a simple text area, he can do that. We are not able to check that.</p>
+  </li>
+  <li>
+    <p><strong>Validation only the last part of string</strong> - When we look closely we will see this problem. When we put as input: <code class="highlighter-rouge">"aaa@excom, bbb@ex.com"</code> it will be valid. And when we put <code class="highlighter-rouge">"bbb@ex.com, aaa@excom"</code> it won’t.</p>
+  </li>
 </ol>
 
 <p>What is going on? To see that kind of problems, it is good to check how our regular expression behaves for different edge cases in console or in some tool. I use and recommend <a href="https://rubular.com/" title="Rubular - regular expressions" target="_blank" rel="nofollow noopener noreferrer">Rubular</a>. At least for Ruby people. It is simple, but very useful website where you can check your regular expression.</p>
 
 <figure>
-  <a href="/images/email-regular-expressions/rubular.png"><img src="/images/email-regular-expressions/rubular.png" title="Rubular - regular expressions" alt="Matching of regular expression"></a>
+  <a href="/images/email-regular-expressions/rubular.png"><img src="/images/email-regular-expressions/rubular.png" title="Rubular - regular expressions" alt="Matching of regular expression" /></a>
 </figure>
 
-<p>As you can see we only check the last part of the string.The last email address. When the last email is valid whole string is valid no matter what you have in the beginning. That&#39;s not good. There are many possibilities to fix that problem. I decided to first split string and then check email&#39;s regular expression. For splitting I used <code>/\s+|\s*,\s*|\s*;\s*/</code>. So, I split the text by whitespace, commas and semicolons. There is one more thing to mention. When you split using this regular expression then you will get empty strings in array, like in the example below:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span> <span class="o">=</span> <span class="s2">&quot;aaa@excom,, , ,  bbb@ex.com aa&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/\s+|\s*,\s*|\s*;\s*/</span><span class="p">)</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;aaa@excom&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb@ex.com&quot;</span><span class="p">,</span> <span class="s2">&quot;aa&quot;</span><span class="o">]</span>
-</code></pre></div>
-<p>It can be enough for you or you&#39;ll need to take care of your empty strings in the array. After that you can, for example, check validation of each element of the array:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span><span class="o">.</span><span class="n">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
+<p>As you can see we only check the last part of the string.The last email address. When the last email is valid whole string is valid no matter what you have in the beginning. That’s not good. There are many possibilities to fix that problem. I decided to first split string and then check email’s regular expression. For splitting I used <code class="highlighter-rouge">/\s+|\s*,\s*|\s*;\s*/</code>. So, I split the text by whitespace, commas and semicolons. There is one more thing to mention. When you split using this regular expression then you will get empty strings in array, like in the example below:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span> <span class="o">=</span> <span class="s2">"aaa@excom,, , ,  bbb@ex.com aa"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">/\s+|\s*,\s*|\s*;\s*/</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"aaa@excom"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"bbb@ex.com"</span><span class="p">,</span> <span class="s2">"aa"</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>It can be enough for you or you’ll need to take care of your empty strings in the array. After that you can, for example, check validation of each element of the array:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span><span class="p">.</span><span class="nf">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
  <span class="o">=&gt;</span> <span class="kp">false</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>or just choose valid elements:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;bbb@ex.com&quot;</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"bbb@ex.com"</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <p>Do whatever fits the best for you.</p>
 
-<p>You can ask now, why you share that? What was your purpose? The answer is simple. I see that everywhere. We, as programmers, sometimes do not pay too much attention to resolving problems or we just rush too much. In this situation we introduce new bugs to the application. And maybe sometimes it&#39;s ok, but ask yourself, do you want to go into surgery when doctor do not pay attention to your body? I know that some of our bugs are not so critical, but what if it is related to some formal documents or splitting dosage of medicine or maybe driving a car? In book &quot;The Little Prince&quot; the fox said: <em>&quot;You become responsible, forever, for what you have tamed&quot;</em>. In this situation I say: <em>&quot;You become responsible, forever, for what you have coded&quot;</em>.</p>
+<p>You can ask now, why you share that? What was your purpose? The answer is simple. I see that everywhere. We, as programmers, sometimes do not pay too much attention to resolving problems or we just rush too much. In this situation we introduce new bugs to the application. And maybe sometimes it’s ok, but ask yourself, do you want to go into surgery when doctor do not pay attention to your body? I know that some of our bugs are not so critical, but what if it is related to some formal documents or splitting dosage of medicine or maybe driving a car? In book “The Little Prince” the fox said: <em>“You become responsible, forever, for what you have tamed”</em>. In this situation I say: <em>“You become responsible, forever, for what you have coded”</em>.</p>
 
 <p>If you want, share your thoughts in the comments below. Thanks for reading! See you next time. Bye!</p>
+
 
                         <br>
                     
@@ -279,7 +296,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -305,7 +322,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Woman on Rails - web development z kobiecej perspektywy">
 <meta name="twitter:description" content="Programistka Ruby on Rails zafascynowana wzorcami projektowymi, budowaniem dobrej architektury aplikacji, refaktoringiem kodu i łącząca pracę zdalną z podróżowaniem.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Programistka Ruby on Rails zafascynowana wzorcami projektowymi, budowaniem dobrej architektury aplikacji, refaktoringiem kodu i łącząca pracę zdalną z podróżowaniem.">
 <meta property="og:url" content="https://womanonrails.com/page5/">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -147,7 +147,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                    <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                    <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -212,6 +212,7 @@ Description: Awesome dude, awesome life
                   <div class="post-body bordered-bottom">
                   
                   <p class = "lead">Chciałabym z Wami zacząć dzisiaj krótką serię 2-3 artykułów na temat Gita. To będzie naprawdę podstawa. W Internecie jest wiele różnego rodzaju kursów na temat Gita. A ja nie chciałabym robić kolejnego. Jeżeli chciałybyście dowiedzieć się czegoś więcej na ten temat, osobiście mogę polecić 2 kursy na temat Gita z CodeSchool. Możecie zacząć tutaj.
+
 &hellip;</p>
                       <div class="text-center">
                       
@@ -314,7 +315,8 @@ Description: Awesome dude, awesome life
                 <header class="post-header">
                       <h2 class="post-title text-center super lighter quote">
                           <a href="/pl/be-yourself"><i class="icon-quote-left"></i> 
-Bądź sobą, mów co czujesz bo tym, który się liczą nie będzie to przeszkadzać a Ci, którym będzie to przeszkadzać nie są ważni.
+  Bądź sobą, mów co czujesz bo tym, który się liczą nie będzie to przeszkadzać a Ci, którym będzie to przeszkadzać nie są ważni.
+
 
 </a>
                       </h2>
@@ -425,7 +427,7 @@ Bądź sobą, mów co czujesz bo tym, który się liczą nie będzie to przeszka
                   <div class="post-body bordered-bottom">
                   
                   
-                      <p>Kilka tygodni temu pracowałam z następującym kodem: class SessionsController &lt; ApplicationController respond_to :json, only: [:create] def create @user = User.find_by(email: user_params[:email]) if @user &amp;&amp; @user.authenticate(user_params[:password]) @user.token = Session.create(user: @user).token end respond_to { |format| format.json { render_user } } end private def user_params params.require(:user).permit(:email, :password) end def render_user if @user render json: @user, status: :created else render json: { errors: &#39;Email or password was invalid&#39; }, status: :unprocessable_entity end end end Kiedy patrzy się na ten kod pierwszy raz prawdopodobnie myśli się że jest OK. Klasa nie jest za długa. Ma tylko 25 linii. Metody są krótkie. Około 5 – 6...&hellip;</p>
+                      <p>Kilka tygodni temu pracowałam z następującym kodem: class SessionsController &lt; ApplicationController respond_to :json, only: [:create] def create @user = User.find_by(email: user_params[:email]) if @user &amp;&amp; @user.authenticate(user_params[:password]) @user.token = Session.create(user: @user).token end respond_to { |format| format.json { render_user } } end private def user_params params.require(:user).permit(:email, :password) end def render_user if @user render json: @user, status: :created else render json: { errors: 'Email or password was invalid' }, status: :unprocessable_entity end end end Kiedy patrzy się na ten kod pierwszy raz prawdopodobnie myśli się że jest OK. Klasa nie jest za długa. Ma tylko 25 linii. Metody są krótkie. Około 5 – 6...&hellip;</p>
                       <div class="text-center">
                       
                     <a href="/pl/session-controller-refactoring" data-toggle="tooltip" title="Jak można poprawić swój kod?" class="more-link btn btn-danger btn-large">
@@ -483,7 +485,6 @@ Bądź sobą, mów co czujesz bo tym, który się liczą nie będzie to przeszka
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>
@@ -653,7 +654,26 @@ $("a#click-pages").click(function(){
   gtag('config', 'UA-127731573-1');
 </script>
 
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'womanonrails'; // required: replace example with your forum shortname
 
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 </body>
 </html>

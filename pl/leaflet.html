@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Leaflet - Wstęp do map">
 <meta name="twitter:description" content="Open-source biblioteka JavaScript do obsługi interaktywnych map">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Open-source biblioteka JavaScript do obsługi interaktywnych map">
 <meta property="og:url" content="https://womanonrails.com/leaflet">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,177 +200,224 @@ Description: Awesome dude, awesome life
                         <p>Jestem z powrotem! Tym razem chciałabym pokazać Wam trochę map. Dzisiejszym tematem będzie: Jak w prosty sposób można obsłużyć mapy na własnej stronie internetowej. Do tego potrzebne nam będzie:</p>
 
 <ol>
-<li><a href="https://leafletjs.com/">Leaflet</a> - biblioteka JavaScript do obsługi map</li>
-<li>Fragmenty mapy (Maps tiles)</li>
-<li>Ruby on Rails (nie jest wymagany, na początek wystarczy strona <strong>html</strong>)</li>
+  <li><a href="https://leafletjs.com/">Leaflet</a> - biblioteka JavaScript do obsługi map</li>
+  <li>Fragmenty mapy (Maps tiles)</li>
+  <li>Ruby on Rails (nie jest wymagany, na początek wystarczy strona <strong>html</strong>)</li>
 </ol>
 
 <p>Zacznijmy od początku. Co to są <strong>map tiles</strong>? Prostymi słowami, są to małe kwadratowe obrazki zawierające wygląd naszej mapy. Są one przygotowywane w postaci paczek, by można było na stronie wyświetlić większy fragment mapy.</p>
 
-<h2>Skąd możemy dostać takie fragmenty mapy?</h2>
+<h2 id="skąd-możemy-dostać-takie-fragmenty-mapy">Skąd możemy dostać takie fragmenty mapy?</h2>
 
 <p>Można zarejestrować się na stronie <a href="https://www.mapbox.com/">Mapbox</a> i skorzystać z ich darmowego pakietu do obsługi map lub użyć <a href="https://openstreetmap.org">OpenStreetMap</a>. Jest wiele serwisów, które dostarczają map tiles, na końcu tego artykułu postaram się wymienić kilka z nich.</p>
 
-<h2>Przygotowania</h2>
+<h2 id="przygotowania">Przygotowania</h2>
 
 <p>Gdy w naszym projekcie mamy już dołączoną bibliotekę <strong>Leaflet</strong> i wybraliśmy z jakich talii będziemy korzystać możemy zacząć.</p>
 
-<p>W naszym pliku <code>index.html</code> dodajemy następująca linijkę:</p>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#39;map&#39;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
+<p>W naszym pliku <code class="highlighter-rouge">index.html</code> dodajemy następująca linijkę:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'map'</span><span class="nt">&gt;&lt;/div&gt;</span>
+</code></pre>
+</div>
+
 <p>Po stronie JavaScript potrzebujemy jeszcze ustawić wybranego dostawcę map tiles. W tym przykładzie będę używać CoffeeScript ale każda z prezentowanych funkcjonalności jest też możliwa do osiągnięcia w czystym JavaScript.</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nx">jQuery</span> <span class="nf">-&gt;</span>
-  <span class="nv">map = </span><span class="nx">L</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="s">&#39;map&#39;</span><span class="p">).</span><span class="nx">setView</span><span class="p">([</span><span class="mf">50.301</span><span class="p">,</span> <span class="mf">18.654</span><span class="p">],</span> <span class="mi">13</span><span class="p">)</span>
-</code></pre></div>
-<h4>Mapbox tiles</h4>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">jQuery</span> <span class="o">-&gt;</span>
+  <span class="nx">map</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="s">'map'</span><span class="p">).</span><span class="na">setView</span><span class="p">([</span><span class="mf">50.301</span><span class="p">,</span> <span class="mf">18.654</span><span class="p">],</span> <span class="mi">13</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="mapbox-tiles">Mapbox tiles</h4>
 
 <figure>
-  <a href="/images/leaflet/mapbox.png"><img src="/images/leaflet/mapbox.png"></a>
+  <a href="/images/leaflet/mapbox.png"><img src="/images/leaflet/mapbox.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nv">attribution: </span><span class="s">&#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href=&quot;http://mapbox.com&quot;&gt;Mapbox&lt;/a&gt;&#39;</span><span class="p">,</span>
-      <span class="nv">maxZoom: </span><span class="mi">18</span><span class="p">,</span>
-      <span class="nv">id: </span><span class="s">&#39;your id&#39;</span><span class="p">,</span>
-      <span class="nv">accessToken: </span><span class="s">&#39;your token&#39;</span>
-  <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>OpenStreetMap tiles</h4>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code>  <span class="nx">L</span><span class="p">.</span><span class="na">tileLayer</span><span class="p">(</span><span class="s">'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">attribution</span><span class="o">:</span> <span class="s">'Map data &amp;copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;, Imagery © &lt;a href="http://mapbox.com"&gt;Mapbox&lt;/a&gt;'</span><span class="p">,</span>
+      <span class="na">maxZoom</span><span class="o">:</span> <span class="mi">18</span><span class="p">,</span>
+      <span class="na">id</span><span class="o">:</span> <span class="s">'your id'</span><span class="p">,</span>
+      <span class="na">accessToken</span><span class="o">:</span> <span class="s">'your token'</span>
+  <span class="p">}).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="openstreetmap-tiles">OpenStreetMap tiles</h4>
 
 <figure>
-  <a href="/images/leaflet/osm.png"><img src="/images/leaflet/osm.png"></a>
+  <a href="/images/leaflet/osm.png"><img src="/images/leaflet/osm.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://{s}.tile.osm.org/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nv">attribution: </span><span class="s">&#39;Map data &amp;copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;&#39;</span><span class="p">,</span>
-      <span class="nv">maxZoom: </span><span class="mi">18</span>
-  <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>Toner tiles</h4>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code>  <span class="nx">L</span><span class="p">.</span><span class="na">tileLayer</span><span class="p">(</span><span class="s">'http://{s}.tile.osm.org/{z}/{x}/{y}.png'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">attribution</span><span class="o">:</span> <span class="s">'Map data &amp;copy; &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt; contributors, &lt;a href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;CC-BY-SA&lt;/a&gt;'</span><span class="p">,</span>
+      <span class="na">maxZoom</span><span class="o">:</span> <span class="mi">18</span>
+  <span class="p">}).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="toner-tiles">Toner tiles</h4>
 
 <figure>
-  <a href="/images/leaflet/toner.png"><img src="/images/leaflet/toner.png"></a>
+  <a href="/images/leaflet/toner.png"><img src="/images/leaflet/toner.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://tile.stamen.com/toner/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nv">attribution: </span><span class="s">&#39;Map tiles by &lt;a href=&quot;http://stamen.com&quot;&gt;Stamen Design&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href=&quot;http://www.openstreetmap.org/copyright&quot;&gt;ODbL&lt;/a&gt;.&#39;</span><span class="p">,</span>
-      <span class="nv">maxZoom: </span><span class="mi">18</span>
-  <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>WaterColor tiles</h4>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code>  <span class="nx">L</span><span class="p">.</span><span class="na">tileLayer</span><span class="p">(</span><span class="s">'http://tile.stamen.com/toner/{z}/{x}/{y}.png'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">attribution</span><span class="o">:</span> <span class="s">'Map tiles by &lt;a href="http://stamen.com"&gt;Stamen Design&lt;/a&gt;, under &lt;a href="http://creativecommons.org/licenses/by/3.0"&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href="http://www.openstreetmap.org/copyright"&gt;ODbL&lt;/a&gt;.'</span><span class="p">,</span>
+      <span class="na">maxZoom</span><span class="o">:</span> <span class="mi">18</span>
+  <span class="p">}).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="watercolor-tiles">WaterColor tiles</h4>
 
 <figure>
-  <a href="/images/leaflet/watercolor.png"><img src="/images/leaflet/watercolor.png"></a>
+  <a href="/images/leaflet/watercolor.png"><img src="/images/leaflet/watercolor.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span>  <span class="nx">L</span><span class="p">.</span><span class="nx">tileLayer</span><span class="p">(</span><span class="s">&#39;http://tile.stamen.com/watercolor/{z}/{x}/{y}.png&#39;</span><span class="p">,</span> <span class="p">{</span>
-      <span class="nv">attribution: </span><span class="s">&#39;Map tiles by &lt;a href=&quot;http://stamen.com&quot;&gt;Stamen Design&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0&quot;&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href=&quot;http://creativecommons.org/licenses/by-sa/3.0&quot;&gt;CC BY SA&lt;/a&gt;.&#39;</span><span class="p">,</span>
-      <span class="nv">maxZoom: </span><span class="mi">18</span>
-  <span class="p">}).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code>  <span class="nx">L</span><span class="p">.</span><span class="na">tileLayer</span><span class="p">(</span><span class="s">'http://tile.stamen.com/watercolor/{z}/{x}/{y}.png'</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">attribution</span><span class="o">:</span> <span class="s">'Map tiles by &lt;a href="http://stamen.com"&gt;Stamen Design&lt;/a&gt;, under &lt;a href="http://creativecommons.org/licenses/by/3.0"&gt;CC BY 3.0&lt;/a&gt;. Data by &lt;a href="http://openstreetmap.org"&gt;OpenStreetMap&lt;/a&gt;, under &lt;a href="http://creativecommons.org/licenses/by-sa/3.0"&gt;CC BY SA&lt;/a&gt;.'</span><span class="p">,</span>
+      <span class="na">maxZoom</span><span class="o">:</span> <span class="mi">18</span>
+  <span class="p">}).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
 <p>I to wszystko, po odświeżeniu przeglądarki powinniśmy widzieć już mapę.</p>
 
-<h2>Dodawanie obiektów na mapę</h2>
+<h2 id="dodawanie-obiektów-na-mapę">Dodawanie obiektów na mapę</h2>
 
-<p>Teraz zaczyna się prawdziwa zabawa! Możemy zacząć dodawać różne obiekty na mapę. Jedną ważną rzecz watro tu zaznaczyć. Każdy obiekt, który będzie pojawiał się na mapie posiada swoje współrzędne (tak jak w układnie współrzędnych na Matematyce). Leaflet używa dwóch układów współrzędnych. Układu <strong>Kartezjańskiego</strong> i układu typu <strong>Szerokość-długość geograficzna</strong>. Pierwszy z nich podaje współrzędne punktu jako <code>[długość, szerokość]</code> a drugi jako <code>[szerokość, długość]</code>. Zapamiętanie, gdzie którego z tych systemów używamy jest bardzo proste. Dla obiektu <code>GeoJSON</code> używamy układu <strong>Kartezjańskiego</strong> dla pozostałych elementów układu <strong>Geograficznego</strong>.</p>
+<p>Teraz zaczyna się prawdziwa zabawa! Możemy zacząć dodawać różne obiekty na mapę. Jedną ważną rzecz watro tu zaznaczyć. Każdy obiekt, który będzie pojawiał się na mapie posiada swoje współrzędne (tak jak w układnie współrzędnych na Matematyce). Leaflet używa dwóch układów współrzędnych. Układu <strong>Kartezjańskiego</strong> i układu typu <strong>Szerokość-długość geograficzna</strong>. Pierwszy z nich podaje współrzędne punktu jako <code class="highlighter-rouge">[długość, szerokość]</code> a drugi jako <code class="highlighter-rouge">[szerokość, długość]</code>. Zapamiętanie, gdzie którego z tych systemów używamy jest bardzo proste. Dla obiektu <code class="highlighter-rouge">GeoJSON</code> używamy układu <strong>Kartezjańskiego</strong> dla pozostałych elementów układu <strong>Geograficznego</strong>.</p>
 
-<h4>Marker</h4>
-
-<figure>
-  <a href="/images/leaflet/marker.png"><img src="/images/leaflet/marker.png"></a>
-</figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">marker = </span><span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="mf">50.28895538456755</span><span class="p">,</span> <span class="mf">18.681907653808594</span><span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>Custom marker</h4>
+<h4 id="marker">Marker</h4>
 
 <figure>
-  <a href="/images/leaflet/custom-marker.png"><img src="/images/leaflet/custom-marker.png"></a>
+  <a href="/images/leaflet/marker.png"><img src="/images/leaflet/marker.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">customIcon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">icon</span><span class="p">(</span>
-  <span class="nv">iconUrl: </span><span class="s">&#39;assets/womanonrails.jpg&#39;</span>
-  <span class="nv">iconSize: </span>    <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-  <span class="nv">iconAnchor: </span>  <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
-  <span class="nv">className: </span><span class="s">&#39;round&#39;</span>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">marker</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">marker</span><span class="p">([</span><span class="mf">50.28895538456755</span><span class="p">,</span> <span class="mf">18.681907653808594</span><span class="p">]).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="custom-marker">Custom marker</h4>
+
+<figure>
+  <a href="/images/leaflet/custom-marker.png"><img src="/images/leaflet/custom-marker.png" /></a>
+</figure>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">customIcon</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">icon</span><span class="p">(</span>
+  <span class="na">iconUrl</span><span class="o">:</span> <span class="s">'assets/womanonrails.jpg'</span>
+  <span class="na">iconSize</span><span class="o">:</span>     <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+  <span class="na">iconAnchor</span><span class="o">:</span>   <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+  <span class="na">className</span><span class="o">:</span> <span class="s">'round'</span>
 <span class="p">)</span>
 
-<span class="nv">customMarker = </span><span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">(</span>
+<span class="nx">customMarker</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">marker</span><span class="p">(</span>
   <span class="p">[</span><span class="mf">50.29391802001304</span><span class="p">,</span> <span class="mf">18.665471076965332</span><span class="p">],</span>
-  <span class="nv">icon: </span><span class="nx">customIcon</span>
-<span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>HTML marker</h4>
+  <span class="na">icon</span><span class="o">:</span> <span class="nx">customIcon</span>
+<span class="p">).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="html-marker">HTML marker</h4>
 
 <figure>
-  <a href="/images/leaflet/html-marker.png"><img src="/images/leaflet/html-marker.png"></a>
+  <a href="/images/leaflet/html-marker.png"><img src="/images/leaflet/html-marker.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">divIcon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">divIcon</span><span class="p">(</span>
-  <span class="nv">className: </span><span class="s">&#39;div-icon&#39;</span>
-  <span class="nv">html: </span><span class="s">&#39;&lt;div&gt;This is my custom html&lt;/div&gt;&#39;</span>
-  <span class="nv">iconSize: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">divIcon</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">divIcon</span><span class="p">(</span>
+  <span class="na">className</span><span class="o">:</span> <span class="s">'div-icon'</span>
+  <span class="na">html</span><span class="o">:</span> <span class="s">'&lt;div&gt;This is my custom html&lt;/div&gt;'</span>
+  <span class="na">iconSize</span><span class="o">:</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 <span class="p">)</span>
 
-<span class="nx">L</span><span class="p">.</span><span class="nx">marker</span><span class="p">([</span><span class="mf">50.2845132498121</span><span class="p">,</span> <span class="mf">18.668603897094727</span><span class="p">],</span> <span class="nv">icon: </span><span class="nx">divIcon</span><span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>Okrąg</h4>
+<span class="nx">L</span><span class="p">.</span><span class="na">marker</span><span class="p">([</span><span class="mf">50.2845132498121</span><span class="p">,</span> <span class="mf">18.668603897094727</span><span class="p">],</span> <span class="na">icon</span><span class="o">:</span> <span class="nx">divIcon</span><span class="p">).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="okrąg">Okrąg</h4>
 
 <figure>
-  <a href="/images/leaflet/circle.png"><img src="/images/leaflet/circle.png"></a>
+  <a href="/images/leaflet/circle.png"><img src="/images/leaflet/circle.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">circle = </span><span class="nx">L</span><span class="p">.</span><span class="nx">circle</span><span class="p">(</span>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">circle</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">circle</span><span class="p">(</span>
   <span class="p">[</span><span class="mf">50.290024725454515</span><span class="p">,</span> <span class="mf">18.640880584716797</span><span class="p">],</span> <span class="mi">500</span><span class="p">,</span>
-  <span class="nv">color: </span><span class="s">&#39;red&#39;</span><span class="p">,</span>
-  <span class="nv">fillColor: </span><span class="s">&#39;#f03&#39;</span><span class="p">,</span>
-  <span class="nv">fillOpacity: </span><span class="mf">0.5</span>
-<span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>Wielokąt</h4>
+  <span class="na">color</span><span class="o">:</span> <span class="s">'red'</span><span class="p">,</span>
+  <span class="na">fillColor</span><span class="o">:</span> <span class="s">'#f03'</span><span class="p">,</span>
+  <span class="na">fillOpacity</span><span class="o">:</span> <span class="mf">0.5</span>
+<span class="p">).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="wielokąt">Wielokąt</h4>
 
 <figure>
-  <a href="/images/leaflet/poligon.png"><img src="/images/leaflet/poligon.png"></a>
+  <a href="/images/leaflet/poligon.png"><img src="/images/leaflet/poligon.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">polygon = </span><span class="nx">L</span><span class="p">.</span><span class="nx">polygon</span><span class="p">([</span>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">polygon</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">polygon</span><span class="p">([</span>
   <span class="p">[</span><span class="mf">50.29830444909283</span><span class="p">,</span> <span class="mf">18.61384391784668</span><span class="p">],</span>
   <span class="p">[</span><span class="mf">50.29619353058144</span><span class="p">,</span> <span class="mf">18.620710372924805</span><span class="p">],</span>
   <span class="p">[</span><span class="mf">50.29084727901576</span><span class="p">,</span> <span class="mf">18.616890907287598</span><span class="p">],</span>
   <span class="p">[</span><span class="mf">50.29125855046426</span><span class="p">,</span> <span class="mf">18.61354351043701</span><span class="p">],</span>
   <span class="p">[</span><span class="mf">50.2941373510724</span><span class="p">,</span>  <span class="mf">18.611998558044434</span><span class="p">],</span>
   <span class="p">[</span><span class="mf">50.29830444909283</span><span class="p">,</span> <span class="mf">18.61384391784668</span><span class="p">]</span>
-<span class="p">]).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>Popups</h4>
+<span class="p">]).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="popups">Popups</h4>
 
 <figure>
-  <a href="/images/leaflet/popup.png"><img src="/images/leaflet/popup.png"></a>
+  <a href="/images/leaflet/popup.png"><img src="/images/leaflet/popup.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nx">marker</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s">&quot;&lt;b&gt;Hello world!&lt;/b&gt;&lt;br&gt;I am a popup.&quot;</span><span class="p">).</span><span class="nx">openPopup</span><span class="p">()</span>
-<span class="nx">circle</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s">&quot;I am a circle.&quot;</span><span class="p">)</span>
-<span class="nx">polygon</span><span class="p">.</span><span class="nx">bindPopup</span><span class="p">(</span><span class="s">&quot;I am a polygon.&quot;</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">popup = </span><span class="nx">L</span><span class="p">.</span><span class="nx">popup</span><span class="p">()</span>
-  <span class="p">.</span><span class="nx">setLatLng</span><span class="p">([</span><span class="mf">51.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.09</span><span class="p">])</span>
-  <span class="p">.</span><span class="nx">setContent</span><span class="p">(</span><span class="s">&quot;I am a standalone popup.&quot;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">openOn</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h4>Zdarzenia</h4>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">marker</span><span class="p">.</span><span class="na">bindPopup</span><span class="p">(</span><span class="s">"&lt;b&gt;Hello world!&lt;/b&gt;&lt;br&gt;I am a popup."</span><span class="p">).</span><span class="na">openPopup</span><span class="p">()</span>
+<span class="nx">circle</span><span class="p">.</span><span class="na">bindPopup</span><span class="p">(</span><span class="s">"I am a circle."</span><span class="p">)</span>
+<span class="nx">polygon</span><span class="p">.</span><span class="na">bindPopup</span><span class="p">(</span><span class="s">"I am a polygon."</span><span class="p">)</span>
+
+</code></pre>
+</div>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">popup</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">popup</span><span class="p">()</span>
+  <span class="p">.</span><span class="na">setLatLng</span><span class="p">([</span><span class="mf">51.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.09</span><span class="p">])</span>
+  <span class="p">.</span><span class="na">setContent</span><span class="p">(</span><span class="s">"I am a standalone popup."</span><span class="p">)</span>
+  <span class="p">.</span><span class="na">openOn</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="zdarzenia">Zdarzenia</h4>
 
 <figure>
-  <a href="/images/leaflet/event.png"><img src="/images/leaflet/event.png"></a>
+  <a href="/images/leaflet/event.png"><img src="/images/leaflet/event.png" /></a>
 </figure>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">onMapClick = </span><span class="nf">(e) -&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Coordinate: </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="si">}</span><span class="s">&quot;</span>
-<span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">,</span> <span class="nx">onMapClick</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">onMapClick = </span><span class="nf">(e) -&gt;</span>
-  <span class="nv">popup = </span><span class="nx">L</span><span class="p">.</span><span class="nx">popup</span><span class="p">()</span>
-  <span class="nx">popup</span><span class="p">.</span><span class="nx">setLatLng</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="p">)</span>
-  <span class="nx">popup</span><span class="p">.</span><span class="nx">setContent</span><span class="p">(</span><span class="s">&quot;You clicked the map at </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="si">}</span><span class="s">&quot;</span><span class="p">)</span>
-  <span class="nx">popup</span><span class="p">.</span><span class="nx">openOn</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="s">&quot;Coordinate: </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="nx">latlng</span><span class="si">}</span><span class="s">&quot;</span>
 
-<span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">,</span> <span class="nx">onMapClick</span><span class="p">)</span>
-</code></pre></div>
-<h4>GeoJSON</h4>
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">onMapClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">"Coordinate: </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="na">latlng</span><span class="si">}</span><span class="s">"</span>
+<span class="nx">map</span><span class="p">.</span><span class="na">on</span><span class="p">(</span><span class="s">'click'</span><span class="p">,</span> <span class="nx">onMapClick</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<p>Myślę, że <code>geoJson</code> jest jedną z najbardziej wszechstronnych opcji biblioteki Leaflet. Dzięki niej można wyświetlać wszystkie dotychczas poznane obiekty. Dodatkowo można w łatwy sposób zmienić style obiektów, podpinać do nich zdarzenia a także wyświetlać na mapie dane <strong>GIS</strong> bezpośrednio z bazy danych takiej jak <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nv">geoData = </span><span class="p">{</span>
-  <span class="s">&quot;type&quot;</span><span class="o">:</span> <span class="s">&quot;Feature&quot;</span><span class="p">,</span>
-  <span class="s">&quot;properties&quot;</span><span class="o">:</span> <span class="p">{},</span>
-  <span class="s">&quot;geometry&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s">&quot;type&quot;</span><span class="o">:</span> <span class="s">&quot;Polygon&quot;</span><span class="p">,</span>
-    <span class="s">&quot;coordinates&quot;</span><span class="o">:</span> <span class="p">[[</span>
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">onMapClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">-&gt;</span>
+  <span class="nx">popup</span> <span class="o">=</span> <span class="nx">L</span><span class="p">.</span><span class="na">popup</span><span class="p">()</span>
+  <span class="nx">popup</span><span class="p">.</span><span class="na">setLatLng</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="na">latlng</span><span class="p">)</span>
+  <span class="nx">popup</span><span class="p">.</span><span class="na">setContent</span><span class="p">(</span><span class="s">"You clicked the map at </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="na">latlng</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+  <span class="nx">popup</span><span class="p">.</span><span class="na">openOn</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="na">log</span> <span class="s">"Coordinate: </span><span class="si">#{</span><span class="nx">e</span><span class="p">.</span><span class="na">latlng</span><span class="si">}</span><span class="s">"</span>
+
+<span class="nx">map</span><span class="p">.</span><span class="na">on</span><span class="p">(</span><span class="s">'click'</span><span class="p">,</span> <span class="nx">onMapClick</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="geojson">GeoJSON</h4>
+
+<p>Myślę, że <code class="highlighter-rouge">geoJson</code> jest jedną z najbardziej wszechstronnych opcji biblioteki Leaflet. Dzięki niej można wyświetlać wszystkie dotychczas poznane obiekty. Dodatkowo można w łatwy sposób zmienić style obiektów, podpinać do nich zdarzenia a także wyświetlać na mapie dane <strong>GIS</strong> bezpośrednio z bazy danych takiej jak <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">geoData</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"type"</span><span class="o">:</span> <span class="s">"Feature"</span><span class="p">,</span>
+  <span class="s">"properties"</span><span class="o">:</span> <span class="p">{},</span>
+  <span class="s">"geometry"</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s">"type"</span><span class="o">:</span> <span class="s">"Polygon"</span><span class="p">,</span>
+    <span class="s">"coordinates"</span><span class="o">:</span> <span class="p">[[</span>
       <span class="p">[</span><span class="mf">18.613758087158203</span><span class="p">,</span> <span class="mf">50.298386690775416</span><span class="p">],</span>
       <span class="p">[</span><span class="mf">18.618135452270508</span><span class="p">,</span> <span class="mf">50.3022518894775</span><span class="p">],</span>
       <span class="p">[</span><span class="mf">18.619508743286133</span><span class="p">,</span> <span class="mf">50.302279301112605</span><span class="p">],</span>
@@ -384,34 +431,36 @@ Description: Awesome dude, awesome life
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="nv">style = </span><span class="p">{</span>
-  <span class="s">&quot;color&quot;</span><span class="o">:</span> <span class="s">&quot;#ff7800&quot;</span><span class="p">,</span>
-  <span class="s">&quot;weight&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="s">&quot;opacity&quot;</span><span class="o">:</span> <span class="mf">0.65</span>
+<span class="nx">style</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s">"color"</span><span class="o">:</span> <span class="s">"#ff7800"</span><span class="p">,</span>
+  <span class="s">"weight"</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s">"opacity"</span><span class="o">:</span> <span class="mf">0.65</span>
 <span class="p">}</span>
 
-<span class="nx">L</span><span class="p">.</span><span class="nx">geoJson</span><span class="p">(</span><span class="nx">geoData</span><span class="p">,</span> <span class="nv">style: </span><span class="nx">style</span><span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
-</code></pre></div>
-<h2>Na koniec</h2>
+<span class="nx">L</span><span class="p">.</span><span class="na">geoJson</span><span class="p">(</span><span class="nx">geoData</span><span class="p">,</span> <span class="na">style</span><span class="o">:</span> <span class="nx">style</span><span class="p">).</span><span class="na">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h2 id="na-koniec">Na koniec</h2>
 
 <p>To co pokazałam to tylko mały wycinek tego co można zrobić dzięki bibliotece <strong>Leaflet</strong>. Jeżeli szukasz bardziej zaawansowanych funkcji (jak na przykład rysowanie kształtów) zapraszam do zapoznania się z poniższymi linkami:</p>
 
 <ul>
-<li><a href="https://leafletjs.com/">Leaflet</a></li>
-<li><a href="https://github.com/Leaflet/Leaflet.draw">Leaflet Draw</a></li>
-<li><a href="http://geojson.io/">GeoJSON</a></li>
-<li><a href="http://www.liedman.net/leaflet-routing-machine/">Leaflet Routing Machine</a></li>
-<li><a href="http://openlayers.org/">OpenLayers</a></li>
-<li><a href="https://developers.google.com/maps/documentation/javascript/?csw=1">Google Maps Javascript API</a></li>
-<li><a href="https://github.com/modestmaps/modestmaps-js">Modest Maps</a></li>
-<li><a href="https://openstreetmap.org">OpenStreetMap</a></li>
-<li><a href="https://www.microsoft.com/maps/">Bing maps</a></li>
-<li><a href="https://www.google.pl/maps?source=tldso">Google Maps</a></li>
-<li><a href="https://www.mapbox.com/">Mapbox</a></li>
-<li><a href="http://www.maptiler.com/">MapTiler</a></li>
-<li><a href="http://maps.stamen.com/">Maps Stamen</a></li>
-<li><a href="https://www.mapquest.com/">Map Quest</a></li>
-<li><a href="https://wiki.openstreetmap.org/wiki/Tiles">Tiles</a></li>
+  <li><a href="https://leafletjs.com/">Leaflet</a></li>
+  <li><a href="https://github.com/Leaflet/Leaflet.draw">Leaflet Draw</a></li>
+  <li><a href="http://geojson.io/">GeoJSON</a></li>
+  <li><a href="http://www.liedman.net/leaflet-routing-machine/">Leaflet Routing Machine</a></li>
+  <li><a href="http://openlayers.org/">OpenLayers</a></li>
+  <li><a href="https://developers.google.com/maps/documentation/javascript/?csw=1">Google Maps Javascript API</a></li>
+  <li><a href="https://github.com/modestmaps/modestmaps-js">Modest Maps</a></li>
+  <li><a href="https://openstreetmap.org">OpenStreetMap</a></li>
+  <li><a href="https://www.microsoft.com/maps/">Bing maps</a></li>
+  <li><a href="https://www.google.pl/maps?source=tldso">Google Maps</a></li>
+  <li><a href="https://www.mapbox.com/">Mapbox</a></li>
+  <li><a href="http://www.maptiler.com/">MapTiler</a></li>
+  <li><a href="http://maps.stamen.com/">Maps Stamen</a></li>
+  <li><a href="https://www.mapquest.com/">Map Quest</a></li>
+  <li><a href="https://wiki.openstreetmap.org/wiki/Tiles">Tiles</a></li>
 </ul>
 
                         <br>
@@ -452,7 +501,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -478,7 +527,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

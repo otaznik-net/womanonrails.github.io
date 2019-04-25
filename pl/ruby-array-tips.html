@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Triki dla tablic w Ruby">
 <meta name="twitter:description" content="10 troków na tablicach w Ruby">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="10 troków na tablicach w Ruby">
 <meta property="og:url" content="https://womanonrails.com/ruby-array-tips">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,91 +200,127 @@ Description: Awesome dude, awesome life
                         <p>Ruby ma naprawdę świetną dokumentację. Metody dla tablic też są dobrze opisane na przykład tutaj. Dziś chciałabym się skupić na kilku trikach jakie znam na tablicach w Ruby. No to zaczynamy:</p>
 
 <ul>
-<li>Tworzenie tablicy składającej się z napisów:</li>
+  <li>Tworzenie tablicy składającej się z napisów:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="sx">%w{ 1 2 3 4 }</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="sx">%w{ 1 2 3 4 }</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"2"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">,</span> <span class="s2">"4"</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <ul>
-<li>Tworzenie tablicy składającej się z tej samej liczby:</li>
+  <li>Tworzenie tablicy składającej się z tej samej liczby:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="o">[</span><span class="mi">2</span><span class="o">]*</span><span class="mi">5</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="mi">5</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <ul>
-<li>Tworzenie tablicy z kolejnych liczb naturalnych:</li>
+  <li>Tworzenie tablicy z kolejnych liczb naturalnych:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">4</span><span class="p">).</span><span class="nf">to_a</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <ul>
-<li>Tworzenie tablicy z kolejnych liczb parzystych:</li>
+  <li>Tworzenie tablicy z kolejnych liczb parzystych:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">to_a</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">step</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nf">to_a</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <ul>
-<li>Pokazanie ostatniego elementu tablicy:</li>
+  <li>Pokazanie ostatniego elementu tablicy:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="n">array</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">array</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
  <span class="o">=&gt;</span> <span class="mi">4</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <ul>
-<li>Pokazanie wybranego fragmentu tablicy:</li>
+  <li>Pokazanie wybranego fragmentu tablicy:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">..</span><span class="mi">2</span><span class="o">]</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="o">]</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-<span class="n">array</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">]</span>
-  <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">2</span><span class="p">]</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="o">.</span><span class="mi">3</span><span class="p">]</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">array</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+  <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <ul>
-<li>Dekompozycja tablicy:</li>
+  <li>Dekompozycja tablicy:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=&gt;</span> <span class="mi">2</span>
 <span class="n">c</span> <span class="o">=&gt;</span> <span class="mi">3</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>lub</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">a</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 <span class="n">b</span> <span class="o">=&gt;</span> <span class="mi">2</span>
-<span class="n">c</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-</code></pre></div>
+<span class="n">c</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <ul>
-<li>Suma wszystkich elementów tablicy:</li>
+  <li>Suma wszystkich elementów tablicy:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="n">array</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">inject</span><span class="p">(</span><span class="o">&amp;</span><span class="p">:</span><span class="o">+</span><span class="p">)</span>
  <span class="o">=&gt;</span> <span class="mi">10</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>lub</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:+</span><span class="p">)</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">array</span><span class="p">.</span><span class="nf">reduce</span><span class="p">(</span><span class="o">&amp;</span><span class="p">:</span><span class="o">+</span><span class="p">)</span>
  <span class="o">=&gt;</span> <span class="mi">10</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <ul>
-<li>Usunięcie określonej części tablicy:</li>
+  <li>Usunięcie określonej części tablicy:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">array</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-<span class="n">array</span><span class="o">.</span><span class="n">slice!</span><span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">array</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+<span class="n">array</span><span class="p">.</span><span class="nf">slice!</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <ul>
-<li>Operacje na tablicy:</li>
+  <li>Operacje na tablicy:</li>
 </ul>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># Suma</span>
-<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">|</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Suma</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">|</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="c1"># Konkatenacja</span>
-<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="c1"># Iloczyn</span>
-<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">&amp;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">&amp;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="c1"># Różnica</span>
-<span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span> <span class="o">-</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="o">]</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="o">]</span>
-</code></pre></div>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+</code></pre>
+</div>
+
                         <br>
                     
                     
@@ -323,7 +359,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -349,7 +385,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

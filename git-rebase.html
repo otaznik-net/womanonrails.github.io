@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Git Rebase">
 <meta name="twitter:description" content="How can you do git rebase?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="How can you do git rebase?">
 <meta property="og:url" content="https://womanonrails.com/git-rebase">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,67 +197,96 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>I wrote 2 articles about git: <a href="/what-is-git">What is git</a> and <a href="/git-usage">Git usage</a>. There are basic information about git. Today I would like to do something more advanced. Last week I did quick presentation/lighting talk about <code>git rebase</code>. After that I realize that this is good topic to do short note. So, there you have.</p>
+                        <p>I wrote 2 articles about git: <a href="/what-is-git">What is git</a> and <a href="/git-usage">Git usage</a>. There are basic information about git. Today I would like to do something more advanced. Last week I did quick presentation/lighting talk about <code class="highlighter-rouge">git rebase</code>. After that I realize that this is good topic to do short note. So, there you have.</p>
 
-<p>When we use git, we have two ways to pull new changes from remote repository. <strong>Merge</strong> and <strong>rebase</strong>. When we use <strong>merge</strong> (this is default option) git will try resolve conflicts and put our changes between changes of others in our team (using timeline to this). But when we use <strong>rebase</strong>, git move our local changes to temporary area and pull all changes from remote repository. Then one by one will move each our local change to branch but on top of all downloaded changes. We say that rebase move your local changes on top of <strong>HEAD</strong>. We can say that HEAD is something like marker which version is current. When on remote repository are new changes and we don&#39;t have this changes locally we say that we are <strong>behind the HEAD</strong>. So when we pull all changes from remote repository we are <strong>on HEAD</strong>.</p>
+<p>When we use git, we have two ways to pull new changes from remote repository. <strong>Merge</strong> and <strong>rebase</strong>. When we use <strong>merge</strong> (this is default option) git will try resolve conflicts and put our changes between changes of others in our team (using timeline to this). But when we use <strong>rebase</strong>, git move our local changes to temporary area and pull all changes from remote repository. Then one by one will move each our local change to branch but on top of all downloaded changes. We say that rebase move your local changes on top of <strong>HEAD</strong>. We can say that HEAD is something like marker which version is current. When on remote repository are new changes and we don’t have this changes locally we say that we are <strong>behind the HEAD</strong>. So when we pull all changes from remote repository we are <strong>on HEAD</strong>.</p>
 
 <figure>
-  <a href="/images/git-rebase/rebase-diagram.png"><img src="/images/git-rebase/rebase-diagram.png"></a>
+  <a href="/images/git-rebase/rebase-diagram.png"><img src="/images/git-rebase/rebase-diagram.png" /></a>
 </figure>
 
-<p>Ok, let&#39;s move now to visual difference between those two method.</p>
+<p>Ok, let’s move now to visual difference between those two method.</p>
 
-<h2>Merge</h2>
+<h2 id="merge">Merge</h2>
 
 <figure>
-  <a href="/images/git-rebase/merge.png"><img src="/images/git-rebase/merge.png"></a>
+  <a href="/images/git-rebase/merge.png"><img src="/images/git-rebase/merge.png" /></a>
 </figure>
 
-<p>You can see that even someone do some connected commits, after merge all is one big mess. Even more, we see that there are also commits with title merge and we didn&#39;t create this commits.</p>
+<p>You can see that even someone do some connected commits, after merge all is one big mess. Even more, we see that there are also commits with title merge and we didn’t create this commits.</p>
 
-<h2>Rebase</h2>
+<h2 id="rebase">Rebase</h2>
 
 <figure>
-  <a href="/images/git-rebase/rebase.png"><img src="/images/git-rebase/rebase.png"></a>
+  <a href="/images/git-rebase/rebase.png"><img src="/images/git-rebase/rebase.png" /></a>
 </figure>
 
 <p>Here everything is in order. Connected commits are in one group. We also see history of our branches.</p>
 
-<h2>How we can do this when our code is only locally?</h2>
+<h2 id="how-we-can-do-this-when-our-code-is-only-locally">How we can do this when our code is only locally?</h2>
 
 <ol>
-<li><p>Switch to develop branch</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git checkout develop
-</code></pre></div></li>
-<li><p>Download all changes locally</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git pull
-</code></pre></div></li>
-<li><p>Switch to specific branch (branch on which you work)</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git checkout my-branch
-</code></pre></div></li>
-<li><p>Do rebase</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase develop
-</code></pre></div></li>
-<li><p>Push changes to remote repository</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git push
-</code></pre></div></li>
+  <li>
+    <p>Switch to develop branch</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git checkout develop
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Download all changes locally</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git pull
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Switch to specific branch (branch on which you work)</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git checkout my-branch
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Do rebase</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git rebase develop
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Push changes to remote repository</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git push
+</code></pre>
+    </div>
+  </li>
 </ol>
 
 <p>Sometimes when you use rebase, then it can show some conflicts. You need to resolved them and add changes. Then you can continue rebase.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase develop
-<span class="c1"># resolve conflicts</span>
-git add -u <span class="c1"># add all changes</span>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git rebase develop
+<span class="c"># resolve conflicts</span>
+git add -u <span class="c"># add all changes</span>
 git rebase --continue
-</code></pre></div>
-<p>We need to talk about one more thing. Sometimes we have our code on remote repository and after rebase we cannot do <code>git push</code>. In this case we can use:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git push -f origin my-branch
-</code></pre></div>
-<p>But! You need to be very <strong>careful</strong>. This command will override all history of change on remote repository for your branch. You must be sure that you don&#39;t lose any change. If you work on branch alone, it is safe but when you work on branch with others you need to be sure what you doing.</p>
+</code></pre>
+</div>
+
+<p>We need to talk about one more thing. Sometimes we have our code on remote repository and after rebase we cannot do <code class="highlighter-rouge">git push</code>. In this case we can use:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git push -f origin my-branch
+</code></pre>
+</div>
+
+<p>But! You need to be very <strong>careful</strong>. This command will override all history of change on remote repository for your branch. You must be sure that you don’t lose any change. If you work on branch alone, it is safe but when you work on branch with others you need to be sure what you doing.</p>
 
 <p>If you like to abort rebase. You can do that in this way.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase --abort
-</code></pre></div>
-<p>This is it. I showed you how you can use <code>git rebase</code>. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git rebase --abort
+</code></pre>
+</div>
+
+<p>This is it. I showed you how you can use <code class="highlighter-rouge">git rebase</code>. I hope this is useful for you. If you have any question or suggestion please let me know in comments. See you next time! Bye!</p>
 
                         <br>
                     
@@ -297,7 +326,7 @@ git rebase --continue
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -323,7 +352,6 @@ git rebase --continue
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

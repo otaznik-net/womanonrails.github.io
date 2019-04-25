@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Ruby Hash Tips">
 <meta name="twitter:description" content="What I know about Hash?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="What I know about Hash?">
 <meta property="og:url" content="https://womanonrails.com/ruby-hash-tips">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,136 +200,189 @@ Description: Awesome dude, awesome life
                         <p>Today I will show you some Hash tips, which I like. But before that what really is this hash?</p>
 
 <p>Hash is a very specific Array where as a key we can use anything we want and order to this key some value or values. For example: If we have books and theirs authors. We can connect author to his books. When we call author then we see his/her books.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">&#39;Carlos Ruiz Zafon&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="s1">&#39;La Sombra del Viento&#39;</span><span class="p">,</span> <span class="s1">&#39;El Juego del Angel&#39;</span><span class="o">]</span><span class="p">,</span>
-  <span class="s1">&#39;Antoine de Saint-Exupery&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Le Petit Prince&#39;</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">'Carlos Ruiz Zafon'</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">'La Sombra del Viento'</span><span class="p">,</span> <span class="s1">'El Juego del Angel'</span><span class="p">],</span>
+  <span class="s1">'Antoine de Saint-Exupery'</span> <span class="o">=&gt;</span> <span class="s1">'Le Petit Prince'</span>
 <span class="p">}</span>
 
-<span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;Carlos Ruiz Zafon&#39;</span><span class="o">]</span>        <span class="c1"># =&gt; [&#39;La Sombra del Viento&#39;, &#39;El Juego del Angel&#39;]</span>
-<span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;Antoine de Saint-Exupery&#39;</span><span class="o">]</span> <span class="c1"># =&gt; &#39;Le Petit Prince&#39;</span>
-</code></pre></div>
+<span class="nb">hash</span><span class="p">[</span><span class="s1">'Carlos Ruiz Zafon'</span><span class="p">]</span>        <span class="c1"># =&gt; ['La Sombra del Viento', 'El Juego del Angel']</span>
+<span class="nb">hash</span><span class="p">[</span><span class="s1">'Antoine de Saint-Exupery'</span><span class="p">]</span> <span class="c1"># =&gt; 'Le Petit Prince'</span>
+</code></pre>
+</div>
+
 <p>If we want to add new author to hash, we do this like in normal array.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span><span class="o">[</span><span class="s1">&#39;author name&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="o">[</span><span class="s1">&#39;his famous book&#39;</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span><span class="p">[</span><span class="s1">'author name'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'his famous book'</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <p>And that it. So, let’s started with some tips:</p>
 
-<h2>1. Create hash with default value:</h2>
+<h2 id="1-create-hash-with-default-value">1. Create hash with default value:</h2>
 
 <p>If you create Hash like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span> <span class="n">lub</span> <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="c1"># =&gt; nil</span>
-</code></pre></div>
-<p>Your default value will be <code>nil</code>.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span> <span class="n">lub</span> <span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="c1"># =&gt; nil</span>
+</code></pre>
+</div>
+
+<p>Your default value will be <code class="highlighter-rouge">nil</code>.</p>
 
 <p>What if you need to count something and put it to hash?
 You can do this like that:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">unless</span> <span class="nb">hash</span><span class="o">.</span><span class="n">has_key?</span><span class="p">(</span><span class="ss">:key</span><span class="p">)</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">unless</span> <span class="nb">hash</span><span class="p">.</span><span class="nf">has_key?</span><span class="p">(</span><span class="ss">:key</span><span class="p">)</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">hash</span> <span class="c1"># =&gt; {:key=&gt;1}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>or like this</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:key</span><span class="o">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:key</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
 <span class="nb">hash</span> <span class="c1"># =&gt; {:key=&gt;1}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>In second way you declare your default value to 0. Code look better and cleaner.</p>
 
 <p>But what happened if we declare default value as an array? Let’s try it.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="o">[]</span><span class="p">)</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:ala</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
-<span class="nb">hash</span>        <span class="c1"># =&gt; {}</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:ala</span><span class="o">]</span>  <span class="c1"># =&gt; [1]</span>
 
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:bela</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">([])</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:ala</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
 <span class="nb">hash</span>        <span class="c1"># =&gt; {}</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:ala</span><span class="o">]</span>  <span class="c1"># =&gt; [1, 2]</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:bela</span><span class="o">]</span> <span class="c1"># =&gt; [1, 2]</span>
-</code></pre></div>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:ala</span><span class="p">]</span>  <span class="c1"># =&gt; [1]</span>
+
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:bela</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>
+<span class="nb">hash</span>        <span class="c1"># =&gt; {}</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:ala</span><span class="p">]</span>  <span class="c1"># =&gt; [1, 2]</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:bela</span><span class="p">]</span> <span class="c1"># =&gt; [1, 2]</span>
+</code></pre>
+</div>
+
 <p>Oops! It is something wrong! Our hash seems to be empty but when we look for specific key we have the same array for two different keys. We can say that if we put string or number as a hash key it is something light to carry on. But if we put array as a key to hash it is much more heavy. So hash as a very lazy object remember only address of array (where array leave). He has only one address so when we add value to this key he say: Value go to this address. So all values are on the same address. When we want to do this correctly we must set different address to different keys. We do this in this way:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">.</span><span class="n">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="nb">hash</span><span class="o">[</span><span class="n">key</span><span class="o">]</span> <span class="o">=</span> <span class="o">[]</span> <span class="p">}</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:a</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="no">Hash</span><span class="p">.</span><span class="nf">new</span> <span class="p">{</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">key</span><span class="o">|</span> <span class="nb">hash</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span> <span class="p">}</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:a</span><span class="p">]</span>
 <span class="nb">hash</span> <span class="c1"># =&gt; {:a=&gt;[]}</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:b</span><span class="o">]</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:b</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">3</span>
 <span class="c1"># =&gt; {:a=&gt;[], :b=&gt;[3]}</span>
-</code></pre></div>
-<h2>2. Put together two hashes:</h2>
+</code></pre>
+</div>
+
+<h2 id="2-put-together-two-hashes">2. Put together two hashes:</h2>
 
 <p>We can do this in couple ways. I show you three. The easiest way to do this, is as I show earlier:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">[</span><span class="ss">:c</span><span class="o">]</span> <span class="o">=</span> <span class="mi">6</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">[</span><span class="ss">:c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="nb">hash</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 6}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Second way, but only to add one key to hash:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="ss">:c</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">store</span><span class="p">(</span><span class="ss">:c</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="nb">hash</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 6}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>When we want to sum two different hashes. We can do this</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">c</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
-<span class="n">first_hash</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
-</code></pre></div>
-<p>This code don’t modify hashes. <code>first_hash</code> and <code>second_hash</code> stay the same. When you want to overwrite first hash you should use <code>merge!</code> method.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">c</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
-<span class="n">first_hash</span><span class="o">.</span><span class="n">merge!</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">}</span>
+<span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">c: </span><span class="mi">7</span><span class="p">,</span> <span class="ss">d: </span><span class="mi">9</span><span class="p">}</span>
+<span class="n">first_hash</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
+</code></pre>
+</div>
+
+<p>This code don’t modify hashes. <code class="highlighter-rouge">first_hash</code> and <code class="highlighter-rouge">second_hash</code> stay the same. When you want to overwrite first hash you should use <code class="highlighter-rouge">merge!</code> method.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">}</span>
+<span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">c: </span><span class="mi">7</span><span class="p">,</span> <span class="ss">d: </span><span class="mi">9</span><span class="p">}</span>
+<span class="n">first_hash</span><span class="p">.</span><span class="nf">merge!</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
 <span class="n">first_hash</span>                     <span class="c1"># =&gt; {a: 3, b: 4, c: 7, d: 9}</span>
 <span class="n">second_hash</span>                    <span class="c1"># =&gt; {c: 7, d: 9}</span>
-</code></pre></div>
-<h4>Alert:</h4>
+</code></pre>
+</div>
 
+<h4 id="alert">Alert:</h4>
 <p>In this case, when you use merge method. You must be carefully because hash can have only ones specific key. When two hashes have the same key survive only the last key. Let me show you:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">b</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="ss">d</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span>
-<span class="n">first_hash</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 5, d: 9}</span>
-</code></pre></div>
-<h2>3. We know how add hash to hash but what when we want to remove element or bigger part of hash?</h2>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">first_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">}</span>
+<span class="n">second_hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">b: </span><span class="mi">5</span><span class="p">,</span> <span class="ss">d: </span><span class="mi">9</span><span class="p">}</span>
+<span class="n">first_hash</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="n">second_hash</span><span class="p">)</span> <span class="c1"># =&gt; {a: 3, b: 5, d: 9}</span>
+</code></pre>
+</div>
+
+<h2 id="3-we-know-how-add-hash-to-hash-but-what-when-we-want-to-remove-element-or-bigger-part-of-hash">3. We know how add hash to hash but what when we want to remove element or bigger part of hash?</h2>
 
 <p>First let I show you how remove one element from hash:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:b</span><span class="p">)</span> <span class="c1"># =&gt; 4</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="ss">:b</span><span class="p">)</span> <span class="c1"># =&gt; 4</span>
 <span class="nb">hash</span>            <span class="c1"># =&gt; {a: 3}</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>As we see when we remove one key from hash, method return value which was connect to this key. After then hash has no more this key inside.</p>
 
 <p>When we want to remove more elements we can do this like:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">.</span><span class="n">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
-<span class="nb">hash</span>                                           <span class="c1"># =&gt; {a: 3}</span>
-</code></pre></div>
-<p>This time called <code>delete_if</code> method return not a removed elements but elements which stay in hash.</p>
 
-<p>Or we can remove element using method <code>reject</code>:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">.</span><span class="n">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">2</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">delete_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
+<span class="nb">hash</span>                                           <span class="c1"># =&gt; {a: 3}</span>
+</code></pre>
+</div>
+
+<p>This time called <code class="highlighter-rouge">delete_if</code> method return not a removed elements but elements which stay in hash.</p>
+
+<p>Or we can remove element using method <code class="highlighter-rouge">reject</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">2</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">reject</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                        <span class="c1"># =&gt; {a: 3, b: 4, c: 2}</span>
-</code></pre></div>
-<p>This method don’t change hash object. If we want do this, we can use <code>reject!</code> method. It behave like <code>delete_if</code>.</p>
+</code></pre>
+</div>
+
+<p>This method don’t change hash object. If we want do this, we can use <code class="highlighter-rouge">reject!</code> method. It behave like <code class="highlighter-rouge">delete_if</code>.</p>
 
 <p>We can also do this in different way. We can say what we want to keep not what we want to remove. For example:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">.</span><span class="n">keep_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">2</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">keep_if</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                     <span class="c1"># =&gt; {a: 3}</span>
-</code></pre></div>
-<p>or with method <code>select</code>:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
+</code></pre>
+</div>
+
+<p>or with method <code class="highlighter-rouge">select</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">2</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                    <span class="c1"># =&gt; {a: 3, b: 4, c: 2}</span>
-</code></pre></div>
-<p><strong>Alert:</strong> <code>select!</code> behave like <code>keep_if</code> method:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="ss">b</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="ss">c</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="nb">hash</span><span class="o">.</span><span class="n">select!</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
+</code></pre>
+</div>
+
+<p><strong>Alert:</strong> <code class="highlighter-rouge">select!</code> behave like <code class="highlighter-rouge">keep_if</code> method:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span><span class="ss">a: </span><span class="mi">3</span><span class="p">,</span> <span class="ss">b: </span><span class="mi">4</span><span class="p">,</span> <span class="ss">c: </span><span class="mi">2</span><span class="p">}</span>
+<span class="nb">hash</span><span class="p">.</span><span class="nf">select!</span> <span class="p">{</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="n">value</span> <span class="o">==</span> <span class="mi">3</span> <span class="p">}</span> <span class="c1"># =&gt; {a: 3}</span>
 <span class="nb">hash</span>                                     <span class="c1"># =&gt; {a: 3}</span>
-</code></pre></div>
-<h2>For now I show you:</h2>
+</code></pre>
+</div>
+
+<h2 id="for-now-i-show-you">For now I show you:</h2>
 
 <ul>
-<li>how we can create hash with default value,</li>
-<li>how we can add some keys with values to existing hash,</li>
-<li>and how we can remove keys form hash.</li>
+  <li>how we can create hash with default value,</li>
+  <li>how we can add some keys with values to existing hash,</li>
+  <li>and how we can remove keys form hash.</li>
 </ul>
 
 <p>I think form the start it is enough. Thank you for reading and see you soon!</p>
@@ -372,7 +425,7 @@ You can do this like that:</p>
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -398,7 +451,6 @@ You can do this like that:</p>
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

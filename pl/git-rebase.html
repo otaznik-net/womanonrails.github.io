@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Git Rebase">
 <meta name="twitter:description" content="Jak używać git rebase?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Jak używać git rebase?">
 <meta property="og:url" content="https://womanonrails.com/git-rebase">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,67 +197,96 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Poprzednie dwa artykuły wprowadzały do tego <a href="/pl/what-is-git">co to jest git</a> i jak go <a href="/pl/git-usage">używać</a>. Możecie tam znaleźć podstawowe informacje na temat gita. Dzisiaj chciałabym skupić się na trochę bardziej zaawansowanych rzeczach związanych z gitem. W zeszłym tygodniu robiłam krótką prezentację dotyczącą funkcji <code>git rebase</code>, pomyślałam więc że to dobry pomysł by zrobić z tego krótką notatkę tutaj. Oto ona.</p>
+                        <p>Poprzednie dwa artykuły wprowadzały do tego <a href="/pl/what-is-git">co to jest git</a> i jak go <a href="/pl/git-usage">używać</a>. Możecie tam znaleźć podstawowe informacje na temat gita. Dzisiaj chciałabym skupić się na trochę bardziej zaawansowanych rzeczach związanych z gitem. W zeszłym tygodniu robiłam krótką prezentację dotyczącą funkcji <code class="highlighter-rouge">git rebase</code>, pomyślałam więc że to dobry pomysł by zrobić z tego krótką notatkę tutaj. Oto ona.</p>
 
 <p>Kiedy używamy gita mamy dwie możliwości dociągnięcia nowych zmian ze zdalnego repozytorium. <strong>Merge</strong> i <strong>rebase</strong>. Jeżeli używamy funkcji <strong>merge</strong> (jest to opcja domyślna) git stara się rozwiązać wszystkie konflikty i umieszcza nasze zmiany między zmianami innych członków zespołu, porządkując je względem linii czasu. Natomiast gdy używamy opcji <strong>rebase</strong> git przenosi nasze lokalne zmiany do takiego tymczasowego miejsca i dociąga to co się zmieniło z zdalnego repozytoriom. Po czym każdą naszą lokalną zmianę umieszcza z powrotem na branch na samej górze wszystkich dociągniętych zmian. Mówimy wtedy, że jesteśmy na samej górze <strong>HEAD</strong>. Można powiedzieć, że HEAD jest czymś w rodzaju takiego znacznika, która wersja jest aktualna. Kiedy na zdalnym repozytorium są zmiany, których jeszcze nie mamy u siebie na komputerze, mówimy że jesteśmy <strong>za HEAD</strong> (czyli za tym głównym znacznikiem), jak tylko dociągniemy zmiany to będziemy <strong>na bieżącym HEAD</strong>.</p>
 
 <figure>
-  <a href="/images/git-rebase/rebase-diagram.png"><img src="/images/git-rebase/rebase-diagram.png"></a>
+  <a href="/images/git-rebase/rebase-diagram.png"><img src="/images/git-rebase/rebase-diagram.png" /></a>
 </figure>
 
 <p>A teraz zobaczmy jak wizualnie wyglądają różnice między tymi dwoma metodami.</p>
 
-<h2>Merge</h2>
+<h2 id="merge">Merge</h2>
 
 <figure>
-  <a href="/images/git-rebase/merge.png"><img src="/images/git-rebase/merge.png"></a>
+  <a href="/images/git-rebase/merge.png"><img src="/images/git-rebase/merge.png" /></a>
 </figure>
 
 <p>Widać że zmiany, które tworzą logiczną całość po dołączeniu do gałęzi (branch) develop zostają przeplecione innymi zmianami. Wszystko powoduje wrażenie bałaganu i nieładu. Dodatkowo da się zauważyć zmiany (commit), których sami nie zrobiłyśmy. Są to właściwie informacje o tym jak zostały połączone pliki modyfikowane przez kilka osób.</p>
 
-<h2>Rebase</h2>
+<h2 id="rebase">Rebase</h2>
 
 <figure>
-  <a href="/images/git-rebase/rebase.png"><img src="/images/git-rebase/rebase.png"></a>
+  <a href="/images/git-rebase/rebase.png"><img src="/images/git-rebase/rebase.png" /></a>
 </figure>
 
 <p>Tutaj wszystko ma swoje miejsce. Zmiany są pogrupowane w jakieś logiczne całości. Dodatkowo widzimy historię naszych gałęzi (branches).</p>
 
-<h2>W takim razie jak możemy to zrobić, gdy nasz kod był tylko zapisany lokalnie?</h2>
+<h2 id="w-takim-razie-jak-możemy-to-zrobić-gdy-nasz-kod-był-tylko-zapisany-lokalnie">W takim razie jak możemy to zrobić, gdy nasz kod był tylko zapisany lokalnie?</h2>
 
 <ol>
-<li><p>Przechodzimy na gałąź (branch) develop</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git checkout develop
-</code></pre></div></li>
-<li><p>Dociągamy najnowsze zmiany</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git pull
-</code></pre></div></li>
-<li><p>Przełączmy się na naszą gałąź (branch) gdzie wcześniej pracowałyśmy</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git checkout my-branch
-</code></pre></div></li>
-<li><p>Robimy rebase</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase develop
-</code></pre></div></li>
-<li><p>Możemy wrzucić zmiany na zdalne repozytorium</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git push
-</code></pre></div></li>
+  <li>
+    <p>Przechodzimy na gałąź (branch) develop</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git checkout develop
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Dociągamy najnowsze zmiany</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git pull
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Przełączmy się na naszą gałąź (branch) gdzie wcześniej pracowałyśmy</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git checkout my-branch
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Robimy rebase</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git rebase develop
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>Możemy wrzucić zmiany na zdalne repozytorium</p>
+
+    <div class="language-shell highlighter-rouge"><pre class="highlight"><code> git push
+</code></pre>
+    </div>
+  </li>
 </ol>
 
-<p>Czasami gdy będziemy robić <code>git rebase</code>, git może nie dać sobie rady sam z rozwiązywaniem konfliktów (czyli łączeniem plików modyfikowanych przez kilka osób). Wtedy do akcji wkraczamy my. Poprawnie rozwiązujemy konflikty i dodajemy nasze zmiany, tak by git je widział. Następnie możemy dalej kontynłować rebase.</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase develop
-<span class="c1"># rozwiązanie konfliktów</span>
-git add -u <span class="c1"># dodanie wszystkich zmian do śledzenia</span>
+<p>Czasami gdy będziemy robić <code class="highlighter-rouge">git rebase</code>, git może nie dać sobie rady sam z rozwiązywaniem konfliktów (czyli łączeniem plików modyfikowanych przez kilka osób). Wtedy do akcji wkraczamy my. Poprawnie rozwiązujemy konflikty i dodajemy nasze zmiany, tak by git je widział. Następnie możemy dalej kontynłować rebase.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git rebase develop
+<span class="c"># rozwiązanie konfliktów</span>
+git add -u <span class="c"># dodanie wszystkich zmian do śledzenia</span>
 git rebase --continue
-</code></pre></div>
-<p>Musimy porozmawiać jeszcze o jedne rzeczy. Czasami nasze zmiany są już na zdalnym repozytorium a my musimy/chcemy zrobić rebase. Po zakończeniu całej operacji chcemy umieści zmiany z powrotem na zdalnym repozytorium. Jednak tym razem <code>git push</code> nam nie zadziała. W takie sytuacji możemy zrobić tak:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git push -f origin my-branch
-</code></pre></div>
+</code></pre>
+</div>
+
+<p>Musimy porozmawiać jeszcze o jedne rzeczy. Czasami nasze zmiany są już na zdalnym repozytorium a my musimy/chcemy zrobić rebase. Po zakończeniu całej operacji chcemy umieści zmiany z powrotem na zdalnym repozytorium. Jednak tym razem <code class="highlighter-rouge">git push</code> nam nie zadziała. W takie sytuacji możemy zrobić tak:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git push -f origin my-branch
+</code></pre>
+</div>
+
 <p>Uwaga! Z tym poleceniem trzeba być bardzo uważnym. Polecenie to nadpisze wszystkie zmiany na wybranej przez nas gałęzi (branch) zmianami, które miałyśmy lokalnie. Jeżeli tylko my pracujemy na tej gałęzi nic się nie stanie. Jeżeli współdzielimy tą gałąź z kimś innym, trzeba myśleć o tym, że możemy usunąć czyjeś zmiany. Musimy wiedzieć co robimy i zdawać sobie sprawę z konsekwencji.</p>
 
 <p>Gdybyśmy chcieli zrezygnować z rebase, możemy do tego celu użyć polecenia:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>git rebase --abort
-</code></pre></div>
-<p>To wszystko na dzisiaj. Pokazałam Wam jak można używać <code>git rebase</code>. Mam nadzięję, że było to dla Was pomocne. Jeżeli miacie jakieś pytania lub sugestie zapraszam do komentowania. Do zobaczenia następnym razem!</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git rebase --abort
+</code></pre>
+</div>
+
+<p>To wszystko na dzisiaj. Pokazałam Wam jak można używać <code class="highlighter-rouge">git rebase</code>. Mam nadzięję, że było to dla Was pomocne. Jeżeli miacie jakieś pytania lub sugestie zapraszam do komentowania. Do zobaczenia następnym razem!</p>
 
                         <br>
                     
@@ -297,7 +326,7 @@ git rebase --continue
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -323,7 +352,6 @@ git rebase --continue
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

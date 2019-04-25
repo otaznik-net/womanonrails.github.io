@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Refaktoryzacja w SessionsController">
 <meta name="twitter:description" content="Jak można poprawić swój kod?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Jak można poprawić swój kod?">
 <meta property="og:url" content="https://womanonrails.com/session-controller-refactoring">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -198,158 +198,177 @@ Description: Awesome dude, awesome life
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>Kilka tygodni temu pracowałam z następującym kodem:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-  <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
-    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">user_params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
-    <span class="k">if</span> <span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
-      <span class="vi">@user</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="no">Session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">user</span><span class="p">:</span> <span class="vi">@user</span><span class="p">)</span><span class="o">.</span><span class="n">token</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">email: </span><span class="n">user_params</span><span class="p">[</span><span class="ss">:email</span><span class="p">])</span>
+    <span class="k">if</span> <span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
+      <span class="vi">@user</span><span class="p">.</span><span class="nf">token</span> <span class="o">=</span> <span class="no">Session</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">user: </span><span class="vi">@user</span><span class="p">).</span><span class="nf">token</span>
     <span class="k">end</span>
-    <span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
+    <span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
   <span class="k">end</span>
 
   <span class="kp">private</span>
 
   <span class="k">def</span> <span class="nf">user_params</span>
-    <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">render_user</span>
     <span class="k">if</span> <span class="vi">@user</span>
-      <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@user</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="vi">@user</span><span class="p">,</span> <span class="ss">status: :created</span>
     <span class="k">else</span>
-      <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">errors</span><span class="p">:</span> <span class="s1">&#39;Email or password was invalid&#39;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unprocessable_entity</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">errors: </span><span class="s1">'Email or password was invalid'</span> <span class="p">},</span> <span class="ss">status: :unprocessable_entity</span>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Kiedy patrzy się na ten kod pierwszy raz prawdopodobnie myśli się że jest OK. Klasa nie jest za długa. Ma tylko 25 linii. Metody są krótkie. Około 5 – 6 linii. Jest tylko jedna publiczna metoda. Wszystko wygląda dobrze, prawda?</p>
 
-<p>Okazuje się jednak, że kod ten ma błąd. Gdy użytkownik chce się zalogować i poda poprawny email ale błędne hasło, metoda zwróci status <code>:created</code>. Oznacza to, że użytkownik poprawnie się zalogował, co nie jest prawdą. Sesja nie nie została dla niego utworzona.</p>
+<p>Okazuje się jednak, że kod ten ma błąd. Gdy użytkownik chce się zalogować i poda poprawny email ale błędne hasło, metoda zwróci status <code class="highlighter-rouge">:created</code>. Oznacza to, że użytkownik poprawnie się zalogował, co nie jest prawdą. Sesja nie nie została dla niego utworzona.</p>
 
 <p>Jak poradzimy sobie z tym błędem? Wpierw napiszemy test, który wykryje nasz błąd.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="nb">require</span> <span class="s1">&#39;rails_helper&#39;</span>
 
-<span class="no">RSpec</span><span class="o">.</span><span class="n">describe</span> <span class="no">SessionsController</span><span class="p">,</span> <span class="ss">type</span><span class="p">:</span> <span class="ss">:controller</span> <span class="k">do</span>
-  <span class="n">describe</span> <span class="s1">&#39;POST #create&#39;</span> <span class="k">do</span>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'rails_helper'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SessionsController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">describe</span> <span class="s1">'POST #create'</span> <span class="k">do</span>
     <span class="n">let</span><span class="p">(</span><span class="ss">:password</span><span class="p">)</span> <span class="p">{</span> <span class="n">rand_text</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">}</span>
-    <span class="n">let</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="n">password</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">let</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span> <span class="p">{</span> <span class="n">create</span><span class="p">(</span><span class="ss">:user</span><span class="p">,</span> <span class="ss">password: </span><span class="n">password</span><span class="p">)</span> <span class="p">}</span>
 
-    <span class="n">it</span> <span class="s1">&#39;for wrong password return status :unprocessable_entity&#39;</span> <span class="k">do</span>
-      <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">user</span><span class="p">:</span> <span class="p">{</span> <span class="ss">email</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span><span class="p">,</span> <span class="ss">password</span><span class="p">:</span> <span class="s1">&#39;wrong&#39;</span> <span class="p">}</span>
-      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">)</span><span class="o">.</span><span class="n">to</span> <span class="n">have_http_status</span><span class="p">(</span><span class="ss">:unprocessable_entity</span><span class="p">)</span>
+    <span class="n">it</span> <span class="s1">'for wrong password return status :unprocessable_entity'</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">user: </span><span class="p">{</span> <span class="ss">email: </span><span class="n">user</span><span class="p">.</span><span class="nf">email</span><span class="p">,</span> <span class="ss">password: </span><span class="s1">'wrong'</span> <span class="p">}</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_http_status</span><span class="p">(</span><span class="ss">:unprocessable_entity</span><span class="p">)</span>
     <span class="k">end</span>
 
-    <span class="o">...</span>
-  <span class="k">end</span>
+    <span class="p">.</span><span class="nf">.</span><span class="p">.</span>
+  <span class="nf">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>Test nie przechodzi. Możemy zacząć działać. Przyjrzyjmy się bliżej naszej klasie.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
-</code></pre></div>
-<p>Coś dziwnego dzieje się w tym kodzie. Wywołujemy metodę <code>respond_to</code>, w której wywołujemy <code>render</code>. Nie widać tego na pierwszy rzut oka ponieważ <code>render</code> ukryty jest w metodzie <code>render_user</code>.</p>
+</code></pre>
+</div>
 
-<p>Postanowiłam, że usunę tą metodę i przeniosę <code>render</code> do metody <code>create</code> w naszym kontrolerze. Dodatkowo stworzyłam tymczasowo metodę <code>user</code> by poprawnie był ustawiany użytkownik.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-  <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
+<p>Test nie przechodzi. Możemy zacząć działać. Przyjrzyjmy się bliżej naszej klasie.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Coś dziwnego dzieje się w tym kodzie. Wywołujemy metodę <code class="highlighter-rouge">respond_to</code>, w której wywołujemy <code class="highlighter-rouge">render</code>. Nie widać tego na pierwszy rzut oka ponieważ <code class="highlighter-rouge">render</code> ukryty jest w metodzie <code class="highlighter-rouge">render_user</code>.</p>
+
+<p>Postanowiłam, że usunę tą metodę i przeniosę <code class="highlighter-rouge">render</code> do metody <code class="highlighter-rouge">create</code> w naszym kontrolerze. Dodatkowo stworzyłam tymczasowo metodę <code class="highlighter-rouge">user</code> by poprawnie był ustawiany użytkownik.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
     <span class="k">if</span> <span class="n">user</span>
-      <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@user</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="vi">@user</span><span class="p">,</span> <span class="ss">status: :created</span>
     <span class="k">else</span>
-      <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">errors</span><span class="p">:</span> <span class="s1">&#39;Email or password was invalid&#39;</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unprocessable_entity</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">errors: </span><span class="s1">'Email or password was invalid'</span> <span class="p">},</span> <span class="ss">status: :unprocessable_entity</span>
     <span class="k">end</span>
   <span class="k">end</span>
 
   <span class="kp">private</span>
 
   <span class="k">def</span> <span class="nf">authenticated?</span>
-    <span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
+    <span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">user</span>
-    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">user_params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">email: </span><span class="n">user_params</span><span class="p">[</span><span class="ss">:email</span><span class="p">])</span>
     <span class="k">return</span> <span class="kp">nil</span> <span class="k">unless</span> <span class="n">authenticated?</span>
-    <span class="vi">@user</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="no">Session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">user</span><span class="p">:</span> <span class="vi">@user</span><span class="p">)</span><span class="o">.</span><span class="n">token</span>
+    <span class="vi">@user</span><span class="p">.</span><span class="nf">token</span> <span class="o">=</span> <span class="no">Session</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">user: </span><span class="vi">@user</span><span class="p">).</span><span class="nf">token</span>
     <span class="vi">@user</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">user_params</span>
-    <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Błąd naprawiony. Test przychodzi. Wszystko jest dobrze. Możemy ruszać dalej po nowe wyzwania, prawda?</p>
 
 <p>Pomyślmy przez chwilę czy możemy możemy zostawić ten kod w tej postaci? Co się dalej stanie?</p>
 
 <ol>
-<li>Nasz kod jest tak dobry, że nikt nie będzie musiał do niego wracać (mało prawdopodobne).</li>
-<li>Nasz kod nie jest tak dobry jak myślimy i prędzej czy później ktoś będzie musiał tu coś zmienić lub naprawić.</li>
+  <li>Nasz kod jest tak dobry, że nikt nie będzie musiał do niego wracać (mało prawdopodobne).</li>
+  <li>Nasz kod nie jest tak dobry jak myślimy i prędzej czy później ktoś będzie musiał tu coś zmienić lub naprawić.</li>
 </ol>
 
 <p>Dlaczego my nie możemy poprawić tego kodu już teraz? Dlaczego nie zastosować się do zasady zostaw fragment kodu który modyfikujesz lepszym niż go zastałeś.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-  <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
-    <span class="k">if</span> <span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
+    <span class="k">if</span> <span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
       <span class="n">render_user_with_token</span>
     <span class="k">else</span>
-      <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">errors</span><span class="p">:</span> <span class="n">t</span><span class="p">(</span><span class="s1">&#39;errors.invalid&#39;</span><span class="p">)</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unprocessable_entity</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">errors: </span><span class="n">t</span><span class="p">(</span><span class="s1">'errors.invalid'</span><span class="p">)</span> <span class="p">},</span> <span class="ss">status: :unprocessable_entity</span>
     <span class="k">end</span>
   <span class="k">end</span>
 
   <span class="kp">private</span>
 
   <span class="k">def</span> <span class="nf">set_user</span>
-    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">user_params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">email: </span><span class="n">user_params</span><span class="p">[</span><span class="ss">:email</span><span class="p">])</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">render_user_with_token</span>
-    <span class="vi">@user</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="no">Session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">user</span><span class="p">:</span> <span class="vi">@user</span><span class="p">)</span><span class="o">.</span><span class="n">token</span>
-    <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@user</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span>
+    <span class="vi">@user</span><span class="p">.</span><span class="nf">token</span> <span class="o">=</span> <span class="no">Session</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">user: </span><span class="vi">@user</span><span class="p">).</span><span class="nf">token</span>
+    <span class="n">render</span> <span class="ss">json: </span><span class="vi">@user</span><span class="p">,</span> <span class="ss">status: :created</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">user_params</span>
-    <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>Testy dalej przechodzą. Myślę, że ten kod jest lepszy niż poprzednia wersja ale są rzeczy, które da się jeszcze poprawić. Możemy się zastanowić na przykład nad zmienną <code>@user</code>. Raz jest ona obiektem typu <code>User</code> a raz <code>nil</code> (wynika to z używania metody <code>find_by</code>). Nie używamy tutaj ani <code>find</code> ani <code>find_by!</code> ponieważ status naszej odpowiedzi byłby inny niż oczekujemy. Wyjątek <code>ActiveRecord::RecordNotFound</code> zwróci nam status <code>:not_found</code> a my chcielibśmy <code>:unprocessable_entity</code>.</p>
+</code></pre>
+</div>
+
+<p>Testy dalej przechodzą. Myślę, że ten kod jest lepszy niż poprzednia wersja ale są rzeczy, które da się jeszcze poprawić. Możemy się zastanowić na przykład nad zmienną <code class="highlighter-rouge">@user</code>. Raz jest ona obiektem typu <code class="highlighter-rouge">User</code> a raz <code class="highlighter-rouge">nil</code> (wynika to z używania metody <code class="highlighter-rouge">find_by</code>). Nie używamy tutaj ani <code class="highlighter-rouge">find</code> ani <code class="highlighter-rouge">find_by!</code> ponieważ status naszej odpowiedzi byłby inny niż oczekujemy. Wyjątek <code class="highlighter-rouge">ActiveRecord::RecordNotFound</code> zwróci nam status <code class="highlighter-rouge">:not_found</code> a my chcielibśmy <code class="highlighter-rouge">:unprocessable_entity</code>.</p>
 
 <p>Natępnie możemy zastanowić się nad warunkiem:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
-</code></pre></div>
-<p>Jeżeli nie widzieliście prezentacji <strong>Sandi Metz</strong> na temat <strong>Null Object Pattern</strong> to polecam (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). Możemy stworzyć klasę <code>TrustedUser</code> i używać wszędzie tego obiektu bez sprawdzania czy mamy przyjemność z <code>nil</code>. Dalej możemy przenieść z powrotem metodę <code>render</code> i ustawiania tokenu do metody <code>create</code>. Zobaczmy jak nasz kod wygląda po zmianach:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
-  <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only</span><span class="p">:</span> <span class="o">[</span><span class="ss">:create</span><span class="o">]</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
+</code></pre>
+</div>
+
+<p>Jeżeli nie widzieliście prezentacji <strong>Sandi Metz</strong> na temat <strong>Null Object Pattern</strong> to polecam (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). Możemy stworzyć klasę <code class="highlighter-rouge">TrustedUser</code> i używać wszędzie tego obiektu bez sprawdzania czy mamy przyjemność z <code class="highlighter-rouge">nil</code>. Dalej możemy przenieść z powrotem metodę <code class="highlighter-rouge">render</code> i ustawiania tokenu do metody <code class="highlighter-rouge">create</code>. Zobaczmy jak nasz kod wygląda po zmianach:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
-    <span class="k">if</span> <span class="vi">@user</span><span class="o">.</span><span class="n">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="o">[</span><span class="ss">:password</span><span class="o">]</span><span class="p">)</span>
-      <span class="vi">@user</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="no">Session</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">user</span><span class="p">:</span> <span class="nb">self</span><span class="p">)</span><span class="o">.</span><span class="n">token</span>
-      <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@user</span><span class="p">,</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:created</span>
+    <span class="k">if</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
+      <span class="vi">@user</span><span class="p">.</span><span class="nf">token</span> <span class="o">=</span> <span class="no">Session</span><span class="p">.</span><span class="nf">create</span><span class="p">(</span><span class="ss">user: </span><span class="nb">self</span><span class="p">).</span><span class="nf">token</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="vi">@user</span><span class="p">,</span> <span class="ss">status: :created</span>
     <span class="k">else</span>
-      <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="p">{</span> <span class="ss">errors</span><span class="p">:</span> <span class="n">t</span><span class="p">(</span><span class="s1">&#39;errors.invalid&#39;</span><span class="p">)</span> <span class="p">},</span> <span class="ss">status</span><span class="p">:</span> <span class="ss">:unprocessable_entity</span>
+      <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">errors: </span><span class="n">t</span><span class="p">(</span><span class="s1">'errors.invalid'</span><span class="p">)</span> <span class="p">},</span> <span class="ss">status: :unprocessable_entity</span>
     <span class="k">end</span>
   <span class="k">end</span>
 
   <span class="kp">private</span>
 
   <span class="k">def</span> <span class="nf">set_user</span>
-    <span class="vi">@user</span> <span class="o">=</span> <span class="no">TrustedUser</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="ss">email</span><span class="p">:</span> <span class="n">user_params</span><span class="o">[</span><span class="ss">:email</span><span class="o">]</span><span class="p">)</span>
+    <span class="vi">@user</span> <span class="o">=</span> <span class="no">TrustedUser</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="ss">email: </span><span class="n">user_params</span><span class="p">[</span><span class="ss">:email</span><span class="p">])</span>
   <span class="k">end</span>
 
   <span class="k">def</span> <span class="nf">user_params</span>
-    <span class="n">params</span><span class="o">.</span><span class="n">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span><span class="o">.</span><span class="n">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
+    <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
 
 <span class="c1"># app/models/trusted_user.rb</span>
 <span class="k">class</span> <span class="nc">TrustedUser</span>
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find_by</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-    <span class="no">User</span><span class="o">.</span><span class="n">find_by</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">||</span> <span class="no">MissingUser</span><span class="o">.</span><span class="n">new</span>
+    <span class="no">User</span><span class="p">.</span><span class="nf">find_by</span><span class="p">(</span><span class="n">params</span><span class="p">)</span> <span class="o">||</span> <span class="no">MissingUser</span><span class="p">.</span><span class="nf">new</span>
   <span class="k">end</span>
 <span class="k">end</span>
 
@@ -359,7 +378,9 @@ Description: Awesome dude, awesome life
     <span class="kp">false</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Teraz moglibyśmy przystąpić do kolejnej zmiany. Przykładowo przenieść ustawianie tokenu do modelu. Ja na tym poprzestanę. Jeżeli macie ochotę sami możecie spróbować to zmienić. Najtrudniejszą rzeczą w tym zadaniu jest próba odpowiedzenia sobie na pytanie: Czy warto robić takie zmiany? Czy daje nam to jakąś wartość? Odpowiedź zależy od Was.</p>
 
 <p>Mam nadzieję, że Wam się podobał artykuł. Jeżeli macie sugestie co można jeszcze tutaj zmienić – zostawcie swój komentarz. Do zobaczenia następnym razem.</p>
@@ -402,7 +423,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -428,7 +449,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

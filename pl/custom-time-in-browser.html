@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Jak ustawić niestandardowy czas w przeglądarce dla testów aplikacji?">
 <meta name="twitter:description" content="Niestandardowy czas i strefa czasowa w przeglądarce bez zmiany ustawień użytkownika.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Niestandardowy czas i strefa czasowa w przeglądarce bez zmiany ustawień użytkownika.">
 <meta property="og:url" content="https://womanonrails.com/custom-time-in-browser">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -201,15 +201,24 @@ Description: Awesome dude, awesome life
 
 <p>Pracuję w projekcie, gdzie używamy zewnętrznego API dla danych pogodowych, które później wyświetlamy użytkownikowi. Był tam pewien błąd z brakującymi wartościami dla konkretnych przedziałów czasowych. Gdy użytkownik prosił o dane z października, brakowało mu zawsze ostatniego dnia (31.10). Natomiast prosząc o dane z września wszystko działało poprawnie. Okazało się, że problem wynikał z przesunięcia czasu związanego z przejściem z czasu letniego (CEST) na czas zimowy (CET). W 2018 roku odbyło się to 28-go października. Brakująca godzina zmieniała się na końcu miesiąca w brakujący dzień. Problem naprawiłam, ale chciałam być pewna na 100%, że nie wystąpi on też dla innych stref czasowych, również poza Europą. Zaplanowałam sobie sesję testów manualnych. Oczywiście, na naszych komputerach jest możliwość zmiany ustawień czasu zarówno w systemie jak i dla przeglądarki. Nie chciałam jednak tego robić. Podczas ostatniej takiej próby mój kalendarz pokazywał błędne godziny, a powiadomienia o spotkaniach przychodziły po ich zakończeniu. Nauczona na błędach szukałam innego rozwiązania.</p>
 
-<p>Z pomocą, jak zawsze, przyszedł Google. Znalazłam tam bardzo fajne rozwiązanie mojego problemu dla przeglądarki Chrome. Wystarczy stworzyć katalog dla nowego profilu przeglądarki (nazwa jest całkowicie dowolna ja wybrałam <code>chrome-profile</code>):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>mkdir <span class="nv">$HOME</span>/chrome-profile
-</code></pre></div>
-<p>następnie wybrać strefę czasową i wpisać ją do zmiennej środowiskowej <code>TZ</code> (skrót od time zone):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">TZ</span><span class="o">=</span><span class="s1">&#39;US/Pacific&#39;</span> google-chrome <span class="s2">&quot;--user-data-dir=</span><span class="nv">$HOME</span><span class="s2">/chrome-profile&quot;</span>
-</code></pre></div>
+<p>Z pomocą, jak zawsze, przyszedł Google. Znalazłam tam bardzo fajne rozwiązanie mojego problemu dla przeglądarki Chrome. Wystarczy stworzyć katalog dla nowego profilu przeglądarki (nazwa jest całkowicie dowolna ja wybrałam <code class="highlighter-rouge">chrome-profile</code>):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir <span class="nv">$HOME</span>/chrome-profile
+</code></pre>
+</div>
+
+<p>następnie wybrać strefę czasową i wpisać ją do zmiennej środowiskowej <code class="highlighter-rouge">TZ</code> (skrót od time zone):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">TZ</span><span class="o">=</span><span class="s1">'US/Pacific'</span> google-chrome <span class="s2">"--user-data-dir=</span><span class="nv">$HOME</span><span class="s2">/chrome-profile"</span>
+</code></pre>
+</div>
+
 <p>po pracy wystarczy skasować katalog tego profilu:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rm -rf <span class="nv">$HOME</span>/chrome-profile
-</code></pre></div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>rm -rf <span class="nv">$HOME</span>/chrome-profile
+</code></pre>
+</div>
+
 <p>To wszystko! Możesz uruchomić przeglądarkę w różnych strefach czasowych nie zmieniając swoich ustawień. Chciałabym zwrócić tutaj uwagę na jedną drobną rzecz. Musisz znać <strong>dokładną nazwę strefy czasowej</strong>. To jest szczególnie ważne dla osób takich jak ja, które robią dużo literówek. W przypadku złej nazwy strefy przeglądarka otworzy się <strong>bez żadnych błędów</strong>, ale będzie miała ustawioną Twoją <strong>standardową strefę czasową</strong>.</p>
 
 <p>Dzięki za przeczytanie i do następnego razu! Trzymaj się!</p>
@@ -252,7 +261,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -278,7 +287,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

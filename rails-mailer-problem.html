@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Why you should not use mailers inside Rails model?">
 <meta name="twitter:description" content="Case study - what can go wrong when you work with mailers and workers in the same time in Rails?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Case study - what can go wrong when you work with mailers and workers in the same time in Rails?">
 <meta property="og:url" content="https://womanonrails.com/rails-mailer-problem">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,33 +197,37 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Sending emails in web application to users is very often process. We send emails related to registration, new changes in application, advertising, last activities or friends&#39; invitations. This is very common. Even we create that functionality in ours apps frequently, we still have bugs there. I would like to share with you one of the bugs examples.</p>
+                        <p>Sending emails in web application to users is very often process. We send emails related to registration, new changes in application, advertising, last activities or friends’ invitations. This is very common. Even we create that functionality in ours apps frequently, we still have bugs there. I would like to share with you one of the bugs examples.</p>
 
-<p>As humans, we have, problems with doing things in parallel. We are not multitasking beasts. Always something or someone is suffering, when we switch to parallel process. Sometimes it is something trivial, that we don&#39;t know what was the last paragraph of read book. But sometimes it is more important. For example, driving a car and talking by phone. It is sad to say, but I see that often on the road. People changing lane???, even didn&#39;t notice that. They cannot find a way or even don&#39;t see the car in front of them. This can provide to accidents. So, please do not drive and use your phone at the same time. But back to the topic. The same problem, which we have in our cars, we also have with a parallel work, do it by computer. It is hard to understand. It is possible, but hard to do. It is hard to imagine, what can go wrong, when our code is running parallel. It is much easier to understand sequential code. First this and then that. We see step by step, what will be run, what will be called. This is why we don&#39;t like callback in JavaScript ;] It is hard to predict in which state, our system will be, when callback will start running.</p>
+<p>As humans, we have, problems with doing things in parallel. We are not multitasking beasts. Always something or someone is suffering, when we switch to parallel process. Sometimes it is something trivial, that we don’t know what was the last paragraph of read book. But sometimes it is more important. For example, driving a car and talking by phone. It is sad to say, but I see that often on the road. People changing lane, even didn’t notice that. They cannot find a way or even don’t see the car in front of them. This can provide to accidents. So, please do not drive and use your phone at the same time. But back to the topic. The same problem, which we have in our cars, we also have with a parallel work, do it by computer. It is hard to understand. It is possible, but hard to do. It is hard to imagine, what can go wrong, when our code is running parallel. It is much easier to understand sequential code. First this and then that. We see step by step, what will be run, what will be called. This is why we don’t like callback in JavaScript ;] It is hard to predict in which state, our system will be, when callback will start running.</p>
 
-<p>In example, which I would like to show you, is one of this <em>parallel</em> examples. I found this bug some time ago. And it was there before I even started working in this project. In this application, there was possible to invite a friend. When the user wanted to invite his friend to the app, two things happened in parallel. One, the application created invitation object and saved it into the database. Second, application was sending email to the user&#39;s friend. When application was small and everything was in one place invitation process looks OK. Everything was fine. But then, the application started to grow. Infrastructure changed. Database, workers, core application and other services went to dockers containers. Many queues were created for workers. Service for handling emails had also its own queue. And something was not right.</p>
+<p>In example, which I would like to show you, is one of this <em>parallel</em> examples. I found this bug some time ago. And it was there before I even started working in this project. In this application, there was possible to invite a friend. When the user wanted to invite his friend to the app, two things happened in parallel. One, the application created invitation object and saved it into the database. Second, application was sending email to the user’s friend. When application was small and everything was in one place invitation process looks OK. Everything was fine. But then, the application started to grow. Infrastructure changed. Database, workers, core application and other services went to dockers containers. Many queues were created for workers. Service for handling emails had also its own queue. And something was not right.</p>
 
-<h2>Problem</h2>
+<h2 id="problem">Problem</h2>
 
 <p>When a user sends invitation to his friend, we get information from Sidekiq (a tool for background processing in Ruby), that this invitation is not found in database. I checked that based on what we had in logs and everything looks fine. Invitation in database exist. After some time Sidekiq retry to run process for sending emails with success. At first I thought, <em>This happened only one time, maybe this is some kind of a  mistake?</em> I decided not to investigate this problem and just monitor the application. Record in DB exists, mail was sent to the user. Nothing to worry. But the problem came back. This time I am known, that this was not a mistake and something is wrong. I started debugging this problem. At first, I looked to code and I get:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">Invitation</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Invitation</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">after_save</span> <span class="ss">:send_invitation_email</span>
 
   <span class="c1"># (...)</span>
 
   <span class="k">def</span> <span class="nf">send_invitation_email</span>
-    <span class="no">AppMailer</span><span class="o">.</span><span class="n">invitation_email</span><span class="p">(</span>
-      <span class="ss">user_id</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="ss">recipient_email</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span> <span class="ss">invitation_id</span><span class="p">:</span> <span class="nb">self</span><span class="o">.</span><span class="n">id</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">deliver_later</span>
+    <span class="no">AppMailer</span><span class="p">.</span><span class="nf">invitation_email</span><span class="p">(</span>
+      <span class="ss">user_id: </span><span class="n">user</span><span class="p">.</span><span class="nf">id</span><span class="p">,</span> <span class="ss">recipient_email: </span><span class="n">email</span><span class="p">,</span> <span class="ss">invitation_id: </span><span class="nb">self</span><span class="p">.</span><span class="nf">id</span>
+    <span class="p">).</span><span class="nf">deliver_later</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>The code was ok. Not great, but nothing very complex. I had <code>after_save</code> callback and simple method using mailers. When I try to reproduce this problem locally, never happened. So for debugging this problem only staging environment was helpful.</p>
+</code></pre>
+</div>
 
-<h2>Finding the reason</h2>
+<p>The code was ok. Not great, but nothing very complex. I had <code class="highlighter-rouge">after_save</code> callback and simple method using mailers. When I try to reproduce this problem locally, never happened. So for debugging this problem only staging environment was helpful.</p>
+
+<h2 id="finding-the-reason">Finding the reason</h2>
 
 <p>After some time I understood, what was the problem. First, very important is the order of callback in Rails models:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">before_validation</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">before_validation</span>
 <span class="n">after_validation</span>
 <span class="n">before_save</span>
 <span class="n">around_save</span>
@@ -232,26 +236,27 @@ Description: Awesome dude, awesome life
 <span class="n">after_create</span>
 <span class="n">after_save</span>
 <span class="n">after_commit</span><span class="o">/</span><span class="n">after_rollback</span>
-</code></pre></div>
-<p>As you see <code>after_save</code> isn&#39;t the last one. I already had id for our invitation, but this invitation is still not persist and in the database. Second, this problem with <code>Invitation not found</code> happened only when our Sidekiq had no work to do. So, when queue is empty. Our process related to sending email was so fast, that it was faster than saving a record in the database (finishing transaction related with save). So, looking below on this scheme actions (1) and (2), were faster, then (3).</p>
+</code></pre>
+</div>
+
+<p>As you see <code class="highlighter-rouge">after_save</code> isn’t the last one. I already had id for our invitation, but this invitation is still not persist and in the database. Second, this problem with <code class="highlighter-rouge">Invitation not found</code> happened only when our Sidekiq had no work to do. So, when queue is empty. Our process related to sending email was so fast, that it was faster than saving a record in the database (finishing transaction related with save). So, looking below on this scheme actions (1) and (2), were faster, then (3).</p>
 
 <figure>
-  <img src="/images/rails-mailer-problem/mailer-in-rails-model.jpg" alt='Scheme model - database - worker'>
+  <img src="/images/rails-mailer-problem/mailer-in-rails-model.jpg" alt="Scheme model - database - worker" />
   <figcaption>Scheme of saving invitation in database and sending email</figcaption>
 </figure>
+<p><br /></p>
 
-<p><br></p>
+<p>Don’t you think it isn’t intuitive? It is logical, when you know that already, but it is not intuitive. At least, not for me.</p>
 
-<p>Don&#39;t you think it isn&#39;t intuitive? It is logical, when you know that already, but it is not intuitive. At least, not for me.</p>
-
-<h2>Posible solutions</h2>
+<h2 id="posible-solutions">Posible solutions</h2>
 
 <p>We have three possible solutions:</p>
 
 <ul>
-<li>change <code>after_save</code> to <code>after_commit</code>  - We will be pretty sure that the record is in the database, but our model will still take care of sending emails.</li>
-<li>change <code>deliver_later</code> to <code>deliver_later(wait: 10.seconds)</code> - It is not ideal, because what if saving a record in the database will take longer?</li>
-<li>extract completely sending email from model - This is not responsibility of the model, to send any emails. I think we should create some kind of process (we can call it service or workflow) to do a sequence of steps when a user wants to invite a friend to our app.</li>
+  <li>change <code class="highlighter-rouge">after_save</code> to <code class="highlighter-rouge">after_commit</code>  - We will be pretty sure that the record is in the database, but our model will still take care of sending emails.</li>
+  <li>change <code class="highlighter-rouge">deliver_later</code> to <code class="highlighter-rouge">deliver_later(wait: 10.seconds)</code> - It is not ideal, because what if saving a record in the database will take longer?</li>
+  <li>extract completely sending email from model - This is not responsibility of the model, to send any emails. I think we should create some kind of process (we can call it service or workflow) to do a sequence of steps when a user wants to invite a friend to our app.</li>
 </ul>
 
 <p>I think the last solution is the best. We should remove all external actions, not related to data persistency out from the model.</p>
@@ -296,7 +301,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -322,7 +327,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

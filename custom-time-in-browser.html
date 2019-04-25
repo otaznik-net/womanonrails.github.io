@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="How to use custom time in browser to manual tests for app?">
 <meta name="twitter:description" content="Custom time in browser without changing your default setups.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Custom time in browser without changing your default setups.">
 <meta property="og:url" content="https://womanonrails.com/custom-time-in-browser">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,20 +197,29 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>I don&#39;t like changing my setups when they work fine. This time, I wanted to test some functionality in the project in different time zones. I found a way to do that independently to my existing setups.</p>
+                        <p>I don’t like changing my setups when they work fine. This time, I wanted to test some functionality in the project in different time zones. I found a way to do that independently to my existing setups.</p>
 
-<p>I work in a project where we use some external API to get weather data and display them to the user. There was a problem with missing values in a specific range of time. For example, when you asked about data for October you would get one day less. So you do not get 31th of October. If you asked about September, everything was fine. The problem was related to the change from CEST to CET time. In 2018 it happened on 28th of October. Missing hour in this day effected last day of this month. After fixing this problem, I wanted to be pretty sure that everything is working in Europe, but also for other countries in the world. I planned to do a manual testing for that. It is possible to change time zone for your entire system or for browser, but I had bad experience with this approach in the past. This trick completely desynchronized my calendar and notifications about meetings in it. So I didn&#39;t want to get the same problems twice.</p>
+<p>I work in a project where we use some external API to get weather data and display them to the user. There was a problem with missing values in a specific range of time. For example, when you asked about data for October you would get one day less. So you do not get 31th of October. If you asked about September, everything was fine. The problem was related to the change from CEST to CET time. In 2018 it happened on 28th of October. Missing hour in this day effected last day of this month. After fixing this problem, I wanted to be pretty sure that everything is working in Europe, but also for other countries in the world. I planned to do a manual testing for that. It is possible to change time zone for your entire system or for browser, but I had bad experience with this approach in the past. This trick completely desynchronized my calendar and notifications about meetings in it. So I didn’t want to get the same problems twice.</p>
 
-<p>While searching for answers in Google, I found a clever idea to change time in the Chrome browser, but without changing your default settings. You need to create a separate folder for the new profile (name depends completely on you, I used <code>chrome-profile</code>):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>mkdir <span class="nv">$HOME</span>/chrome-profile
-</code></pre></div>
-<p>then you need to specify time zone by <code>TZ</code> parameter:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span class="nv">TZ</span><span class="o">=</span><span class="s1">&#39;US/Pacific&#39;</span> google-chrome <span class="s2">&quot;--user-data-dir=</span><span class="nv">$HOME</span><span class="s2">/chrome-profile&quot;</span>
-</code></pre></div>
+<p>While searching for answers in Google, I found a clever idea to change time in the Chrome browser, but without changing your default settings. You need to create a separate folder for the new profile (name depends completely on you, I used <code class="highlighter-rouge">chrome-profile</code>):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir <span class="nv">$HOME</span>/chrome-profile
+</code></pre>
+</div>
+
+<p>then you need to specify time zone by <code class="highlighter-rouge">TZ</code> parameter:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">TZ</span><span class="o">=</span><span class="s1">'US/Pacific'</span> google-chrome <span class="s2">"--user-data-dir=</span><span class="nv">$HOME</span><span class="s2">/chrome-profile"</span>
+</code></pre>
+</div>
+
 <p>and after all this testing you can remove this profile:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span>rm -rf <span class="nv">$HOME</span>/chrome-profile
-</code></pre></div>
-<p>That&#39;s it! You can use your browser with different time zones right now. There is one quick note here. You need to know <strong>the right name of time zone</strong>. This is important for people like me, who do lots of misspellings. In case you will use wrong name you <strong>will not get error</strong> and your browser will <strong>open in default time zone</strong>.</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>rm -rf <span class="nv">$HOME</span>/chrome-profile
+</code></pre>
+</div>
+
+<p>That’s it! You can use your browser with different time zones right now. There is one quick note here. You need to know <strong>the right name of time zone</strong>. This is important for people like me, who do lots of misspellings. In case you will use wrong name you <strong>will not get error</strong> and your browser will <strong>open in default time zone</strong>.</p>
 
 <p>Thanks for reading and see you next time! Bye!</p>
 
@@ -252,7 +261,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -278,7 +287,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

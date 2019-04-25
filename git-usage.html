@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Simple usage of Git">
 <meta name="twitter:description" content="Git - basic commands">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Git - basic commands">
 <meta property="og:url" content="https://womanonrails.com/git-usage">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -199,117 +199,168 @@ Description: Awesome dude, awesome life
                         
                         <p><a href="/what-is-git">Last time</a> we talk about why we like <strong>Git</strong>. Today I would like to show you how we use Git. I will go thought base commands but if you like more information please use <a href="https://git-scm.com/documentation">Git documentation</a>.</p>
 
-<h2>Let&#39;s get started!</h2>
+<h2 id="lets-get-started">Let’s get started!</h2>
 
 <p>Git is <strong>distributed repository</strong>. This mean that every one in our team have all history of changes locally. You can commit changes quickly without Internet connection. The most important thing is when something goes wrong in one local machine rest of the team has copy of <strong>repo</strong> (repository). In case you have central repository, if something is broken in this repository you loose all your changes.</p>
 
 <p>I will be talking about <strong>command line</strong> for Git. I think it is easier to understand Git and use command line then some graphic tools.</p>
 
-<h2>First - setup</h2>
+<h2 id="first---setup">First - setup</h2>
 
 <p>When we use Git we want to be sure that your changes will be assigned to us. So we set up our user data.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git config --global user.name &quot;Your Name&quot;
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git config --global user.name <span class="s2">"Your Name"</span>
 git config --global user.email you_email_address@example.com
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>We can also add colors to our command line.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git config --global color.ui true
-</code></pre></div>
-<h2>Create repository</h2>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git config --global color.ui <span class="nb">true</span>
+</code></pre>
+</div>
+
+<h2 id="create-repository">Create repository</h2>
 
 <p>To start using Git in our project, we go to this project through command line and then we initialize Git inside.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git init
-</code></pre></div>
-<p>This command will initialize only <strong>local Git repository</strong>. To put our repo to server you can use tools like <a href="https://github.com">GitHub</a> or <a href="https://bitbucket.org">Bitbucket</a>. Ok now, how we can work with Git. Very helpful command will be:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git status
-</code></pre></div>
-<p>This command tell us what was change from last time we use Git. So we have for example ruby file:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># hello_world.rb</span>
-<span class="k">def</span> <span class="nf">hello</span>
-  <span class="s2">&quot;hello&quot;</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>And it is not tracked by Git we can see something like that:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git status
 
-# On branch master
-#
-# Initial commit
-#
-# Untracked files:
-#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
-#
-#   hello_world.rb
-#
-# nothing added to commit but untracked files present (use &quot;git add&quot; to track)
-</code></pre></div>
-<h2>First commit</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git init
+</code></pre>
+</div>
+
+<p>This command will initialize only <strong>local Git repository</strong>. To put our repo to server you can use tools like <a href="https://github.com">GitHub</a> or <a href="https://bitbucket.org">Bitbucket</a>. Ok now, how we can work with Git. Very helpful command will be:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+</code></pre>
+</div>
+
+<p>This command tell us what was change from last time we use Git. So we have for example ruby file:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
+<span class="k">def</span> <span class="nf">hello</span>
+  <span class="s2">"hello"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<p>And it is not tracked by Git we can see something like that:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+
+<span class="c"># On branch master</span>
+<span class="c">#</span>
+<span class="c"># Initial commit</span>
+<span class="c">#</span>
+<span class="c"># Untracked files:</span>
+<span class="c">#   (use "git add &lt;file&gt;..." to include in what will be committed)</span>
+<span class="c">#</span>
+<span class="c">#   hello_world.rb</span>
+<span class="c">#</span>
+<span class="c"># nothing added to commit but untracked files present (use "git add" to track)</span>
+</code></pre>
+</div>
+
+<h2 id="first-commit">First commit</h2>
 
 <p>Now we must tell Git: <em>please track this file</em>, so we do.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git add hello_world.rb
-</code></pre></div>
-<p>After this when we use <code>git status</code> we see:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git status
 
-# On branch master
-#
-# Initial commit
-#
-# Changes to be commited:
-#   (use &quot;git rm --cached  &lt;file&gt;...&quot; to unstage)
-#
-#   new file: hello_world.rb
-#
-</code></pre></div>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git add hello_world.rb
+</code></pre>
+</div>
+
+<p>After this when we use <code class="highlighter-rouge">git status</code> we see:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+
+<span class="c"># On branch master</span>
+<span class="c">#</span>
+<span class="c"># Initial commit</span>
+<span class="c">#</span>
+<span class="c"># Changes to be commited:</span>
+<span class="c">#   (use "git rm --cached  &lt;file&gt;..." to unstage)</span>
+<span class="c">#</span>
+<span class="c">#   new file: hello_world.rb</span>
+<span class="c">#</span>
+</code></pre>
+</div>
+
 <p>Now we can do <strong>commit</strong>. I can say that commit is like prepare box to send. You put into one box everything which creates one common piece. For our changes we add only one file so our commit will contain a simple file.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git commit -m &quot;Create a hello function&quot;
-</code></pre></div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git commit -m <span class="s2">"Create a hello function"</span>
+</code></pre>
+</div>
+
 <p>Then Git status shows:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git status
 
-# On branch master
-# nothing to commit (working directory clean)
-</code></pre></div>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+
+<span class="c"># On branch master</span>
+<span class="c"># nothing to commit (working directory clean)</span>
+</code></pre>
+</div>
+
 <p>So we change our function:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># hello_world.rb</span>
-<span class="k">def</span> <span class="nf">hello</span>
-  <span class="s2">&quot;hello world&quot;</span>
-<span class="k">end</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git status
 
-# On branch master
-# Changed but not updated:
-#
-#  modified: hello_world.rb
-# no changes add to commit
-</code></pre></div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
+<span class="k">def</span> <span class="nf">hello</span>
+  <span class="s2">"hello world"</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+
+<span class="c"># On branch master</span>
+<span class="c"># Changed but not updated:</span>
+<span class="c">#</span>
+<span class="c">#  modified: hello_world.rb</span>
+<span class="c"># no changes add to commit</span>
+</code></pre>
+</div>
+
 <p>If we want create new commit we must add new things to your box:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git add hello_world.rb
-</code></pre></div>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git add hello_world.rb
+</code></pre>
+</div>
+
 <p>and create commit</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git commit -m &quot;Change our hello function&quot;
-</code></pre></div>
-<h2>Push/pull changes to/from remote repository</h2>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git commit -m <span class="s2">"Change our hello function"</span>
+</code></pre>
+</div>
+
+<h2 id="pushpull-changes-tofrom-remote-repository">Push/pull changes to/from remote repository</h2>
 
 <p>Ok, we know how create commits. Now I would like to show you how we can <strong>push</strong> our code to server (to <strong>remote repository</strong>) and how we can download (<strong>pull</strong>) our repo from server. To do this we will use <strong>GitHub</strong> but you can use others solutions.</p>
 
 <p>When we have account on GitHub we create <strong>new repository</strong> and we need to run in command line something like this:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git remote add origin link_to_or_repo
-</code></pre></div>
-<p>Don&#39;t worry, after you create your new repository, GitHub show you all commands. You only need to copy and paste this commands to your command line. In short this command tells local Git: <em>Hey this is my remote repository and its name is origin</em> (We can say that this is my server for code). When we want to send our code to this remote repository we do:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git push -u origin master
-</code></pre></div>
-<p>So we tell to Git: <em>push your code from branch</em> <code>master</code> <em>to repository with name</em> <code>origin</code>.</p>
 
-<h4>What is branch?</h4>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git remote add origin link_to_or_repo
+</code></pre>
+</div>
 
-<p>It is like path. You can have many path in your code (for now we have only one and it&#39;s default name is master). And you can switch between this paths. After this command you will be asking about you GitHub user name and password. When you put this informations to console, your code will be available on GitHub.</p>
+<p>Don’t worry, after you create your new repository, GitHub show you all commands. You only need to copy and paste this commands to your command line. In short this command tells local Git: <em>Hey this is my remote repository and its name is origin</em> (We can say that this is my server for code). When we want to send our code to this remote repository we do:</p>
 
-<h2>Last think!</h2>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git push -u origin master
+</code></pre>
+</div>
+
+<p>So we tell to Git: <em>push your code from branch</em> <code class="highlighter-rouge">master</code> <em>to repository with name</em> <code class="highlighter-rouge">origin</code>.</p>
+
+<h4 id="what-is-branch">What is branch?</h4>
+
+<p>It is like path. You can have many path in your code (for now we have only one and it’s default name is master). And you can switch between this paths. After this command you will be asking about you GitHub user name and password. When you put this informations to console, your code will be available on GitHub.</p>
+
+<h2 id="last-think">Last think!</h2>
 
 <p>When you know that other people do some changes in this repository you can <strong>pull</strong> this changes locally.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>git pull
-</code></pre></div>
-<p>This command <strong>pull</strong> code from remote repository with <code>origin</code> name to our current branch. Because we have only one branch - <code>master</code>, all changes will be download to <code>master</code> branch.</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git pull
+</code></pre>
+</div>
+
+<p>This command <strong>pull</strong> code from remote repository with <code class="highlighter-rouge">origin</code> name to our current branch. Because we have only one branch - <code class="highlighter-rouge">master</code>, all changes will be download to <code class="highlighter-rouge">master</code> branch.</p>
 
 <p>This is end. All you need to know to start working with Git is here. I hope you like it. If you wants know more please let me now in comments. See you next time! Bye!</p>
 
@@ -351,7 +402,7 @@ git config --global user.email you_email_address@example.com
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -377,7 +428,6 @@ git config --global user.email you_email_address@example.com
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

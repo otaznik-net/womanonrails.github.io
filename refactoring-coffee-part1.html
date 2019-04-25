@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="CoffeeScript Refactoring – part 1">
 <meta name="twitter:description" content="Small refactoring in CoffeeScript">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Small refactoring in CoffeeScript">
 <meta property="og:url" content="https://womanonrails.com/refactoring-coffee-part1">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,17 +200,24 @@ Description: Awesome dude, awesome life
                         <p>This will be the first article about refactoring. I love refactoring, so let’s start.</p>
 
 <p>I think that the best way to do this is to put some code on the beginning and then change it. Today I would like to show you a piece of CoffeeScript code:</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="k">if</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s">'#myId'</span><span class="p">).</span><span class="na">prop</span><span class="p">(</span><span class="s">'checked'</span><span class="p">,</span> <span class="no">true</span><span class="p">)</span>
 <span class="k">else</span>
-  <span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">)</span>
-</code></pre></div>
+  <span class="nx">$</span><span class="p">(</span><span class="s">'#myId'</span><span class="p">).</span><span class="na">prop</span><span class="p">(</span><span class="s">'checked'</span><span class="p">,</span> <span class="no">false</span><span class="p">)</span>
+</code></pre>
+</div>
+
 <p>This code is simple. I check if number of selected items is same as number of all items. And then I select (or not) a checkbox on a web page. As I said it’s simple but can be improved:</p>
-<div class="highlight"><pre><code class="language-coffee" data-lang="coffee"><span></span><span class="nx">$</span><span class="p">(</span><span class="s">&#39;#myId&#39;</span><span class="p">).</span><span class="nx">prop</span><span class="p">(</span><span class="s">&#39;checked&#39;</span><span class="p">,</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span><span class="p">)</span>
-</code></pre></div>
+
+<div class="language-coffeescript highlighter-rouge"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="s">'#myId'</span><span class="p">).</span><span class="na">prop</span><span class="p">(</span><span class="s">'checked'</span><span class="p">,</span> <span class="nx">checked_items</span> <span class="o">==</span> <span class="nx">all_items</span><span class="p">)</span>
+</code></pre>
+</div>
+
 <p>The same functionality in one line. I like this refactoring very much. If You see how can I improve this code, simply let me know.</p>
 
 <p>See you next time!</p>
+
 
                         <br>
                     
@@ -250,7 +257,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -276,7 +283,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

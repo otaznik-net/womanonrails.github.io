@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Własne walidatory w Ruby on Rails">
 <meta name="twitter:description" content="Jak napisać własny walidator?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Jak napisać własny walidator?">
 <meta property="og:url" content="https://womanonrails.com/custom-rails-validators">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,9 +200,9 @@ Description: Awesome dude, awesome life
                         <p>Przez kilka ostatnich dni pracowałam z walidatorami w Railsach. Ale zanim opowiem o tym, co zrobiłam kilka słów na temat tego czym są walidatory. Kiedy chcemy sprawdzić czy dane, które otrzymuje nasza aplikacja spełniają pewne założenia, wtedy używamy walidatorów. Przykładowo gdy chcemy sprawdzić:</p>
 
 <ul>
-<li>czy dane mają odpowiedni format,</li>
-<li>czy liczba jest parzysta,</li>
-<li>lub po prostu czy nazwa jest wymagana</li>
+  <li>czy dane mają odpowiedni format,</li>
+  <li>czy liczba jest parzysta,</li>
+  <li>lub po prostu czy nazwa jest wymagana</li>
 </ul>
 
 <p>dla wszystkich tych przypadków korzystamy właśnie z walidatorów.</p>
@@ -210,89 +210,110 @@ Description: Awesome dude, awesome life
 <p>Railsy mają wbudowane wiele walidatorów. Jeżeli jesteście zainteresowani poznaniem ich to zajrzyjcie do <a href="https://guides.rubyonrails.org/active_record_validations.html#validation-helpers">dokumentacji</a>. Czasem jednak to nie wystarcza, potrzeba czegoś więcej. W moim przypadku chciałam sprawdzić, czy konkretne pole tekstowe nie zawiera słów będących na czarnej liście. Wiem, że istnieje <a href="https://guides.rubyonrails.org/active_record_validations.html#exclusion">wbudowany walidator</a>, który mógłby mi pomóc, ale zależało mi na czymś więcej:</p>
 
 <ol>
-<li>Moja czarna lista słów była dość długa.</li>
-<li>Nie chciałam tych wszystkich słów umieszczać w pliku Ruby.</li>
-<li>Chciałam mieć łatwy dostęp do rozszerzania mojej listy, bez modyfikacji kodu aplikacji.</li>
+  <li>Moja czarna lista słów była dość długa.</li>
+  <li>Nie chciałam tych wszystkich słów umieszczać w pliku Ruby.</li>
+  <li>Chciałam mieć łatwy dostęp do rozszerzania mojej listy, bez modyfikacji kodu aplikacji.</li>
 </ol>
 
-<h2>Zdecydowałam, więc że stworze swój własny walidator.</h2>
+<h2 id="zdecydowałam-więc-że-stworze-swój-własny-walidator">Zdecydowałam, więc że stworze swój własny walidator.</h2>
 
-<p>Zajrzałam do dokumentacji i znalazłam <a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">to</a>. Wybrałam <code>ActiveModel::EachValidator</code>, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: <code>validate_each</code>. Całość wyglądała następująco:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># app/validators/blacklist_validator.rb</span>
+<p>Zajrzałam do dokumentacji i znalazłam <a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">to</a>. Wybrałam <code class="highlighter-rouge">ActiveModel::EachValidator</code>, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: <code class="highlighter-rouge">validate_each</code>. Całość wyglądała następująco:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/validators/blacklist_validator.rb</span>
 
 <span class="c1"># Validate list of words that can not be use in specifig field</span>
 <span class="k">class</span> <span class="nc">BlacklistValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
   <span class="k">def</span> <span class="nf">validate_each</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-    <span class="n">record</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">:on_blacklist</span><span class="p">)</span> <span class="k">if</span> <span class="n">blacklist</span><span class="o">.</span><span class="n">include?</span> <span class="n">value</span>
+    <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">:on_blacklist</span><span class="p">)</span> <span class="k">if</span> <span class="n">blacklist</span><span class="p">.</span><span class="nf">include?</span> <span class="n">value</span>
   <span class="k">end</span>
 
   <span class="kp">private</span>
 
   <span class="k">def</span> <span class="nf">blacklist</span>
-    <span class="no">File</span><span class="o">.</span><span class="n">readlines</span><span class="p">(</span><span class="no">Rails</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">,</span> <span class="s1">&#39;blacklist.txt&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:strip</span><span class="p">)</span>
+    <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span><span class="p">(</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'config'</span><span class="p">,</span> <span class="s1">'blacklist.txt'</span><span class="p">)).</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:strip</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<h2>Jak to działa?</h2>
+</code></pre>
+</div>
 
-<p>Dodaje błąd <code>:on_blacklist</code> do record tylko wtedy gdy value znajduje się na czarnej liście. Plik z czarną listą słów nazwałam <code>blacklist.txt</code> i umieściłam w Railsowym katalogu <code>config</code>. By teraz móc używać tego walidatora wystarczy dodać do naszego modelu:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist</span><span class="p">:</span> <span class="kp">true</span>
-</code></pre></div>
-<h2>Zapamiętajcie konwencje:</h2>
+<h2 id="jak-to-działa">Jak to działa?</h2>
 
-<p>Kiedy Wasz walidator nazywa się <code>BlacklistValidator</code> to w modelu używacie parametru do walidacji w następujący sposób: <code>blacklist: true</code>.</p>
+<p>Dodaje błąd <code class="highlighter-rouge">:on_blacklist</code> do record tylko wtedy gdy value znajduje się na czarnej liście. Plik z czarną listą słów nazwałam <code class="highlighter-rouge">blacklist.txt</code> i umieściłam w Railsowym katalogu <code class="highlighter-rouge">config</code>. By teraz móc używać tego walidatora wystarczy dodać do naszego modelu:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist: </span><span class="kp">true</span>
+</code></pre>
+</div>
+
+<h2 id="zapamiętajcie-konwencje">Zapamiętajcie konwencje:</h2>
+
+<p>Kiedy Wasz walidator nazywa się <code class="highlighter-rouge">BlacklistValidator</code> to w modelu używacie parametru do walidacji w następujący sposób: <code class="highlighter-rouge">blacklist: true</code>.</p>
 
 <p>To rozwiązanie było dla mnie idealne. Ale co jeżeli chcielibyśmy przekazać do walidatora jakiś dodatkowy parametr. Przykładowo:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality</span><span class="p">:</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
-</code></pre></div>
-<p>To żaden problem. We własnych walidatorach mamy dostęp do zmiennej <code>options</code>, która mówi nam dokładnie jakie parametry zostały przekazane. Jeżeli wywołamy options dla naszego przykładu zobaczymy następujący wynik:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than</span><span class="p">:</span> <span class="mi">18</span> <span class="p">}</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality: </span><span class="p">{</span> <span class="ss">greater_than: </span><span class="mi">18</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>To żaden problem. We własnych walidatorach mamy dostęp do zmiennej <code class="highlighter-rouge">options</code>, która mówi nam dokładnie jakie parametry zostały przekazane. Jeżeli wywołamy options dla naszego przykładu zobaczymy następujący wynik:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than: </span><span class="mi">18</span> <span class="p">}</span>
+</code></pre>
+</div>
+
 <p>Użyłam tej funkcjonalności, by sprawdzić za pomocą walidatora minimalną długość tablicy:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="c1"># app/validators/array_lenght_validator.rb</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/validators/array_lenght_validator.rb</span>
 
 <span class="c1"># Validate if array is not too short</span>
 <span class="k">class</span> <span class="nc">ArrayLenghtValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
   <span class="k">def</span> <span class="nf">validate_each</span><span class="p">(</span><span class="n">record</span><span class="p">,</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-    <span class="k">return</span> <span class="k">unless</span> <span class="n">options</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="ss">:minimum</span><span class="p">)</span>
-    <span class="n">array_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">try</span><span class="p">(</span><span class="ss">:size</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">minimum</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:minimum</span><span class="o">]</span>
+    <span class="k">return</span> <span class="k">unless</span> <span class="n">options</span><span class="p">.</span><span class="nf">key?</span><span class="p">(</span><span class="ss">:minimum</span><span class="p">)</span>
+    <span class="n">array_size</span> <span class="o">=</span> <span class="p">(</span><span class="n">value</span><span class="p">.</span><span class="nf">try</span><span class="p">(</span><span class="ss">:size</span><span class="p">)</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">minimum</span> <span class="o">=</span> <span class="n">options</span><span class="p">[</span><span class="ss">:minimum</span><span class="p">]</span>
     <span class="k">return</span> <span class="k">if</span> <span class="n">array_size</span> <span class="o">&gt;=</span> <span class="n">minimum</span>
-    <span class="n">record</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">:too_short_array</span><span class="p">,</span> <span class="ss">count</span><span class="p">:</span> <span class="n">minimum</span><span class="p">)</span>
+    <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">:too_short_array</span><span class="p">,</span> <span class="ss">count: </span><span class="n">minimum</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<h3>Co się tutaj dzieje?</h3>
+</code></pre>
+</div>
 
-<p>Na początku sprawdzam, czy w ogóle parametr <code>:minimum</code> został ustawiony. Liczę ilość elementów w tablicy i sprawdzam czy <code>array_size</code> jest mniejsze od <code>minimum</code>. Jeżeli tak jest dodaje do rekordu błąd <code>:too_short_array</code>.</p>
+<h3 id="co-się-tutaj-dzieje">Co się tutaj dzieje?</h3>
+
+<p>Na początku sprawdzam, czy w ogóle parametr <code class="highlighter-rouge">:minimum</code> został ustawiony. Liczę ilość elementów w tablicy i sprawdzam czy <code class="highlighter-rouge">array_size</code> jest mniejsze od <code class="highlighter-rouge">minimum</code>. Jeżeli tak jest dodaje do rekordu błąd <code class="highlighter-rouge">:too_short_array</code>.</p>
 
 <p>Walidator mogę wywołać następująco:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght</span><span class="p">:</span> <span class="p">{</span> <span class="ss">minimum</span><span class="p">:</span> <span class="mi">1</span> <span class="p">}</span>
-</code></pre></div>
-<p>Została jeszcze jedna kwestia do omówienia. <strong>W jaki sposób dodać tłumaczenia błędów w katalogu <code>locales</code>?</strong></p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">1</span> <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Została jeszcze jedna kwestia do omówienia. <strong>W jaki sposób dodać tłumaczenia błędów w katalogu <code class="highlighter-rouge">locales</code>?</strong></p>
 
 <p>Używamy konwencji w Rails. Poniżej przedstawiam jeden ze sposobów (inne możliwości dostępne w dokumentacji <a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>pl:
-  activerecord:
-    errors:
-      models:
-        our_model_name:
-          attributes:
-            name:
-              on_blacklist: jest na czarnej liście
-            array:
-              too_short_array:
-                one: jest za krótka (minimalnie 1 element)
-                other: jest za krótka (minimalnie %{count} elementów)
-</code></pre></div>
-<p>W klucz <code>our_model_name:</code> wpisujemy nazwę naszego modelu. Na przykład jeżeli mamy model <code>User</code>, to kluczem będzie <code>user:</code>. Następnie ustawiamy nazwy naszych walidowanych pól:</p>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">pl</span><span class="pi">:</span>
+  <span class="s">activerecord</span><span class="pi">:</span>
+    <span class="s">errors</span><span class="pi">:</span>
+      <span class="s">models</span><span class="pi">:</span>
+        <span class="s">our_model_name</span><span class="pi">:</span>
+          <span class="s">attributes</span><span class="pi">:</span>
+            <span class="s">name</span><span class="pi">:</span>
+              <span class="s">on_blacklist</span><span class="pi">:</span> <span class="s">jest na czarnej liście</span>
+            <span class="s">array</span><span class="pi">:</span>
+              <span class="s">too_short_array</span><span class="pi">:</span>
+                <span class="s">one</span><span class="pi">:</span> <span class="s">jest za krótka (minimalnie 1 element)</span>
+                <span class="s">other</span><span class="pi">:</span> <span class="s">jest za krótka (minimalnie %{count} elementów)</span>
+</code></pre>
+</div>
+
+<p>W klucz <code class="highlighter-rouge">our_model_name:</code> wpisujemy nazwę naszego modelu. Na przykład jeżeli mamy model <code class="highlighter-rouge">User</code>, to kluczem będzie <code class="highlighter-rouge">user:</code>. Następnie ustawiamy nazwy naszych walidowanych pól:</p>
 
 <ul>
-<li><code>name:</code> pole dla którego używamy walidatora czarnej listy,</li>
-<li><code>array:</code> pole dla którego używamy walidatora długości tablicy.</li>
+  <li><code class="highlighter-rouge">name:</code> pole dla którego używamy walidatora czarnej listy,</li>
+  <li><code class="highlighter-rouge">array:</code> pole dla którego używamy walidatora długości tablicy.</li>
 </ul>
 
-<p>Dalej ustawiamy nazwy naszych błędów: <code>on_blacklist:</code> i <code>too_short_array:</code>. Dla <code>on_blacklist:</code> to już wszystko. Jeżeli chodzi o <code>too_short_array:</code> dodatkowo podawaliśmy parametr <code>count</code>. Rails Internalization rozpoznaje czy <code>count</code> jest w liczbie pojedynczej czy mnogiej i serwuje <code>one:</code> lub <code>other:</code> z tłumaczeń. Ostatnia rzecz: W kluczu <code>other:</code> wstawiliśmy parametr <code>count</code> za pomocą <code>%{}</code>. Wtedy Railsy wiedzą gdzie mają wstawić wartość parametru <code>count</code>.</p>
+<p>Dalej ustawiamy nazwy naszych błędów: <code class="highlighter-rouge">on_blacklist:</code> i <code class="highlighter-rouge">too_short_array:</code>. Dla <code class="highlighter-rouge">on_blacklist:</code> to już wszystko. Jeżeli chodzi o <code class="highlighter-rouge">too_short_array:</code> dodatkowo podawaliśmy parametr <code class="highlighter-rouge">count</code>. Rails Internalization rozpoznaje czy <code class="highlighter-rouge">count</code> jest w liczbie pojedynczej czy mnogiej i serwuje <code class="highlighter-rouge">one:</code> lub <code class="highlighter-rouge">other:</code> z tłumaczeń. Ostatnia rzecz: W kluczu <code class="highlighter-rouge">other:</code> wstawiliśmy parametr <code class="highlighter-rouge">count</code> za pomocą <code class="highlighter-rouge">%{}</code>. Wtedy Railsy wiedzą gdzie mają wstawić wartość parametru <code class="highlighter-rouge">count</code>.</p>
 
 <p>To już wszystko. Mam nadzieję, że będzie to dla Was przydatne.
 Jeżeli macie jakieś pytania lub sugestie, proszę zostawcie komentarze.
@@ -336,7 +357,7 @@ Do następnego razu!</p>
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -362,7 +383,6 @@ Do następnego razu!</p>
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

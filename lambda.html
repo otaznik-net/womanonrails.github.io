@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Lambdas in Ruby">
 <meta name="twitter:description" content="How remove redundancy in your code?">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="How remove redundancy in your code?">
 <meta property="og:url" content="https://womanonrails.com/lambda">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,28 +200,40 @@ Description: Awesome dude, awesome life
                         <p>I had situation where I worked with many different (but in some way similar) collections in Ruby. This collections had very similar methods to search elements by name. In this particular example I decided to use lambda. Let me show you how this looks like.</p>
 
 <p>Code which I get looks like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@first_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
-  <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name&#39;</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vi">@first_collection</span><span class="p">.</span><span class="nf">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
+  <span class="n">activity</span><span class="p">.</span><span class="nf">name</span> <span class="o">==</span> <span class="s1">'name'</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>This is not bad code but in others places I had similar things. Collections (I mean arrays) and names were only changes. Like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@sedond_collection</span><span class="o">.</span><span class="n">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
-  <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name1&#39;</span> <span class="o">||</span> <span class="n">activity</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;name2&#39;</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vi">@sedond_collection</span><span class="p">.</span><span class="nf">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span>
+  <span class="n">activity</span><span class="p">.</span><span class="nf">name</span> <span class="o">==</span> <span class="s1">'name1'</span> <span class="o">||</span> <span class="n">activity</span><span class="p">.</span><span class="nf">name</span> <span class="o">==</span> <span class="s1">'name2'</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>So I decided to use lambda. I created method which generate lambda for different collections. As an arguments lambda get <code>names</code> of activities to select. Method looks like this:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>So I decided to use lambda. I created method which generate lambda for different collections. As an arguments lambda get <code class="highlighter-rouge">names</code> of activities to select. Method looks like this:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
   <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|*</span><span class="n">names</span><span class="o">|</span>
-    <span class="n">collection</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span> <span class="n">names</span><span class="o">.</span><span class="n">include?</span><span class="p">(</span><span class="n">activity</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">collection</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">activity</span><span class="o">|</span> <span class="n">names</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">activity</span><span class="p">.</span><span class="nf">name</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>When you prepare collection, you can start looking for activities with specific names.</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="vi">@collection</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<span class="vi">@collection</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)</span>
-<span class="vi">@collection</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="s1">&#39;name1&#39;</span><span class="p">,</span> <span class="s1">&#39;name2&#39;</span><span class="p">)</span>
-</code></pre></div>
+<p>When you prepare collection, you can start looking for activities with specific names.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vi">@collection</span> <span class="o">=</span> <span class="n">prepare</span><span class="p">(</span><span class="n">collection</span><span class="p">)</span>
+
+<span class="vi">@collection</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+<span class="vi">@collection</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s1">'name1'</span><span class="p">,</span> <span class="s1">'name2'</span><span class="p">)</span>
+</code></pre>
+</div>
+
 <p>This solution reduce number of the same structure in our code. There is one place where collection is declared. To be honest with you this was only temporary change because at the end of my refactoring collection became separate object. But for this moment in time solution was very clear and simple.</p>
 
 <p>If you like to know more about lambda and functional programming, you can read my presentaion availabe <a href="https://womanonrails.github.io/presentation-functional-programming-in-ruby/#1">here</a>.</p>
@@ -266,7 +278,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -292,7 +304,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

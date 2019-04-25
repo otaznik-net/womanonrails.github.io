@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Sublime Text Editor">
 <meta name="twitter:description" content="My favourite shortcuts">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="My favourite shortcuts">
 <meta property="og:url" content="https://womanonrails.com/sublime">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -200,99 +200,105 @@ Description: Awesome dude, awesome life
                         <p>I think almost every programmer has his own favourite text editor. Some people like <a href="https://en.wikipedia.org/wiki/Vim_(text_editor)">Vim</a>, some people like <a href="https://notepad-plus-plus.org/">Notepad++</a> and I love <a href="https://www.sublimetext.com/">Sublime Text</a>. There is a lots of useful shortcuts, snippets and plugins which allow in fast and easy way work with code or simple text.</p>
 
 <ol>
-<li><p>I can see up to 4 file in the same time.</p>
+  <li>
+    <p>I can see up to 4 file in the same time.</p>
 
-<p>Sublime has option to see more then one file at the same time. If you add <a href="https://github.com/SublimeText/Origami">Origami</a> plugin, you can have event more then 4 panels. To use basic Sublime splitting panels you just go to <code>View -&gt; Layout</code> and you can choose which layout you like or you can also see shortcuts for that. I like to have two files open. First with code and second with tests. This is very useful when you work in TDD. You don&#39;t need to switch between windows.</p></li>
-<li><p>Everything is customizable</p>
+    <p>Sublime has option to see more then one file at the same time. If you add <a href="https://github.com/SublimeText/Origami">Origami</a> plugin, you can have event more then 4 panels. To use basic Sublime splitting panels you just go to <code class="highlighter-rouge">View -&gt; Layout</code> and you can choose which layout you like or you can also see shortcuts for that. I like to have two files open. First with code and second with tests. This is very useful when you work in TDD. You don’t need to switch between windows.</p>
+  </li>
+  <li>
+    <p>Everything is customizable</p>
 
-<p>You just go to <code>Preferences -&gt; Settings</code>. There is everything you will need for customization. Colors, behaviors, everything. I recommend also to go through other setups in <code>Preferences</code> menu. Spectialy <code>Packages</code>.</p></li>
-<li><p>Adding new packages</p>
+    <p>You just go to <code class="highlighter-rouge">Preferences -&gt; Settings</code>. There is everything you will need for customization. Colors, behaviors, everything. I recommend also to go through other setups in <code class="highlighter-rouge">Preferences</code> menu. Spectialy <code class="highlighter-rouge">Packages</code>.</p>
+  </li>
+  <li>
+    <p>Adding new packages</p>
 
-<p>If you like you can extend Sublime behaviors by installing new packages. You can look at some of my favorites packages:</p>
+    <p>If you like you can extend Sublime behaviors by installing new packages. You can look at some of my favorites packages:</p>
+    <ul>
+      <li><a href="https://emmet.io/">Emmet</a> - for fast and easy creation of HTML or CSS</li>
+      <li><a href="https://github.com/facelessuser/BracketHighlighter">BracketHighlighter</a> - to show you where you start and end brackets, this is nice specialy when you have programming language like JavaScript</li>
+      <li><a href="https://github.com/jisaacks/GitGutter">Git Gutter</a> - to show which part of code are changed or added (integration with git, see <a href="/what-is-git">what is git</a> article)</li>
+      <li><a href="https://github.com/dzhibas/SublimePrettyJson">SublimePrettyJson</a> - formatter for JSON, this is very useful when you have JSON in one line and you would like to read it easly</li>
+      <li><a href="https://github.com/pderichs/sublime_rubocop">RuboCop</a> - to show good practices in Ruby</li>
+      <li>Linters (Coffee Script, CSS, Sass, JS) - tools which shows good practices in different languages</li>
+      <li>Colorful syntaxt - you can add colors for different programing language syntax, when you don’t have specific colorization just install it</li>
+    </ul>
 
-<ul>
-<li><a href="https://emmet.io/">Emmet</a> - for fast and easy creation of HTML or CSS</li>
-<li><a href="https://github.com/facelessuser/BracketHighlighter">BracketHighlighter</a> - to show you where you start and end brackets, this is nice specialy when you have programming language like JavaScript</li>
-<li><a href="https://github.com/jisaacks/GitGutter">Git Gutter</a> - to show which part of code are changed or added (integration with git, see <a href="/what-is-git">what is git</a> article)</li>
-<li><a href="https://github.com/dzhibas/SublimePrettyJson">SublimePrettyJson</a> - formatter for JSON, this is very useful when you have JSON in one line and you would like to read it easly</li>
-<li><a href="https://github.com/pderichs/sublime_rubocop">RuboCop</a> - to show good practices in Ruby</li>
-<li>Linters (Coffee Script, CSS, Sass, JS) - tools which shows good practices in different languages</li>
-<li>Colorful syntaxt - you can add colors for different programing language syntax, when you don&#39;t have specific colorization just install it</li>
-</ul>
+    <p>For more plugins checkout in the Internet.</p>
+  </li>
+  <li>
+    <p>Shortcuts, shortcuts, shortcuts</p>
 
-<p>For more plugins checkout in the Internet.</p></li>
-<li><p>Shortcuts, shortcuts, shortcuts</p>
-
-<p>To be honest I love shortcuts. This is the reason why I write this article. As long as I can work without mouse, only using keyboard then it&#39;s better. This is less time consuming then mouse usage. And Sublime has very useful shortcuts. You can see below:</p>
-
-<ul>
-<li><code>ctrl + k + b</code> - toggle side bar</li>
-<li><code>ctrl + 0</code> - go to side bar with folders (then you can use arrows to navigate between folders and files, <code>enter ↩</code> opens selected file and move focus to this file)</li>
-<li><code>ctrl + 1,2,3,4</code> - move focus between open panels/group (it depends layout you choose)</li>
-<li><code>ctrl + ←, →</code> - go to word beginning/ending</li>
-<li><code>ctrl + shift + ←, →</code> - select last/next word</li>
-<li><code>ctrl + m</code> - jump to closing/opening bracket for current code</li>
-<li><code>ctrl + shift + m</code> - select all contents of the current brackets (curly brackets, square brackets, parentheses)</li>
-<li><code>ctrl + PgUp, PgDn</code> - go to last/next open tab (file)</li>
-<li><code>ctrl + tab</code> - next used tab/file open in one panel</li>
-<li><code>ctrl + shift + tab</code> - last used tab/file open in one panel</li>
-<li><code>ctrl + ↑, ↓</code> -  move file up/down by one line (like scroll)</li>
-<li><code>ctrl + shift + ↑, ↓</code> - switch lines in neighbourhood, first line goes up, second goes down</li>
-<li><code>crtl + /</code> - comment/un-comment line (it depends selected programming language)</li>
-<li><code>ctrl + delete</code> - remove all next words (without adding to clipboard)</li>
-<li><code>ctrl + backspace</code> - remove all words before (without adding to clipboard)</li>
-<li><code>ctrl + k + k</code> - remove all next words (without adding to clipboard)</li>
-<li><code>ctrl + shift + k</code> - remove line (without adding to clipboard)</li>
-<li><code>ctrl + ↩</code> - insert line after</li>
-<li><code>ctrl + shift + ↩</code> - insert line before</li>
-<li><code>ctrl + j</code> - join line below to the end of the current line</li>
-<li><code>ctrl + alt + j</code> - preatty JSON power by SublimePrettyJson</li>
-<li><code>ctrl + ]</code> - indent current line(s)</li>
-<li><code>ctrl + [</code> - un-indent current line(s)</li>
-<li><code>ctrl + a</code> - select all file</li>
-<li><code>ctrl + l</code> - select all line</li>
-<li><code>ctrl + d</code> - select word (repeat select others occurrences in context for multiple editing)</li>
-<li><code>ctrl + shift + d</code> - duplicate line(s)</li>
-<li><code>ctrl + k + u</code> - upper case</li>
-<li><code>ctrl + k + l</code> - lower case</li>
-<li><code>ctrl + c</code> - copy selected text to clipboard or when you have cursor in line without selected text copy all line to clipboard</li>
-<li><code>ctrl + v</code> - paste selected text or all line from clipboard</li>
-<li><code>ctrl + x</code> - cut selected text or all line (when text is not selected) to clipboard</li>
-<li><code>ctrl + g</code> - go to line in current file</li>
-<li><code>ctrl + ;</code> - go to word in current file</li>
-<li><code>ctrl + r</code> - look for symbol (functions, method name, classes) in the file</li>
-<li><code>ctrl + shift + r</code> - look for symbol (functions, method name, classes) in all projects</li>
-<li><code>ctrl + t</code> - replace letter in neighbourhood</li>
-<li><code>ctrl + shift + t</code> - open last closed tab (just like in your browser)</li>
-<li><code>ctrl + h</code> - replace one phrase to another in current file</li>
-<li><code>ctrl + f</code> - search in file</li>
-<li><code>ctrl + shift + f</code> - search in all project (directory), you can also replase phrase in this project</li>
-<li><code>ctrl + q</code> - close Sublime completly</li>
-<li><code>ctrl + w</code> - close current file/tab</li>
-<li><code>ctrl + shift + w</code> - close all window</li>
-<li><code>ctrl + n</code> - open new tab</li>
-<li><code>ctrl + shift + n</code> - open new window</li>
-<li><code>ctrl + s</code> -  save file</li>
-<li><code>ctrl + shift + s</code> - save as (you can choose new name of file)</li>
-<li><code>ctrl + o</code> - open file</li>
-<li><code>ctrl + shift + o</code> - open new directory</li>
-<li><code>ctrl + p</code> - quick-open files by name in your project (you can search by first letters of each part of file name example: searching <code>mnf</code> sublime will find <code>my_new_file.txt</code>)</li>
-<li><code>ctrl + shift + p</code> - command line and package installer</li>
-<li><code>ctrl + z</code> - undo you last change</li>
-<li><code>ctrl + shift + z</code> - redo your last change</li>
-<li><code>ctrl + y</code> - do one more time last action</li>
-<li><code>f6</code> - check spelling base on set dictionary (in my case english)</li>
-<li><code>f9</code> - do alphabetical order of selected lines</li>
-<li><code>f3</code> - next searched phrase</li>
-<li><code>f3 + shift</code> - last searched phrase</li>
-</ul></li>
+    <p>To be honest I love shortcuts. This is the reason why I write this article. As long as I can work without mouse, only using keyboard then it’s better. This is less time consuming then mouse usage. And Sublime has very useful shortcuts. You can see below:</p>
+    <ul>
+      <li><code class="highlighter-rouge">ctrl + k + b</code> - toggle side bar</li>
+      <li><code class="highlighter-rouge">ctrl + 0</code> - go to side bar with folders (then you can use arrows to navigate between folders and files, <code class="highlighter-rouge">enter ↩</code> opens selected file and move focus to this file)</li>
+      <li><code class="highlighter-rouge">ctrl + 1,2,3,4</code> - move focus between open panels/group (it depends layout you choose)</li>
+      <li><code class="highlighter-rouge">ctrl + ←, →</code> - go to word beginning/ending</li>
+      <li><code class="highlighter-rouge">ctrl + shift + ←, →</code> - select last/next word</li>
+      <li><code class="highlighter-rouge">ctrl + m</code> - jump to closing/opening bracket for current code</li>
+      <li><code class="highlighter-rouge">ctrl + shift + m</code> - select all contents of the current brackets (curly brackets, square brackets, parentheses)</li>
+      <li><code class="highlighter-rouge">ctrl + PgUp, PgDn</code> - go to last/next open tab (file)</li>
+      <li><code class="highlighter-rouge">ctrl + tab</code> - next used tab/file open in one panel</li>
+      <li><code class="highlighter-rouge">ctrl + shift + tab</code> - last used tab/file open in one panel</li>
+      <li><code class="highlighter-rouge">ctrl + ↑, ↓</code> -  move file up/down by one line (like scroll)</li>
+      <li><code class="highlighter-rouge">ctrl + shift + ↑, ↓</code> - switch lines in neighbourhood, first line goes up, second goes down</li>
+      <li><code class="highlighter-rouge">crtl + /</code> - comment/un-comment line (it depends selected programming language)</li>
+      <li><code class="highlighter-rouge">ctrl + delete</code> - remove all next words (without adding to clipboard)</li>
+      <li><code class="highlighter-rouge">ctrl + backspace</code> - remove all words before (without adding to clipboard)</li>
+      <li><code class="highlighter-rouge">ctrl + k + k</code> - remove all next words (without adding to clipboard)</li>
+      <li><code class="highlighter-rouge">ctrl + shift + k</code> - remove line (without adding to clipboard)</li>
+      <li><code class="highlighter-rouge">ctrl + ↩</code> - insert line after</li>
+      <li><code class="highlighter-rouge">ctrl + shift + ↩</code> - insert line before</li>
+      <li><code class="highlighter-rouge">ctrl + j</code> - join line below to the end of the current line</li>
+      <li><code class="highlighter-rouge">ctrl + alt + j</code> - preatty JSON power by SublimePrettyJson</li>
+      <li><code class="highlighter-rouge">ctrl + ]</code> - indent current line(s)</li>
+      <li><code class="highlighter-rouge">ctrl + [</code> - un-indent current line(s)</li>
+      <li><code class="highlighter-rouge">ctrl + a</code> - select all file</li>
+      <li><code class="highlighter-rouge">ctrl + l</code> - select all line</li>
+      <li><code class="highlighter-rouge">ctrl + d</code> - select word (repeat select others occurrences in context for multiple editing)</li>
+      <li><code class="highlighter-rouge">ctrl + shift + d</code> - duplicate line(s)</li>
+      <li><code class="highlighter-rouge">ctrl + k + u</code> - upper case</li>
+      <li><code class="highlighter-rouge">ctrl + k + l</code> - lower case</li>
+      <li><code class="highlighter-rouge">ctrl + c</code> - copy selected text to clipboard or when you have cursor in line without selected text copy all line to clipboard</li>
+      <li><code class="highlighter-rouge">ctrl + v</code> - paste selected text or all line from clipboard</li>
+      <li><code class="highlighter-rouge">ctrl + x</code> - cut selected text or all line (when text is not selected) to clipboard</li>
+      <li><code class="highlighter-rouge">ctrl + g</code> - go to line in current file</li>
+      <li><code class="highlighter-rouge">ctrl + ;</code> - go to word in current file</li>
+      <li><code class="highlighter-rouge">ctrl + r</code> - look for symbol (functions, method name, classes) in the file</li>
+      <li><code class="highlighter-rouge">ctrl + shift + r</code> - look for symbol (functions, method name, classes) in all projects</li>
+      <li><code class="highlighter-rouge">ctrl + t</code> - replace letter in neighbourhood</li>
+      <li><code class="highlighter-rouge">ctrl + shift + t</code> - open last closed tab (just like in your browser)</li>
+      <li><code class="highlighter-rouge">ctrl + h</code> - replace one phrase to another in current file</li>
+      <li><code class="highlighter-rouge">ctrl + f</code> - search in file</li>
+      <li><code class="highlighter-rouge">ctrl + shift + f</code> - search in all project (directory), you can also replase phrase in this project</li>
+      <li><code class="highlighter-rouge">ctrl + q</code> - close Sublime completly</li>
+      <li><code class="highlighter-rouge">ctrl + w</code> - close current file/tab</li>
+      <li><code class="highlighter-rouge">ctrl + shift + w</code> - close all window</li>
+      <li><code class="highlighter-rouge">ctrl + n</code> - open new tab</li>
+      <li><code class="highlighter-rouge">ctrl + shift + n</code> - open new window</li>
+      <li><code class="highlighter-rouge">ctrl + s</code> -  save file</li>
+      <li><code class="highlighter-rouge">ctrl + shift + s</code> - save as (you can choose new name of file)</li>
+      <li><code class="highlighter-rouge">ctrl + o</code> - open file</li>
+      <li><code class="highlighter-rouge">ctrl + shift + o</code> - open new directory</li>
+      <li><code class="highlighter-rouge">ctrl + p</code> - quick-open files by name in your project (you can search by first letters of each part of file name example: searching <code class="highlighter-rouge">mnf</code> sublime will find <code class="highlighter-rouge">my_new_file.txt</code>)</li>
+      <li><code class="highlighter-rouge">ctrl + shift + p</code> - command line and package installer</li>
+      <li><code class="highlighter-rouge">ctrl + z</code> - undo you last change</li>
+      <li><code class="highlighter-rouge">ctrl + shift + z</code> - redo your last change</li>
+      <li><code class="highlighter-rouge">ctrl + y</code> - do one more time last action</li>
+      <li><code class="highlighter-rouge">f6</code> - check spelling base on set dictionary (in my case english)</li>
+      <li><code class="highlighter-rouge">f9</code> - do alphabetical order of selected lines</li>
+      <li><code class="highlighter-rouge">f3</code> - next searched phrase</li>
+      <li><code class="highlighter-rouge">f3 + shift</code> - last searched phrase</li>
+    </ul>
+  </li>
 </ol>
 
 <p>Update 23.01.2019:</p>
 
 <ul>
-<li><code>ctrl + shift + l</code> - add cursor to the end of each selected line of code/text</li>
-<li><code>shift + alt + ↑, ↓</code> - each time after press <code>↑</code> or <code>↓</code> add cursor to line above or below current line</li>
+  <li><code class="highlighter-rouge">ctrl + shift + l</code> - add cursor to the end of each selected line of code/text</li>
+  <li><code class="highlighter-rouge">shift + alt + ↑, ↓</code> - each time after press <code class="highlighter-rouge">↑</code> or <code class="highlighter-rouge">↓</code> add cursor to line above or below current line</li>
 </ul>
 
 <p>I hope you find this useful. See you next time!</p>
@@ -335,7 +341,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -361,7 +367,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

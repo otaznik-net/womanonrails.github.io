@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Wyrażenia regularne - co może pójść nie tak?">
 <meta name="twitter:description" content="Wyrażenia regularne to tylko narzędzie. My, jako programiści, musimy używać ich odpowiedzialnie.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Wyrażenia regularne to tylko narzędzie. My, jako programiści, musimy używać ich odpowiedzialnie.">
 <meta property="og:url" content="https://womanonrails.com/email-regular-expressions">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -202,44 +202,61 @@ Description: Awesome dude, awesome life
 <p>Dostałam błąd do naprawienia. Tak zaczyna się wiele historii. Ta też. Dostałam więc błąd w jednym z pól tekstowym w aplikacji. Do tego pola użytkownik mógł wpisać listę emalii i zaimportować je do swoich kontaktów. Problem był taki, że raz mu się to udawało a raz nie. Czasem tylko część poprawnych adresów zostawała zapisana do bazy. Moje zadanie polegało na znalezieniu przyczyny i naprawieniu problemu. W takich sytuacjach lubię myśleć o sobie jak o detektywie, więc zabrałam się za moje małe śledztwo.</p>
 
 <p>Kod w Ruby dla tej funkcjonalności wyglądał tak:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span> <span class="o">=</span> <span class="n">params</span><span class="o">[</span><span class="ss">:enter_emails</span><span class="o">].</span><span class="n">delete</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="ss">:enter_emails</span><span class="p">].</span><span class="nf">delete</span><span class="p">(</span><span class="s1">' '</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">emails</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span>
-  <span class="n">emails</span> <span class="o">=</span> <span class="n">emails</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/,/</span><span class="p">)</span>
+  <span class="n">emails</span> <span class="o">=</span> <span class="n">emails</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">/,/</span><span class="p">)</span>
   <span class="c1"># do something (for example add to contact list)</span>
 <span class="k">else</span>
   <span class="c1"># render error</span>
 <span class="k">end</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>Na wejście kod dostawał tekst. Później następowało usunięcie białych znaków, w zasadzie tylko spacji. Dalej używając wyrażenia regularnego sprawdzaliśmy poprawność formatu danych i dzieliliśmy tekst na części na podstawie przecinków. Na koniec poprawne dane zostawały poddane dalszym działaniom. Przykładowo importowane do listy kontaktów użytkownika. Patrząc na ten kod można dostrzec dwa podstawowe problemy:</p>
 
 <ol>
-<li><p><strong>Dzielenie tekstu względem przecinków</strong> - Co stanie się, gdy użytkownik nie będzie myślał tak jak my? I oddzieli od siebie kolejne maile za pomocą średników, samych spacji lub nowych linii? To jest zwykłe pole tekstowe typu <code>textarea</code>. Użytkownik może to zrobić. My jednak nie obsługujemy tych przypadków.</p></li>
-<li><p><strong>Walidacja tylko ostatniej części naszego tekstu</strong> - Gdy przyjrzymy się bliżej zauważymy, że podając na wejście <code>&quot;aaa@excom, bbb@ex.com&quot;</code> dane zostaną potraktowane jako poprawne. Natomiast gdy odwrócimy kolejność <code>&quot;bbb@ex.com, aaa@excom&quot;</code> już nie.</p></li>
+  <li>
+    <p><strong>Dzielenie tekstu względem przecinków</strong> - Co stanie się, gdy użytkownik nie będzie myślał tak jak my? I oddzieli od siebie kolejne maile za pomocą średników, samych spacji lub nowych linii? To jest zwykłe pole tekstowe typu <code class="highlighter-rouge">textarea</code>. Użytkownik może to zrobić. My jednak nie obsługujemy tych przypadków.</p>
+  </li>
+  <li>
+    <p><strong>Walidacja tylko ostatniej części naszego tekstu</strong> - Gdy przyjrzymy się bliżej zauważymy, że podając na wejście <code class="highlighter-rouge">"aaa@excom, bbb@ex.com"</code> dane zostaną potraktowane jako poprawne. Natomiast gdy odwrócimy kolejność <code class="highlighter-rouge">"bbb@ex.com, aaa@excom"</code> już nie.</p>
+  </li>
 </ol>
 
 <p>Co tu się dzieje? By lepiej zrozumieć problem dobrze jest sprawdzić różne przypadki zachowania danych wejściowych dla wybranego przez nas wyrażenia regularnego. Można to zrobić za pomocą interaktywnej konsoli Rubiego lub używając jakiegoś narzędzia. Ja często używam i również polecam <a href="https://rubular.com/" title="Rubular - regular expressions" target="_blank" rel="nofollow noopener noreferrer">Rubular</a>. Jest to prosta stronka internetowa, gdzie łatwo można sprawdzić działanie swoich wyrażeń regularnych.</p>
 
 <figure>
-  <a href="/images/email-regular-expressions/rubular.png"><img src="/images/email-regular-expressions/rubular.png" title="Rubular - wyrażenia regularne" alt="Dopasowywanie do wyrażenia regularnego"></a>
+  <a href="/images/email-regular-expressions/rubular.png"><img src="/images/email-regular-expressions/rubular.png" title="Rubular - wyrażenia regularne" alt="Dopasowywanie do wyrażenia regularnego" /></a>
 </figure>
 
-<p>Jak możesz zauważyć, sprawdzamy tylko ostatnią część naszego testu. Gdy ostatni fragment jest poprawnym adresem email, cały tekst traktowany jest jako poprawny. To nie dobrze. Gdy znamy już przyczynę problemu, czas go rozwiązać. Można to zrobić na wiele sposobów. Ja zdecydowałam się najpierw podzielić ten tekst na części używając do tego wyrażenia regularnego: <code>/\s+|\s*,\s*|\s*;\s*/</code> a dopiero później sprawdzać drugim wyrażeniem czy dana część jest poprawnym adresem email. Warto tu wspomnieć o jednej rzeczy. Gdy zastosujesz to samo wyrażenie regularne co ja, które dzieli tekst względem przecinków, średników i dowolnych białych znaków, po podzieleniu możesz otrzymać tablicę z pustymi łańcuchami. Tak jak w przykładzie poniżej:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span> <span class="o">=</span> <span class="s2">&quot;aaa@excom,, , ,  bbb@ex.com aa&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/\s+|\s*,\s*|\s*;\s*/</span><span class="p">)</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;aaa@excom&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;bbb@ex.com&quot;</span><span class="p">,</span> <span class="s2">&quot;aa&quot;</span><span class="o">]</span>
-</code></pre></div>
+<p>Jak możesz zauważyć, sprawdzamy tylko ostatnią część naszego testu. Gdy ostatni fragment jest poprawnym adresem email, cały tekst traktowany jest jako poprawny. To nie dobrze. Gdy znamy już przyczynę problemu, czas go rozwiązać. Można to zrobić na wiele sposobów. Ja zdecydowałam się najpierw podzielić ten tekst na części używając do tego wyrażenia regularnego: <code class="highlighter-rouge">/\s+|\s*,\s*|\s*;\s*/</code> a dopiero później sprawdzać drugim wyrażeniem czy dana część jest poprawnym adresem email. Warto tu wspomnieć o jednej rzeczy. Gdy zastosujesz to samo wyrażenie regularne co ja, które dzieli tekst względem przecinków, średników i dowolnych białych znaków, po podzieleniu możesz otrzymać tablicę z pustymi łańcuchami. Tak jak w przykładzie poniżej:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span> <span class="o">=</span> <span class="s2">"aaa@excom,, , ,  bbb@ex.com aa"</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sr">/\s+|\s*,\s*|\s*;\s*/</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"aaa@excom"</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="s2">"bbb@ex.com"</span><span class="p">,</span> <span class="s2">"aa"</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <p>To może być dla Ciebie wystarczające lub nie. Tu musisz o tym zdecydować. Dalej można już sprawdzić poprawność wszystkich elementów w tablicy:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span><span class="o">.</span><span class="n">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span><span class="p">.</span><span class="nf">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
  <span class="o">=&gt;</span> <span class="kp">false</span>
-</code></pre></div>
+</code></pre>
+</div>
+
 <p>lub wybrać tylko elementy będące poprawnymi adresami email:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">emails</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
- <span class="o">=&gt;</span> <span class="o">[</span><span class="s2">&quot;bbb@ex.com&quot;</span><span class="o">]</span>
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">emails</span><span class="p">.</span><span class="nf">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">email</span><span class="o">|</span> <span class="n">email</span> <span class="o">=~</span> <span class="sr">/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/</span> <span class="p">}</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"bbb@ex.com"</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <p>Wszystko zależy od tego, czego potrzebujesz.</p>
 
-<p>Teraz możesz zapytać: Po co to wszystko? Jaki był cel tego artykułu? Odpowiedź jest prosta. Ja widzę takie rzeczy bardzo często. Jako programiści, nie przywiązujemy zbyt dużej uwagi do naszego kodu lub może po prostu zbyt się śpieszymy przy tworzeniu rozwiązań. W ten sposób wprowadzając do aplikacji błędy. Czasami to nie jest duży problem, ale czy chciałabyś by operował Cię lekarz, który nie przywiązuje wagi do szczegółów Twojego stany zdrowia podczas operacji? Czasem oprogramowanie, które tworzymy służy do błahych celów, ale co w przypadku wypełniania dokumentów urzędowych, dawkowania leków lub sterowania systemem hamowania w samochodzie? W <em>Małym Księciu</em> lis powiedział: <em>&quot;Stajesz się na zawsze odpowiedzialny za to co oswoiłeś&quot;</em>. W tym przypadku ja mówię: <em>&quot;Stajesz się na zawsze odpowiedzialny za to co zaprogramowałeś.&quot;</em></p>
+<p>Teraz możesz zapytać: Po co to wszystko? Jaki był cel tego artykułu? Odpowiedź jest prosta. Ja widzę takie rzeczy bardzo często. Jako programiści, nie przywiązujemy zbyt dużej uwagi do naszego kodu lub może po prostu zbyt się śpieszymy przy tworzeniu rozwiązań. W ten sposób wprowadzając do aplikacji błędy. Czasami to nie jest duży problem, ale czy chciałabyś by operował Cię lekarz, który nie przywiązuje wagi do szczegółów Twojego stany zdrowia podczas operacji? Czasem oprogramowanie, które tworzymy służy do błahych celów, ale co w przypadku wypełniania dokumentów urzędowych, dawkowania leków lub sterowania systemem hamowania w samochodzie? W <em>Małym Księciu</em> lis powiedział: <em>“Stajesz się na zawsze odpowiedzialny za to co oswoiłeś”</em>. W tym przypadku ja mówię: <em>“Stajesz się na zawsze odpowiedzialny za to co zaprogramowałeś.”</em></p>
 
 <p>Jeśli masz ochotę, to podziel się swoimi myślami w komentarzach. Dzięki za przeczytanie artykułu i do następnego razu. Pa!</p>
+
 
                         <br>
                     
@@ -279,7 +296,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -305,7 +322,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

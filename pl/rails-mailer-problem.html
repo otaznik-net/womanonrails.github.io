@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach?">
 <meta name="twitter:description" content="Co może pójść nie tak gdy korzystasz z workerów do wysyłania maili? - studium przypadku.">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Co może pójść nie tak gdy korzystasz z workerów do wysyłania maili? - studium przypadku.">
 <meta property="og:url" content="https://womanonrails.com/rails-mailer-problem">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -201,29 +201,33 @@ Description: Awesome dude, awesome life
 
 <p>Jako ludzie mamy problem z robieniem dwóch rzeczy równocześnie. Nie jesteśmy dobrzy w multitaskingu. Zawsze coś lub ktoś cierpi przy takim podejściu. Czasami jest to dość błaha sprawa. Przykładowo nie pamiętamy ostatniego paragrafu tekstu, który czytaliśmy. Czasem jest to jednak coś o wiele bardziej poważnego. Jak prowadzenie samochodu i korzystanie z telefonu komórkowego. I muszę przyznać, że zdarza się to obecnie coraz częściej. Ludzie z tego powodu wjeżdżają na przeciwległy pas, gubią drogę lub nie zauważają samochodu przed nimi. To wszystko może doprowadzić do wypadku drogowego. Dlatego proszę nie prowadź samochodu jednocześnie korzystając z telefonu! Dobrze, ale wracając do tematu. Tak samo, jak trudno przychodzi nam równoczesne prowadzenie samochodu i korzystanie z telefonu, tak samo trudno jest nam zrozumieć równoległe procesy w komputerze. Nie jest to nie możliwe, ale trudne. Niezwykle ciężko jest przewidzieć jakie sytuacje i komplikacje mogą się w takim momencie zdarzyć. O wiele łatwiej myśleć o rzeczach sekwencyjnie. Najpierw to, a później tamto. Krok po kroku widzimy, co się będzie działo. Dlatego też tak nie lubimy mechanizmu callbacków w JavaScript ;] Trudno jest przewidzieć w jakim stanie będzie aplikacja, gdy zacznie wywoływać się kod znajdując się w callbacku.</p>
 
-<p>Przykład, który chciałabym Ci pokazać jest jednym z tych <em>równoległych</em>. Znalazłam ten problem jakiś czas temu. A był on w aplikacji zanim ja zaczęłam nad nią pracować. Aplikacja pozwalała na zapraszanie znajomych. Kiedy użytkownik chciał zaprosić znajomego dwie rzeczy działy się w aplikacji równocześnie. Tworzony był obiekt <code>Invitation</code> odpowiedzialny za zaproszenie i zostawał wysyłany email do osoby z tego właśnie zaproszenia. Kiedy aplikacja była jeszcze mała - na początku rozwoju aplikacji, wszystko działało jak należy. Później aplikacja zaczęła się rozrastać. Podjęto decyzję o dockeryzacji. Od tej pory bazy danych, główna aplikacja, workery i wiele innych usług zostało zamknięte w dockerowych kontenerach. Powstały osobne kolejki dla różnych zadań. W tym dla wysyłania wiadomości email. Wtedy zaczęło dziać się coś dziwnego.</p>
+<p>Przykład, który chciałabym Ci pokazać jest jednym z tych <em>równoległych</em>. Znalazłam ten problem jakiś czas temu. A był on w aplikacji zanim ja zaczęłam nad nią pracować. Aplikacja pozwalała na zapraszanie znajomych. Kiedy użytkownik chciał zaprosić znajomego dwie rzeczy działy się w aplikacji równocześnie. Tworzony był obiekt <code class="highlighter-rouge">Invitation</code> odpowiedzialny za zaproszenie i zostawał wysyłany email do osoby z tego właśnie zaproszenia. Kiedy aplikacja była jeszcze mała - na początku rozwoju aplikacji, wszystko działało jak należy. Później aplikacja zaczęła się rozrastać. Podjęto decyzję o dockeryzacji. Od tej pory bazy danych, główna aplikacja, workery i wiele innych usług zostało zamknięte w dockerowych kontenerach. Powstały osobne kolejki dla różnych zadań. W tym dla wysyłania wiadomości email. Wtedy zaczęło dziać się coś dziwnego.</p>
 
-<h2>Problem</h2>
+<h2 id="problem">Problem</h2>
 
-<p>Kiedy jeden z użytkowników zaprosił swojego znajomego, Sidekiq (narzędzie do obsługi procesów w tle w Ruby) zwrócił nam (programistom) informację, że takie zaproszenie nie istnieje w bazie danych: <code>Invitation not found</code>. Sprawdziłam czy jest tak faktycznie. Okazało się, że zaproszenie jest w bazie zapisane poprawnie. Po jakimś czasie Sidekiq ponowił próbę wysłania wiadomości email i wszystko poszło jak należy. Mail został wysłany. Pomyślałam: <em>Zdarzył się tylko jeden taki przypadek, może to po prostu jakaś pomyłka?</em> Postanowiłam na razie odłożyć sprawę i monitorować, czy wszystko działa jak należy. Problem jednak powrócił. Tym razem to nie mógł być już przypadek. Zaczęłam, więc sprawdzać w kodzie, co się dzieje:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="k">class</span> <span class="nc">Invitation</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<p>Kiedy jeden z użytkowników zaprosił swojego znajomego, Sidekiq (narzędzie do obsługi procesów w tle w Ruby) zwrócił nam (programistom) informację, że takie zaproszenie nie istnieje w bazie danych: <code class="highlighter-rouge">Invitation not found</code>. Sprawdziłam czy jest tak faktycznie. Okazało się, że zaproszenie jest w bazie zapisane poprawnie. Po jakimś czasie Sidekiq ponowił próbę wysłania wiadomości email i wszystko poszło jak należy. Mail został wysłany. Pomyślałam: <em>Zdarzył się tylko jeden taki przypadek, może to po prostu jakaś pomyłka?</em> Postanowiłam na razie odłożyć sprawę i monitorować, czy wszystko działa jak należy. Problem jednak powrócił. Tym razem to nie mógł być już przypadek. Zaczęłam, więc sprawdzać w kodzie, co się dzieje:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Invitation</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">after_save</span> <span class="ss">:send_invitation_email</span>
 
   <span class="c1"># (...)</span>
 
   <span class="k">def</span> <span class="nf">send_invitation_email</span>
-    <span class="no">AppMailer</span><span class="o">.</span><span class="n">invitation_email</span><span class="p">(</span>
-      <span class="ss">user_id</span><span class="p">:</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="ss">recipient_email</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span> <span class="ss">invitation_id</span><span class="p">:</span> <span class="nb">self</span><span class="o">.</span><span class="n">id</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">deliver_later</span>
+    <span class="no">AppMailer</span><span class="p">.</span><span class="nf">invitation_email</span><span class="p">(</span>
+      <span class="ss">user_id: </span><span class="n">user</span><span class="p">.</span><span class="nf">id</span><span class="p">,</span> <span class="ss">recipient_email: </span><span class="n">email</span><span class="p">,</span> <span class="ss">invitation_id: </span><span class="nb">self</span><span class="p">.</span><span class="nf">id</span>
+    <span class="p">).</span><span class="nf">deliver_later</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre></div>
-<p>Kod wyglądał OK. No może nie był piękny, ale nic złożonego. Wywoływany był callback <code>after_save</code>, który odpowiadał za wysłanie wiadomości email. Spróbowałam odtworzyć problem lokalnie. Nic z tego. Zostało prześledzenie błędu na serwerze testowym.</p>
+</code></pre>
+</div>
 
-<h2>Znalezienie powodu</h2>
+<p>Kod wyglądał OK. No może nie był piękny, ale nic złożonego. Wywoływany był callback <code class="highlighter-rouge">after_save</code>, który odpowiadał za wysłanie wiadomości email. Spróbowałam odtworzyć problem lokalnie. Nic z tego. Zostało prześledzenie błędu na serwerze testowym.</p>
+
+<h2 id="znalezienie-powodu">Znalezienie powodu</h2>
 
 <p>Po głębszym zapoznaniu się z logiką. Zrozumiałam gdzie leży problem. Po pierwsze trzeba przyjrzeć się kolejności callbacków dla modelu w Railsach:</p>
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span></span><span class="n">before_validation</span>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">before_validation</span>
 <span class="n">after_validation</span>
 <span class="n">before_save</span>
 <span class="n">around_save</span>
@@ -232,26 +236,27 @@ Description: Awesome dude, awesome life
 <span class="n">after_create</span>
 <span class="n">after_save</span>
 <span class="n">after_commit</span><span class="o">/</span><span class="n">after_rollback</span>
-</code></pre></div>
-<p>Callback <code>after_save</code> nie jest ostatnią rzeczą dziejącą się w trakcie i po zapisaniu na trwałe obiektu w bazie danych. W tym momencie mamy już informację o <code>id</code> obiektu, ale transakcja w bazie danych jeszcze się nie zakończyła. Po drugie nasz problem występował tylko, gdy Sidekiq nie miał nic w swojej kolejce do wysyłania emaili. Okazało się, że proces zlecenia wysłania wiadomości email (1) i (2) odbywał się tak szybko, w tym przypadku, że transakcja w bazie danych (3) nie zdążała się zakończyć. Dlatego też proces wysyłania wiadomości email nie widział odpowiedniego rekordu w bazie danych. W tamtej chwili faktycznie go tam jeszcze nie było.</p>
+</code></pre>
+</div>
+
+<p>Callback <code class="highlighter-rouge">after_save</code> nie jest ostatnią rzeczą dziejącą się w trakcie i po zapisaniu na trwałe obiektu w bazie danych. W tym momencie mamy już informację o <code class="highlighter-rouge">id</code> obiektu, ale transakcja w bazie danych jeszcze się nie zakończyła. Po drugie nasz problem występował tylko, gdy Sidekiq nie miał nic w swojej kolejce do wysyłania emaili. Okazało się, że proces zlecenia wysłania wiadomości email (1) i (2) odbywał się tak szybko, w tym przypadku, że transakcja w bazie danych (3) nie zdążała się zakończyć. Dlatego też proces wysyłania wiadomości email nie widział odpowiedniego rekordu w bazie danych. W tamtej chwili faktycznie go tam jeszcze nie było.</p>
 
 <figure>
-  <img src="/images/rails-mailer-problem/mailer-in-rails-model.jpg" alt='Schemat model - baza danych - worker'>
+  <img src="/images/rails-mailer-problem/mailer-in-rails-model.jpg" alt="Schemat model - baza danych - worker" />
   <figcaption>Schemat zapisu zaproszenia w bazie danych i wysyłania wiadomości email</figcaption>
 </figure>
-
-<p><br></p>
+<p><br /></p>
 
 <p>Nie sądzisz, że nie jest to intuicyjne? Logiczne, na pewno, gdy już się pozna przyczynę problemu, ale na pewno nie intuicyjne. Przynajmniej nie dla mnie.</p>
 
-<h2>Możliwe rozwiązania</h2>
+<h2 id="możliwe-rozwiązania">Możliwe rozwiązania</h2>
 
 <p>Mnie osobiście do głowy przyszły 3 sposoby naprawienia tego błędu:</p>
 
 <ul>
-<li>zmienić  <code>after_save</code> na <code>after_commit</code>  - W tym przypadku będziemy pewni, że rekord jest zapisany w bazie. Jednak nasz model dalej będzie zajmować się wysyłaniem wiadomości email.</li>
-<li>zmienić <code>deliver_later</code> na <code>deliver_later(wait: 10.seconds)</code> - jest to jakieś rozwiązanie, ale co jeżeli zapis do bazy z jakichś przyczyn zajmowałby więcej niż 10 sekund?</li>
-<li>wyciągnąć wysyłanie maili z modelu - To nie jest odpowiedzialność modelu by wysyłać maile z zaproszeniami do korzystania aplikacji. Myślę, że powinien być za to odpowiedzialny pewnego rodzaju proces (możemy go nazwać serwisem lub workflow), który dokładnie wie jakie trzeba podjąć kroki przy zaproszeniu użytkownika do aplikacji. W tym przypadku są 2 kroki: stworzenie obiektu <code>Invitation</code> i wysyłanie emaila.</li>
+  <li>zmienić  <code class="highlighter-rouge">after_save</code> na <code class="highlighter-rouge">after_commit</code>  - W tym przypadku będziemy pewni, że rekord jest zapisany w bazie. Jednak nasz model dalej będzie zajmować się wysyłaniem wiadomości email.</li>
+  <li>zmienić <code class="highlighter-rouge">deliver_later</code> na <code class="highlighter-rouge">deliver_later(wait: 10.seconds)</code> - jest to jakieś rozwiązanie, ale co jeżeli zapis do bazy z jakichś przyczyn zajmowałby więcej niż 10 sekund?</li>
+  <li>wyciągnąć wysyłanie maili z modelu - To nie jest odpowiedzialność modelu by wysyłać maile z zaproszeniami do korzystania aplikacji. Myślę, że powinien być za to odpowiedzialny pewnego rodzaju proces (możemy go nazwać serwisem lub workflow), który dokładnie wie jakie trzeba podjąć kroki przy zaproszeniu użytkownika do aplikacji. W tym przypadku są 2 kroki: stworzenie obiektu <code class="highlighter-rouge">Invitation</code> i wysyłanie emaila.</li>
 </ul>
 
 <p>Myślę, że ostatni sposób jest najlepszy. Nie powinniśmy zaśmiecać naszego modelu. Jego odpowiedzialnością jest przetwarzanie danych z bazy danych.</p>
@@ -296,7 +301,7 @@ Description: Awesome dude, awesome life
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -322,7 +327,6 @@ Description: Awesome dude, awesome life
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>

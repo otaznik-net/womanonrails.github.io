@@ -23,7 +23,7 @@ Description: Awesome dude, awesome life
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Zastosowanie metody each_with_object w Ruby">
 <meta name="twitter:description" content="Przykłady użycia each_with_object">
 <meta name="twitter:creator" content="@womanonrails">
@@ -35,7 +35,7 @@ Description: Awesome dude, awesome life
 <meta property="og:description" content="Przykłady użycia each_with_object">
 <meta property="og:url" content="https://womanonrails.com/each-with-object">
 <meta property="og:site_name" content="Woman on Rails">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails.jpg">
+<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -143,7 +143,7 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails.jpg" alt="Woman on Rails Logo" />
+                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -197,97 +197,139 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Ostatnio pracowałam z metodą <code>each_with_object</code>. Jak zazwyczaj w takich sytuacjach zawsze staram się przed użyciem jakiejś metody sprawdzić jej dokumentację. Weszłam więc na <a href="https://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object">APIdock</a> przeglądam zastosowanie oraz przykłady. Okazało się że nie było tam jednego z przypadków zastosowania. Chciałam go dodać, lecz bez powodzenia. Postanowiłam więc, że skoro czekam na rozwiązanie problemu ze strony APIdock mogę napisać krótką notatkę na temat metody <code>each_with_object</code> tutaj.</p>
+                        <p>Ostatnio pracowałam z metodą <code class="highlighter-rouge">each_with_object</code>. Jak zazwyczaj w takich sytuacjach zawsze staram się przed użyciem jakiejś metody sprawdzić jej dokumentację. Weszłam więc na <a href="https://apidock.com/ruby/v1_9_2_180/Enumerable/each_with_object">APIdock</a> przeglądam zastosowanie oraz przykłady. Okazało się że nie było tam jednego z przypadków zastosowania. Chciałam go dodać, lecz bez powodzenia. Postanowiłam więc, że skoro czekam na rozwiązanie problemu ze strony APIdock mogę napisać krótką notatkę na temat metody <code class="highlighter-rouge">each_with_object</code> tutaj.</p>
 
 <p>Najbardziej pożytecznym i wydaje mi się również popularnym użyciem tej metody jest podanie jako argumentu tablicy lub hasha (tablicy słownikowej). Można to zrobić przykładowo:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>[:foo, :bar, :jazz].each_with_object({}) do |item, hash|
-  hash[item] = item.to_s.upcase
-end
- =&gt; {:foo=&gt;&quot;FOO&quot;, :bar=&gt;&quot;BAR&quot;, :jazz=&gt;&quot;JAZZ&quot;}
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="ss">:foo</span><span class="p">,</span> <span class="ss">:bar</span><span class="p">,</span> <span class="ss">:jazz</span><span class="p">].</span><span class="nf">each_with_object</span><span class="p">({})</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="nb">hash</span><span class="o">|</span>
+  <span class="nb">hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">upcase</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:foo</span><span class="o">=&gt;</span><span class="s2">"FOO"</span><span class="p">,</span> <span class="ss">:bar</span><span class="o">=&gt;</span><span class="s2">"BAR"</span><span class="p">,</span> <span class="ss">:jazz</span><span class="o">=&gt;</span><span class="s2">"JAZZ"</span><span class="p">}</span>
+</code></pre>
+</div>
+
 <p>lub</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).each_with_object([]) do |item, array|
-  array &lt;&lt; item ** 2
-end
- =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">each_with_object</span><span class="p">([])</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">array</span><span class="o">|</span>
+  <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</code></pre>
+</div>
+
 <p>Wiem te przykłady są trywialne, ale chodzi o to by zrozumieć samą konstrukcję użycia. Dzięki tej metodzie nie musimy deklarować tablicy przed pętlą:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>array = []
-(1..10).each do |item|
-  array &lt;&lt; item ** 2
-end
-array
- =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</code></pre></div>
-<p>Oczywiście dla tego przykładu można by to zrobić z użyciem metody <code>map</code>:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).map { |item| item ** 2 }
- =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</code></pre></div>
-<p>Innym ciekawym zastosowaniem <code>each_with_object</code> jest zliczanie częstotliwości występowania:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>[&#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;one&#39;].each_with_object(Hash.new(0)) do |item, hash|
-  hash[item] += 1
-end
- =&gt; {&quot;one&quot;=&gt;3, &quot;two&quot;=&gt;1}
-</code></pre></div>
-<p>W tym przypadku ustawiamy domyślną wartość dla tablicy słownikowej na <code>0</code>. Dzięki temu zliczanie ilości wystąpień elementów w tablicy jest szybkie i proste. Nie potrzebujemy warunku <code>if</code> by zabezpieczyć się przed nieoczekiwaną wartością <code>nil</code>:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>if hash[item]
-  hash[item] += 1
-else
-  hash[item] = 0
-end
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">array</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span>
+  <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="k">end</span>
+<span class="n">array</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>Oczywiście dla tego przykładu można by to zrobić z użyciem metody <code class="highlighter-rouge">map</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">}</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>Innym ciekawym zastosowaniem <code class="highlighter-rouge">each_with_object</code> jest zliczanie częstotliwości występowania:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="s1">'one'</span><span class="p">,</span> <span class="s1">'two'</span><span class="p">,</span> <span class="s1">'one'</span><span class="p">,</span> <span class="s1">'one'</span><span class="p">].</span><span class="nf">each_with_object</span><span class="p">(</span><span class="no">Hash</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="nb">hash</span><span class="o">|</span>
+  <span class="nb">hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="p">{</span><span class="s2">"one"</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"two"</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">}</span>
+</code></pre>
+</div>
+
+<p>W tym przypadku ustawiamy domyślną wartość dla tablicy słownikowej na <code class="highlighter-rouge">0</code>. Dzięki temu zliczanie ilości wystąpień elementów w tablicy jest szybkie i proste. Nie potrzebujemy warunku <code class="highlighter-rouge">if</code> by zabezpieczyć się przed nieoczekiwaną wartością <code class="highlighter-rouge">nil</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="nb">hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span>
+  <span class="nb">hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">else</span>
+  <span class="nb">hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
 <p><strong>Uwaga</strong></p>
 
-<p>W metodzie <code>each_with_object</code> nie można użyć niemutowalnych (inmutable) obiektów jak liczby. Przykład poniżej nie zwróci Wam 55 tylko 0.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).each_with_object(0) do |item, sum|
-  sum += item
-end
- =&gt; 0
-</code></pre></div>
+<p>W metodzie <code class="highlighter-rouge">each_with_object</code> nie można użyć niemutowalnych (inmutable) obiektów jak liczby. Przykład poniżej nie zwróci Wam 55 tylko 0.</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">each_with_object</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">item</span><span class="p">,</span> <span class="n">sum</span><span class="o">|</span>
+  <span class="n">sum</span> <span class="o">+=</span> <span class="n">item</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="mi">0</span>
+</code></pre>
+</div>
+
 <p>Możemy to zrobić też inaczej:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).reduce(:+)
- =&gt; 55
-</code></pre></div>
-<p>lub</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).inject(:+)
- =&gt; 55
-</code></pre></div>
-<p>lub w Ruby on Rails:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).sum
- =&gt; 55
-</code></pre></div>
-<p>Przy okazji czy wiecie jaka jest różnica między metodą <code>reduce</code> a <code>inject</code>? Nie ma różnicy. Te dwie metody to tak naprawdę jedna i ta sama metoda, ale mająca dwie nazwy tzw. <a href="http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject">alias</a>.</p>
 
-<p>W tym momencie powinniśmy jeszcze wspomnieć o jednej rzeczy. Metodę <code>inject</code> możemy stosować też bardzo podobnie do <code>each_with_object</code>. Różnica jest w kolejności argumentów w bloku i tym że w ostatniej linii bloku dla metody <code>inject</code> zawsze musimy zwrócić naszą wartość agregującą (przykładowo sumującą). Popatrzcie tutaj:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>(1..10).inject([]) do |array, item|
-  array &lt;&lt; item ** 2
-end
- =&gt; [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-</code></pre></div>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">reduce</span><span class="p">(:</span><span class="o">+</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="mi">55</span>
+</code></pre>
+</div>
+
 <p>lub</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>[:foo, :bar, :jazz].inject({}) do |hash, item|
-  hash[item] = item.to_s.upcase
-  hash
-end
- =&gt; {:foo=&gt;&quot;FOO&quot;, :bar=&gt;&quot;BAR&quot;, :jazz=&gt;&quot;JAZZ&quot;}
-</code></pre></div>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">inject</span><span class="p">(:</span><span class="o">+</span><span class="p">)</span>
+ <span class="o">=&gt;</span> <span class="mi">55</span>
+</code></pre>
+</div>
+
+<p>lub w Ruby on Rails:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">sum</span>
+ <span class="o">=&gt;</span> <span class="mi">55</span>
+</code></pre>
+</div>
+
+<p>Przy okazji czy wiecie jaka jest różnica między metodą <code class="highlighter-rouge">reduce</code> a <code class="highlighter-rouge">inject</code>? Nie ma różnicy. Te dwie metody to tak naprawdę jedna i ta sama metoda, ale mająca dwie nazwy tzw. <a href="http://ruby-doc.org/core-2.4.0/Enumerable.html#method-i-inject">alias</a>.</p>
+
+<p>W tym momencie powinniśmy jeszcze wspomnieć o jednej rzeczy. Metodę <code class="highlighter-rouge">inject</code> możemy stosować też bardzo podobnie do <code class="highlighter-rouge">each_with_object</code>. Różnica jest w kolejności argumentów w bloku i tym że w ostatniej linii bloku dla metody <code class="highlighter-rouge">inject</code> zawsze musimy zwrócić naszą wartość agregującą (przykładowo sumującą). Popatrzcie tutaj:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">.</span><span class="mi">10</span><span class="p">).</span><span class="nf">inject</span><span class="p">([])</span> <span class="k">do</span> <span class="o">|</span><span class="n">array</span><span class="p">,</span> <span class="n">item</span><span class="o">|</span>
+  <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="n">item</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<p>lub</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">[</span><span class="ss">:foo</span><span class="p">,</span> <span class="ss">:bar</span><span class="p">,</span> <span class="ss">:jazz</span><span class="p">].</span><span class="nf">inject</span><span class="p">({})</span> <span class="k">do</span> <span class="o">|</span><span class="nb">hash</span><span class="p">,</span> <span class="n">item</span><span class="o">|</span>
+  <span class="nb">hash</span><span class="p">[</span><span class="n">item</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">upcase</span>
+  <span class="nb">hash</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:foo</span><span class="o">=&gt;</span><span class="s2">"FOO"</span><span class="p">,</span> <span class="ss">:bar</span><span class="o">=&gt;</span><span class="s2">"BAR"</span><span class="p">,</span> <span class="ss">:jazz</span><span class="o">=&gt;</span><span class="s2">"JAZZ"</span><span class="p">}</span>
+</code></pre>
+</div>
+
 <p><strong>Uwaga</strong></p>
 
-<p>Kiedy używamy <code>array &lt;&lt; item ** 2</code> zawsze zostaje tu zwrócona cała tablica, ale dla przykładu drugiego <code>hash[item] = item.to_s.upcase</code> zwraca <code>item.to_s.upcase</code> a nie <code>hash</code> więc musimy pamiętać by w ostatniej linii bloku zawsze zwrócić <code>hash</code>.</p>
+<p>Kiedy używamy <code class="highlighter-rouge">array &lt;&lt; item ** 2</code> zawsze zostaje tu zwrócona cała tablica, ale dla przykładu drugiego <code class="highlighter-rouge">hash[item] = item.to_s.upcase</code> zwraca <code class="highlighter-rouge">item.to_s.upcase</code> a nie <code class="highlighter-rouge">hash</code> więc musimy pamiętać by w ostatniej linii bloku zawsze zwrócić <code class="highlighter-rouge">hash</code>.</p>
 
-<p>A teraz brakujący przypadek. Metodę <code>each_with_object</code> można nie tylko używać na tablicy czy enumeratorze ale również na hashu (tablicy słownikowej). Taki przypadek wygląda troszkę inaczej. Zobaczcie sami:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>{ foo: 1, bar: 2, jazz: 3 }.each_with_object({}) do |(key, value), hash|
-  hash[key] = value**2
-end
- =&gt; {:foo=&gt;1, :bar=&gt;4, :jazz=&gt;9}
-</code></pre></div>
+<p>A teraz brakujący przypadek. Metodę <code class="highlighter-rouge">each_with_object</code> można nie tylko używać na tablicy czy enumeratorze ale również na hashu (tablicy słownikowej). Taki przypadek wygląda troszkę inaczej. Zobaczcie sami:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">{</span> <span class="ss">foo: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">bar: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">jazz: </span><span class="mi">3</span> <span class="p">}.</span><span class="nf">each_with_object</span><span class="p">({})</span> <span class="k">do</span> <span class="o">|</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="nb">hash</span><span class="o">|</span>
+  <span class="nb">hash</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:foo</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="ss">:bar</span><span class="o">=&gt;</span><span class="mi">4</span><span class="p">,</span> <span class="ss">:jazz</span><span class="o">=&gt;</span><span class="mi">9</span><span class="p">}</span>
+</code></pre>
+</div>
+
 <p>lub</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>{ foo: 1, bar: 2, jazz: 3 }.each_with_object([]) do |(key, value), array|
-  array &lt;&lt; { id: value, name: key }
-end
- =&gt; [{:id=&gt;1, :name=&gt;:foo}, {:id=&gt;2, :name=&gt;:bar}, {:id=&gt;3, :name=&gt;:jazz}]
-</code></pre></div>
-<p>To był krótki przegląd tego co można zrobić z metodą <code>each_with_object</code>. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="p">{</span> <span class="ss">foo: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">bar: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">jazz: </span><span class="mi">3</span> <span class="p">}.</span><span class="nf">each_with_object</span><span class="p">([])</span> <span class="k">do</span> <span class="o">|</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">),</span> <span class="n">array</span><span class="o">|</span>
+  <span class="n">array</span> <span class="o">&lt;&lt;</span> <span class="p">{</span> <span class="ss">id: </span><span class="n">value</span><span class="p">,</span> <span class="ss">name: </span><span class="n">key</span> <span class="p">}</span>
+<span class="k">end</span>
+ <span class="o">=&gt;</span> <span class="p">[{</span><span class="ss">:id</span><span class="o">=&gt;</span><span class="mi">1</span><span class="p">,</span> <span class="ss">:name</span><span class="o">=&gt;</span><span class="ss">:foo</span><span class="p">},</span> <span class="p">{</span><span class="ss">:id</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="ss">:name</span><span class="o">=&gt;</span><span class="ss">:bar</span><span class="p">},</span> <span class="p">{</span><span class="ss">:id</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">,</span> <span class="ss">:name</span><span class="o">=&gt;</span><span class="ss">:jazz</span><span class="p">}]</span>
+</code></pre>
+</div>
+
+<p>To był krótki przegląd tego co można zrobić z metodą <code class="highlighter-rouge">each_with_object</code>. Mam nadzieje, że zastosowanie tej metody podoba się Wam tak samo jak mnie. Jeżeli macie jakieś pytania zostawcie je poniżej w komentarzach. Do zobaczenia następnym razem!</p>
 
                         <br>
                     
@@ -327,7 +369,7 @@ end
     </ul>
 </div>
                         <div class="post-author text-center">
-	        <img src="https://womanonrails.com/images/womanonrails.jpg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Matysek's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Matysek" itemprop="url">Agnieszka Matysek</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
@@ -353,7 +395,6 @@ end
                     <i class="icon-facebook"></i>
                 </a>
             </li>
-            
             <li>
                 <a href="https://stackoverflow.com/users/2885676/womanonrails" data-toggle="tooltip" title="Agnieszka Matysek on StackExchange" target="_blank" rel="noopener">
                     <i class="icon-stackexchange"></i>
