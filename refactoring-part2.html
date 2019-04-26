@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <!--
 ====================================================
     __  ____  ______________  _______ ___    __
@@ -16,7 +16,7 @@ Description: Awesome dude, awesome life
 ====================================================
 -->
 <head>
-<meta charset="utf-8">
+<meta charset='utf-8'>
 <title>Ruby Refactoring step by step - part 2 - Woman on Rails - web development from woman perspective</title>
 <meta name="description" content="How to refactor your code? <br> From object related code to composition.">
 <meta name="keywords" content="Ruby">
@@ -29,27 +29,13 @@ Description: Awesome dude, awesome life
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
-<meta property="og:locale" content="en">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Ruby Refactoring step by step - part 2">
 <meta property="og:description" content="How to refactor your code? <br> From object related code to composition.">
-<meta property="og:url" content="https://womanonrails.com/refactoring-part2">
-<meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
-<!-- Icons -->
-<!-- 16x16 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
-<!-- 32x32 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
 
 
 
@@ -58,16 +44,31 @@ Description: Awesome dude, awesome life
 <link rel="canonical" href="https://womanonrails.com/refactoring-part2">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
+<!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Ruby Refactoring step by step - part 2" />
+<meta name="author" content="womanonrails" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="How to refactor your code? From object related code to composition." />
+<meta property="og:description" content="How to refactor your code? From object related code to composition." />
+<link rel="canonical" href="https://womanonrails.com/refactoring-part2" />
+<meta property="og:url" content="https://womanonrails.com/refactoring-part2" />
+<meta property="og:site_name" content="Woman on Rails" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-11-25T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"How to refactor your code? From object related code to composition.","headline":"Ruby Refactoring step by step - part 2","dateModified":"2018-11-25T00:00:00-05:00","datePublished":"2018-11-25T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/refactoring-part2"},"url":"https://womanonrails.com/refactoring-part2","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/womanonrails-square.svg"},"name":"womanonrails"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
-    <link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+<link rel="stylesheet" href="/css/main.css">
 
 <div class="search-wrapper">
     <div class="search-form">
@@ -76,8 +77,6 @@ Description: Awesome dude, awesome life
         <ul class="search-results post-list"></ul><!-- /.search-results -->
     </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
-
-
 
 </head>
 <body class="post-template" itemscope itemtype="https://schema.org/WebPage">
@@ -143,7 +142,10 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
+              
+<img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
+
+
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -203,7 +205,7 @@ Description: Awesome dude, awesome life
 
 <p>This step I started from <a href="https://github.com/womanonrails/poker/blob/46e12428d0d67cb90d17f417147dc936815a69e7/lib/poker/hand.rb" title="Code after 7th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>. I mainly focus on meaning of this method:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
   <span class="k">return</span> <span class="mi">9</span> <span class="k">if</span> <span class="n">straight_flush?</span>
   <span class="k">return</span> <span class="mi">8</span> <span class="k">if</span> <span class="n">four_of_a_kind?</span>
   <span class="k">return</span> <span class="mi">7</span> <span class="k">if</span> <span class="n">full_house?</span>
@@ -215,14 +217,13 @@ Description: Awesome dude, awesome life
   <span class="k">return</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">high_card?</span>
   <span class="k">return</span> <span class="mi">0</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>I need to say, this step was very important. When you think about readability, it is better to have something like <code class="highlighter-rouge">:straight_flush</code> than <code class="highlighter-rouge">9</code>. In this case you don’t need to go deep in code to understand the meaning of this number. On the other hand, I was thinking only about this one class (without impact on whole system). I changed the result of <code class="highlighter-rouge">check</code> method. In some cases, in big systems this change can be hard to do or even impossible (for the current state of the code). Even in my case, this force changes in all tests, so you need to be careful before this kind of changes. You need to know how big impact the change will provide to your system. Anyway, in this case I still think that it was worth to do.</p>
 
 <p>Code after changes:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
   <span class="k">return</span> <span class="ss">:straight_flush</span> <span class="k">if</span> <span class="n">straight_flush?</span>
   <span class="k">return</span> <span class="ss">:four_of_a_kind</span> <span class="k">if</span> <span class="n">four_of_a_kind?</span>
   <span class="k">return</span> <span class="ss">:full_house</span> <span class="k">if</span> <span class="n">full_house?</span>
@@ -234,8 +235,7 @@ Description: Awesome dude, awesome life
   <span class="k">return</span> <span class="ss">:high_card</span> <span class="k">if</span> <span class="n">high_card?</span>
   <span class="k">return</span> <span class="ss">:none</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>You can find new version of code <a href="https://github.com/womanonrails/poker/blob/4896498a348db52d5c884a522a132eae5b2c4f60/lib/poker/hand.rb" title="Code after 8th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a></p>
 
@@ -254,7 +254,7 @@ Description: Awesome dude, awesome life
 
 <p>Code before:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
   <span class="k">return</span> <span class="ss">:straight_flush</span> <span class="k">if</span> <span class="n">straight_flush?</span>
   <span class="k">return</span> <span class="ss">:four_of_a_kind</span> <span class="k">if</span> <span class="n">four_of_a_kind?</span>
   <span class="k">return</span> <span class="ss">:full_house</span> <span class="k">if</span> <span class="n">full_house?</span>
@@ -266,28 +266,25 @@ Description: Awesome dude, awesome life
   <span class="k">return</span> <span class="ss">:high_card</span> <span class="k">if</span> <span class="n">high_card?</span>
   <span class="k">return</span> <span class="ss">:none</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Code after:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
   <span class="vi">@order_checking</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
     <span class="n">method_name</span> <span class="o">=</span> <span class="p">(</span><span class="nb">name</span><span class="p">.</span><span class="nf">to_s</span> <span class="o">+</span> <span class="s1">'?'</span><span class="p">).</span><span class="nf">to_sym</span>
     <span class="k">return</span> <span class="nb">name</span> <span class="k">if</span> <span class="nb">send</span><span class="p">(</span><span class="n">method_name</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>where <code class="highlighter-rouge">@order_checking</code> is order of checking hand.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@order_checking = [
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@order_checking = [
   :straight_flush, :four_of_a_kind, :full_house, :flush, :straight,
   :three_of_a_kind, :two_pair, :one_pair, :high_card, :none
 ]
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>All code you can find <a href="https://github.com/womanonrails/poker/blob/4d649a25af020c7f862b3c6ed964f1b2e73a0f60/lib/poker/hand.rb" title="Code after 9th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a></p>
 
@@ -308,7 +305,7 @@ Description: Awesome dude, awesome life
   <li>I moved <code class="highlighter-rouge">four_of_a_kind</code> logic to separate class. Yes, there are some duplications, but as Sandi says: <em>duplication is better than a wrong abstraction</em>.</li>
 </ul>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
   <span class="k">class</span> <span class="nc">FourOfAKind</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
       <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="nf">sort</span>
@@ -333,14 +330,13 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>Create/modify ugly <code class="highlighter-rouge">if</code> statement to handle new class and also old methods names.</li>
 </ul>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
   <span class="vi">@order_checking</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
     <span class="k">if</span> <span class="nb">name</span> <span class="o">==</span> <span class="ss">:four_of_a_kind</span>
       <span class="k">return</span> <span class="nb">name</span> <span class="k">if</span> <span class="no">FourOfAKind</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@array</span><span class="p">).</span><span class="nf">check</span> <span class="o">==</span> <span class="nb">name</span>
@@ -350,14 +346,13 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <ul>
   <li>Prepare tests for new class. Yes, I also duplicated tests but they need to stay like that for now.</li>
 </ul>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'spec_helper'</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'spec_helper'</span>
 
 <span class="n">describe</span> <span class="no">Poker</span><span class="o">::</span><span class="no">FourOfAKind</span> <span class="k">do</span>
   <span class="p">[</span>
@@ -378,16 +373,14 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>During that process I did one more thing. I inject order of hand checking to the initializer. <code class="highlighter-rouge">ORDER_CHECKING</code> you can treat that as configuration, which I can move in future to separate file (this is not needed right now). I did that just in case we would like to change quickly the order of hand in tests or even in future of application.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order_checking</span> <span class="o">=</span> <span class="no">ORDER_CHECKING</span><span class="p">)</span>
-  <span class="p">.</span><span class="nf">.</span><span class="p">.</span>
-<span class="nf">end</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order_checking</span> <span class="o">=</span> <span class="no">ORDER_CHECKING</span><span class="p">)</span>
+  <span class="o">...</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
 <p>The code for this step you can find <a href="https://github.com/womanonrails/poker/tree/0c5d6850d40f899d98ff531e4a2b948d469c3d84/lib/poker" title="Code after 10th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>. This step I repeated to all different hands. After each iteration all tests were passing. If you would like to check the pattern which I repeated you can <a href="https://github.com/womanonrails/poker/tree/08631288c747a2a9fda3d986f4046e9e363ea027/lib/poker" title="Pattern for 3 classes created based on the steps above" target="_blank" rel="nofollow noopener noreferrer">check this commit</a>, there already exist 3 classes created based on the steps above.</p>
 
@@ -404,8 +397,8 @@ Description: Awesome dude, awesome life
 
 <p>In this step, I noticed that all my new classes have a lot of duplications in code. I only changed two things in each class: class name and one line in method <code class="highlighter-rouge">check</code>. In this case we need to extract some behavior, maybe method or even class which will take care of sorting cards in hand and will have knowledge about the colors and figures on this card. I decided to create some normalization for the cards. I created class <code class="highlighter-rouge">CardsNormalization</code>, which is one of representation of <code class="highlighter-rouge">Normalization</code> class. You can ask me why did I create 2 classes when probably I need only one? Well, I had a feeling that I create simple <em>interface</em> which can have many representations. For now is only one, but who knows the future? So I created <em>interface</em> <code class="highlighter-rouge">Normalization</code> with one representation <code class="highlighter-rouge">CardsNormalization</code>. Another example of normalization can be normalization for dice. There are the same rules like in poker (one pair or four of a kind), but normalization will be different. Code for these two classes you can find <a href="https://github.com/womanonrails/poker/tree/a668a538cb86dd17e946157c5d62373fe2266c0e/lib" title="Code after 11th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>. I just moved code which was duplicated in many classes to this <code class="highlighter-rouge">Normalization</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Normalization</span>
-  <span class="kp">attr_reader</span> <span class="ss">:figures</span><span class="p">,</span> <span class="ss">:colors</span><span class="p">,</span> <span class="ss">:figures_frequency</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Normalization</span>
+  <span class="nb">attr_reader</span> <span class="ss">:figures</span><span class="p">,</span> <span class="ss">:colors</span><span class="p">,</span> <span class="ss">:figures_frequency</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="vi">@array</span> <span class="o">=</span> <span class="n">array</span><span class="p">.</span><span class="nf">sort</span>
     <span class="vi">@figures</span> <span class="o">=</span> <span class="n">prepare_figures</span>
@@ -425,12 +418,11 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>and <code class="highlighter-rouge">CardsNormalization</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CardsNormalization</span> <span class="o">&lt;</span> <span class="no">Normalization</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CardsNormalization</span> <span class="o">&lt;</span> <span class="no">Normalization</span>
   <span class="kp">private</span>
   <span class="k">def</span> <span class="nf">prepare_colors</span>
     <span class="vi">@array</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">%</span> <span class="mi">4</span> <span class="p">}</span>
@@ -439,18 +431,16 @@ Description: Awesome dude, awesome life
     <span class="vi">@array</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">item</span><span class="o">|</span> <span class="n">item</span> <span class="o">/</span> <span class="mi">4</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>I did one more thing here. I inject this normalization as a argument of <code class="highlighter-rouge">Hand</code> initializer:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order_checking</span> <span class="o">=</span> <span class="no">ORDER_CHECKING</span><span class="p">,</span> <span class="n">normalization</span> <span class="o">=</span> <span class="no">CardsNormalization</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">order_checking</span> <span class="o">=</span> <span class="no">ORDER_CHECKING</span><span class="p">,</span> <span class="n">normalization</span> <span class="o">=</span> <span class="no">CardsNormalization</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>and after that my class <code class="highlighter-rouge">OnePair</code> looks like this:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
   <span class="k">class</span> <span class="nc">OnePair</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">normalization</span> <span class="o">=</span> <span class="no">Normalization</span><span class="p">)</span>
       <span class="vi">@normalize_array</span> <span class="o">=</span> <span class="n">normalization</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
@@ -461,12 +451,11 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Only one method looks ugly. This is <code class="highlighter-rouge">check</code> method. We have more conditions there. But I know that I will take care of this method as soon as I will finish extracting all hands type to separate classes. For now this method looks like that:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check</span>
   <span class="vi">@order_checking</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
     <span class="k">if</span> <span class="p">[</span><span class="ss">:one_pair</span><span class="p">].</span><span class="nf">include?</span> <span class="nb">name</span>
       <span class="n">class_name</span>  <span class="o">=</span> <span class="s1">'Poker::'</span> <span class="o">+</span> <span class="nb">name</span><span class="p">.</span><span class="nf">to_s</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="s1">'_'</span><span class="p">).</span><span class="nf">collect</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:capitalize</span><span class="p">).</span><span class="nf">join</span>
@@ -481,8 +470,7 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Next, I did the same for rest of existing clases. So I used <code class="highlighter-rouge">CardsNormalization</code> for class <code class="highlighter-rouge">FourOfAKind</code> and <code class="highlighter-rouge">ThreeOfAKind</code>.  You can find code for that <a href="https://github.com/womanonrails/poker/tree/87891306fe875bd415554a6eb5ebc0b46f893c9d/lib/poker" title="Code after 11th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>.</p>
 
@@ -500,7 +488,7 @@ Description: Awesome dude, awesome life
 
 <p>This time I noticed one more duplication in the code. For now all new classes, check similar condition: <code class="highlighter-rouge">@normalize_array.figures_frequency.include?(4)</code> only number is changing. For me this is some kind of a rule. We check if we have  2, 3 or 4 the same figures. I decided to create class <code class="highlighter-rouge">FrequencyRule</code> and this is the code for this class:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Rules</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Rules</span>
   <span class="k">class</span> <span class="nc">FrequencyRule</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">frequency_array</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
       <span class="vi">@frequency_array</span> <span class="o">=</span> <span class="n">frequency_array</span>
@@ -512,12 +500,11 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>then I added <code class="highlighter-rouge">@rule = Rules::FrequencyRule.new(@normalize_array.figures_frequency, 3)</code> to initializers and used <code class="highlighter-rouge">@rule.check?</code> instead of <code class="highlighter-rouge">@normalize_array.figures_frequency.include?(3)</code>. Example of class after this changes:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ThreeOfAKind</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ThreeOfAKind</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">normalization</span> <span class="o">=</span> <span class="no">Normalization</span><span class="p">)</span>
     <span class="vi">@normalize_array</span> <span class="o">=</span> <span class="n">normalization</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="vi">@rule</span> <span class="o">=</span> <span class="no">Rules</span><span class="o">::</span><span class="no">FrequencyRule</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="vi">@normalize_array</span><span class="p">.</span><span class="nf">figures_frequency</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
@@ -527,8 +514,7 @@ Description: Awesome dude, awesome life
     <span class="ss">:three_of_a_kind</span> <span class="k">if</span> <span class="vi">@rule</span><span class="p">.</span><span class="nf">check?</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Whole code is <a href="https://github.com/womanonrails/poker/tree/d66590842ef194a9218dea70ccd083212b5d43b2/lib" title="Code after 12th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>. After this changes and writing new tests all new and old tests have passed.</p>
 
@@ -546,7 +532,7 @@ Description: Awesome dude, awesome life
 
 <p>Now this is the interesting part. Time for a full house. In this case we need to have 3 of the same figures and 2 of the same figures at the same time. Like 2♠ 2♣ <span class="red-text">2♥ 3♥ 3♦</span> So we need to check the same rules twice. This is a good time to prepare something what will combine different rules I called this class <code class="highlighter-rouge">RulesFactory</code> and code looks like that:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">RulesFactory</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">RulesFactory</span>
   <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="o">*</span><span class="n">rules</span><span class="p">)</span>
     <span class="vi">@rules</span> <span class="o">=</span> <span class="n">rules</span>
   <span class="k">end</span>
@@ -558,12 +544,11 @@ Description: Awesome dude, awesome life
     <span class="kp">true</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now we can provide the code of <code class="highlighter-rouge">FullHouse</code> class:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
   <span class="k">class</span> <span class="nc">FullHouse</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">normalization</span> <span class="o">=</span> <span class="no">Normalization</span><span class="p">)</span>
       <span class="vi">@normalize_array</span> <span class="o">=</span> <span class="n">normalization</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
@@ -577,8 +562,7 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Do you see the pattern? Of course I need to make some improvements in my <code class="highlighter-rouge">Hand</code> class, add more test and check if all of them pass. Full code on this stage available <a href="https://github.com/womanonrails/poker/tree/d18cf1f273c9fdcb97e21067d3411938beefdf36/lib" title="Code after 13th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>.</p>
 
@@ -588,7 +572,7 @@ Description: Awesome dude, awesome life
 
 <p>I would like to mention one magic thing here. When we do small classes with one responsibility defined in a general way, we can use our classes in unexpected ways. Here is an example:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Rules</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Rules</span>
   <span class="k">class</span> <span class="nc">FlushnessRule</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">color_array</span><span class="p">)</span>
       <span class="vi">@color_array</span> <span class="o">=</span> <span class="n">color_array</span>
@@ -598,26 +582,23 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This is what class should do:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">rule</span> <span class="o">=</span> <span class="no">FlushnessRule</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rule</span> <span class="o">=</span> <span class="no">FlushnessRule</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
  <span class="o">=&gt;</span> <span class="c1">#&lt;FlushnessRule:0x00000001eced60 @color_array=[1, 1]&gt;</span>
 <span class="n">rule</span><span class="p">.</span><span class="nf">check?</span>
  <span class="o">=&gt;</span> <span class="kp">true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>and this is what this class can do:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">rule</span> <span class="o">=</span> <span class="no">FlushnessRule</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="s1">'#fff'</span><span class="p">,</span><span class="s1">'#fff'</span><span class="p">])</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">rule</span> <span class="o">=</span> <span class="no">FlushnessRule</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="s1">'#fff'</span><span class="p">,</span><span class="s1">'#fff'</span><span class="p">])</span>
  <span class="o">=&gt;</span> <span class="c1">#&lt;FlushnessRule:0x00000001ebc020 @color_array=["#fff", "#fff"]&gt;</span>
 <span class="n">rule</span><span class="p">.</span><span class="nf">check?</span>
  <span class="o">=&gt;</span> <span class="kp">true</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>When I created this class I never thought about using it on an array of strings. I know that this is partially thanks to <code class="highlighter-rouge">Ruby</code> as a language and <a href="https://en.wikipedia.org/wiki/Duck_typing" title="Duck typing in Ruby" target="_blank" rel="nofollow noopener noreferrer"><strong>duck typing</strong></a>, but also because of simplicity of the code.</p>
 
@@ -635,7 +616,7 @@ Description: Awesome dude, awesome life
 
 <p>When you play poker you can have something in your hand like three of a kind or you can have nothing. And this “nothing” also you need to handle in your code. So I created class for “nothing” - <code class="highlighter-rouge">None</code> class. And I did some cleanups in <code class="highlighter-rouge">Hand</code> class.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
   <span class="k">class</span> <span class="nc">None</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">normalization</span> <span class="o">=</span> <span class="no">Normalization</span><span class="p">)</span>
       <span class="vi">@normalize_array</span> <span class="o">=</span> <span class="n">normalization</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
@@ -646,8 +627,7 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>All code you can check <a href="https://github.com/womanonrails/poker/tree/03a356a42afed39fffd98ceff0b7b1311f7b05ec/lib" title="Code after 15th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a> and tests have passed after this changes.</p>
 
@@ -665,7 +645,7 @@ Description: Awesome dude, awesome life
 
 <p>This will be our final step of this refactoring and also a tricky one. You can believe or not, checking if in hand, we have two pairs is the hardest rule. We have rule which checks the frequency of figure <code class="highlighter-rouge">FrequencyRule</code> but we cannot use it here because we need to check if we have 2 pairs. So we need to create another frequency rule. We will call it <code class="highlighter-rouge">MultiFrequencyRule</code>:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Rules</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Rules</span>
   <span class="k">class</span> <span class="nc">MultiFrequencyRule</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">frequency_array</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="n">times</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
       <span class="vi">@frequency_array</span> <span class="o">=</span> <span class="n">frequency_array</span>
@@ -679,23 +659,21 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This time we select only chosen frequency in <code class="highlighter-rouge">@frequency_array</code> and then we check how many times it is there. But wait! When we have this combination 2♠ 2♣ <span class="red-text">2♥ 3♥ 3♦</span> we have a full house but also two pairs. So rule which checks if in this hand are two pairs should return <code class="highlighter-rouge">true</code>. That’s why we check <code class="highlighter-rouge">number &lt; @count</code> and remove them from this array. The code for this class is <a href="https://github.com/womanonrails/poker/blob/6a3af1c900c88477097ac00d405fef59866eb06b/lib/rules/multi_frequency_rule.rb" title="Code for MultiFrequencyRule class" target="_blank" rel="nofollow noopener noreferrer">here</a>.</p>
 
 <p><strong>Alert!</strong> If you take a closer look to this code you will see one more problem. What if we have 2♠ 2♣ <span class="red-text">2♥ 2♦ 3♥</span>. We can say that these are also 2 pairs (of course, this is also four of a kind). So our <code class="highlighter-rouge">check?</code> method should look like this:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check?</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">check?</span>
   <span class="n">selected_frequency</span> <span class="o">=</span> <span class="vi">@frequency_array</span><span class="p">.</span><span class="nf">map</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span> <span class="n">number</span> <span class="o">/</span> <span class="vi">@count</span> <span class="p">}</span>
   <span class="n">selected_frequency</span><span class="p">.</span><span class="nf">sum</span> <span class="o">&gt;=</span> <span class="vi">@times</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>When we have this rule we can check <code class="highlighter-rouge">TwoPair</code>, we can finally clean up logic in <code class="highlighter-rouge">Hand</code> class and we can replace class <code class="highlighter-rouge">FrequencyRule</code> with <code class="highlighter-rouge">MultiFrequencyRule</code> which is much more general. After that all tests have passed. You can find the code <a href="https://github.com/womanonrails/poker/tree/277d2893ffac1318c2a64fca2704e1c8258856e1/lib" title="Code after 16th step of refactoring" target="_blank" rel="nofollow noopener noreferrer">here</a>. Check out how <code class="highlighter-rouge">Hand</code> class looks like now:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">Poker</span>
   <span class="no">ORDER_CHECKING</span> <span class="o">=</span> <span class="p">[</span>
     <span class="ss">:royal_flush</span><span class="p">,</span> <span class="ss">:straight_flush</span><span class="p">,</span> <span class="ss">:four_of_a_kind</span><span class="p">,</span> <span class="ss">:full_house</span><span class="p">,</span> <span class="ss">:flush</span><span class="p">,</span>
     <span class="ss">:straight</span><span class="p">,</span> <span class="ss">:three_of_a_kind</span><span class="p">,</span> <span class="ss">:two_pair</span><span class="p">,</span> <span class="ss">:one_pair</span><span class="p">,</span> <span class="ss">:high_card</span><span class="p">,</span> <span class="ss">:none</span>
@@ -727,8 +705,7 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>I’m pretty proud of this class. If you would like to compare this class with first implementation check this <a href="https://github.com/womanonrails/poker/blob/55c9ae0ab921f7aa95bb7e47676d87b970a32033/lib/poker/hand.rb" title="First version of Poker class" target="_blank" rel="nofollow noopener noreferrer">commit</a>.</p>
 
@@ -900,8 +877,9 @@ Description: Awesome dude, awesome life
             </li>
         </ul>
             <div>
-                
-                <a href="https://womanonrails.com/about">Agnieszka Matysek</a> &copy; 2019 &bull; All rights reserved.
+              <a href="/about">Agnieszka Matysek</a>
+              &copy; 2019
+              &bull; All rights reserved.
             </div>
             <ul class="menu-items">
             
@@ -954,17 +932,6 @@ Description: Awesome dude, awesome life
         </div>
     
 </footer>
-<script>
-  (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:157104,hjsv:5};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

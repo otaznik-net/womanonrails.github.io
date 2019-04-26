@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <!--
 ====================================================
     __  ____  ______________  _______ ___    __
@@ -16,7 +16,7 @@ Description: Awesome dude, awesome life
 ====================================================
 -->
 <head>
-<meta charset="utf-8">
+<meta charset='utf-8'>
 <title>Refaktoryzacja w SessionsController - Woman on Rails - web development z kobiecej perspektywy</title>
 <meta name="description" content="Jak można poprawić swój kod?">
 <meta name="keywords" content="Ruby, Ruby on Rails">
@@ -29,27 +29,13 @@ Description: Awesome dude, awesome life
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
-<meta property="og:locale" content="pl">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Refaktoryzacja w SessionsController">
 <meta property="og:description" content="Jak można poprawić swój kod?">
-<meta property="og:url" content="https://womanonrails.com/session-controller-refactoring">
-<meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
-<!-- Icons -->
-<!-- 16x16 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
-<!-- 32x32 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
 
 
 
@@ -58,16 +44,31 @@ Description: Awesome dude, awesome life
 <link rel="canonical" href="https://womanonrails.com/session-controller-refactoring">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
+<!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Refaktoryzacja w SessionsController" />
+<meta name="author" content="womanonrails" />
+<meta property="og:locale" content="pl" />
+<meta name="description" content="Jak można poprawić swój kod?" />
+<meta property="og:description" content="Jak można poprawić swój kod?" />
+<link rel="canonical" href="https://womanonrails.com/pl/session-controller-refactoring" />
+<meta property="og:url" content="https://womanonrails.com/pl/session-controller-refactoring" />
+<meta property="og:site_name" content="Woman on Rails" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-07-17T00:00:00-04:00" />
+<script type="application/ld+json">
+{"description":"Jak można poprawić swój kod?","headline":"Refaktoryzacja w SessionsController","dateModified":"2015-07-17T00:00:00-04:00","datePublished":"2015-07-17T00:00:00-04:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/session-controller-refactoring"},"url":"https://womanonrails.com/pl/session-controller-refactoring","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
-    <link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+<link rel="stylesheet" href="/css/main.css">
 
 <div class="search-wrapper">
     <div class="search-form">
@@ -76,8 +77,6 @@ Description: Awesome dude, awesome life
         <ul class="search-results post-list"></ul><!-- /.search-results -->
     </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
-
-
 
 </head>
 <body class="post-template" itemscope itemtype="https://schema.org/WebPage">
@@ -143,7 +142,10 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
+              
+<img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
+
+
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -199,7 +201,7 @@ Description: Awesome dude, awesome life
                         
                         <p>Kilka tygodni temu pracowałam z następującym kodem:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -224,8 +226,7 @@ Description: Awesome dude, awesome life
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Kiedy patrzy się na ten kod pierwszy raz prawdopodobnie myśli się że jest OK. Klasa nie jest za długa. Ma tylko 25 linii. Metody są krótkie. Około 5 – 6 linii. Jest tylko jedna publiczna metoda. Wszystko wygląda dobrze, prawda?</p>
 
@@ -233,7 +234,7 @@ Description: Awesome dude, awesome life
 
 <p>Jak poradzimy sobie z tym błędem? Wpierw napiszemy test, który wykryje nasz błąd.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'rails_helper'</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'rails_helper'</span>
 
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SessionsController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
   <span class="n">describe</span> <span class="s1">'POST #create'</span> <span class="k">do</span>
@@ -245,23 +246,21 @@ Description: Awesome dude, awesome life
       <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_http_status</span><span class="p">(</span><span class="ss">:unprocessable_entity</span><span class="p">)</span>
     <span class="k">end</span>
 
-    <span class="p">.</span><span class="nf">.</span><span class="p">.</span>
-  <span class="nf">end</span>
+    <span class="o">...</span>
+  <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Test nie przechodzi. Możemy zacząć działać. Przyjrzyjmy się bliżej naszej klasie.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">respond_to</span> <span class="p">{</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span> <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render_user</span> <span class="p">}</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>Coś dziwnego dzieje się w tym kodzie. Wywołujemy metodę <code class="highlighter-rouge">respond_to</code>, w której wywołujemy <code class="highlighter-rouge">render</code>. Nie widać tego na pierwszy rzut oka ponieważ <code class="highlighter-rouge">render</code> ukryty jest w metodzie <code class="highlighter-rouge">render_user</code>.</p>
 
 <p>Postanowiłam, że usunę tą metodę i przeniosę <code class="highlighter-rouge">render</code> do metody <code class="highlighter-rouge">create</code> w naszym kontrolerze. Dodatkowo stworzyłam tymczasowo metodę <code class="highlighter-rouge">user</code> by poprawnie był ustawiany użytkownik.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">respond_to</span> <span class="ss">:json</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -289,8 +288,7 @@ Description: Awesome dude, awesome life
     <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Błąd naprawiony. Test przychodzi. Wszystko jest dobrze. Możemy ruszać dalej po nowe wyzwania, prawda?</p>
 
@@ -303,7 +301,7 @@ Description: Awesome dude, awesome life
 
 <p>Dlaczego my nie możemy poprawić tego kodu już teraz? Dlaczego nie zastosować się do zasady zostaw fragment kodu który modyfikujesz lepszym niż go zastałeś.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -329,20 +327,18 @@ Description: Awesome dude, awesome life
     <span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:user</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:email</span><span class="p">,</span> <span class="ss">:password</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Testy dalej przechodzą. Myślę, że ten kod jest lepszy niż poprzednia wersja ale są rzeczy, które da się jeszcze poprawić. Możemy się zastanowić na przykład nad zmienną <code class="highlighter-rouge">@user</code>. Raz jest ona obiektem typu <code class="highlighter-rouge">User</code> a raz <code class="highlighter-rouge">nil</code> (wynika to z używania metody <code class="highlighter-rouge">find_by</code>). Nie używamy tutaj ani <code class="highlighter-rouge">find</code> ani <code class="highlighter-rouge">find_by!</code> ponieważ status naszej odpowiedzi byłby inny niż oczekujemy. Wyjątek <code class="highlighter-rouge">ActiveRecord::RecordNotFound</code> zwróci nam status <code class="highlighter-rouge">:not_found</code> a my chcielibśmy <code class="highlighter-rouge">:unprocessable_entity</code>.</p>
 
 <p>Natępnie możemy zastanowić się nad warunkiem:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
+</code></pre></div></div>
 
 <p>Jeżeli nie widzieliście prezentacji <strong>Sandi Metz</strong> na temat <strong>Null Object Pattern</strong> to polecam (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). Możemy stworzyć klasę <code class="highlighter-rouge">TrustedUser</code> i używać wszędzie tego obiektu bez sprawdzania czy mamy przyjemność z <code class="highlighter-rouge">nil</code>. Dalej możemy przenieść z powrotem metodę <code class="highlighter-rouge">render</code> i ustawiania tokenu do metody <code class="highlighter-rouge">create</code>. Zobaczmy jak nasz kod wygląda po zmianach:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
 
   <span class="k">def</span> <span class="nf">create</span>
@@ -378,8 +374,7 @@ Description: Awesome dude, awesome life
     <span class="kp">false</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Teraz moglibyśmy przystąpić do kolejnej zmiany. Przykładowo przenieść ustawianie tokenu do modelu. Ja na tym poprzestanę. Jeżeli macie ochotę sami możecie spróbować to zmienić. Najtrudniejszą rzeczą w tym zadaniu jest próba odpowiedzenia sobie na pytanie: Czy warto robić takie zmiany? Czy daje nam to jakąś wartość? Odpowiedź zależy od Was.</p>
 
@@ -472,8 +467,9 @@ Description: Awesome dude, awesome life
             </li>
         </ul>
             <div>
-                
-                <a href="https://womanonrails.com/pl/about">Agnieszka Matysek</a> &copy; 2019 &bull; All rights reserved.
+              <a href="/pl/about">Agnieszka Matysek</a>
+              &copy; 2019
+              &bull; All rights reserved.
             </div>
             <ul class="menu-items">
             
@@ -526,17 +522,6 @@ Description: Awesome dude, awesome life
         </div>
     
 </footer>
-<script>
-  (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:157104,hjsv:5};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

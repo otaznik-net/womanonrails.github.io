@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <!--
 ====================================================
     __  ____  ______________  _______ ___    __
@@ -16,7 +16,7 @@ Description: Awesome dude, awesome life
 ====================================================
 -->
 <head>
-<meta charset="utf-8">
+<meta charset='utf-8'>
 <title>Własne walidatory w Ruby on Rails - Woman on Rails - web development z kobiecej perspektywy</title>
 <meta name="description" content="Jak napisać własny walidator?">
 <meta name="keywords" content="Ruby, Ruby on Rails">
@@ -29,27 +29,13 @@ Description: Awesome dude, awesome life
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
-<meta property="og:locale" content="pl">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Własne walidatory w Ruby on Rails">
 <meta property="og:description" content="Jak napisać własny walidator?">
-<meta property="og:url" content="https://womanonrails.com/custom-rails-validators">
-<meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
-<!-- Icons -->
-<!-- 16x16 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
-<!-- 32x32 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
 
 
 
@@ -58,16 +44,31 @@ Description: Awesome dude, awesome life
 <link rel="canonical" href="https://womanonrails.com/custom-rails-validators">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
+<!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Własne walidatory w Ruby on Rails" />
+<meta name="author" content="womanonrails" />
+<meta property="og:locale" content="pl" />
+<meta name="description" content="Jak napisać własny walidator?" />
+<meta property="og:description" content="Jak napisać własny walidator?" />
+<link rel="canonical" href="https://womanonrails.com/pl/custom-rails-validators" />
+<meta property="og:url" content="https://womanonrails.com/pl/custom-rails-validators" />
+<meta property="og:site_name" content="Woman on Rails" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-04-15T00:00:00-04:00" />
+<script type="application/ld+json">
+{"description":"Jak napisać własny walidator?","headline":"Własne walidatory w Ruby on Rails","dateModified":"2015-04-15T00:00:00-04:00","datePublished":"2015-04-15T00:00:00-04:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/custom-rails-validators"},"url":"https://womanonrails.com/pl/custom-rails-validators","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
-    <link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+<link rel="stylesheet" href="/css/main.css">
 
 <div class="search-wrapper">
     <div class="search-form">
@@ -76,8 +77,6 @@ Description: Awesome dude, awesome life
         <ul class="search-results post-list"></ul><!-- /.search-results -->
     </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
-
-
 
 </head>
 <body class="post-template" itemscope itemtype="https://schema.org/WebPage">
@@ -143,7 +142,10 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
+              
+<img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
+
+
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -219,7 +221,7 @@ Description: Awesome dude, awesome life
 
 <p>Zajrzałam do dokumentacji i znalazłam <a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">to</a>. Wybrałam <code class="highlighter-rouge">ActiveModel::EachValidator</code>, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: <code class="highlighter-rouge">validate_each</code>. Całość wyglądała następująco:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/validators/blacklist_validator.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/validators/blacklist_validator.rb</span>
 
 <span class="c1"># Validate list of words that can not be use in specifig field</span>
 <span class="k">class</span> <span class="nc">BlacklistValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
@@ -233,16 +235,14 @@ Description: Awesome dude, awesome life
     <span class="no">File</span><span class="p">.</span><span class="nf">readlines</span><span class="p">(</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s1">'config'</span><span class="p">,</span> <span class="s1">'blacklist.txt'</span><span class="p">)).</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:strip</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="jak-to-działa">Jak to działa?</h2>
 
 <p>Dodaje błąd <code class="highlighter-rouge">:on_blacklist</code> do record tylko wtedy gdy value znajduje się na czarnej liście. Plik z czarną listą słów nazwałam <code class="highlighter-rouge">blacklist.txt</code> i umieściłam w Railsowym katalogu <code class="highlighter-rouge">config</code>. By teraz móc używać tego walidatora wystarczy dodać do naszego modelu:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist: </span><span class="kp">true</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">blacklist: </span><span class="kp">true</span>
+</code></pre></div></div>
 
 <h2 id="zapamiętajcie-konwencje">Zapamiętajcie konwencje:</h2>
 
@@ -250,19 +250,17 @@ Description: Awesome dude, awesome life
 
 <p>To rozwiązanie było dla mnie idealne. Ale co jeżeli chcielibyśmy przekazać do walidatora jakiś dodatkowy parametr. Przykładowo:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality: </span><span class="p">{</span> <span class="ss">greater_than: </span><span class="mi">18</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:age</span><span class="p">,</span> <span class="ss">numericality: </span><span class="p">{</span> <span class="ss">greater_than: </span><span class="mi">18</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>To żaden problem. We własnych walidatorach mamy dostęp do zmiennej <code class="highlighter-rouge">options</code>, która mówi nam dokładnie jakie parametry zostały przekazane. Jeżeli wywołamy options dla naszego przykładu zobaczymy następujący wynik:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than: </span><span class="mi">18</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">greater_than: </span><span class="mi">18</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>Użyłam tej funkcjonalności, by sprawdzić za pomocą walidatora minimalną długość tablicy:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># app/validators/array_lenght_validator.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/validators/array_lenght_validator.rb</span>
 
 <span class="c1"># Validate if array is not too short</span>
 <span class="k">class</span> <span class="nc">ArrayLenghtValidator</span> <span class="o">&lt;</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">EachValidator</span>
@@ -274,8 +272,7 @@ Description: Awesome dude, awesome life
     <span class="n">record</span><span class="p">.</span><span class="nf">errors</span><span class="p">.</span><span class="nf">add</span><span class="p">(</span><span class="n">attribute</span><span class="p">,</span> <span class="ss">:too_short_array</span><span class="p">,</span> <span class="ss">count: </span><span class="n">minimum</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="co-się-tutaj-dzieje">Co się tutaj dzieje?</h3>
 
@@ -283,28 +280,26 @@ Description: Awesome dude, awesome life
 
 <p>Walidator mogę wywołać następująco:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">1</span> <span class="p">}</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">validates</span> <span class="ss">:array</span><span class="p">,</span> <span class="ss">array_lenght: </span><span class="p">{</span> <span class="ss">minimum: </span><span class="mi">1</span> <span class="p">}</span>
+</code></pre></div></div>
 
 <p>Została jeszcze jedna kwestia do omówienia. <strong>W jaki sposób dodać tłumaczenia błędów w katalogu <code class="highlighter-rouge">locales</code>?</strong></p>
 
 <p>Używamy konwencji w Rails. Poniżej przedstawiam jeden ze sposobów (inne możliwości dostępne w dokumentacji <a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
 
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">pl</span><span class="pi">:</span>
-  <span class="s">activerecord</span><span class="pi">:</span>
-    <span class="s">errors</span><span class="pi">:</span>
-      <span class="s">models</span><span class="pi">:</span>
-        <span class="s">our_model_name</span><span class="pi">:</span>
-          <span class="s">attributes</span><span class="pi">:</span>
-            <span class="s">name</span><span class="pi">:</span>
-              <span class="s">on_blacklist</span><span class="pi">:</span> <span class="s">jest na czarnej liście</span>
-            <span class="s">array</span><span class="pi">:</span>
-              <span class="s">too_short_array</span><span class="pi">:</span>
-                <span class="s">one</span><span class="pi">:</span> <span class="s">jest za krótka (minimalnie 1 element)</span>
-                <span class="s">other</span><span class="pi">:</span> <span class="s">jest za krótka (minimalnie %{count} elementów)</span>
-</code></pre>
-</div>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">pl</span><span class="pi">:</span>
+  <span class="na">activerecord</span><span class="pi">:</span>
+    <span class="na">errors</span><span class="pi">:</span>
+      <span class="na">models</span><span class="pi">:</span>
+        <span class="na">our_model_name</span><span class="pi">:</span>
+          <span class="na">attributes</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span>
+              <span class="na">on_blacklist</span><span class="pi">:</span> <span class="s">jest na czarnej liście</span>
+            <span class="na">array</span><span class="pi">:</span>
+              <span class="na">too_short_array</span><span class="pi">:</span>
+                <span class="na">one</span><span class="pi">:</span> <span class="s">jest za krótka (minimalnie 1 element)</span>
+                <span class="na">other</span><span class="pi">:</span> <span class="s">jest za krótka (minimalnie %{count} elementów)</span>
+</code></pre></div></div>
 
 <p>W klucz <code class="highlighter-rouge">our_model_name:</code> wpisujemy nazwę naszego modelu. Na przykład jeżeli mamy model <code class="highlighter-rouge">User</code>, to kluczem będzie <code class="highlighter-rouge">user:</code>. Następnie ustawiamy nazwy naszych walidowanych pól:</p>
 
@@ -406,8 +401,9 @@ Do następnego razu!</p>
             </li>
         </ul>
             <div>
-                
-                <a href="https://womanonrails.com/pl/about">Agnieszka Matysek</a> &copy; 2019 &bull; All rights reserved.
+              <a href="/pl/about">Agnieszka Matysek</a>
+              &copy; 2019
+              &bull; All rights reserved.
             </div>
             <ul class="menu-items">
             
@@ -460,17 +456,6 @@ Do następnego razu!</p>
         </div>
     
 </footer>
-<script>
-  (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:157104,hjsv:5};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

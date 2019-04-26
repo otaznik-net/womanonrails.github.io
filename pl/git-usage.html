@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <!--
 ====================================================
     __  ____  ______________  _______ ___    __
@@ -16,7 +16,7 @@ Description: Awesome dude, awesome life
 ====================================================
 -->
 <head>
-<meta charset="utf-8">
+<meta charset='utf-8'>
 <title>Podstawowe użycie Git - Woman on Rails - web development z kobiecej perspektywy</title>
 <meta name="description" content="Git - podstawowe komendy">
 <meta name="keywords" content="środowisko programistyczne, git, system kontroli wersji">
@@ -29,27 +29,13 @@ Description: Awesome dude, awesome life
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
-<meta property="og:locale" content="pl">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Podstawowe użycie Git">
 <meta property="og:description" content="Git - podstawowe komendy">
-<meta property="og:url" content="https://womanonrails.com/git-usage">
-<meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
-<!-- Icons -->
-<!-- 16x16 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
-<!-- 32x32 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
 
 
 
@@ -58,16 +44,31 @@ Description: Awesome dude, awesome life
 <link rel="canonical" href="https://womanonrails.com/git-usage">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
+<!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Podstawowe użycie Git" />
+<meta name="author" content="womanonrails" />
+<meta property="og:locale" content="pl" />
+<meta name="description" content="Git - podstawowe komendy" />
+<meta property="og:description" content="Git - podstawowe komendy" />
+<link rel="canonical" href="https://womanonrails.com/pl/git-usage" />
+<meta property="og:url" content="https://womanonrails.com/pl/git-usage" />
+<meta property="og:site_name" content="Woman on Rails" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-02-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Git - podstawowe komendy","headline":"Podstawowe użycie Git","dateModified":"2016-02-20T00:00:00-05:00","datePublished":"2016-02-20T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/git-usage"},"url":"https://womanonrails.com/pl/git-usage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
-    <link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+<link rel="stylesheet" href="/css/main.css">
 
 <div class="search-wrapper">
     <div class="search-form">
@@ -76,8 +77,6 @@ Description: Awesome dude, awesome life
         <ul class="search-results post-list"></ul><!-- /.search-results -->
     </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
-
-
 
 </head>
 <body class="post-template" itemscope itemtype="https://schema.org/WebPage">
@@ -143,7 +142,10 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/pl" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
+              
+<img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
+
+
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -209,43 +211,38 @@ Description: Awesome dude, awesome life
 
 <p>Gdy używamy narzędzia Git, chcemy wiedzieć które zmiany były zrobione przez nas. By to ustawić wykonujemy następujące polecenia:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git config --global user.name <span class="s2">"Your Name"</span>
-git config --global user.email you_email_address@example.com
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+git config <span class="nt">--global</span> user.email you_email_address@example.com
+</code></pre></div></div>
 
 <p>Możemy też ustawić by polecenia z narzędzia Git wyświetlały się na kolorowo:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git config --global color.ui <span class="nb">true</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> color.ui <span class="nb">true</span>
+</code></pre></div></div>
 
 <h2 id="stworzenie-swojego-pierwszego-repozytorium">Stworzenie swojego pierwszego repozytorium</h2>
 
 <p>Aby zacząć używać narzędzia Git w naszym projekcie, przechodzimy do katalogu naszego projektu za pomocą terminala (wiersza poleceń) i inicjujemy narzędzie Git w środku.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git init
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
 
 <p>To polecenie rozpocznie pracę z Git tylko lokalnie na naszym komputerze. By można było umieścić nasze repozytorium na serwerze będziemy potrzebować narzędzi takich jak <a href="https://github.com">GitHub</a> lub <a href="https://bitbucket.org">Bitbucket</a>. Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo przydatną komendą będzie:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div></div>
 
 <p>To polecenie mówi nam co zmieniło się od ostatniego użycia narzędzia Git. Przykładowo mamy plik napisany w języku Ruby.</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">"hello"</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Ten plik nie jest śledzony przez Git. W takiej sytuacji możemy zobaczyć coś takiego:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c">#</span>
@@ -257,20 +254,18 @@ git config --global user.email you_email_address@example.com
 <span class="c">#   hello_world.rb</span>
 <span class="c">#</span>
 <span class="c"># nothing added to commit but untracked files present (use "git add" to track)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="pierwszy-commit">Pierwszy commit</h2>
 
 <p>Teraz musimy powiedzieć do naszego systemu kontroli wersji: <em>Proszę, śledź zmiany w tym pliku</em>:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git add hello_world.rb
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add hello_world.rb
+</code></pre></div></div>
 
 <p>Po wykonaniu tego polecenia sprawdzamy status naszych zmian <code class="highlighter-rouge">git status</code> i otrzymujemy:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c">#</span>
@@ -281,54 +276,47 @@ git config --global user.email you_email_address@example.com
 <span class="c">#</span>
 <span class="c">#   new file: hello_world.rb</span>
 <span class="c">#</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Teraz możemy zrobić <strong>commit</strong>. Można powiedzieć, że commit to takie przygotowane do wysłania pudełko. Do pudełka wkładamy wszystkie elementy, które wspólnie tworzą jedną całość. Ponieważ zmieniliśmy tylko jeden plik, to nasz commit będzie składał się tylko z niego.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git commit -m <span class="s2">"Create a hello function"</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Create a hello function"</span>
+</code></pre></div></div>
 
 <p>Teraz Git status pokazuje:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c"># nothing to commit (working directory clean)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Jeżeli zmienimy naszą funkcję, to zobaczymy:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">"hello world"</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c"># Changed but not updated:</span>
 <span class="c">#</span>
 <span class="c">#  modified: hello_world.rb</span>
 <span class="c"># no changes add to commit</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Jeżeli chcemy zrobić nowy commit, musimy dodać nasze zmiany do pudełka:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git add hello_world.rb
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add hello_world.rb
+</code></pre></div></div>
 
 <p>i oznaczyć opisem co jest w środku:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git commit -m <span class="s2">"Change our hello function"</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Change our hello function"</span>
+</code></pre></div></div>
 
 <h2 id="wysłanieściągnięcie-zmian-doz-zdalnego-repozytorium">Wysłanie/ściągnięcie zmian do/z zdalnego repozytorium</h2>
 
@@ -336,15 +324,13 @@ git config --global user.email you_email_address@example.com
 
 <p>Kiedy mamy już swoje konto na GitHub, tworzymy <strong>nowe repozytorium</strong>. A lokalnie w linii poleceń wykonujemy następującą komendę:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git remote add origin link_to_or_repo
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin link_to_or_repo
+</code></pre></div></div>
 
 <p>Nic się nie martwcie, po stworzeniu nowego repozytorium, GitHub pokaże Wam wszystkie komendy jakie potrzebujecie wykonać. Wystarczy tylko skopiować je do swojego terminala. W skrócie komenda ta mówi nam: <em>Hej, od tej chwili mam zdalne repozytorium (czyli mam repozytorium na serwerze) i nazywa się ono origin</em>. Gdy będziemy chcieli wysłać tam nasze zmiany to:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git push -u origin master
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin master
+</code></pre></div></div>
 
 <p>Mówimy wtedy do narzędzia Git: <em>Wyślij mój kod na gałąź (branch)</em> <code class="highlighter-rouge">master</code> <em>na repozytorium o nazwie</em> <code class="highlighter-rouge">origin</code>.</p>
 
@@ -356,9 +342,8 @@ git config --global user.email you_email_address@example.com
 
 <p>Kiedy pracujemy z innymi osobami nad jednym projektem to tak jak już wspominałam chcemy się wymieniać naszymi zmianami. Do tej pory nauczyliśmy się wysyłać na serwer zmiany teraz chcielibyśmy je stamtąd pobrać:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git pull
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
+</code></pre></div></div>
 
 <p>To polecenie <strong>pull</strong> spowoduje, że pobierzemy z naszego repozytorium o nazwie <code class="highlighter-rouge">origin</code> bieżący branch (czyli tą naszą ścieżkę). Ponieważ mamy tylko jeden branch - <code class="highlighter-rouge">master</code> wszystkie zmiany zostaną dociągnięte właśnie dla gałęzi (branch) <code class="highlighter-rouge">master</code>.</p>
 
@@ -451,8 +436,9 @@ git config --global user.email you_email_address@example.com
             </li>
         </ul>
             <div>
-                
-                <a href="https://womanonrails.com/pl/about">Agnieszka Matysek</a> &copy; 2019 &bull; All rights reserved.
+              <a href="/pl/about">Agnieszka Matysek</a>
+              &copy; 2019
+              &bull; All rights reserved.
             </div>
             <ul class="menu-items">
             
@@ -505,17 +491,6 @@ git config --global user.email you_email_address@example.com
         </div>
     
 </footer>
-<script>
-  (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:157104,hjsv:5};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

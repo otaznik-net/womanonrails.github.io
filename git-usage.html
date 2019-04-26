@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <!--
 ====================================================
     __  ____  ______________  _______ ___    __
@@ -16,7 +16,7 @@ Description: Awesome dude, awesome life
 ====================================================
 -->
 <head>
-<meta charset="utf-8">
+<meta charset='utf-8'>
 <title>Simple usage of Git - Woman on Rails - web development from woman perspective</title>
 <meta name="description" content="Git - basic commands">
 <meta name="keywords" content="environment, git, version control system">
@@ -29,27 +29,13 @@ Description: Awesome dude, awesome life
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
-<meta property="og:locale" content="en">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Simple usage of Git">
 <meta property="og:description" content="Git - basic commands">
-<meta property="og:url" content="https://womanonrails.com/git-usage">
-<meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
-<!-- Icons -->
-<!-- 16x16 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
-<!-- 32x32 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
 
 
 
@@ -58,16 +44,31 @@ Description: Awesome dude, awesome life
 <link rel="canonical" href="https://womanonrails.com/git-usage">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
+<!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Simple usage of Git" />
+<meta name="author" content="womanonrails" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Git - basic commands" />
+<meta property="og:description" content="Git - basic commands" />
+<link rel="canonical" href="https://womanonrails.com/git-usage" />
+<meta property="og:url" content="https://womanonrails.com/git-usage" />
+<meta property="og:site_name" content="Woman on Rails" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-02-20T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"Git - basic commands","headline":"Simple usage of Git","dateModified":"2016-02-20T00:00:00-05:00","datePublished":"2016-02-20T00:00:00-05:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/git-usage"},"url":"https://womanonrails.com/git-usage","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/womanonrails-square.svg"},"name":"womanonrails"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
-    <link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+<link rel="stylesheet" href="/css/main.css">
 
 <div class="search-wrapper">
     <div class="search-form">
@@ -76,8 +77,6 @@ Description: Awesome dude, awesome life
         <ul class="search-results post-list"></ul><!-- /.search-results -->
     </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
-
-
 
 </head>
 <body class="post-template" itemscope itemtype="https://schema.org/WebPage">
@@ -143,7 +142,10 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
+              
+<img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
+
+
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -209,43 +211,38 @@ Description: Awesome dude, awesome life
 
 <p>When we use Git we want to be sure that your changes will be assigned to us. So we set up our user data.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git config --global user.name <span class="s2">"Your Name"</span>
-git config --global user.email you_email_address@example.com
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
+git config <span class="nt">--global</span> user.email you_email_address@example.com
+</code></pre></div></div>
 
 <p>We can also add colors to our command line.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git config --global color.ui <span class="nb">true</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> color.ui <span class="nb">true</span>
+</code></pre></div></div>
 
 <h2 id="create-repository">Create repository</h2>
 
 <p>To start using Git in our project, we go to this project through command line and then we initialize Git inside.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git init
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
+</code></pre></div></div>
 
 <p>This command will initialize only <strong>local Git repository</strong>. To put our repo to server you can use tools like <a href="https://github.com">GitHub</a> or <a href="https://bitbucket.org">Bitbucket</a>. Ok now, how we can work with Git. Very helpful command will be:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
+</code></pre></div></div>
 
 <p>This command tell us what was change from last time we use Git. So we have for example ruby file:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">"hello"</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>And it is not tracked by Git we can see something like that:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c">#</span>
@@ -257,20 +254,18 @@ git config --global user.email you_email_address@example.com
 <span class="c">#   hello_world.rb</span>
 <span class="c">#</span>
 <span class="c"># nothing added to commit but untracked files present (use "git add" to track)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h2 id="first-commit">First commit</h2>
 
 <p>Now we must tell Git: <em>please track this file</em>, so we do.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git add hello_world.rb
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add hello_world.rb
+</code></pre></div></div>
 
 <p>After this when we use <code class="highlighter-rouge">git status</code> we see:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c">#</span>
@@ -281,54 +276,47 @@ git config --global user.email you_email_address@example.com
 <span class="c">#</span>
 <span class="c">#   new file: hello_world.rb</span>
 <span class="c">#</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now we can do <strong>commit</strong>. I can say that commit is like prepare box to send. You put into one box everything which creates one common piece. For our changes we add only one file so our commit will contain a simple file.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git commit -m <span class="s2">"Create a hello function"</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Create a hello function"</span>
+</code></pre></div></div>
 
 <p>Then Git status shows:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c"># nothing to commit (working directory clean)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>So we change our function:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">"hello world"</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git status
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c"># Changed but not updated:</span>
 <span class="c">#</span>
 <span class="c">#  modified: hello_world.rb</span>
 <span class="c"># no changes add to commit</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If we want create new commit we must add new things to your box:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git add hello_world.rb
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add hello_world.rb
+</code></pre></div></div>
 
 <p>and create commit</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git commit -m <span class="s2">"Change our hello function"</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Change our hello function"</span>
+</code></pre></div></div>
 
 <h2 id="pushpull-changes-tofrom-remote-repository">Push/pull changes to/from remote repository</h2>
 
@@ -336,15 +324,13 @@ git config --global user.email you_email_address@example.com
 
 <p>When we have account on GitHub we create <strong>new repository</strong> and we need to run in command line something like this:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git remote add origin link_to_or_repo
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin link_to_or_repo
+</code></pre></div></div>
 
 <p>Don’t worry, after you create your new repository, GitHub show you all commands. You only need to copy and paste this commands to your command line. In short this command tells local Git: <em>Hey this is my remote repository and its name is origin</em> (We can say that this is my server for code). When we want to send our code to this remote repository we do:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git push -u origin master
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin master
+</code></pre></div></div>
 
 <p>So we tell to Git: <em>push your code from branch</em> <code class="highlighter-rouge">master</code> <em>to repository with name</em> <code class="highlighter-rouge">origin</code>.</p>
 
@@ -356,9 +342,8 @@ git config --global user.email you_email_address@example.com
 
 <p>When you know that other people do some changes in this repository you can <strong>pull</strong> this changes locally.</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git pull
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
+</code></pre></div></div>
 
 <p>This command <strong>pull</strong> code from remote repository with <code class="highlighter-rouge">origin</code> name to our current branch. Because we have only one branch - <code class="highlighter-rouge">master</code>, all changes will be download to <code class="highlighter-rouge">master</code> branch.</p>
 
@@ -451,8 +436,9 @@ git config --global user.email you_email_address@example.com
             </li>
         </ul>
             <div>
-                
-                <a href="https://womanonrails.com/about">Agnieszka Matysek</a> &copy; 2019 &bull; All rights reserved.
+              <a href="/about">Agnieszka Matysek</a>
+              &copy; 2019
+              &bull; All rights reserved.
             </div>
             <ul class="menu-items">
             
@@ -505,17 +491,6 @@ git config --global user.email you_email_address@example.com
         </div>
     
 </footer>
-<script>
-  (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:157104,hjsv:5};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

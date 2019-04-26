@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <!--
 ====================================================
     __  ____  ______________  _______ ___    __
@@ -16,7 +16,7 @@ Description: Awesome dude, awesome life
 ====================================================
 -->
 <head>
-<meta charset="utf-8">
+<meta charset='utf-8'>
 <title>Why you should not use mailers inside Rails model? - Woman on Rails - web development from woman perspective</title>
 <meta name="description" content="Case study - what can go wrong when you work with mailers and workers in the same time in Rails?">
 <meta name="keywords" content="Ruby">
@@ -29,27 +29,13 @@ Description: Awesome dude, awesome life
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
-<meta property="og:locale" content="en">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Why you should not use mailers inside Rails model?">
 <meta property="og:description" content="Case study - what can go wrong when you work with mailers and workers in the same time in Rails?">
-<meta property="og:url" content="https://womanonrails.com/rails-mailer-problem">
-<meta property="og:site_name" content="Woman on Rails">
 <meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
-<!-- Icons -->
-<!-- 16x16 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
-<!-- 32x32 -->
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel='apple-touch-icon-precomposed' href="https://womanonrails.com/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel='apple-touch-icon-precomposed' sizes='72x72' href="https://womanonrails.com/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel='apple-touch-icon-precomposed' sizes='114x114' href="https://womanonrails.com/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel='apple-touch-icon-precomposed' sizes='144x144' href="https://womanonrails.com/images/apple-touch-icon-144x144-precomposed.png">
 
 
 
@@ -58,16 +44,31 @@ Description: Awesome dude, awesome life
 <link rel="canonical" href="https://womanonrails.com/rails-mailer-problem">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
-
-<!-- http://t.co/dKP3o1e -->
+<!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Why you should not use mailers inside Rails model?" />
+<meta name="author" content="womanonrails" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="Case study - what can go wrong when you work with mailers and workers in the same time in Rails?" />
+<meta property="og:description" content="Case study - what can go wrong when you work with mailers and workers in the same time in Rails?" />
+<link rel="canonical" href="https://womanonrails.com/rails-mailer-problem" />
+<meta property="og:url" content="https://womanonrails.com/rails-mailer-problem" />
+<meta property="og:site_name" content="Woman on Rails" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-04-20T00:00:00-04:00" />
+<script type="application/ld+json">
+{"description":"Case study - what can go wrong when you work with mailers and workers in the same time in Rails?","headline":"Why you should not use mailers inside Rails model?","dateModified":"2019-04-20T00:00:00-04:00","datePublished":"2019-04-20T00:00:00-04:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/rails-mailer-problem"},"url":"https://womanonrails.com/rails-mailer-problem","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/womanonrails-square.svg"},"name":"womanonrails"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
-    <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
-    <link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
+<link rel="stylesheet" href="/css/main.css">
 
 <div class="search-wrapper">
     <div class="search-form">
@@ -76,8 +77,6 @@ Description: Awesome dude, awesome life
         <ul class="search-results post-list"></ul><!-- /.search-results -->
     </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
-
-
 
 </head>
 <body class="post-template" itemscope itemtype="https://schema.org/WebPage">
@@ -143,7 +142,10 @@ Description: Awesome dude, awesome life
         <div class="container">
             
             <a class="brand" href="https://womanonrails.com/" role="banner" itemprop="url">
-                <img itemprop="logo" src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" />
+              
+<img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
+
+
 
             <h1 class="blog-title light" itemprop="name">
                 Woman on Rails
@@ -207,7 +209,7 @@ Description: Awesome dude, awesome life
 
 <p>When a user sends invitation to his friend, we get information from Sidekiq (a tool for background processing in Ruby), that this invitation is not found in database. I checked that based on what we had in logs and everything looks fine. Invitation in database exist. After some time Sidekiq retry to run process for sending emails with success. At first I thought, <em>This happened only one time, maybe this is some kind of a  mistake?</em> I decided not to investigate this problem and just monitor the application. Record in DB exists, mail was sent to the user. Nothing to worry. But the problem came back. This time I am known, that this was not a mistake and something is wrong. I started debugging this problem. At first, I looked to code and I get:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Invitation</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Invitation</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
   <span class="n">after_save</span> <span class="ss">:send_invitation_email</span>
 
   <span class="c1"># (...)</span>
@@ -218,8 +220,7 @@ Description: Awesome dude, awesome life
     <span class="p">).</span><span class="nf">deliver_later</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>The code was ok. Not great, but nothing very complex. I had <code class="highlighter-rouge">after_save</code> callback and simple method using mailers. When I try to reproduce this problem locally, never happened. So for debugging this problem only staging environment was helpful.</p>
 
@@ -227,7 +228,7 @@ Description: Awesome dude, awesome life
 
 <p>After some time I understood, what was the problem. First, very important is the order of callback in Rails models:</p>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="n">before_validation</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">before_validation</span>
 <span class="n">after_validation</span>
 <span class="n">before_save</span>
 <span class="n">around_save</span>
@@ -236,8 +237,7 @@ Description: Awesome dude, awesome life
 <span class="n">after_create</span>
 <span class="n">after_save</span>
 <span class="n">after_commit</span><span class="o">/</span><span class="n">after_rollback</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>As you see <code class="highlighter-rouge">after_save</code> isn’t the last one. I already had id for our invitation, but this invitation is still not persist and in the database. Second, this problem with <code class="highlighter-rouge">Invitation not found</code> happened only when our Sidekiq had no work to do. So, when queue is empty. Our process related to sending email was so fast, that it was faster than saving a record in the database (finishing transaction related with save). So, looking below on this scheme actions (1) and (2), were faster, then (3).</p>
 
@@ -350,8 +350,9 @@ Description: Awesome dude, awesome life
             </li>
         </ul>
             <div>
-                
-                <a href="https://womanonrails.com/about">Agnieszka Matysek</a> &copy; 2019 &bull; All rights reserved.
+              <a href="/about">Agnieszka Matysek</a>
+              &copy; 2019
+              &bull; All rights reserved.
             </div>
             <ul class="menu-items">
             
@@ -404,17 +405,6 @@ Description: Awesome dude, awesome life
         </div>
     
 </footer>
-<script>
-  (function(h,o,t,j,a,r){
-    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:157104,hjsv:5};
-    a=o.getElementsByTagName('head')[0];
-    r=o.createElement('script');r.async=1;
-    r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    a.appendChild(r);
-  })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-
 
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
