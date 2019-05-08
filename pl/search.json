@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Dlaczego przestałam używać zmiennych instancji w klasach Ruby?",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/instance-variables",
+		  "date"       : "2019-05-03 00:00:00 -0400",
+		  "shortdate"  : "May 03, 2019"
+		} ,
+	
+		{
 		  "title"      : "Dlaczego nie powinnyśmy wysyłać maili z modelu w Railsach?",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/rails-mailer-problem",

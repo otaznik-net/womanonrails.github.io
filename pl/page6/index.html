@@ -180,6 +180,45 @@
                  
                       
                       <h2 class="post-title text-center super lighter bordered-bottom">
+                          <a href="/pl/session-controller-refactoring">Refaktoryzacja w SessionsController</a>
+                      
+                      </h2>
+                      <div class="post-info text-center small">
+                          <time datetime="2015-07-17T00:00:00-04:00" class="post-time">17 Jul 2015</time>
+                          in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#refaktoring" data-toggle="tooltip" title="Other posts from the Refaktoring category" rel="tag">Refaktoring</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">3.765</span> minutes read</span>
+                      </div>
+                  </header>
+                  <div class="post-body bordered-bottom">
+                  
+                  
+                      <p>Kilka tygodni temu pracowałam z następującym kodem: class SessionsController &lt; ApplicationController respond_to :json, only: [:create] def create @user = User.find_by(email: user_params[:email]) if @user &amp;&amp; @user.authenticate(user_params[:password]) @user.token = Session.create(user: @user).token end respond_to { |format| format.json { render_user } } end private def user_params params.require(:user).permit(:email, :password) end def render_user if @user render json: @user, status: :created else render json: { errors: 'Email or password was invalid' }, status: :unprocessable_entity end end end Kiedy patrzy się na ten kod pierwszy raz prawdopodobnie myśli się że jest OK. Klasa nie jest za długa. Ma tylko 25 linii. Metody są krótkie. Około 5 – 6...&hellip;</p>
+                      <div class="text-center">
+                      
+                    <a href="/pl/session-controller-refactoring" data-toggle="tooltip" title="Jak można poprawić swój kod?" class="more-link btn btn-danger btn-large">
+                        <i class="icon-link"></i> czytaj więcej...
+                    </a>
+                    
+                    </div>
+                  </div>
+              </article>
+          </div>
+      
+  
+    
+    
+    
+    
+      
+          
+          
+          
+          
+          <div class="row">
+              <article class="post post col-md-8 col-md-offset-2">
+                 <header class="post-header">
+                 
+                      
+                      <h2 class="post-title text-center super lighter bordered-bottom">
                           <a href="/pl/custom-rails-validators">Własne walidatory w Ruby on Rails</a>
                       
                       </h2>
@@ -364,45 +403,6 @@
           </div>
       
   
-    
-    
-    
-    
-      
-          
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                 
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/pl/ruby-hash-tips">Triki dla obiektu Hash w Ruby</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                          <time datetime="2014-06-25T00:00:00-04:00" class="post-time">25 Jun 2014</time>
-                          in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#programowanie" data-toggle="tooltip" title="Other posts from the Programowanie category" rel="tag">Programowanie</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">4.975</span> minutes read</span>
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                  
-                  
-                      <p>Dzisiaj chciałabym opowiedzieć Wam trochę o obiekcie Hash i metodach, których często do niego wykorzystuje. Ale zanim o metodach to zacznijmy od tego co to jest właściwie Hash? Hash to bardzo specyficzna tablica. Jako klucz możemy użyć cokolwiek i przyporządkować mu odpowiednią wartość lub wartości. Przykładowo: Jeżeli mamy nasze ulubione książki i chciałybyśmy je uporządkować według ich autorów to jako klucz możemy użyć imię i nazwisko autora a jako wartość jego lub jej książki. hash = { 'Carlos Ruiz Zafon' =&gt; ['La Sombra del Viento', 'El Juego del Angel'], 'Antoine de Saint-Exupery' =&gt; 'Le Petit Prince' } hash['Carlos Ruiz Zafon']...&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/pl/ruby-hash-tips" data-toggle="tooltip" title="Czego ciekawego dowiedziałam się o obiekcie Hash" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> czytaj więcej...
-                    </a>
-                    
-                    </div>
-                  </div>
-              </article>
-          </div>
-      
-  
 
         <div class="row text-center text-caps">
             <div class="col-md-8 col-md-offset-2">
@@ -415,7 +415,7 @@
   
 
 <span class="page-number">
-  Strona 6 z 8
+  Strona 6 z 9
 </span>
 
   <a class="older-posts" href="/pl/page7">

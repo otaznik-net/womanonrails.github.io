@@ -5,9 +5,254 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 May 2019 07:32:57 -0400</pubDate>
-    <lastBuildDate>Wed, 08 May 2019 07:32:57 -0400</lastBuildDate>
+    <pubDate>Wed, 08 May 2019 07:40:27 -0400</pubDate>
+    <lastBuildDate>Wed, 08 May 2019 07:40:27 -0400</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>Why I do not use instance variables in my Ruby classes anymore?</title>
+        <description>&lt;p&gt;You can create a new class in many ways. From one point of view, this is awesome. You can be creative and adjust your code to your needs. On the other hand, it is hard to choose the best option. It can be even overwhelming, especially when you just started learning programming. That’s why I would like to show you some quick tips, how to improve your classes on a very basic level.&lt;/p&gt;
+
+&lt;p&gt;The title of this article can be a little bit tricky. If you want to use class which have its own state, you need to use instance variables. You cannot eliminate them completely from your Ruby code and this is not goal of this article. I would like to show you a quick tip, how to decrease the number of instance variable occurrences and why. And also some other small improvements.&lt;/p&gt;
+
+&lt;p&gt;When I create a class in Ruby, I always keep in mind to show as less as possible to the outside world. This is always good practice, to keep your secrets in a vault. No one can use them against you in this situation. I go here, even deeper. Also inside the class, I try to give minimal information.&lt;/p&gt;
+
+&lt;p&gt;Let’s start with a simple example:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:radius&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We have a simple class, which take care of wheel perimeter, but besides that, we also allow external world to ask and &lt;strong&gt;change&lt;/strong&gt; internal radius value. This is asking for a trouble. After some time we can see code like this somewhere in the app:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x0000559bdda946a0 @radius=5&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;31.41592653589793&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;12.566370614359172&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is like giving access to our wallet to strangers. We allow to take out our money even without asking for permission. It’s not good. Let’s change that.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:radius&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It’s better, but still we give access to information, how much we have in our wallet. We don’t allow to take money out, but we give an &lt;strong&gt;information&lt;/strong&gt; about them. This can finish like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x0000559bdda72ff0 @radius=5&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;diagonal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You probably see nothing wrong with that. Maybe in some cases it is not so bad. I would like to focus on one thing. The logic related to our wheel is now spread between different places in the code. Sometimes we don’t need to give access to &lt;code class=&quot;highlighter-rouge&quot;&gt;radius&lt;/code&gt; information. We can do some logic inside the class and show only result of calculations. The best solution is always to give minimal access to our privacy. &lt;strong&gt;Do not prepare method just in case!&lt;/strong&gt; Let’s change that in our class.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;diagonal&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Right now we can use our &lt;code class=&quot;highlighter-rouge&quot;&gt;Wheel&lt;/code&gt; class to get information about the diagonal, but we cannot calculate it outside of our class.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x0000559bddb31f68 @radius=5&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;diagonal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;diagonal&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;diagonal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        3: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        2: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;NoMethodError&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`radius' for #&amp;lt;Wheel:0x000055a962b0c780 @radius=5&amp;gt;)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;OK, now it’s the time to take care of the main question in this article. &lt;em&gt;Why I do not use instance variables in my classes?&lt;/em&gt; As you probably know from previous articles, I do lots of mistakes. I exchange letters all the time. Misspells that’s my specialty. ;] Often, when I create some class, even I have tests, I get an error message, that no makes sense in that particular context. Maybe you have the same. Take a look at the class below:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@raidus&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;diagonal&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Do you see the problem? If so, congratulation! For me this is something hard to find. Of course, I know myself, so I used to this kind of mistakes. I know how handle them fast, but still they are annoying. The error message in this situation can look like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x000055a962b79628 @radius=5&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        5: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;69&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;61&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`perimeter'
+        1: from (irb):61:in `&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+TypeError (nil can'&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;be&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;coerced&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;into&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The most important information is &lt;code class=&quot;highlighter-rouge&quot;&gt;nil can't be coerced into Float&lt;/code&gt;, but based on this information it is hard to know, where is this &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt; comes from. Maybe not in this example, where we have only one instance variable &lt;code class=&quot;highlighter-rouge&quot;&gt;@raidus&lt;/code&gt;. You can imagine situation, you have here more complex calculation. Then you need to check all your instance variables in specific line and find the &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt; one. The situation can be even worst to track. You can even don’t have error message at all. For example Ruby can cast the &lt;code class=&quot;highlighter-rouge&quot;&gt;nil&lt;/code&gt; value into a string. You will not get any error, but code will not work in the correct way. The tests are very handy in this situation. Check this:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Wheel information: radius = &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@raidus&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When we run our class, there will be no error, but wrong text:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x0000559bdd850fb0 @radius=5&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Wheel information: radius = &quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the main reason why &lt;strong&gt;I use a private method instead of instance variables.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Check example here:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Wheel&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PI&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;raidus&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;diagonal&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;Wheel information: radius = &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raidus&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:radius&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I only added private getter for our &lt;code class=&quot;highlighter-rouge&quot;&gt;@radius&lt;/code&gt; instance variable. This is how the error will look like now:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x0000559bddafea50 @radius=5&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;perimeter&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        3: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;89&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;76&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`perimeter'
+NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raidus&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x0000559bddafea50 @radius=5&amp;gt;)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Did&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean?&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+               &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is also working the same way for strings:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wheel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        3: from /home/agnieszka/.rvm/rubies/ruby-2.6.0/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;137&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;129&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`to_s'
+NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;raidus&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;Wheel:0x0000559bddaf30b0 @radius=5&amp;gt;)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Did&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;you&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mean?&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;radius&lt;/span&gt;
+               &lt;span class=&quot;vi&quot;&gt;@radius&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The error message which we see now is much more clear. Ruby is even helping us and shows, that we can use &lt;code class=&quot;highlighter-rouge&quot;&gt;radius&lt;/code&gt; method or &lt;code class=&quot;highlighter-rouge&quot;&gt;@radius&lt;/code&gt; instance variable instead of our misspell &lt;code class=&quot;highlighter-rouge&quot;&gt;raidus&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;I see here one more advantage. When I create private getter and only getter it is for me easier to stick with immutable attribute in the class. If I have &lt;code class=&quot;highlighter-rouge&quot;&gt;@radius&lt;/code&gt; it is much easier to do something like &lt;code class=&quot;highlighter-rouge&quot;&gt;@radius = 2&lt;/code&gt; in code.&lt;/p&gt;
+
+&lt;p&gt;I know that this solution is not ideal, because when you will have a local variable with the same name, like method name, we will not have this nice error message like above. But I think it is still worth to try.&lt;/p&gt;
+
+&lt;h2 id=&quot;summarize&quot;&gt;Summarize&lt;/h2&gt;
+
+&lt;p&gt;When I create my classes I try to stick to those rules (and not only them):&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Show minimal information&lt;/strong&gt; about class logic of the external world - give access to results, but not for logic&lt;/li&gt;
+  &lt;li&gt;Use &lt;strong&gt;private method&lt;/strong&gt; instead of &lt;strong&gt;instance variables&lt;/strong&gt; - give clearer error messages&lt;/li&gt;
+  &lt;li&gt;Use functional programming paradigm (if possible) - to not mutate state of your class&lt;/li&gt;
+  &lt;li&gt;Use &lt;strong&gt;open/closed principle&lt;/strong&gt; - Class (not only class) should be &lt;strong&gt;open for extension, but closed for modification&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;Use &lt;strong&gt;single responsibility principle&lt;/strong&gt; - I didn’t mention about those 2 rules here (open/close and single responsibility), but they are very useful. I talked a lot more about them during my article about &lt;a href=&quot;refactoring-part2&quot; title=&quot;Ruby refactoring - step by step&quot;&gt;refactoring in Ruby&lt;/a&gt;. They are shown by example.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you what to know more about a &lt;strong&gt;good patterns in Ruby&lt;/strong&gt; (and not only) check out those books:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452&quot; title=&quot;Design Patterns in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Design Patterns in Ruby - Russ Olsen&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530&quot; title=&quot;Test Driven Development: By Example&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Test Driven Development: By Example - Ken Beck&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330&quot; title=&quot;Practical Object-Oriented Design in Ruby: An Agile Primer&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Practical Object-Oriented Design in Ruby: An Agile Primer - Sandi Metz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X&quot; title=&quot;The Pragmatic Programmer: From Journeyman to Master&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;The Pragmatic Programmer: From Journeyman to Master - Andrew Hund, David Thomas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 03 May 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/instance-variables</link>
+        <guid isPermaLink="true">https://womanonrails.com/instance-variables</guid>
+        
+        <category>Ruby</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       
       <item>
@@ -1652,407 +1897,6 @@ SyntaxError ((irb):5: syntax error, unexpected '=', expecting end-of-input)
         <pubDate>Sun, 25 Nov 2018 00:00:00 -0500</pubDate>
         <link>https://womanonrails.com/refactoring-part2</link>
         <guid isPermaLink="true">https://womanonrails.com/refactoring-part2</guid>
-        
-        <category>Ruby</category>
-        
-        
-        <category>refactoring</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Ruby Refactoring step by step - part 1</title>
-        <description>&lt;p&gt;It was a long break from the last technical article. During that time I was trying many different things. You can look here: &lt;a href=&quot;https://bemore.womanonrails.com/&quot; title=&quot;Be more - Life style blog&quot; target=&quot;_blank&quot;&gt;Be More - my lifestyle blog in Polish&lt;/a&gt;, &lt;a href=&quot;https://www.youtube.com/channel/UCudKRFuddrf8saaxUEoo0xQ&quot; title=&quot;Woman on Rails YouTube channel&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Woman on Rails YouTube channel&lt;/a&gt; and my &lt;a href=&quot;https://vimeo.com/womanonrails&quot; title=&quot;Woman on Rails - Vimeo channel&quot; target=&quot;_blank&quot; rel=&quot;nonofollow noopener noreferrer&quot;&gt;travel Vimeo channel&lt;/a&gt;. It was a great time to discover what I like to do and what not. But back to the topic. I prepared this article for a long time. I can say even too long. I started in 2015 and now you will see the results. Let’s get started.&lt;/p&gt;
-
-&lt;p&gt;Refactoring is one of my favorite topics. I love to clean up things in real life and also in code. I’ve worked and I’m still working on web application projects. And I look for answers on how to write good code. What are the reasons that after some time our code is messy and not readable? So day by day I learn how to refactor code in a good way based on my experience and the experience of others. Today I would like to share an example of refactoring with you.&lt;/p&gt;
-
-&lt;p&gt;I got a code which was written by a person on internship long time ago in &lt;a href=&quot;https://fractalsoft.org/&quot; title=&quot;Fractal Soft - Ruby on Rails web applications&quot; target=&quot;_blank&quot;&gt;my company&lt;/a&gt;. The plan was to improve this code. It was mostly one class which you can see  &lt;a href=&quot;https://github.com/womanonrails/poker/blob/55c9ae0ab921f7aa95bb7e47676d87b970a32033/lib/poker/hand.rb&quot; title=&quot;Code before refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. In this one class you have all rules in poker to check a hand only for cards without jokers. That code is not bad. When you know business logic (in this case poker rules), you will be able to move around this code. This code has also tests. So, this is good news. It will be easier to change something if tests cover all logic. If they don’t, we can break functionality, when we won’t be careful. The code looks more procedural than object oriented and it has some duplications. Sometimes this will be enough. When this is written once and you will not need to change this code for long time &lt;strong&gt;maybe&lt;/strong&gt; you don’t need to clean it up. But if the requirements can/will change, probably your code does too. You need to decide if it is better to refactor it now or later. (I prefer refactoring now, when I still remember logic and code, then later when I need to understand it one more time.) I would like to show you how I do refactoring base on this example.&lt;/p&gt;
-
-&lt;h1 id=&quot;step-1---preparing-environment-to-work&quot;&gt;Step 1 - Preparing environment to work&lt;/h1&gt;
-
-&lt;p&gt;I updated gems which were in the project and I installed gems like Rubocop or Reek to help myself start refactoring. Those tools are helpful to see where problem in code can be. To do this, first do the overview. But those are only tools, sometimes they are right and sometimes are not. And it is easy to cheat them. But this is another topic.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-based-on-metrics&quot;&gt;Stats (based on metrics):&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt; (Line of code) - 194&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt; (Line of tests) - 168&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 112.8&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 123&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 12 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-2---start-first-clean-ups&quot;&gt;Step 2 - Start first clean ups&lt;/h1&gt;
-
-&lt;p&gt;Base on tests without going deep into logic, I made some improvements in the code. I removed some condition and simplified this code.&lt;/p&gt;
-
-&lt;p&gt;Code before change:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;straight_flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Code after change:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;straight_flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;straight?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;All the code you can find &lt;a href=&quot;https://github.com/womanonrails/poker/blob/148429e4591638aef38b5b7abaab5e0198d805c0/lib/poker/hand.rb&quot; title=&quot;Code after 2nd step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. This change, in my opinion, improves readability a little bit.&lt;/p&gt;
-
-&lt;p&gt;After that all tests passed.&lt;/p&gt;
-
-&lt;h1 id=&quot;step-3---understand-the-logic-and-try-to-simplify-it&quot;&gt;Step 3 - Understand the logic and try to simplify it&lt;/h1&gt;
-
-&lt;p&gt;Now when code is more readable, I can start changing the logic to simplify it. I have tests, so each of my changes relies on tests. I took the first method. I removed it (remove all content inside). And start from the beginning. This is what I got.&lt;/p&gt;
-
-&lt;p&gt;Code before change:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;one_pair?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;clone&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;#  (0..8).each do |elem|&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#    tmp.delete(elem)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#  end&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;tmp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;elem&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;helper_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Code after:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;one_pair?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I repeat that approach over and over again for all methods.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Take method and remove content&lt;/li&gt;
-  &lt;li&gt;Run the tests (some tests are failing), understand the logic&lt;/li&gt;
-  &lt;li&gt;Write new code in a simpler way&lt;/li&gt;
-  &lt;li&gt;Check the tests&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;After this step you can find the code &lt;a href=&quot;https://github.com/womanonrails/poker/blob/a0bb2f6ab99bf8d977c1b68a53774b2eef7a46ac/lib/poker/hand.rb&quot; title=&quot;Code after 3rd step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. During that step I also removed commented code, Polish comments and I added some tests, which for me, were missing.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 73&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 170&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 76.3&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 63&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 12 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-4---from-procedural-to-more-object-oriented-code&quot;&gt;Step 4 - From procedural to more object oriented code&lt;/h1&gt;
-
-&lt;p&gt;I don’t know if you noticed this, but everywhere we put as argument &lt;code class=&quot;highlighter-rouge&quot;&gt;array&lt;/code&gt;. And we have class, but we don’t use initializer for this class. The second thing is that in many places we use something like &lt;code class=&quot;highlighter-rouge&quot;&gt;array.each {|item| hash [item / 4] += 1}&lt;/code&gt; let’s move this also for initializer and use class state instead of calculating this everywhere.&lt;/p&gt;
-
-&lt;h4 id=&quot;quick-explanation&quot;&gt;Quick explanation:&lt;/h4&gt;
-&lt;p&gt;I think at this point I should explain a little bit how this code works. Each card has representation as a number from 0 to 51. So number 0-3 represents 2 with all colors, 4-7 represents 3 and so on. Like in this table:&lt;/p&gt;
-
-&lt;table class=&quot;table refactoring-step-by-step&quot;&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;0 &lt;/td&gt; &lt;td&gt;2&amp;spades;&lt;/td&gt;
-      &lt;td&gt;4 &lt;/td&gt; &lt;td&gt;3&amp;spades;&lt;/td&gt;
-      &lt;td&gt;8 &lt;/td&gt; &lt;td&gt;4&amp;spades;&lt;/td&gt;
-      &lt;td&gt;12&lt;/td&gt; &lt;td&gt;5&amp;spades;&lt;/td&gt;
-      &lt;td&gt;16&lt;/td&gt; &lt;td&gt;6&amp;spades;&lt;/td&gt;
-      &lt;td&gt;20&lt;/td&gt; &lt;td&gt;7&amp;spades;&lt;/td&gt;
-      &lt;td&gt;24&lt;/td&gt; &lt;td&gt;8&amp;spades;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1 &lt;/td&gt; &lt;td&gt;2&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;5 &lt;/td&gt; &lt;td&gt;3&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;9 &lt;/td&gt; &lt;td&gt;4&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;13&lt;/td&gt; &lt;td&gt;5&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;17&lt;/td&gt; &lt;td&gt;6&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;21&lt;/td&gt; &lt;td&gt;7&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt; &lt;td&gt;8&amp;clubs;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr class=&quot;red-text&quot;&gt;
-      &lt;td&gt;2 &lt;/td&gt; &lt;td class=&quot;red&quot;&gt;2&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;6 &lt;/td&gt; &lt;td class=&quot;red&quot;&gt;3&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;4&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;14&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;5&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;18&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;6&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;22&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;7&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;26&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;8&amp;hearts;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr class=&quot;red-text&quot;&gt;
-      &lt;td&gt;3 &lt;/td&gt; &lt;td class=&quot;red&quot;&gt;2&amp;diams;&lt;/td&gt;
-      &lt;td&gt;7 &lt;/td&gt; &lt;td class=&quot;red&quot;&gt;3&amp;diams;&lt;/td&gt;
-      &lt;td&gt;11&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;4&amp;diams;&lt;/td&gt;
-      &lt;td&gt;15&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;5&amp;diams;&lt;/td&gt;
-      &lt;td&gt;19&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;6&amp;diams;&lt;/td&gt;
-      &lt;td&gt;23&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;7&amp;diams;&lt;/td&gt;
-      &lt;td&gt;27&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;8&amp;diams;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;table class=&quot;table refactoring-step-by-step&quot;&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;28&lt;/td&gt; &lt;td&gt;9&amp;spades;&lt;/td&gt;
-      &lt;td&gt;32&lt;/td&gt; &lt;td&gt;10&amp;spades;&lt;/td&gt;
-      &lt;td&gt;36&lt;/td&gt; &lt;td&gt;J&amp;spades;&lt;/td&gt;
-      &lt;td&gt;40&lt;/td&gt; &lt;td&gt;D&amp;spades;&lt;/td&gt;
-      &lt;td&gt;44&lt;/td&gt; &lt;td&gt;K&amp;spades;&lt;/td&gt;
-      &lt;td&gt;48&lt;/td&gt; &lt;td&gt;A&amp;spades;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;29&lt;/td&gt; &lt;td&gt;9&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;33&lt;/td&gt; &lt;td&gt;10&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;37&lt;/td&gt; &lt;td&gt;J&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;41&lt;/td&gt; &lt;td&gt;D&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;45&lt;/td&gt; &lt;td&gt;K&amp;clubs;&lt;/td&gt;
-      &lt;td&gt;49&lt;/td&gt; &lt;td&gt;A&amp;clubs;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr class=&quot;red-text&quot;&gt;
-      &lt;td&gt;30&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;9&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;34&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;10&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;38&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;J&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;42&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;D&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;46&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;K&amp;hearts;&lt;/td&gt;
-      &lt;td&gt;50&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;A&amp;hearts;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr class=&quot;red-text&quot;&gt;
-      &lt;td&gt;31&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;9&amp;diams;&lt;/td&gt;
-      &lt;td&gt;35&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;10&amp;diams;&lt;/td&gt;
-      &lt;td&gt;39&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;J&amp;diams;&lt;/td&gt;
-      &lt;td&gt;43&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;D&amp;diams;&lt;/td&gt;
-      &lt;td&gt;47&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;K&amp;diams;&lt;/td&gt;
-      &lt;td&gt;52&lt;/td&gt; &lt;td class=&quot;red&quot;&gt;A&amp;diams;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;So code like &lt;code class=&quot;highlighter-rouge&quot;&gt;array.map {|item| item / 4}&lt;/code&gt; tells us which figure from 2 to ace is on card and code like this &lt;code class=&quot;highlighter-rouge&quot;&gt;array.map {|item| item % 4}&lt;/code&gt; represents the color of a card (♠, ♣, ♥, ♦).&lt;/p&gt;
-
-&lt;p&gt;For more explanation of poker rules, please check &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_poker_hands&quot; title=&quot;Poker hands&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;wiki page to list all of poker hands&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;We add an initializer:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Example of a method before change:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;three_of_a_kind?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;After:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;three_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;We remove some of duplication and use state of the class instance to improve our code. After this step you can find the code &lt;a href=&quot;https://github.com/womanonrails/poker/blob/83d230e969df4d27ffa5e5e34a2cf1aa43e76d90/lib/poker/hand.rb&quot; title=&quot;Code after 4th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. Quick note - I also did small refactoring on tests. I just moved the test cases to the array to also remove duplication there.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-1&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 76&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 70.9&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 57&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-5---remove-duplication&quot;&gt;Step 5 - Remove duplication&lt;/h1&gt;
-
-&lt;p&gt;Base on Reek metric I noticed a lot of duplication in code. So I decided to move this code to one method and use the state of the class’ instance one more time. You can find the whole step &lt;a href=&quot;https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb&quot; title=&quot;Code after 5th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. And this is a quick overview.&lt;/p&gt;
-
-&lt;p&gt;We change the initalizer:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_frequency&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;New method &lt;code class=&quot;highlighter-rouge&quot;&gt;cards_frequency&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_frequency&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Example of a method before change:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;four_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@cards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;After:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;four_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;stats-2&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 76&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 61.0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-6---small-public-interface&quot;&gt;Step 6 - Small public interface&lt;/h1&gt;
-
-&lt;p&gt;When you will look at the code from &lt;a href=&quot;https://github.com/womanonrails/poker/blob/74c05d7480e7857d1e99d604169f6eed46279758/lib/poker/hand.rb&quot; title=&quot;Code after 5th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;step 5&lt;/a&gt;, you will notice that all methods are public. &lt;strong&gt;The big public interface is something hard to maintain.&lt;/strong&gt; If you will try to replace class &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; by other class you need to prepare class with the same big interface. If something is public you can use it everywhere, what also can provide new dependencies in the code. In this case, when you look closer, you will see that even tests are checking only the method &lt;code class=&quot;highlighter-rouge&quot;&gt;check&lt;/code&gt;. I decided to declare all others method as private. This change is visible &lt;a href=&quot;https://github.com/womanonrails/poker/blob/ef117a56e3cc0fbfae9de4821ac61e5489f704fc/lib/poker/hand.rb&quot; title=&quot;Code after 6th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-3&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 77&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 59.9&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-7---more-clean-ups&quot;&gt;Step 7 - More clean ups&lt;/h1&gt;
-
-&lt;p&gt;This step is similar to step 5. I removed more duplication in code and decided to change names to be more specific. I created new method &lt;code class=&quot;highlighter-rouge&quot;&gt;cards_figures_and_colors&lt;/code&gt; which prepare now two things: &lt;code class=&quot;highlighter-rouge&quot;&gt;figures&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;colors&lt;/code&gt;. You can say now: &lt;em&gt;where is &lt;strong&gt;Single responsibility principle&lt;/strong&gt; or that is &lt;strong&gt;micro optimalization&lt;/strong&gt;&lt;/em&gt; because now I use only one loop instead 2. My intuition tells me that this is ok. But you can have a different opinion. That’s fine for me. I respect that. This is how this method looks like:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_figures_and_colors&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;transpose&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and I’m open to discuss if this was a good or bad step. This change affects also our &lt;code class=&quot;highlighter-rouge&quot;&gt;initialize&lt;/code&gt; method:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@colors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_figures_and_colors&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;In this step I also did change in method &lt;code class=&quot;highlighter-rouge&quot;&gt;cards_frequency&lt;/code&gt;. I used there &lt;code class=&quot;highlighter-rouge&quot;&gt;each_with_object&lt;/code&gt; (you can find more about this method in my article &lt;a href=&quot;https://womanonrails.com/each-with-object&quot; title=&quot;Quick overview Ruby of each_with_object method&quot;&gt;Quick overview - each_with_object method&lt;/a&gt;) instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt; like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_frequency&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each_with_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Thanks to &lt;code class=&quot;highlighter-rouge&quot;&gt;@colors&lt;/code&gt; instance variable I can change &lt;code class=&quot;highlighter-rouge&quot;&gt;flush?&lt;/code&gt; method from:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;flush?&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;uniq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;to:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;flush?&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@colors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;uniq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can see all the changes &lt;a href=&quot;https://github.com/womanonrails/poker/blob/46e12428d0d67cb90d17f417147dc936815a69e7/lib/poker/hand.rb&quot; title=&quot;Code after 7th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-4&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 80&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 64.5&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;summarize&quot;&gt;Summarize&lt;/h1&gt;
-
-&lt;p&gt;Let’s summarize what we’ve done till this point:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We used metrics to do first cleanup in the code - to start&lt;/li&gt;
-  &lt;li&gt;We simplified the code using tests and our understanding of logic&lt;/li&gt;
-  &lt;li&gt;We changed procedural code and used for that more object oriented approach&lt;/li&gt;
-  &lt;li&gt;We removed duplications&lt;/li&gt;
-  &lt;li&gt;and we created a small public interface&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;In my next article I would like to go deeper with this refactoring and focus on:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Code which is more descriptive&lt;/li&gt;
-  &lt;li&gt;Metaprograming as method to write more elastic code&lt;/li&gt;
-  &lt;li&gt;Preparing small independent classes, then one big class&lt;/li&gt;
-  &lt;li&gt;Building classes as elements which are replaceable and possible to combine&lt;/li&gt;
-  &lt;li&gt;Explanation why I used metrics on each step and what they tell us&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Stay tuned! My next article will come soon! If you like this article share your thoughts with me in the comments below. Thank you so much for being here. And see you next time. Bye!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;bibliography&quot;&gt;Bibliography&lt;/h3&gt;
-
-&lt;h4 id=&quot;books&quot;&gt;Books&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&quot; title=&quot;Refactoring: Improving the Design of Existing Code&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Refactoring: Improving the Design of Existing Code - Martin Fowler&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&quot; title=&quot;Clean Code: A Handbook of Agile Software Craftsmanship&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452&quot; title=&quot;Design Patterns in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Design Patterns in Ruby - Russ Olsen&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530&quot; title=&quot;Test Driven Development: By Example&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Test Driven Development: By Example - Ken Beck&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330&quot; title=&quot;Practical Object-Oriented Design in Ruby: An Agile Primer&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Practical Object-Oriented Design in Ruby: An Agile Primer - Sandi Metz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X&quot; title=&quot;The Pragmatic Programmer: From Journeyman to Master&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;The Pragmatic Programmer: From Journeyman to Master - Andrew Hund, David Thomas&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;presentations&quot;&gt;Presentations&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=8bZh5LMaSmE&quot; title=&quot;All the Little Things by Sandi Metz&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;All the Little Things by Sandi Metz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=5yX6ADjyqyE&quot; title=&quot;Fat Models with Patterns by Bryan Helmkamp&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;LA Ruby Conference 2013 Refactoring Fat Models with Patterns by Bryan Helmkamp&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=OMPfEXIlTVE&quot; title=&quot;Nothing is something by Sandi Metz&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Nothing is something by Sandi Metz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://infinum.co/the-capsized-eight/best-ruby-on-rails-refactoring-talks&quot; title=&quot;8 best Ruby on Rails refactoring talks&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Best Ruby on Rails refactoring talks&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 08 Oct 2018 00:00:00 -0400</pubDate>
-        <link>https://womanonrails.com/refactoring-step-by-step</link>
-        <guid isPermaLink="true">https://womanonrails.com/refactoring-step-by-step</guid>
         
         <category>Ruby</category>
         
