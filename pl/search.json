@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Jak zostać programistą?",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/where-to-start",
+		  "date"       : "2019-05-18 00:00:00 -0400",
+		  "shortdate"  : "May 18, 2019"
+		} ,
+	
+		{
 		  "title"      : "Dlaczego przestałam używać zmiennych instancji w klasach Ruby?",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/instance-variables",

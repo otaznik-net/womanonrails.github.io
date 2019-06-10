@@ -5,9 +5,127 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 May 2019 07:40:27 -0400</pubDate>
-    <lastBuildDate>Wed, 08 May 2019 07:40:27 -0400</lastBuildDate>
+    <pubDate>Mon, 10 Jun 2019 13:14:39 -0400</pubDate>
+    <lastBuildDate>Mon, 10 Jun 2019 13:14:39 -0400</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>How to become a programmer?</title>
+        <description>&lt;p&gt;I’ve been working in the programming world since 2011. Before then, I spent about 6 years searching my own life path. When I was starting this adventure, my goal was completely different. I wanted to be a math teacher. During this 6 years in most cases I didn’t know, what I was doing. Where I should spent my time? On what I should focus on? I study hard, but to be honest, I didn’t know where all this will end. Especially when some of my plans failed. I put more details about my journey in &lt;a href=&quot;/about&quot; title=&quot;My way to programming&quot;&gt;about me section&lt;/a&gt;, check out if you want to know more about me. Right now I’m programmer and teach people, what I already know. I share my knowledge in many different ways. I do workshops for women like &lt;a href=&quot;/tags/#Rails%20Girls&quot; title=&quot;Rails Girls Workshops&quot;&gt;Rails Girls&lt;/a&gt;. I teach children on &lt;a href=&quot;/tags/#CoderDojo&quot; title=&quot;Programming classes CoderDojo&quot;&gt;CoderDojo&lt;/a&gt;. I write &lt;strong&gt;Woman On Rails&lt;/strong&gt; blog. I met lots of people who want to change their life. They want to be a programmer or testers or even start something which need more programming skills. I’m helping them change their career path. And I’m proud of them, because this change is hard and need some sacrifices. During that process, I get lots of questions about &lt;em&gt;How to start in programming?&lt;/em&gt; Today I would like to answer those questions in public.&lt;/p&gt;
+
+&lt;h2 id=&quot;disclaimer-about-programming-world&quot;&gt;Disclaimer about programming world&lt;/h2&gt;
+
+&lt;p&gt;Before we start, I would like to mention one very important thing. There is much information on media, saying that programming is trendy. Everyone should learn programming skills. And that programming is full of money and easy to do. &lt;strong&gt;That’s not true.&lt;/strong&gt; Maybe yes, it’s trendy right now. There is a lot of going on in the IT world. Companies search for employers, but they look for &lt;strong&gt;good&lt;/strong&gt; programmers. They need someone with passion, good skills and knowledge. The same like with doctors. You will go to the best specialist, you can afford. I’m not saying here, that there is no place for people with junior sills. I’m saying, they will earn less money in the beginning, like in other jobs. That’s normal. &lt;strong&gt;People pay for work&lt;/strong&gt;, not for being a programmer. This isn’t how the world works. You can have a different opinion about programmers, but this is the truth. Programming is like others jobs. You have your responsibilities and tasks to do and &lt;strong&gt;you are paid for what you do&lt;/strong&gt;. In a long term no one will pay you for playing games through the whole the work day (unless you are games tester ;) ). When you hear from me, that this is normal job you can be surprised. By normal job I mean, that you take care of your responsibilities, but you also have a passion to do that. No one can do the job as well as the person who has passion.&lt;/p&gt;
+
+&lt;p&gt;I think everyone should try programming, but programming is not for everyone. You will know that, when you try it. &lt;strong&gt;You need to check if you like it or not.&lt;/strong&gt; Listen to your heart. I don’t want to be a math teacher in the school anymore. Why? Because I try it and I don’t like it! The same is with programming. You can earn thousands of dollars by doing something you don’t like, because it’s trendy, but you will never be happy. And you also will hurt people around you. I saw that situation so many times, that someone came into the programming world, because of the wrong reasons. Money and others benefits like  &lt;a href=&quot;/remote-work&quot; title=&quot;How does remote work look like?&quot;&gt;remote work&lt;/a&gt; are not enough, to be happy in a long term. This kind of a person didn’t like to learn new thing, new concepts. He didn’t want to do good practice and he wasn’t interested in workshops, presentations, conferences. This is like building your house from straw and clay, when around you are better materials to use. This is like staying in middle age. So please try programming, but keep in mind that’s hard and demanding work.&lt;/p&gt;
+
+&lt;p&gt;OK, back to main topic. Let’s start answering questions.&lt;/p&gt;
+
+&lt;h2 id=&quot;is-programming-for-me&quot;&gt;Is programming for me?&lt;/h2&gt;
+
+&lt;p&gt;If you think only about money, which you earn. - Programming isn’t for you.
+If you think, that this is easy and you can do nothing almost all the day. - Programming isn’t for you.
+If you think you learn something and your knowledge stays the same for next 10 years. - Programming isn’t for you.&lt;/p&gt;
+
+&lt;p&gt;When I was organizing Rails Girls workshops in Cieszyn for 24 participants, only 5 of them were interested in continuing learning. After first classes only 2 of them staid. Only 2 of them took their’s time, energy and engagement to learn programming with me. And only one (as far as I know) changed her’s life and she is now programmer. What I would like to say by that example is that…&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Programming is hard work.&lt;/strong&gt; I’m really honest with you. It will take a lot of your time. You will learn new things, improve your skill and knowledge till end of your life. You will have doubts and moments of breaks down. You will be bored sometimes or angry that something is not working. But if you still want to try and you feel deep in your heart, that this is for you. You will also have moments of victory. You will be proud of yourself and your code. You will be happy to learn new thinks. This job will bring you satisfaction.&lt;/p&gt;
+
+&lt;p&gt;You can think I’m too young or too old. Look around. Check our &lt;a href=&quot;/tags/#CoderDojo&quot; title=&quot;Programming classes CoderDojo&quot;&gt;CoderDojo workshops&lt;/a&gt; participants. They started with programming in very young age. We teach even 3-4 year old kids. Look at this &lt;a href=&quot;https://www.youtube.com/watch?v=gUjXiYtOC7Y&quot; title=&quot;Woman is programming in her's 80s&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;old woman who uses computer in age of 80&lt;/a&gt;. My friend Ula stared working as a tester after 40s. Those people didn’t think one minute about their’s age. They just do what they love! That’s all.&lt;/p&gt;
+
+&lt;p&gt;You can also say: &lt;em&gt;I’m not enough. I’m too stupid for that. I have no knowledge, I have not enough experience.&lt;/em&gt; If you feel, that this is your passion, no matter you are men or woman, no matter you are thin or thick or young or old. Put your all doubts away and just go with your dream. Don’t allow for this or other reason stopped you from doing what you truly love.&lt;/p&gt;
+
+&lt;h2 id=&quot;when-is-the-best-time-to-start-working-in-it&quot;&gt;When is the best time to start working in IT?&lt;/h2&gt;
+
+&lt;p&gt;The best time is now! If you are sure, that this is the path for you, don’t spend your time on something else. Just start doing it right now! You cannot go back and change your decisions. Don’t spend your time on regretting, that you didn’t start earlier. Your past isn’t under your control. Your future isn’t under your control too. You don’t know what will happen in the future, but you can take action now. Do not procrastinate. Start small, start now. Prepare your action plan and do the work!&lt;/p&gt;
+
+&lt;h2 id=&quot;what-are-the-possibilities&quot;&gt;What are the possibilities?&lt;/h2&gt;
+
+&lt;p&gt;In IT world there are lots of possibilities. Even you just take programmer as a job. You can work on things, which are visible to users. You can be a frontend developer. You can more focus on the logic behind the user interface. You can be backend developer. You can also connect these two worlds together and be a fullstack developer. You can choose different languages: JavaScript, Ruby, Python, C#, PHP and many more. You can be a designer. You can search for an easy and intuitive solution to the user. You can be an experience designer. You can focus on quality of applications, you can do tests, check security or take care of documentation. You can have more management position like product owner, team leader and so on. You can specialize in databases or in environment setups. You can do even more. In small company you will do a little bit of everything, what I mention above. In bigger company you will have better specialization.&lt;/p&gt;
+
+&lt;p&gt;It’s depend on you, what you choose. Please do me a favor, do not allow those possibilities to bring you down. If you are not sure frontend or backend just try and check. This is as simple as that. Do not afraid of mistakes. There is no such thing like a mistake. There is new knowledge, new experience and a new lesson. Try to think about this as a process, which you need to discover. If you still don’t know where to start go to question &lt;a href=&quot;/where-to-start#where-should-i-start-what-steps-i-should-take-to-be-a-programmer&quot; title=&quot;Where to start?&quot;&gt;Where should I start?&lt;/a&gt; or &lt;a href=&quot;/where-to-start#what-language-i-should-choose&quot; title=&quot;Which language is good for a start?&quot;&gt;What language I should choose?&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-language-i-should-choose&quot;&gt;What language I should choose?&lt;/h2&gt;
+
+&lt;p&gt;There are many different languages. I recommend you to do your own research. Just type in browser’s search box: &lt;em&gt;Top the most used programming languages&lt;/em&gt; or &lt;em&gt;The most popular programming languages&lt;/em&gt; You will see how many programming languages exist and how different rankings you can find. I will put here some of them: JavaScript, Python, Java, C/CPP (C/C++), PHP, Swift, C#, Ruby, Objective C, SQL, TypeScript, Go Programming Language, R Programming Language, Perl, Rust, Erlang, Elixir, Haskell, Shell and many others.&lt;/p&gt;
+
+&lt;p&gt;So, how I should choose? To be honest, it is not so important at the beginning, like you think. You need to choose any language. When you are starting, you need to learn how to write code. How to be understood by computers. You’ll learn logic conditions, loops and other programming concepts which are needed in all languages. If you want to be a good programmer, you will learn a couple different languages.&lt;/p&gt;
+
+&lt;p&gt;What I can suggest you, when you learn try to choose languages from different categories. For example, if you know already C++ which is compiled, static typed and object-oriented language you can learn Elixir which is interpreted, dynamic typed and functional-oriented language. This will give you much more knowledge about programming concepts, then if you will learn C#. I’m not saying that C# is bad. I’m just saying that it is similar to C++. This is like with normal languages. Some of them are similar. For example, I more less understand Czech (especially near the Polish border), because it is more similar to Polish than Spanish. I don’t need to put too much effort to understand Czech. The situation looks completely different with Spanish. I need to learn new words and new grammar concepts to be able to use that language.&lt;/p&gt;
+
+&lt;h2 id=&quot;where-should-i-start-what-steps-i-should-take-to-be-a-programmer&quot;&gt;Where should I start? What steps I should take to be a programmer?&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Check if coding is for you. - I really recommend that as a first step. Search for workshops for the beginners. They don’t need to be paid. There are lots of free events like Rails Girls, where you can try programming without any obligations. You don’t like it? Fine, you only spent a couple of hours to try it. It is the best step before you quit your job or something like that.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Do you like it? Yes, then you can start changing your life. There are many ways to do. You can read books, listen or watch conferences and talks. You can buy online courses or do some &lt;a href=&quot;/workshops&quot; title=&quot;Assign to my programming course&quot;&gt;full time course&lt;/a&gt;. Anyone who starts programming have a different story to tell. Some people go to study and some people learn by themselves. Everything depends on your current state in your life. I can say one thing. No matter what you decide you need to choose &lt;a href=&quot;/where-to-start#what-language-i-should-choose&quot; title=&quot;Which language is good for a start?&quot;&gt;programming language to learn&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;When you have already chosen the programming language, start a project using it. At the beginning you can resolve some simple math problems, like you can find on &lt;a href=&quot;https://projecteuler.net&quot; title=&quot;Logical and mathematical problems to solve using programming&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Project Euler&lt;/a&gt; page, but sooner or later you need to start your own project. It is even better to start sooner. It doesn’t matter, what you will do. You can try to copy existing application. What I mean by that. Do not steal their code, just look on their functionality and try to do similar things in your project with language you choose. You can also have your own idea, which you can bring to life.&lt;/p&gt;
+
+    &lt;p&gt;When you start, you will have problems. You will search for help. This is how it should be. You need to learn how find solutions, how ask for help. You need to show that you will not give up. And you need to show your work to the world. This will be your portfolio. Put it on any public repository. Github, Gitlab, Bitbucket. It doesn’t matter. And improve, change, add new functionality.&lt;/p&gt;
+
+    &lt;p&gt;You will work every day. Based on problems which you have in your project, you will search for specific help. This project will focus your attention on things that matter the most to you right now. For sure, you will use for that many different resources, even online courses. I will do a separate article about them soon.&lt;/p&gt;
+
+    &lt;p&gt;If you think about full-time course in programming school, that’s fine. I also do this kind of courses. You can &lt;a href=&quot;/workshops&quot; title=&quot;Assign to my programming course&quot;&gt;check my courses here&lt;/a&gt;. I want to you to remember one thing. Programming school can be helpful and can speed up your learning process, but you need to start creating your own project no matter what. Often in courses you will get homework to do. This is good for a start, but your own project is something you can put in your portfolio.&lt;/p&gt;
+
+    &lt;p&gt;I don’t say that you cannot be a programmer without your own project. You can, but your own project can give you more chance to get a job. And also you will learn much more, than ever. You will have more confident that you can overcome problems and you can also talk about this project during your interviews.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;This is the hardest step. Start looking for a job. When you are in learning mode, you can always say I’m not ready to start searching for a job. I don’t know many of requirements on the job offer. I don’t have a change. This is the wrong approach. You need to set a deadline, after which you will search for a job. This is not an easy task. You will send 100 resumes and 10 people reach to you. Only one person will invite you to interview. This is only an example, but be prepared for that. In your case it can be faster or slower. The most important is keep trying. If you fail, you can always ask, why you didn’t get a job. This will help you improve your skill in good direction. Do not wait too long. The only thing which people regret after reaching their goal is that they didn’t do it earlier. Go out of your comfort zone and search for a job.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;what-can-help-me-with-the-learning-process&quot;&gt;What can help me with the learning process?&lt;/h2&gt;
+
+&lt;p&gt;There are many different ways to learn. Some people like to read, some people like to listen. For others is better go by example. You know yourself the best. You know what is working for you and what is not. There are also books about ways to effective learning. You can try it. From my experience I can encourage you to use these tips:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If you learn something, try to explain it to someone else. - Your friend, your mum, even your dog. If you have a problem with that, you probably don’t understand this problem fully. People who can explain complex problems with simple words, really understand the problem.&lt;/li&gt;
+  &lt;li&gt;Surround with people from programming world. - If you want to be a programmer, you should find people who are already there. Check local Meetups groups. Use their example to get, where you want to be. You will have new friends and someone who can help you with needs. They can show you important topics, discuss the newest concepts, tell you how it is working as a programmer or even tell you about job opportunities. And you will be not alone in this journey.&lt;/li&gt;
+  &lt;li&gt;Find a mentor. - This is similar to one before. It is much harder to do everything alone. If you have someone with experience around you it is easier to learn, get answers or look for good practices. Even more, your mentor can be your support in hard moments. He or she can give you advice or show the best way to achieve your goal.&lt;/li&gt;
+  &lt;li&gt;Work with code. - You can read all books. You can watch all courses online, but if you don’t write code, you will stay in the same place. Coding is not only about definitions and lots of stuff to remember. It is about &lt;strong&gt;practice&lt;/strong&gt;. To fully understand something you need to try it in practice. I don’t know any person who learned bicycling by reading books. You need to take a bike and try. You will fall, but after some practice you will start bicycling.&lt;/li&gt;
+  &lt;li&gt;Work on project with real problems. - Even it has been so often use example, like a shop with some products, cart and payments. Try to resolve those problems and show your solution to the word. Ask for advice and improve your code. And do that daily. You don’t have much time? Fine, add one line of code, create one more test.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;what-problems-i-can-find-during-the-learning-process&quot;&gt;What problems I can find during the learning process?&lt;/h2&gt;
+
+&lt;p&gt;You can have many problems. Probably I’m not able to count them all, but I will try to describe some of them.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;What I should learn? - The answer is simple. It’s depends. First, you need to decide which specialization is interesting for you. Some of the possibilities you can find in answer to question &lt;a href=&quot;/where-to-start#what-are-the-possibilities&quot; title=&quot;What I can do in IT?&quot;&gt;What are the possibilities?&lt;/a&gt;. If you decide to be a programmer more interesting for you will be questioned &lt;a href=&quot;/where-to-start#what-language-i-should-choose&quot; title=&quot;Which language is good for a start?&quot;&gt;What language I should choose?&lt;/a&gt; and &lt;a href=&quot;/where-to-start#where-should-i-start-what-steps-i-should-take-to-be-a-programmer&quot; title=&quot;Where to start?&quot;&gt;Where should I start?&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;I don’t know what I should know. - Probably you know nothing or a little. That’s OK. Any knowledge related to the topic you are interested in, will be helpful. Yes, for sure there are more or less effective ways to learn, but to be a good programmer you need to start. Problem with choosing where to start, is not the excuse for doing nothing. If you are interested in a more structured way of learning you can always start &lt;a href=&quot;/workshops&quot; title=&quot;Assign to my programming course&quot;&gt;programming course&lt;/a&gt;. There is lots of them. Ask questions, search for opinion and choose one.&lt;/li&gt;
+  &lt;li&gt;I don’t understand programming words. There are so many new concepts. - This is hard, I know. You try to read one article and many words are for you like buzzy words. You don’t understand even big picture of shown concept. First, take a deep breath. Do not give up! It is very hard to start a new thing. Second, go back and start again. Which word was not clear for you? Take this word and search information about it. Search for &lt;em&gt;simple explanation for X&lt;/em&gt;. If first answer will not help, try second and third. If this is still unclear, ask questions, for example on programming forum, in article comments, places like Stack overflow. Maybe you know someone who is a programmer, ask him or her. If something is too hard to understand now, mark it and go back in a week or so. The rule is simple, do not give up. If you ask for help, someone will help you. This will be hard work with a lot of doubts, but it is worth it. And remember &lt;em&gt;Wisdom will come with time&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;This took me so much time. - Yes, as I said programming is hard. Some problems will be easy and fast to resolve and some of them not. You will spend many hours learning how to code. You need to be patient. Give yourself some space to failures and mistakes. People study this topic for years (master degree takes 5 years), and they are still at the beginning of programming road. If you are fully committed to this dream you can do it. Give yourself time to do that. This is the only way to reach that goal. There is not short cuts. Remember &lt;em&gt;Progress not perfection&lt;/em&gt;.&lt;/li&gt;
+  &lt;li&gt;I will never understand that! - Look, do you remember from your school’s times any topic which was hard for you to understand? Maybe something from math or physic or philosophy? Do you know that topic better now? Probably yes. I had many this kind of topics. Especially from my studies. I didn’t understand them fully when I was young. When I was learning this first time. And now, I am teaching this others. Just keep going. One thing which is complex for you now, will not stop you for being who you want to be. I believe in yourself. I know you can overcome it. Take care of something else for a moment and go back to this hard topic one more time.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;i-got-my-first-job-what-next&quot;&gt;I got my first job. What next?&lt;/h2&gt;
+
+&lt;p&gt;Well, congratulations! That’s awesome news! It is time to celebrate your success! When you give yourself time to rest and relax after your hard work (probably it will be a few days before you start your new job), then you will see more work to do and more thing to learn.&lt;/p&gt;
+
+&lt;p&gt;First days in your new programming job can be stressful. Don’t worry, it is stressful for everyone. You don’t have the right environment to start, you don’t know the language of your team, you don’t even know where is the coffee machine. This is a problem related to office, when you work remotely from your home, you know where your kitchen is ;] But back to the topic.&lt;/p&gt;
+
+&lt;p&gt;You are new in this programming world, that’s normal you don’t know it yet. Working on your own project at home it completely different than working in a team. You need to know the workflow, processes and company traditions. That’s fine. Probably you will get someone to help you go through all the problems in the beginning. If you have questions, just ask. There are no wrong questions. From my experience new people in a team have very good questions, that I never think of. But try to combine them, put them on some list and ask once to not disturb people in your team over and over again during the day. They will appreciate that.&lt;/p&gt;
+
+&lt;p&gt;Keep in mind that you are in learning process constantly. This will never change. Even you will have 10 years of experience you will still learn. For sure at the beginning you will learn faster than later in your work. This is the best practice you can have. Not only in programming world. Constantly learn new thing. You will read articles, listed podcasts, watch tutorials, read books, participate in conferences, workshops and meeting to get more knowledge. And then you will use this knowledge in your projects.&lt;/p&gt;
+
+&lt;p&gt;At each step you should be proud of your progress. You can even track what you learned to have evidence of your evolution. This will be your weapon in moments of doubts. And you will have them. A lot of them. Searching for a bug in the code for 3h? Oh yeah! Fighting with new functionality for long hours and then get information from someone in your team, that you can do it in one line? Yes! I’ve been there, everyone else too. Don’t be too hard on yourself. Keep going! It will be easier, trust me.&lt;/p&gt;
+
+&lt;p&gt;Then after some time, it can be a long time, the routine will come. You will bored with the same problems. The same solutions. The same behaviors. Please do not be, that person to know everything. Keep this learning mode. Listen to the people and be open for what will come.&lt;/p&gt;
+
+&lt;h2 id=&quot;any-other-questions&quot;&gt;Any other questions?&lt;/h2&gt;
+
+&lt;p&gt;Do you have more questions related to programming topic? Or you have other questions too? Feel free to put them in comments below, and I will try to answer them all. And if you know someone who have those questions, share this article with them.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 18 May 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/where-to-start</link>
+        <guid isPermaLink="true">https://womanonrails.com/where-to-start</guid>
+        
+        <category>interview</category>
+        
+        
+        <category>work</category>
+        
+      </item>
     
       
       <item>
@@ -335,11 +453,11 @@ NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot
       
       <item>
         <title>Wroclove.rb 2019</title>
-        <description>&lt;p&gt;In my opinion, conferences are one of the most awesome ways to know programming community. You can meet new people or someone you already know, discovers something new or just get more knowledge about some topics. Even if you cannot be a part of the conference, I really recommend you to check out the videos after conferences. However, they will be one missing part - community factor. I felt like that, when I was starting my programming adventure. As if I was alone. Conferences, workshops and hackathons gave me, that feeling of being a part of something bigger. So, this is why I recommend you to participate in tech conferences. One of them is &lt;a href=&quot;https://wrocloverb.com/&quot; title=&quot;Wroclove.rb - Ruby conference in Wroclaw&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Wroclove.rb&lt;/a&gt;.&lt;/p&gt;
+        <description>&lt;p&gt;In my opinion, conferences are one of the most awesome ways to get to know programming community. You can meet new people or someone you already know, discovers something new or just get more knowledge about some topics. Even if you cannot be a part of the conference, I really recommend you to check out the videos after conferences. However, there will be one missing part - a community factor. I felt like that, when I was starting my programming adventure. As if I was alone. Conferences, workshops and hackathons gave me that feeling of being a part of something bigger. So, this is why I recommend you to participate in tech conferences. One of them is &lt;a href=&quot;https://wrocloverb.com/&quot; title=&quot;Wroclove.rb - Ruby conference in Wroclaw&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Wroclove.rb&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I cannot imagine, how fast time is going. Recently it was March 2018 and I went to &lt;strong&gt;Wroclove.rb&lt;/strong&gt;, and now the next edition of this conference is over. If you would like to read or see my summary from last year, check out my article &lt;a href=&quot;/wrocloverb-2018&quot; title=&quot;Wroclove.rb 2018 - Quick overview&quot;&gt;Wroclove.rb 2018 - Quick overview&lt;/a&gt;. This year my overview will look a little bit different. I decided to be more focus on people and presentations. So, there won’t be a video. I will share my thoughts about my favourites presentations and some photos. Let’s start!&lt;/p&gt;
+&lt;p&gt;I cannot imagine, how fast time is going. Recently it was March 2018 and I went to &lt;strong&gt;Wroclove.rb&lt;/strong&gt;, and now the next edition of this conference is over. If you would like to read or see my summary from last year, check out my article &lt;a href=&quot;/wrocloverb-2018&quot; title=&quot;Wroclove.rb 2018 - Quick overview&quot;&gt;Wroclove.rb 2018 - Quick overview&lt;/a&gt;. This year my overview will look a little bit different. I decided to be more focused on people and presentations. So, there won’t be a video. I will share my thoughts about my favourite presentations and some photos. Let’s start!&lt;/p&gt;
 
-&lt;p&gt;For some time, I’m really interested in developing process itself. How to do this in a good way? How don’t have communication problems? How share information in fast and effective way? What is important in a project? How take care of quality? Because of that, even this wasn’t technical presentation, I like it so much. This was &lt;em&gt;“Development with Axioms”&lt;/em&gt; by Martin Gamsjaeger. Martin talked about improvements which his team did during remote work. They standardize names of commits, order of operations during the development process and they did lots of automation.&lt;/p&gt;
+&lt;p&gt;For a while, I’ve been really interested in developing process itself. How to do this in a good way? How to not have communication problems? How to share information in fast and effective way? What is important in a project? How to take care of quality? Because of that, even though this wasn’t technical presentation, I liked it so much. This was &lt;em&gt;“Development with Axioms”&lt;/em&gt; by Martin Gamsjaeger. Martin talked about improvements which his team did during remote work. They standardize names of commits, order of operations during the development process and they did lots of automation.&lt;/p&gt;
 
 &lt;figure class=&quot;third&quot;&gt;
   &lt;a href=&quot;/images/wrocloverb-2019/dwa1.jpg&quot;&gt;
@@ -354,7 +472,7 @@ NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot
   &lt;figcaption&gt;&quot;Development with Axioms&quot; - Martin Gamsjaeger&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;p&gt;Second presentation, I liked, was &lt;em&gt;“The TruffleRuby Compilation Pipeline”&lt;/em&gt; by Chris Seaton. From some time in Ruby community, we often say: &lt;em&gt;“Ruby is slow”&lt;/em&gt;. Here you are! New implementation of the Ruby language, with high performance. Additionally, I always was interested in how this whole programming magic work inside. How computer knows, how to interpret programming language commands? Thanks, for this presentation. Right now I know more about this topic.&lt;/p&gt;
+&lt;p&gt;Second presentation, I liked, was &lt;em&gt;“The TruffleRuby Compilation Pipeline”&lt;/em&gt; by Chris Seaton. For some time, in Ruby community, we often say: &lt;em&gt;“Ruby is slow”&lt;/em&gt;. Here you are! New implementation of the Ruby language, with high performance. Additionally, I always was interested in how this whole programming magic works inside. How does the computer know how to interpret programming language commands? Thanks to this presentation I know more about this topic.&lt;/p&gt;
 
 &lt;figure class=&quot;half&quot;&gt;
   &lt;a href=&quot;/images/wrocloverb-2019/trcp1.jpg&quot;&gt;
@@ -389,7 +507,7 @@ NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot
   &lt;/video&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Big thanks to all organizers for Wroclove.rb this year. I hope we will see you next year too! If you were on Wroclove.rb, share your thought with me in the comments below. Thank you and bye!&lt;/p&gt;
+&lt;p&gt;Big thanks to all organizers for Wroclove.rb this year. I hope we will see you next year too! If you were on Wroclove.rb, share your thoughts with me in the comments below. Thank you and bye!&lt;/p&gt;
 </description>
         <pubDate>Fri, 05 Apr 2019 00:00:00 -0400</pubDate>
         <link>https://womanonrails.com/wrocloverb-2019</link>
@@ -1297,611 +1415,6 @@ SyntaxError ((irb):5: syntax error, unexpected '=', expecting end-of-input)
         
         
         <category>tools</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Ruby Refactoring step by step - part 2</title>
-        <description>&lt;p&gt;Last time in the article &lt;a href=&quot;https://womanonrails.com/refactoring-step-by-step&quot;&gt;Ruby Refactoring step by step - part 1&lt;/a&gt; we went through the very procedural code in one class to a more object oriented approach. This time we will continue our journey through refactoring. We will cover small object instead of one big class and we will use composition to plug behavior into an object. Let’s start!&lt;/p&gt;
-
-&lt;h1 id=&quot;step-8---more-descriptive-output&quot;&gt;Step 8 - More descriptive output&lt;/h1&gt;
-
-&lt;p&gt;This step I started from &lt;a href=&quot;https://github.com/womanonrails/poker/blob/46e12428d0d67cb90d17f417147dc936815a69e7/lib/poker/hand.rb&quot; title=&quot;Code after 7th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. I mainly focus on meaning of this method:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight_flush?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;four_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;full_house?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;three_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;two_pair?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one_pair?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high_card?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I need to say, this step was very important. When you think about readability, it is better to have something like &lt;code class=&quot;highlighter-rouge&quot;&gt;:straight_flush&lt;/code&gt; than &lt;code class=&quot;highlighter-rouge&quot;&gt;9&lt;/code&gt;. In this case you don’t need to go deep in code to understand the meaning of this number. On the other hand, I was thinking only about this one class (without impact on whole system). I changed the result of &lt;code class=&quot;highlighter-rouge&quot;&gt;check&lt;/code&gt; method. In some cases, in big systems this change can be hard to do or even impossible (for the current state of the code). Even in my case, this force changes in all tests, so you need to be careful before this kind of changes. You need to know how big impact the change will provide to your system. Anyway, in this case I still think that it was worth to do.&lt;/p&gt;
-
-&lt;p&gt;Code after changes:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:straight_flush&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight_flush?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:four_of_a_kind&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;four_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:full_house&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;full_house?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:flush&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:straight&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:three_of_a_kind&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;three_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:two_pair&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;two_pair?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:one_pair&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one_pair?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:high_card&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high_card?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:none&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can find new version of code &lt;a href=&quot;https://github.com/womanonrails/poker/blob/4896498a348db52d5c884a522a132eae5b2c4f60/lib/poker/hand.rb&quot; title=&quot;Code after 8th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;stats&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 80&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 62.5&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-9---meta-programming&quot;&gt;Step 9 - Meta-programming&lt;/h1&gt;
-
-&lt;p&gt;This step is completely optional. I did that because I didn’t like so much of a redundancy in method &lt;code class=&quot;highlighter-rouge&quot;&gt;check&lt;/code&gt;. In this case in my opinion, this method is still readable in short time. I mean, you don’t need to debug this long time to understand what is going on. Remember that not always a code with meta-programming is simple to read. Sometimes it’s even better to leave the code without meta-programming to improve readability. But as always you, as a programmer, are responsible for the solution you choose. In this case, I create array with right order by checking hand and then I connected it to &lt;code class=&quot;highlighter-rouge&quot;&gt;check&lt;/code&gt; method.&lt;/p&gt;
-
-&lt;p&gt;Code before:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:straight_flush&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight_flush?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:four_of_a_kind&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;four_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:full_house&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;full_house?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:flush&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;flush?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:straight&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;straight?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:three_of_a_kind&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;three_of_a_kind?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:two_pair&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;two_pair?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:one_pair&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;one_pair?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:high_card&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;high_card?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:none&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Code after:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@order_checking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'?'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_sym&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;where &lt;code class=&quot;highlighter-rouge&quot;&gt;@order_checking&lt;/code&gt; is order of checking hand.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@order_checking = [
-  :straight_flush, :four_of_a_kind, :full_house, :flush, :straight,
-  :three_of_a_kind, :two_pair, :one_pair, :high_card, :none
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;All code you can find &lt;a href=&quot;https://github.com/womanonrails/poker/blob/4d649a25af020c7f862b3c6ed964f1b2e73a0f60/lib/poker/hand.rb&quot; title=&quot;Code after 9th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-1&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 82&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 190&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 59.3&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 104 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-10---small-object&quot;&gt;Step 10 - Small object&lt;/h1&gt;
-
-&lt;p&gt;This step is quite big and also very important. Maybe even the most important one. I started from &lt;strong&gt;SOLID&lt;/strong&gt; principles. If you’ve never heard about them or you would like to refresh your memory to do this in short way you can check &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)&quot; title=&quot;SOLID (object-oriented design)&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;wiki page&lt;/a&gt; or to deeply understand it check out the presentation of &lt;a href=&quot;https://www.youtube.com/watch?v=v-2yFMzxqwU&quot; title=&quot;Sandy Metz - SOLID Object-Oriented Design&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Sandy Metz - SOLID Object-Oriented Design&lt;/a&gt;. I started from &lt;strong&gt;S - Single responsibility principle&lt;/strong&gt;. When I look into this code I can say that &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; class know and do everything. As I already mentioned before this code is more procedural than object oriented. So I started extracting functionality one by one. These are the steps for each method by &lt;code class=&quot;highlighter-rouge&quot;&gt;four_of_a_kind&lt;/code&gt; example:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I moved &lt;code class=&quot;highlighter-rouge&quot;&gt;four_of_a_kind&lt;/code&gt; logic to separate class. Yes, there are some duplications, but as Sandi says: &lt;em&gt;duplication is better than a wrong abstraction&lt;/em&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Poker&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FourOfAKind&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@colors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_figures_and_colors&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cards_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;:four_of_a_kind&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_figures_and_colors&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;transpose&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;cards_frequency&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each_with_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-        &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Create/modify ugly &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; statement to handle new class and also old methods names.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@order_checking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:four_of_a_kind&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FourOfAKind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'?'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_sym&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Prepare tests for new class. Yes, I also duplicated tests but they need to stay like that for now.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'spec_helper'&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;describe&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Poker&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;FourOfAKind&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;17&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;18&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shuffle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;27&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shuffle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shuffle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;33&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;34&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shuffle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;36&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;37&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;38&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;39&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;shuffle&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cards&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;it&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;detects four_of_a_kind for &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cards&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;hand&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;described_class&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cards&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;expect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;eq&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:four_of_a_kind&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;During that process I did one more thing. I inject order of hand checking to the initializer. &lt;code class=&quot;highlighter-rouge&quot;&gt;ORDER_CHECKING&lt;/code&gt; you can treat that as configuration, which I can move in future to separate file (this is not needed right now). I did that just in case we would like to change quickly the order of hand in tests or even in future of application.&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order_checking&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ORDER_CHECKING&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The code for this step you can find &lt;a href=&quot;https://github.com/womanonrails/poker/tree/0c5d6850d40f899d98ff531e4a2b948d469c3d84/lib/poker&quot; title=&quot;Code after 10th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. This step I repeated to all different hands. After each iteration all tests were passing. If you would like to check the pattern which I repeated you can &lt;a href=&quot;https://github.com/womanonrails/poker/tree/08631288c747a2a9fda3d986f4046e9e363ea027/lib/poker&quot; title=&quot;Pattern for 3 classes created based on the steps above&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;check this commit&lt;/a&gt;, there already exist 3 classes created based on the steps above.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-2&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 85&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 200&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 65.5&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 116 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-11---remove-duplication&quot;&gt;Step 11 - Remove duplication&lt;/h1&gt;
-
-&lt;p&gt;In this step, I noticed that all my new classes have a lot of duplications in code. I only changed two things in each class: class name and one line in method &lt;code class=&quot;highlighter-rouge&quot;&gt;check&lt;/code&gt;. In this case we need to extract some behavior, maybe method or even class which will take care of sorting cards in hand and will have knowledge about the colors and figures on this card. I decided to create some normalization for the cards. I created class &lt;code class=&quot;highlighter-rouge&quot;&gt;CardsNormalization&lt;/code&gt;, which is one of representation of &lt;code class=&quot;highlighter-rouge&quot;&gt;Normalization&lt;/code&gt; class. You can ask me why did I create 2 classes when probably I need only one? Well, I had a feeling that I create simple &lt;em&gt;interface&lt;/em&gt; which can have many representations. For now is only one, but who knows the future? So I created &lt;em&gt;interface&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Normalization&lt;/code&gt; with one representation &lt;code class=&quot;highlighter-rouge&quot;&gt;CardsNormalization&lt;/code&gt;. Another example of normalization can be normalization for dice. There are the same rules like in poker (one pair or four of a kind), but normalization will be different. Code for these two classes you can find &lt;a href=&quot;https://github.com/womanonrails/poker/tree/a668a538cb86dd17e946157c5d62373fe2266c0e/lib&quot; title=&quot;Code after 11th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. I just moved code which was duplicated in many classes to this &lt;code class=&quot;highlighter-rouge&quot;&gt;Normalization&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Normalization&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;attr_reader&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:colors&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:figures_frequency&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepare_figures&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@colors&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepare_colors&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@figures_frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prepare_figures_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;values&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepare_colors&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepare_figures&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepare_figures_frequency&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each_with_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and &lt;code class=&quot;highlighter-rouge&quot;&gt;CardsNormalization&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CardsNormalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Normalization&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepare_colors&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;prepare_figures&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I did one more thing here. I inject this normalization as a argument of &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; initializer:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order_checking&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ORDER_CHECKING&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CardsNormalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and after that my class &lt;code class=&quot;highlighter-rouge&quot;&gt;OnePair&lt;/code&gt; looks like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Poker&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;OnePair&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;:one_pair&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;figures_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Only one method looks ugly. This is &lt;code class=&quot;highlighter-rouge&quot;&gt;check&lt;/code&gt; method. We have more conditions there. But I know that I will take care of this method as soon as I will finish extracting all hands type to separate classes. For now this method looks like that:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@order_checking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:one_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Poker::'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'_'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:capitalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;const_get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:four_of_a_kind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:three_of_a_kind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:one_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Poker::'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'_'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:capitalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;const_get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'?'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_sym&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;method_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Next, I did the same for rest of existing clases. So I used &lt;code class=&quot;highlighter-rouge&quot;&gt;CardsNormalization&lt;/code&gt; for class &lt;code class=&quot;highlighter-rouge&quot;&gt;FourOfAKind&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;ThreeOfAKind&lt;/code&gt;.  You can find code for that &lt;a href=&quot;https://github.com/womanonrails/poker/tree/87891306fe875bd415554a6eb5ebc0b46f893c9d/lib/poker&quot; title=&quot;Code after 11th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-3&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 87&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 200&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 82.5&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog total&lt;/strong&gt; - 122.4&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 124 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-12---remove-more-duplications&quot;&gt;Step 12 - Remove more duplications&lt;/h1&gt;
-
-&lt;p&gt;This time I noticed one more duplication in the code. For now all new classes, check similar condition: &lt;code class=&quot;highlighter-rouge&quot;&gt;@normalize_array.figures_frequency.include?(4)&lt;/code&gt; only number is changing. For me this is some kind of a rule. We check if we have  2, 3 or 4 the same figures. I decided to create class &lt;code class=&quot;highlighter-rouge&quot;&gt;FrequencyRule&lt;/code&gt; and this is the code for this class:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Rules&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FrequencyRule&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frequency_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@frequency_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frequency_array&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@frequency_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;include?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;then I added &lt;code class=&quot;highlighter-rouge&quot;&gt;@rule = Rules::FrequencyRule.new(@normalize_array.figures_frequency, 3)&lt;/code&gt; to initializers and used &lt;code class=&quot;highlighter-rouge&quot;&gt;@rule.check?&lt;/code&gt; instead of &lt;code class=&quot;highlighter-rouge&quot;&gt;@normalize_array.figures_frequency.include?(3)&lt;/code&gt;. Example of class after this changes:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ThreeOfAKind&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@rule&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;FrequencyRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;figures_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:three_of_a_kind&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Whole code is &lt;a href=&quot;https://github.com/womanonrails/poker/tree/d66590842ef194a9218dea70ccd083212b5d43b2/lib&quot; title=&quot;Code after 12th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. After this changes and writing new tests all new and old tests have passed.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-4&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 87&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 161&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 82.5&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog total&lt;/strong&gt; - 134.9&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 95 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-13---combining-rules&quot;&gt;Step 13 - Combining rules&lt;/h1&gt;
-
-&lt;p&gt;Now this is the interesting part. Time for a full house. In this case we need to have 3 of the same figures and 2 of the same figures at the same time. Like 2♠ 2♣ &lt;span class=&quot;red-text&quot;&gt;2♥ 3♥ 3♦&lt;/span&gt; So we need to check the same rules twice. This is a good time to prepare something what will combine different rules I called this class &lt;code class=&quot;highlighter-rouge&quot;&gt;RulesFactory&lt;/code&gt; and code looks like that:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;RulesFactory&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@rules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rules&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-    &lt;span class=&quot;vi&quot;&gt;@rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Now we can provide the code of &lt;code class=&quot;highlighter-rouge&quot;&gt;FullHouse&lt;/code&gt; class:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Poker&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FullHouse&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;rule1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;FrequencyRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;figures_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;rule2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rules&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;FrequencyRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;figures_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@rules&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;RulesFactory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rule1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rule2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;:full_house&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@rules&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Do you see the pattern? Of course I need to make some improvements in my &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; class, add more test and check if all of them pass. Full code on this stage available &lt;a href=&quot;https://github.com/womanonrails/poker/tree/d18cf1f273c9fdcb97e21067d3411938beefdf36/lib&quot; title=&quot;Code after 13th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1 id=&quot;step-14---repeat-steps&quot;&gt;Step 14 - Repeat steps&lt;/h1&gt;
-
-&lt;p&gt;So now time to repeat some steps. Create new rules like &lt;code class=&quot;highlighter-rouge&quot;&gt;StraightnessRule&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;FlushnessRule&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;RoyalnessRule&lt;/code&gt;. Create new classes &lt;code class=&quot;highlighter-rouge&quot;&gt;Straight&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Flush&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;RoyalFlush&lt;/code&gt;. The code after those changes you will find &lt;a href=&quot;https://github.com/womanonrails/poker/tree/0985c071c87de56c8c49307d6d20963aced7ff79/lib&quot; title=&quot;Code after 14th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I would like to mention one magic thing here. When we do small classes with one responsibility defined in a general way, we can use our classes in unexpected ways. Here is an example:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Rules&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;FlushnessRule&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;color_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@color_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color_array&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@color_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;uniq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;size&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This is what class should do:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FlushnessRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;FlushnessRule:0x00000001eced60 @color_array=[1, 1]&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;and this is what this class can do:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FlushnessRule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#fff'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'#fff'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#&amp;lt;FlushnessRule:0x00000001ebc020 @color_array=[&quot;#fff&quot;, &quot;#fff&quot;]&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;rule&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;When I created this class I never thought about using it on an array of strings. I know that this is partially thanks to &lt;code class=&quot;highlighter-rouge&quot;&gt;Ruby&lt;/code&gt; as a language and &lt;a href=&quot;https://en.wikipedia.org/wiki/Duck_typing&quot; title=&quot;Duck typing in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;&lt;strong&gt;duck typing&lt;/strong&gt;&lt;/a&gt;, but also because of simplicity of the code.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-5&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 94&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 171&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 69.7&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog total&lt;/strong&gt; - 191.2&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 142 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-15---rule-for-nothing&quot;&gt;Step 15 - Rule for nothing&lt;/h1&gt;
-
-&lt;p&gt;When you play poker you can have something in your hand like three of a kind or you can have nothing. And this “nothing” also you need to handle in your code. So I created class for “nothing” - &lt;code class=&quot;highlighter-rouge&quot;&gt;None&lt;/code&gt; class. And I did some cleanups in &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; class.&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Poker&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;None&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@normalize_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-      &lt;span class=&quot;ss&quot;&gt;:none&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;All code you can check &lt;a href=&quot;https://github.com/womanonrails/poker/tree/03a356a42afed39fffd98ceff0b7b1311f7b05ec/lib&quot; title=&quot;Code after 15th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt; and tests have passed after this changes.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-6&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 55&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 171&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 56.0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog total&lt;/strong&gt; - 180.8&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 145 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;step-16---multifrequencyrule&quot;&gt;Step 16 - MultiFrequencyRule&lt;/h1&gt;
-
-&lt;p&gt;This will be our final step of this refactoring and also a tricky one. You can believe or not, checking if in hand, we have two pairs is the hardest rule. We have rule which checks the frequency of figure &lt;code class=&quot;highlighter-rouge&quot;&gt;FrequencyRule&lt;/code&gt; but we cannot use it here because we need to check if we have 2 pairs. So we need to create another frequency rule. We will call it &lt;code class=&quot;highlighter-rouge&quot;&gt;MultiFrequencyRule&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Rules&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MultiFrequencyRule&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frequency_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@frequency_array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frequency_array&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@times&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;times&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;selected_frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@frequency_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;reject&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;selected_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@times&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This time we select only chosen frequency in &lt;code class=&quot;highlighter-rouge&quot;&gt;@frequency_array&lt;/code&gt; and then we check how many times it is there. But wait! When we have this combination 2♠ 2♣ &lt;span class=&quot;red-text&quot;&gt;2♥ 3♥ 3♦&lt;/span&gt; we have a full house but also two pairs. So rule which checks if in this hand are two pairs should return &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt;. That’s why we check &lt;code class=&quot;highlighter-rouge&quot;&gt;number &amp;lt; @count&lt;/code&gt; and remove them from this array. The code for this class is &lt;a href=&quot;https://github.com/womanonrails/poker/blob/6a3af1c900c88477097ac00d405fef59866eb06b/lib/rules/multi_frequency_rule.rb&quot; title=&quot;Code for MultiFrequencyRule class&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Alert!&lt;/strong&gt; If you take a closer look to this code you will see one more problem. What if we have 2♠ 2♣ &lt;span class=&quot;red-text&quot;&gt;2♥ 2♦ 3♥&lt;/span&gt;. We can say that these are also 2 pairs (of course, this is also four of a kind). So our &lt;code class=&quot;highlighter-rouge&quot;&gt;check?&lt;/code&gt; method should look like this:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check?&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;selected_frequency&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@frequency_array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;selected_frequency&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@times&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;When we have this rule we can check &lt;code class=&quot;highlighter-rouge&quot;&gt;TwoPair&lt;/code&gt;, we can finally clean up logic in &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; class and we can replace class &lt;code class=&quot;highlighter-rouge&quot;&gt;FrequencyRule&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;MultiFrequencyRule&lt;/code&gt; which is much more general. After that all tests have passed. You can find the code &lt;a href=&quot;https://github.com/womanonrails/poker/tree/277d2893ffac1318c2a64fca2704e1c8258856e1/lib&quot; title=&quot;Code after 16th step of refactoring&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;here&lt;/a&gt;. Check out how &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; class looks like now:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Poker&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;ORDER_CHECKING&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:royal_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:straight_flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:four_of_a_kind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:full_house&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:flush&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;ss&quot;&gt;:straight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:three_of_a_kind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:two_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:one_pair&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:high_card&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:none&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;freeze&lt;/span&gt;
-
-  &lt;span class=&quot;c1&quot;&gt;# Poker hand&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Hand&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;order_checking&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ORDER_CHECKING&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CardsNormalization&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;sort&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@order_checking&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order_checking&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@normalization&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;normalization&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt;
-      &lt;span class=&quot;vi&quot;&gt;@order_checking&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-    &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;class_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Poker::'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'_'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:capitalize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;join&lt;/span&gt;
-      &lt;span class=&quot;no&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;const_get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;class_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@normalization&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;I’m pretty proud of this class. If you would like to compare this class with first implementation check this &lt;a href=&quot;https://github.com/womanonrails/poker/blob/55c9ae0ab921f7aa95bb7e47676d87b970a32033/lib/poker/hand.rb&quot; title=&quot;First version of Poker class&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;commit&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;stats-7&quot;&gt;Stats:&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;LOC&lt;/strong&gt;  - 37&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;LOT&lt;/strong&gt;  - 173&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog&lt;/strong&gt; - 28.0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flog total&lt;/strong&gt; - 182.4&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Flay&lt;/strong&gt; - 0&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;Tests&lt;/strong&gt; - 145 examples, 0 failures&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;summarize&quot;&gt;Summarize&lt;/h1&gt;
-
-&lt;p&gt;Let’s summarize what we’ve done:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;We used more descriptive names in our code.&lt;/li&gt;
-  &lt;li&gt;We simplified code using a little bit of meta-programming.&lt;/li&gt;
-  &lt;li&gt;We created small objects with small responsibility.&lt;/li&gt;
-  &lt;li&gt;We prepared a bunch of rules for checking poker logic.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;whats-next&quot;&gt;What’s next?&lt;/h1&gt;
-
-&lt;p&gt;Do you think that’s all? We finished refactoring. I’m thinking about that quite differently. In my opinion refactoring never ends, there is always something to improve or change. When time is flying by we have more and more information about future of the code. We know more specifically what will happen. So based on this knowledge we can modify the code or prepare a better architecture.&lt;/p&gt;
-
-&lt;p&gt;When I am looking at this code now, I will change it for sure. I would start from duplications in hands classes. Probably you also notice that this classes are quite generic and all of them look the same. In the next step I would remove them and create one class which can take name and needed rules. Then I would do more cleanups in tests. Maybe I would move configuration from &lt;code class=&quot;highlighter-rouge&quot;&gt;Hand&lt;/code&gt; class to some &lt;code class=&quot;highlighter-rouge&quot;&gt;.yml&lt;/code&gt; file. Maybe configuration could prepare the code for some rules? So we could be able to generate our code base on what we have in configuration. Is it too much for so small functionality like poker hand? Maybe, but this is only an example.&lt;/p&gt;
-
-&lt;h1 id=&quot;what-did-i-learn-during-this-refactoring&quot;&gt;What did I learn during this refactoring?&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;small, readable and easy to test classes&lt;/li&gt;
-  &lt;li&gt;quite big flexibility (I can use code in many different ways, not only for checking poker hand but also dicing)&lt;/li&gt;
-  &lt;li&gt;less dependencies, we can easily add or remove some rules&lt;/li&gt;
-  &lt;li&gt;we are open to extension - we don’t need to modify the existing code to add more rules, we need to add new classes and prepare right configuration. We can also use convention and do this automatically, so if someone add new class, everything will be working with new functionality without configuration.&lt;/li&gt;
-  &lt;li&gt;It was simply a fun project!&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;my-rules-for-refactoring&quot;&gt;My rules for refactoring&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;always after the next step of refactoring keep tests passing&lt;/li&gt;
-  &lt;li&gt;start slowly from small details and go up to big picture/overview&lt;/li&gt;
-  &lt;li&gt;do not change everything at once&lt;/li&gt;
-  &lt;li&gt;your code should be written in a way to not need comments (there are some situation when it is good to have comments, but in most cases code should be self explenatory)&lt;/li&gt;
-  &lt;li&gt;tools like Rubocop or Reek are to help, but they don’t know everything&lt;/li&gt;
-  &lt;li&gt;try to avoid duplication in code, but sometime duplication is better than wrong abstraction (check out Sandi Mezt in the bibliography)&lt;/li&gt;
-  &lt;li&gt;public interface should be small&lt;/li&gt;
-  &lt;li&gt;think about your whole system, how big of an impact will the change have in your environment?&lt;/li&gt;
-  &lt;li&gt;always think about rules like &lt;strong&gt;Single responsibility principle&lt;/strong&gt; try to implement them in your code&lt;/li&gt;
-  &lt;li&gt;remove duplications in a smart way&lt;/li&gt;
-  &lt;li&gt;think general and always keep in mind the big picture&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;at-the-end&quot;&gt;At the end&lt;/h1&gt;
-
-&lt;p&gt;I would like to mention one more thing here. I put statistics (metrics results) for each step. I don’t know if you notice this, but in the middle of refactoring they were worse then in the beginning. We should never reject good long term refactoring if you see that in the middle of it you get bad results, bad statistics. If you have good intuition, and I think you have, then trust that refactoring will bring good effect on the end.&lt;/p&gt;
-
-&lt;p&gt;That’s it. These are some ideas for refactoring which you can use separately. You can choose steps which are helpful for you. Steps can be done in different order (maybe not all but some of them for sure) and you don’t need to use them all. If you like this article share your thoughts with me in the comments below. And see you next time. Bye!&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;bibliography&quot;&gt;Bibliography&lt;/h3&gt;
-
-&lt;h4 id=&quot;books&quot;&gt;Books&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672&quot; title=&quot;Refactoring: Improving the Design of Existing Code&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Refactoring: Improving the Design of Existing Code - Martin Fowler&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882&quot; title=&quot;Clean Code: A Handbook of Agile Software Craftsmanship&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://www.amazon.com/Design-Patterns-Ruby-Russ-Olsen/dp/0321490452&quot; title=&quot;Design Patterns in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Design Patterns in Ruby - Russ Olsen&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530&quot; title=&quot;Test Driven Development: By Example&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Test Driven Development: By Example - Ken Beck&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Practical-Object-Oriented-Design-Ruby-Addison-Wesley/dp/0321721330&quot; title=&quot;Practical Object-Oriented Design in Ruby: An Agile Primer&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Practical Object-Oriented Design in Ruby: An Agile Primer - Sandi Metz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X&quot; title=&quot;The Pragmatic Programmer: From Journeyman to Master&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;The Pragmatic Programmer: From Journeyman to Master - Andrew Hund, David Thomas&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;presentations&quot;&gt;Presentations&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=8bZh5LMaSmE&quot; title=&quot;All the Little Things by Sandi Metz&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;All the Little Things by Sandi Metz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=5yX6ADjyqyE&quot; title=&quot;Fat Models with Patterns by Bryan Helmkamp&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;LA Ruby Conference 2013 Refactoring Fat Models with Patterns by Bryan Helmkamp&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=OMPfEXIlTVE&quot; title=&quot;Nothing is something by Sandi Metz&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Nothing is something by Sandi Metz&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://infinum.co/the-capsized-eight/best-ruby-on-rails-refactoring-talks&quot; title=&quot;8 best Ruby on Rails refactoring talks&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Best Ruby on Rails refactoring talks&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 25 Nov 2018 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/refactoring-part2</link>
-        <guid isPermaLink="true">https://womanonrails.com/refactoring-part2</guid>
-        
-        <category>Ruby</category>
-        
-        
-        <category>refactoring</category>
         
       </item>
     
