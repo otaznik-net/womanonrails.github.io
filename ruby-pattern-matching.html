@@ -196,16 +196,16 @@ Description: Awesome dude, awesome life
                         <div class="cursive" style="color: #000; font-style:italic;">Pattern matching - new feature of Ruby 2.7</div>
                         <div class="post-info text-center small">
                             <span class="entry-date date published updated"><time datetime="2019-06-12T00:00:00-04:00" class="post-time" itemprop="datePublished">12 Jun 2019</time><span>
-                            in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#programming" data-toggle="tooltip" title="Other posts from the Programming category" rel="tag">Programming</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.87</span> minutes read</span>
+                            in <span class="post-tags"><a href="https://womanonrails.com/categories/index.html#programming" data-toggle="tooltip" title="Other posts from the Programming category" rel="tag">Programming</a></span>&nbsp;<span class="post-tags"><i class="icon-time"></i>&nbsp;<span class="time">9.9</span> minutes read</span>
                         </div>
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
                         <p>Some time ago I wrote an article about <a href="/elixir-pattern-matching" title="Elixir - How to fit to the pattern?">Pattern matching in Elixir</a>. I really like this idea. Now from Ruby version 2.7 we have <strong>pattern matching in Ruby</strong>!!! It is not the same like in Elixir, but it is a nice feature to have. Keep in mind that this is still an experimental feature, so it can change in the future versions of Ruby. Let’s check out what we can do with pattern matching in Ruby.</p>
 
-<p>Before we start, let’s remind ourselves <strong>what is pattern matching?</strong> Pattern matching is a way to specify some pattern for our data and if data are matched to the pattern we can deconstruct them according to this pattern. In other words: Pattern matching is choosing specific elements from data, based on defined rules. We can also say that pattern matching is like <em>regular expressions</em> with multiple assignments not only for strings.</p>
+<p>Before we start, let’s remind ourselves <strong>what is pattern matching?</strong> Pattern matching is a way to specify a pattern for our data and if data are matched to the pattern we can deconstruct them according to this pattern. In other words: Pattern matching is choosing specific elements from data, based on defined rules. We can also say that pattern matching is like <em>regular expressions</em> with multiple assignments not only for strings.</p>
 
-<p>In the beginning of <em>Pattern Matching in Elixir</em> article, I started from <strong>basic match operator</strong> in Elixir. Because Ruby was created based on different concepts, then Elixir, we will not have anything like <strong>match operator</strong> in Ruby. We have normal <strong>assignment</strong>. So when in Elixir we can do:</p>
+<p>In the beginning of <em>Pattern Matching in Elixir</em> article, I started from <strong>basic match operator</strong> in Elixir. Because Ruby was created based on different concepts than Elixir, we will not have anything like <strong>match operator</strong> in Ruby. We have normal <strong>assignment</strong>. So when in Elixir we can do:</p>
 
 <div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iex</span><span class="o">&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="m">4</span>
 <span class="m">4</span>
@@ -228,7 +228,7 @@ Description: Awesome dude, awesome life
   <span class="o">^</span>
 </code></pre></div></div>
 
-<p>I don’t say that Ruby is worst then Elixir. I show you this to explain how big challenge was to put pattern matching in Ruby. I want you to be forgiving if something is not working like you would like to. There is still work to do, questions to answer and decision to take. Be patient and celebrate with me this first step of pattern matching in Ruby.</p>
+<p>I don’t say that Ruby is worse then Elixir. I’m showing you this to explain how big of a challenge was to put pattern matching in Ruby. I want you to be forgiving if something is not working like you would like to. There is still work to do, questions to answer and decisions to take. Be patient and celebrate with me this first step of pattern matching in Ruby.</p>
 
 <h2 id="pattern-matching-in-ruby---basics">Pattern matching in Ruby - basics</h2>
 
@@ -296,7 +296,7 @@ Description: Awesome dude, awesome life
  <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </code></pre></div></div>
 
-<p>Splat operator will always return you an array. You can use <code class="highlighter-rouge">_</code> to skip some values in your pattern:</p>
+<p>Splat operator will always return to you an array. You can use <code class="highlighter-rouge">_</code> to skip some values in your pattern:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">in</span> <span class="p">[</span><span class="n">_</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -415,7 +415,7 @@ Description: Awesome dude, awesome life
  <span class="o">=&gt;</span> <span class="mi">1</span>
 </code></pre></div></div>
 
-<p>It can be confusing at the beginning, but I see that during my tests of Ruby pattern matching I used that quite often in my code. In case that this will change in the future, I can used to this syntax too:</p>
+<p>It can be confusing at the beginning, but I see that during my tests of Ruby pattern matching I used that quite often in my code. In case that this will change in the future, I can get used to this syntax too:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="p">{</span> <span class="ss">foo: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">bar: </span><span class="mi">2</span> <span class="p">}</span>
 <span class="k">in</span> <span class="n">foo</span><span class="p">:,</span> <span class="o">**</span><span class="n">_</span>
@@ -485,7 +485,7 @@ Description: Awesome dude, awesome life
 
 <h4 id="variables">Variables</h4>
 
-<p>We can also use variable, what we already saw in the previous examples. The only thing which I would like to add is that we always do assignment in this case:</p>
+<p>We can also use variables which we already saw in the previous examples. The only thing which I would like to add is that we always do assignment in this case:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">irb</span><span class="o">&gt;</span> <span class="n">array</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
  <span class="o">=&gt;</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -530,7 +530,7 @@ Description: Awesome dude, awesome life
 
 <h4 id="as-pattern">As pattern</h4>
 
-<p>We can also bind variable to a value using <strong>as pattern</strong>. It can be useful when we need more complex assignments.</p>
+<p>We can also bind  the variable to a value using <strong>as pattern</strong>. It can be useful when we need more complex assignments.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="k">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">=&gt;</span> <span class="n">a</span><span class="p">]</span>
@@ -561,7 +561,7 @@ Description: Awesome dude, awesome life
  <span class="o">=&gt;</span> <span class="mf">18.666200637817383</span>
 </code></pre></div></div>
 
-<p>If you want to use pattern matching for another object, you need to add method <code class="highlighter-rouge">deconstruct</code> or <code class="highlighter-rouge">deconstruct_keys</code> for your class. Depends on which method you choose, your object will behave during pattern matching like <code class="highlighter-rouge">Array</code> or like <code class="highlighter-rouge">Hash</code>. In the example above, we see that <code class="highlighter-rouge">Struct</code> behave like <code class="highlighter-rouge">Array</code> when it comes to pattern matching. Below  I have added a very simple use case for <code class="highlighter-rouge">Hash</code> type of pattern matching:</p>
+<p>If you want to use pattern matching for another object, you need to add method <code class="highlighter-rouge">deconstruct</code> or <code class="highlighter-rouge">deconstruct_keys</code> to your class. Depends on what method you choose, your object will behave during pattern matching like <code class="highlighter-rouge">Array</code> or like <code class="highlighter-rouge">Hash</code>. In the example above, we see that <code class="highlighter-rouge">Struct</code> behave like <code class="highlighter-rouge">Array</code> when it comes to pattern matching. I have added a very simple use case for <code class="highlighter-rouge">Hash</code> type of pattern matching below:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Date</span>
   <span class="k">def</span> <span class="nf">deconstruct_keys</span><span class="p">(</span><span class="n">keys</span><span class="p">)</span>
@@ -637,7 +637,7 @@ Description: Awesome dude, awesome life
 
 <h2 id="scope-strange-behavior">Scope strange behavior</h2>
 
-<p>Right now you can see the value of variable even match of pattern failed. This is something Ruby core knows about and they will change that in future.</p>
+<p>Right now you can see the value of the variable even match of pattern failed. This is something Ruby core knows about and they will change that in future.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">case</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="k">in</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="k">if</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="mi">3</span>
@@ -659,7 +659,7 @@ Description: Awesome dude, awesome life
 
 <h2 id="what-i-would-like-to-see-more">What I would like to see more?</h2>
 
-<p>When I play around pattern matching in Ruby, I found some case which are not a part of this new feature, but it will be nice to have:</p>
+<p>When I play around pattern matching in Ruby, I found some cases which are not a part of this new feature, but it will be nice to have:</p>
 
 <ul>
   <li>one line pattern matching - We have one line <code class="highlighter-rouge">each</code>, so it will be good to have one line pattern matching. Something like <code class="highlighter-rouge">case [1, 2, [3, 4]] { [1, 2, [3, b] =&gt; a] }</code> just for assignments.</li>
@@ -667,7 +667,7 @@ Description: Awesome dude, awesome life
   <li>allowed variables in alternative pattern - It will be great to be able to do <code class="highlighter-rouge">[1, 2] | [1, 2, c]</code>.</li>
 </ul>
 
-<p>I know that some of my ideas can be not possible or hard to do, but this is my wish list. ;]</p>
+<p>I know that some of my ideas could be not possible or hard to do, but this is my wish list. ;]</p>
 
 <h2 id="summary">Summary</h2>
 

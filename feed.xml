@@ -5,18 +5,626 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 19 Jun 2019 10:26:53 -0400</pubDate>
-    <lastBuildDate>Wed, 19 Jun 2019 10:26:53 -0400</lastBuildDate>
+    <pubDate>Wed, 10 Jul 2019 10:36:46 -0400</pubDate>
+    <lastBuildDate>Wed, 10 Jul 2019 10:36:46 -0400</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>Functional programming in Ruby</title>
+        <description>&lt;p&gt;Ruby is an object oriented language. That doesn’t mean we cannot do some functional programming in Ruby. When you take a look closer to the history of the Ruby language, you can find out, that Ruby was influenced by other languages like Perl, Smalltalk, Eiffel, Ada, Basic or Lisp. Because of this different inspirations we can find in Ruby not only object oriented concepts, but also a little bit of functional programming.&lt;/p&gt;
+
+&lt;p&gt;Before we start going deep in functional programming in Ruby. Let’s focus on &lt;strong&gt;functional programming&lt;/strong&gt; its self. What is functional programming? You can find out, that functional programming is a &lt;strong&gt;programming paradigm&lt;/strong&gt;. That means it is a way to classify programming languages based on their features. OK, so what are the features of functional programming language?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Pure functions (no side-effects) - Function always returns the same result for the same arguments and function can never cause any observable side effects. This is how the function works in the mathematical world.&lt;/li&gt;
+  &lt;li&gt;Immutability - After the state/value is created, you cannot change it. Instead of changing state or value, you create a new one.&lt;/li&gt;
+  &lt;li&gt;Referential transparency - this is combining pure function and immutability.&lt;/li&gt;
+  &lt;li&gt;Memoization - It is a side effect of referential transparency. It can seed up computations by saving the results of previous calls.&lt;/li&gt;
+  &lt;li&gt;Idempotence - You will get the same results no matter how many times you will call a function. This is also a side effect of referential transparency.&lt;/li&gt;
+  &lt;li&gt;Higher-order functions - Functions which can get function as argument or return function as a result.&lt;/li&gt;
+  &lt;li&gt;Currying - Transforming a function that takes multiple arguments into a function that takes one argument and return function. We can say that this is a function generator in some sense.&lt;/li&gt;
+  &lt;li&gt;Recursion - It is invoking the function by themselves and letting an operation be repeated until it reaches the stop condition or base case.&lt;/li&gt;
+  &lt;li&gt;Lazy evaluation (non-strict evaluation) - It does not evaluate function arguments unless their values are needed for evaluation of the function itself.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now we know a little bit about functional programming concepts. We can start going into Ruby functional programming.&lt;/p&gt;
+
+&lt;h2 id=&quot;blocks-in-ruby&quot;&gt;Blocks in Ruby&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Block it is nameless function in Ruby.&lt;/strong&gt; We can put it as last argument into function. There can be &lt;strong&gt;only one block&lt;/strong&gt; put as an argument in Ruby method. In Ruby blocks are higher-order functions. A common block in Ruby is for example &lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s create our own block:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_own_block&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'before'&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block_given?&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'after'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_own_block&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you see, &lt;code class=&quot;highlighter-rouge&quot;&gt;my_own_block&lt;/code&gt; behaves like a normal method because it is a normal method. The magic begins, when we will start using &lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; part. What is this &lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;? It is a call of our block, our nameless function which we can put as argument to &lt;code class=&quot;highlighter-rouge&quot;&gt;my_own_block&lt;/code&gt; method. We can say that our &lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; will be replaced by everything what is in our argument for &lt;code class=&quot;highlighter-rouge&quot;&gt;my_own_block&lt;/code&gt;. Let’s check how we can call this method with block as an argument:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_own_block&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To call block as argument of the function we need to use curly brackets &lt;code class=&quot;highlighter-rouge&quot;&gt;{}&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;do end&lt;/code&gt; clause. We cannot use normal brackets &lt;code class=&quot;highlighter-rouge&quot;&gt;()&lt;/code&gt;. In this case we will get an error.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_own_block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        5: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`rescue in irb_binding'
+        1: from (irb):4:in `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;my_own_block&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;ArgumentError&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wrong&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arguments&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;given&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expected&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;First of all, we see &lt;code class=&quot;highlighter-rouge&quot;&gt;5&lt;/code&gt; because in the beginning Ruby runs and calculates argument of the method. Then we get &lt;code class=&quot;highlighter-rouge&quot;&gt;wrong number of arguments (given 1, expected 0)&lt;/code&gt;. That means that block argument is treated in a different way than normal method arguments. So, we cannot run block as a normal argument in this case. Later I will show you how to do that in the right way.&lt;/p&gt;
+
+&lt;p&gt;In this example I didn’t tell you one more thing. What is it the &lt;code class=&quot;highlighter-rouge&quot;&gt;block_given?&lt;/code&gt; condition? This helps us with handling a case when you do not put block as an argument. This method checks if block is given or not and prevent us before an exception. If we miss that condition in our method declaration and we will call the method without a block, we will see:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_own_block&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'before'&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'after'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_own_block&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        3: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;16&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`my_own_block'
+LocalJumpError (no block given (yield))
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;proc-object&quot;&gt;Proc object&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Proc&lt;/strong&gt; is a one of classes in Ruby. A Proc object is an encapsulated block of code, which can be stored in a local variable. It can be later passed to a method or another Proc as an argument and can be called. It is essential for Ruby functional programming features concept.&lt;/p&gt;
+
+&lt;p&gt;You already saw one way to declare method with a block. Below I put another way to do that:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'before'&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'after'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can execute it the same way as before:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_block&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We see that object inside a &lt;code class=&quot;highlighter-rouge&quot;&gt;block&lt;/code&gt; variable is an instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; class. We can call it by using a method &lt;code class=&quot;highlighter-rouge&quot;&gt;call&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;block.call&lt;/code&gt; behaves the same like &lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt; in our first example. But &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object is even cooler than simple block. We can put many of them as arguments to Ruby method:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;proc1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'first'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;proc2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'last'&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run_proc&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;proc1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;proc2&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;first&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;last&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;last&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We can also call &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object outside of a method in many different ways:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Text: &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Text: 10&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Text: 10&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Text: 20&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Text: 20&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Text: 30&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Text: 30&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;40&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Text: 40&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Text: 40&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This allows us to do some fancy tricks. Like using &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;proc1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;proc2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;proc1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'proc1'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;when&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;proc2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'proc2'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'not a proc'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;proc1&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;proc1&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Because &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt; is using an equality operator &lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt; to check if the condition is fulfilled and &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object is implementing this method, we can do that magic with &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; inside &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt;. This is outlier but, because &lt;code class=&quot;highlighter-rouge&quot;&gt;Range&lt;/code&gt; class also is implementing equality operator &lt;code class=&quot;highlighter-rouge&quot;&gt;===&lt;/code&gt;, we can use it in &lt;code class=&quot;highlighter-rouge&quot;&gt;case&lt;/code&gt; too.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Right now I will show you one more way to declare &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; in your method:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run_proc&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'before'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'after'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run_proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When you look at this implementation, it can be for you very strange. We do not declare argument, so how does the &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc.new&lt;/code&gt; know what to do? Normally when you will just do &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc.new&lt;/code&gt; without any block declaration, you will get exception &lt;code class=&quot;highlighter-rouge&quot;&gt;tried to create Proc object without a block&lt;/code&gt;. In this case when &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc.new&lt;/code&gt; has no block code itself, it will seek a block declaration in the current scope. So when we run our &lt;code class=&quot;highlighter-rouge&quot;&gt;run_proc&lt;/code&gt; method with block, everything is working like it should.&lt;/p&gt;
+
+&lt;h2 id=&quot;lambdas&quot;&gt;Lambdas&lt;/h2&gt;
+
+&lt;p&gt;A &lt;strong&gt;lambda&lt;/strong&gt; is an anonymous function. It is a function definition that doesn’t have a &lt;em&gt;name&lt;/em&gt;. It is not bound to an identifier. You can assign it to variable, but it doesn’t have a name by which you can call it. Anonymous functions are often used as arguments for higher-order functions. In Ruby they are very similar to &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object, but there are some small differences. Let’s go through them.&lt;/p&gt;
+
+&lt;h4 id=&quot;arguments-control&quot;&gt;Arguments control&lt;/h4&gt;
+
+&lt;p&gt;We will declare lambda and &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object. By the way the shortcut for &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc.new&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;proc&lt;/code&gt; so you can see me switching those two forms in the code.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;==&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;==&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;my_lambda&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;==&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;==&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This 2 objects are the same class:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;class&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Proc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Both objects have the same arity:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arity&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arity&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;But there is a difference when you call them without argument. &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; will be executed and lambda will raise an exception:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;====&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;====&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        3: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;77&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;62&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`block in irb_binding'
+ArgumentError (wrong number of arguments (given 0, expected 1))
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We cannot distinguish them by class name, but it is possible to use method &lt;code class=&quot;highlighter-rouge&quot;&gt;lambda?&lt;/code&gt; to do that.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lambda?&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lambda?&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I would like to add one more thing to this section. If you declare an array of arguments in lambda. You will get arity &lt;code class=&quot;highlighter-rouge&quot;&gt;-1&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;items&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;arity&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In the end of this section I will show you one more possible declaration of lambda, by using arrow operator &lt;code class=&quot;highlighter-rouge&quot;&gt;-&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_lambda&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;==&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;==&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_lambda&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lambda?&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;using-with-return&quot;&gt;Using with return&lt;/h4&gt;
+
+&lt;p&gt;First, we declare method which will call a &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object or a lambda.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'before'&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'after'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we can run method &lt;code class=&quot;highlighter-rouge&quot;&gt;run&lt;/code&gt; with lambda:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'in'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;in&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Everything is fine. Now, let’s go to &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'in'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;in&quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        5: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;91&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;87&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`run'
+        1: from (irb):91:in `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;irb_binding&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;LocalJumpError&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;unexpected&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We see an error. We start with &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;before&quot;&lt;/code&gt;, then we go to our &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object and we print &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;in&quot;&lt;/code&gt; and after that we get an exception. This is because &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object doesn’t return current context. &lt;strong&gt;It wants to return context where it was defined.&lt;/strong&gt; This is the main context (irb console context). &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; cannot return from that context, so we see an exception. If we change the context, we will see the difference:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change_context&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'in'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;run&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'in'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s run our &lt;code class=&quot;highlighter-rouge&quot;&gt;change_context&lt;/code&gt; method:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;change_context&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;in&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;after&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;before&quot;&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;in&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;First, we run part with lambda. It prints &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;before&quot;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;in&quot;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;after&quot;&lt;/code&gt;. Then it calls a &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object. We see &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;before&quot;&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;in&quot;&lt;/code&gt; and then we finish our method &lt;code class=&quot;highlighter-rouge&quot;&gt;change_context&lt;/code&gt;. Right now context of &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; object is context of &lt;code class=&quot;highlighter-rouge&quot;&gt;change_context&lt;/code&gt; method. Because &lt;code class=&quot;highlighter-rouge&quot;&gt;Proc&lt;/code&gt; return form context where it was created, it returns from method &lt;code class=&quot;highlighter-rouge&quot;&gt;change_context&lt;/code&gt;. So, we cannot print second &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;after&quot;&lt;/code&gt; string.&lt;/p&gt;
+
+&lt;h2 id=&quot;closures&quot;&gt;Closures&lt;/h2&gt;
+
+&lt;p&gt;Closure is a technique for creating a function based on another function with an environment which &lt;strong&gt;have impact on this function during the declaration process&lt;/strong&gt;. This is one of the ways to generate new functions by using the function. It is related to higher-order functions concept. As it is hard to me to explain this in simple words, the example should help in understanding this concept.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;multiple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;triple&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;multiple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# Execute&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;triple&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We declare function &lt;code class=&quot;highlighter-rouge&quot;&gt;multiple&lt;/code&gt; with one argument. Inside this function we use lambda with also one argument, but we are using it with context of &lt;code class=&quot;highlighter-rouge&quot;&gt;multiple&lt;/code&gt; method. We put &lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt; variable inside lambda declaration. Now we can generate functions based on &lt;code class=&quot;highlighter-rouge&quot;&gt;multiple&lt;/code&gt; method. When we put as &lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt; variable &lt;code class=&quot;highlighter-rouge&quot;&gt;2&lt;/code&gt; this value will go to lambda as sounding environment. Lambda in &lt;code class=&quot;highlighter-rouge&quot;&gt;double&lt;/code&gt; method will be remembered as &lt;code class=&quot;highlighter-rouge&quot;&gt;lambda { |n| n * 2 }&lt;/code&gt;. Right now when you call &lt;code class=&quot;highlighter-rouge&quot;&gt;double&lt;/code&gt; method, you will put &lt;code class=&quot;highlighter-rouge&quot;&gt;5&lt;/code&gt; as &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; variable. &lt;code class=&quot;highlighter-rouge&quot;&gt;5 * 2&lt;/code&gt; is &lt;code class=&quot;highlighter-rouge&quot;&gt;10&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;There is one more thing to remember. In Ruby during closure we remember references to variable not the value of it. This is different then in other languages. And this is why you can change the context after it’s declared, but you cannot create (declare) context after the declaration of closure. Let’s check examples below. First, declare closure without context and try to add context later:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        3: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;107&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`block in irb_binding'
+NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We get an error. Now we will try to add missing context:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Agnieszka&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Agnieszka&quot;&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Traceback&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;most&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;call&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;agnieszka&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;rvm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&amp;lt;main&amp;gt;'
+        4: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/bin/irb:23:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;load&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'
+        3: from /home/agnieszka/.rvm/rubies/ruby-2.6.1/lib/ruby/gems/2.6.0/gems/irb-1.0.0/exe/irb:11:in `&amp;lt;top (required)&amp;gt;'&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;109&lt;/span&gt;
+        &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;105&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`block in irb_binding'
+NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;first_name&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:Object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It is not possible to add context after the declaration of closure. Next example will show you, that we can change context which was declared before:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Agnieszka'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Agnieszka&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Agnieszka&quot;&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Ula'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Ula&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Ula&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;method-as-lambda&quot;&gt;Method as lambda&lt;/h4&gt;
+
+&lt;p&gt;We can create a method and use it as lambda. This is how we do that:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_method&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Hello word'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:my_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_proc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;Hello word&quot;&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hello word&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;types-of-closures-in-ruby&quot;&gt;Types of closures in Ruby&lt;/h4&gt;
+
+&lt;p&gt;We have a few types of closure in Ruby:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;block + &lt;code class=&quot;highlighter-rouge&quot;&gt;yield&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;block + &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;b&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Proc.new&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;proc&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lambda&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;method&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;where-do-we-use-closures&quot;&gt;Where do we use closures?&lt;/h4&gt;
+
+&lt;p&gt;In pure Ruby:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each_cons&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;inject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In Ruby on Rails:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# index.html.erb&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;xml&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:xml&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@items&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;bonus---lisp-in-ruby&quot;&gt;Bonus - Lisp in Ruby&lt;/h2&gt;
+
+&lt;p&gt;To do Lisp lists in Ruby we will use lazy enumerators and recursion. But first, let’s check how lists look like in Lisp.&lt;/p&gt;
+
+&lt;div class=&quot;language-common-lisp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;car&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;write&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you read my article about &lt;a href=&quot;/elixir-pattern-matching&quot; title=&quot;Elixir - How to fit into the pattern?&quot;&gt;Elixir basics&lt;/a&gt; you can compare &lt;code class=&quot;highlighter-rouge&quot;&gt;car&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;cdr&lt;/code&gt; methods to &lt;code class=&quot;highlighter-rouge&quot;&gt;head&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tail&lt;/code&gt; in Elixir. &lt;code class=&quot;highlighter-rouge&quot;&gt;car&lt;/code&gt; will always return first element of the list and &lt;code class=&quot;highlighter-rouge&quot;&gt;cdr&lt;/code&gt; will return list without first element. Let’s prepare a Ruby array to behave like Lisp lists.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we will prepare normal enumerator for this kind of lists:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LispyEnumerable&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Enumerable&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This will allow us to do some operations on &lt;code class=&quot;highlighter-rouge&quot;&gt;car&lt;/code&gt; a head of the list and it will overwrite &lt;code class=&quot;highlighter-rouge&quot;&gt;@tree&lt;/code&gt; variable for the next step of our loop with &lt;code class=&quot;highlighter-rouge&quot;&gt;cdr&lt;/code&gt; tail of list. We can call it like:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LispyEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For now our list is not lazy and our enumerator is also not lazy. To change that we will use lambdas.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LazyLispyEnumerable&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Enumerable&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tree&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;call&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;car&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@tree&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cdr&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We changed only one line. We calculate (execute) our next element of the list by calling &lt;code class=&quot;highlighter-rouge&quot;&gt;@tree.call&lt;/code&gt;. To be able to use this enumerator, we need to also change a structure of our list itself.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LazyLispyEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Right now we don’t see any difference. To see that, let me change list declaration. If it will have strict evaluation, we will see all prints for numbers in the beginning and then the numbers. But if this is a lazy evaluation, then we will see it one by one.&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1 is called'&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2 is called'&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'3 is called'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LazyLispyEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;1 is called&quot;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;2 is called&quot;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;s2&quot;&gt;&quot;3 is called&quot;&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see we have lazy enumerator. Now is the time for the Fibonacci sequence with lazy evaluation:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;LazyLispyEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;13&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;21&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;34&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;55&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;89&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;144&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I put there break point, but without it Ruby can do these calculations into infinity (theoretically). In some way this is not the real recursion. We can say that this is an infinite loop. If we do that with the real recursion, the code will look like:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;recursive_fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;recursive_fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recursive_fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;recursive_fibo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;11&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;144&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this situation if we remove our gourds we will get an error &lt;code class=&quot;highlighter-rouge&quot;&gt;SystemStackError (stack level too deep)&lt;/code&gt;. This will be also slower than lazy evaluation.&lt;/p&gt;
+
+&lt;p&gt;In the end I will only mention that since Ruby version 2.0 we can use lazy enumerators inside a Ruby language, like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Float&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;INFINITY&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;lazy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:even?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;first&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want more information about them, check out &lt;a href=&quot;https://ruby-doc.org/core-2.5.0/Enumerator/Lazy.html&quot; title=&quot;Ruby documentation for lazy enumerators&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Lazy enumerator documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;That’s all for today. I hope you like it. If you have any questions put them in the comments below. I will try to answer them. See you next time!&lt;/p&gt;
+
+&lt;h2 id=&quot;bibliography&quot;&gt;Bibliography&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=VBC-G6hahWA&quot; title=&quot;Video about functional programming concepts in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;An Introduction to Procs, Lambdas and Closures in Ruby - Video&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.slideshare.net/tokland/functional-programming-with-ruby-9975242&quot; title=&quot;Presentation about functional programming in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Functional Programming with Ruby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://innig.net/software/ruby/closures-in-ruby&quot; title=&quot;Article about closures in Ruby&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Closures in Ruby&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ruby-doc.org/&quot; title=&quot;Ruby documentation&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Ruby documentation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 03 Jul 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/functional-programming-ruby</link>
+        <guid isPermaLink="true">https://womanonrails.com/functional-programming-ruby</guid>
+        
+        <category>Ruby</category>
+        
+        
+        <category>programming</category>
+        
+      </item>
     
       
       <item>
         <title>Ruby pattern matching</title>
         <description>&lt;p&gt;Some time ago I wrote an article about &lt;a href=&quot;/elixir-pattern-matching&quot; title=&quot;Elixir - How to fit to the pattern?&quot;&gt;Pattern matching in Elixir&lt;/a&gt;. I really like this idea. Now from Ruby version 2.7 we have &lt;strong&gt;pattern matching in Ruby&lt;/strong&gt;!!! It is not the same like in Elixir, but it is a nice feature to have. Keep in mind that this is still an experimental feature, so it can change in the future versions of Ruby. Let’s check out what we can do with pattern matching in Ruby.&lt;/p&gt;
 
-&lt;p&gt;Before we start, let’s remind ourselves &lt;strong&gt;what is pattern matching?&lt;/strong&gt; Pattern matching is a way to specify some pattern for our data and if data are matched to the pattern we can deconstruct them according to this pattern. In other words: Pattern matching is choosing specific elements from data, based on defined rules. We can also say that pattern matching is like &lt;em&gt;regular expressions&lt;/em&gt; with multiple assignments not only for strings.&lt;/p&gt;
+&lt;p&gt;Before we start, let’s remind ourselves &lt;strong&gt;what is pattern matching?&lt;/strong&gt; Pattern matching is a way to specify a pattern for our data and if data are matched to the pattern we can deconstruct them according to this pattern. In other words: Pattern matching is choosing specific elements from data, based on defined rules. We can also say that pattern matching is like &lt;em&gt;regular expressions&lt;/em&gt; with multiple assignments not only for strings.&lt;/p&gt;
 
-&lt;p&gt;In the beginning of &lt;em&gt;Pattern Matching in Elixir&lt;/em&gt; article, I started from &lt;strong&gt;basic match operator&lt;/strong&gt; in Elixir. Because Ruby was created based on different concepts, then Elixir, we will not have anything like &lt;strong&gt;match operator&lt;/strong&gt; in Ruby. We have normal &lt;strong&gt;assignment&lt;/strong&gt;. So when in Elixir we can do:&lt;/p&gt;
+&lt;p&gt;In the beginning of &lt;em&gt;Pattern Matching in Elixir&lt;/em&gt; article, I started from &lt;strong&gt;basic match operator&lt;/strong&gt; in Elixir. Because Ruby was created based on different concepts than Elixir, we will not have anything like &lt;strong&gt;match operator&lt;/strong&gt; in Ruby. We have normal &lt;strong&gt;assignment&lt;/strong&gt;. So when in Elixir we can do:&lt;/p&gt;
 
 &lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
 &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;
@@ -39,7 +647,7 @@
   &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;I don’t say that Ruby is worst then Elixir. I show you this to explain how big challenge was to put pattern matching in Ruby. I want you to be forgiving if something is not working like you would like to. There is still work to do, questions to answer and decision to take. Be patient and celebrate with me this first step of pattern matching in Ruby.&lt;/p&gt;
+&lt;p&gt;I don’t say that Ruby is worse then Elixir. I’m showing you this to explain how big of a challenge was to put pattern matching in Ruby. I want you to be forgiving if something is not working like you would like to. There is still work to do, questions to answer and decisions to take. Be patient and celebrate with me this first step of pattern matching in Ruby.&lt;/p&gt;
 
 &lt;h2 id=&quot;pattern-matching-in-ruby---basics&quot;&gt;Pattern matching in Ruby - basics&lt;/h2&gt;
 
@@ -107,7 +715,7 @@
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Splat operator will always return you an array. You can use &lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; to skip some values in your pattern:&lt;/p&gt;
+&lt;p&gt;Splat operator will always return to you an array. You can use &lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; to skip some values in your pattern:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -226,7 +834,7 @@
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;It can be confusing at the beginning, but I see that during my tests of Ruby pattern matching I used that quite often in my code. In case that this will change in the future, I can used to this syntax too:&lt;/p&gt;
+&lt;p&gt;It can be confusing at the beginning, but I see that during my tests of Ruby pattern matching I used that quite often in my code. In case that this will change in the future, I can get used to this syntax too:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;foo: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;bar: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt;
@@ -296,7 +904,7 @@
 
 &lt;h4 id=&quot;variables&quot;&gt;Variables&lt;/h4&gt;
 
-&lt;p&gt;We can also use variable, what we already saw in the previous examples. The only thing which I would like to add is that we always do assignment in this case:&lt;/p&gt;
+&lt;p&gt;We can also use variables which we already saw in the previous examples. The only thing which I would like to add is that we always do assignment in this case:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;irb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -341,7 +949,7 @@
 
 &lt;h4 id=&quot;as-pattern&quot;&gt;As pattern&lt;/h4&gt;
 
-&lt;p&gt;We can also bind variable to a value using &lt;strong&gt;as pattern&lt;/strong&gt;. It can be useful when we need more complex assignments.&lt;/p&gt;
+&lt;p&gt;We can also bind  the variable to a value using &lt;strong&gt;as pattern&lt;/strong&gt;. It can be useful when we need more complex assignments.&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
@@ -372,7 +980,7 @@
  &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;18.666200637817383&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;If you want to use pattern matching for another object, you need to add method &lt;code class=&quot;highlighter-rouge&quot;&gt;deconstruct&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;deconstruct_keys&lt;/code&gt; for your class. Depends on which method you choose, your object will behave during pattern matching like &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; or like &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash&lt;/code&gt;. In the example above, we see that &lt;code class=&quot;highlighter-rouge&quot;&gt;Struct&lt;/code&gt; behave like &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; when it comes to pattern matching. Below  I have added a very simple use case for &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash&lt;/code&gt; type of pattern matching:&lt;/p&gt;
+&lt;p&gt;If you want to use pattern matching for another object, you need to add method &lt;code class=&quot;highlighter-rouge&quot;&gt;deconstruct&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;deconstruct_keys&lt;/code&gt; to your class. Depends on what method you choose, your object will behave during pattern matching like &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; or like &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash&lt;/code&gt;. In the example above, we see that &lt;code class=&quot;highlighter-rouge&quot;&gt;Struct&lt;/code&gt; behave like &lt;code class=&quot;highlighter-rouge&quot;&gt;Array&lt;/code&gt; when it comes to pattern matching. I have added a very simple use case for &lt;code class=&quot;highlighter-rouge&quot;&gt;Hash&lt;/code&gt; type of pattern matching below:&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Date&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deconstruct_keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -448,7 +1056,7 @@
 
 &lt;h2 id=&quot;scope-strange-behavior&quot;&gt;Scope strange behavior&lt;/h2&gt;
 
-&lt;p&gt;Right now you can see the value of variable even match of pattern failed. This is something Ruby core knows about and they will change that in future.&lt;/p&gt;
+&lt;p&gt;Right now you can see the value of the variable even match of pattern failed. This is something Ruby core knows about and they will change that in future.&lt;/p&gt;
 
 &lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
@@ -470,7 +1078,7 @@
 
 &lt;h2 id=&quot;what-i-would-like-to-see-more&quot;&gt;What I would like to see more?&lt;/h2&gt;
 
-&lt;p&gt;When I play around pattern matching in Ruby, I found some case which are not a part of this new feature, but it will be nice to have:&lt;/p&gt;
+&lt;p&gt;When I play around pattern matching in Ruby, I found some cases which are not a part of this new feature, but it will be nice to have:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;one line pattern matching - We have one line &lt;code class=&quot;highlighter-rouge&quot;&gt;each&lt;/code&gt;, so it will be good to have one line pattern matching. Something like &lt;code class=&quot;highlighter-rouge&quot;&gt;case [1, 2, [3, 4]] { [1, 2, [3, b] =&amp;gt; a] }&lt;/code&gt; just for assignments.&lt;/li&gt;
@@ -478,7 +1086,7 @@
   &lt;li&gt;allowed variables in alternative pattern - It will be great to be able to do &lt;code class=&quot;highlighter-rouge&quot;&gt;[1, 2] | [1, 2, c]&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I know that some of my ideas can be not possible or hard to do, but this is my wish list. ;]&lt;/p&gt;
+&lt;p&gt;I know that some of my ideas could be not possible or hard to do, but this is my wish list. ;]&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
 
@@ -546,14 +1154,14 @@ If you think you learn something and your knowledge stays the same for next 10 y
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;Check if coding is for you. - I really recommend that as a first step. Search for workshops for the beginners. They don’t need to be paid. There are lots of free events like Rails Girls, where you can try programming without any obligations. You don’t like it? Fine, you only spent a couple of hours to try it. It is the best step before you quit your job or something like that.&lt;/p&gt;
+    &lt;p&gt;Check if coding is for you. - I really recommend that as a first step. Search for workshops for the beginners. You don’t need to pay for them. There are lots of free events like Rails Girls, where you can try programming without any obligations. You didn’t like it? Fine, you only spent a couple of hours to try it. It is the best step before you quit your job or something like that.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Do you like it? Yes, then you can start changing your life. There are many ways to do. You can read books, listen or watch conferences and talks. You can buy online courses or do some &lt;a href=&quot;/workshops&quot; title=&quot;Assign to my programming course&quot;&gt;full time course&lt;/a&gt;. Anyone who starts programming have a different story to tell. Some people go to study and some people learn by themselves. Everything depends on your current state in your life. I can say one thing. No matter what you decide you need to choose &lt;a href=&quot;/where-to-start#what-language-i-should-choose&quot; title=&quot;Which language is good for a start?&quot;&gt;programming language to learn&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;Did you like it? Yes, then you can start changing your life. There are many ways to do so. You can read books, listen or watch conferences and talks. You can buy online courses or do some &lt;a href=&quot;/workshops&quot; title=&quot;Assign to my programming course&quot;&gt;full time course&lt;/a&gt;. Anyone who starts programming have a different story to tell. Some people go to study and some people learn by themselves. Everything depends on your current state in your life. I can say one thing. No matter what you decide you need to choose &lt;a href=&quot;/where-to-start#what-language-i-should-choose&quot; title=&quot;Which language is good for a start?&quot;&gt;programming language to learn&lt;/a&gt;.&lt;/p&gt;
 
-    &lt;p&gt;When you have already chosen the programming language, start a project using it. At the beginning you can resolve some simple math problems, like you can find on &lt;a href=&quot;https://projecteuler.net&quot; title=&quot;Logical and mathematical problems to solve using programming&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Project Euler&lt;/a&gt; page, but sooner or later you need to start your own project. It is even better to start sooner. It doesn’t matter, what you will do. You can try to copy existing application. What I mean by that. Do not steal their code, just look on their functionality and try to do similar things in your project with language you choose. You can also have your own idea, which you can bring to life.&lt;/p&gt;
+    &lt;p&gt;When you have already chosen the programming language, start a project using it. In the beginning you can resolve some simple math problems, like you can find on &lt;a href=&quot;https://projecteuler.net&quot; title=&quot;Logical and mathematical problems to solve using programming&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Project Euler&lt;/a&gt; page, but sooner or later you need to start your own project. It is even better to start sooner. It doesn’t matter, what you will do. You can try to copy an existing application. What I mean by that - Do not steal their code, just look on their functionality and try to do similar things in your project with language you choose. You can also have your own idea, which you can bring to life.&lt;/p&gt;
 
-    &lt;p&gt;When you start, you will have problems. You will search for help. This is how it should be. You need to learn how find solutions, how ask for help. You need to show that you will not give up. And you need to show your work to the world. This will be your portfolio. Put it on any public repository. Github, Gitlab, Bitbucket. It doesn’t matter. And improve, change, add new functionality.&lt;/p&gt;
+    &lt;p&gt;When you start, you will have problems. You will search for help. This is how it should be. You need to learn how to find solutions, how to ask for help. You need to show that you will not give up. And you need to show your work to the world. This will be your portfolio. Put it on any public repository. Github, Gitlab, Bitbucket. It doesn’t matter. And improve, change, add new functionality.&lt;/p&gt;
 
     &lt;p&gt;You will work every day. Based on problems which you have in your project, you will search for specific help. This project will focus your attention on things that matter the most to you right now. For sure, you will use for that many different resources, even online courses. I will do a separate article about them soon.&lt;/p&gt;
 
@@ -562,7 +1170,7 @@ If you think you learn something and your knowledge stays the same for next 10 y
     &lt;p&gt;I don’t say that you cannot be a programmer without your own project. You can, but your own project can give you more chance to get a job. And also you will learn much more, than ever. You will have more confident that you can overcome problems and you can also talk about this project during your interviews.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;This is the hardest step. Start looking for a job. When you are in learning mode, you can always say I’m not ready to start searching for a job. I don’t know many of requirements on the job offer. I don’t have a change. This is the wrong approach. You need to set a deadline, after which you will search for a job. This is not an easy task. You will send 100 resumes and 10 people reach to you. Only one person will invite you to interview. This is only an example, but be prepared for that. In your case it can be faster or slower. The most important is keep trying. If you fail, you can always ask, why you didn’t get a job. This will help you improve your skill in good direction. Do not wait too long. The only thing which people regret after reaching their goal is that they didn’t do it earlier. Go out of your comfort zone and search for a job.&lt;/p&gt;
+    &lt;p&gt;This is the hardest step. Start looking for a job. When you are in the learning mode, you can always say I’m not ready to start searching for a job. I don’t know many of requirements on the job offer. I don’t have a chance. This is the wrong approach. You need to set a deadline, after which you will search for a job. This is not an easy task. You will send 100 resumes and 10 people reach to you. Only one person will invite you to an interview. This is only an example, but be prepared for that. In your case it can be faster or slower. The most important is keep trying. If you fail, you can always ask, why you didn’t get a job. This will help you improve your skill in good direction. Do not wait too long. The only thing which people regret after reaching their goal is that they didn’t do it earlier. Go out of your comfort zone and search for a job.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -573,9 +1181,9 @@ If you think you learn something and your knowledge stays the same for next 10 y
 &lt;ul&gt;
   &lt;li class=&quot;text-justify&quot;&gt;If you learn something, try to explain it to someone else. - Your friend, your mum, even your dog. If you have a problem with that, you probably don’t understand this problem fully. People who can explain complex problems with simple words, really understand the problem.&lt;/li&gt;
   &lt;li class=&quot;text-justify&quot;&gt;Surround with people from programming world. - If you want to be a programmer, you should find people who are already there. Check local Meetups groups. Use their example to get, where you want to be. You will have new friends and someone who can help you with needs. They can show you important topics, discuss the newest concepts, tell you how it is working as a programmer or even tell you about job opportunities. And you will be not alone in this journey.&lt;/li&gt;
-  &lt;li class=&quot;text-justify&quot;&gt;Find a mentor. - This is similar to one before. It is much harder to do everything alone. If you have someone with experience around you it is easier to learn, get answers or look for good practices. Even more, your mentor can be your support in hard moments. He or she can give you advice or show the best way to achieve your goal.&lt;/li&gt;
-  &lt;li class=&quot;text-justify&quot;&gt;Work with code. - You can read all books. You can watch all courses online, but if you don’t write code, you will stay in the same place. Coding is not only about definitions and lots of stuff to remember. It is about &lt;strong&gt;practice&lt;/strong&gt;. To fully understand something you need to try it in practice. I don’t know any person who learned bicycling by reading books. You need to take a bike and try. You will fall, but after some practice you will start bicycling.&lt;/li&gt;
-  &lt;li class=&quot;text-justify&quot;&gt;Work on project with real problems. - Even it has been so often use example, like a shop with some products, cart and payments. Try to resolve those problems and show your solution to the word. Ask for advice and improve your code. And do that daily. You don’t have much time? Fine, add one line of code, create one more test.&lt;/li&gt;
+  &lt;li class=&quot;text-justify&quot;&gt;Find a mentor. - This is similar to one before. It is much harder to do everything alone. If you have someone with the experience close to you, it is easier to learn, get answers or look for good practices. Even more, your mentor can be your support in hard moments. He or she can give you advice or show the best way to achieve your goal.&lt;/li&gt;
+  &lt;li class=&quot;text-justify&quot;&gt;Work with code. - You can read all the books. You can watch all the courses online, but if you don’t write code, you will stay in the same place. Coding is not only about definitions and lots of stuff to remember. It is about &lt;strong&gt;practice&lt;/strong&gt;. To fully understand something you need to try it in practice. I don’t know a person who learned bicycling by reading books. You need to take a bike and try. You will fall, but after some practice you will start bicycling.&lt;/li&gt;
+  &lt;li class=&quot;text-justify&quot;&gt;Work on a project with real problems. - Even it has been so often used as an example, like a shop with some products, cart and payments. Try to resolve those problems and show your solution to the word. Ask for advice and improve your code. And do that daily. You don’t have much time? Fine, add one line of code, create one more test.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;what-problems-i-can-find-during-the-learning-process&quot;&gt;What problems I can find during the learning process?&lt;/h2&gt;
@@ -593,7 +1201,7 @@ If you think you learn something and your knowledge stays the same for next 10 y
     &lt;p&gt;I don’t understand programming words. There are so many new concepts. - This is hard, I know. You try to read one article and many words are for you like buzzy words. You don’t understand even big picture of shown concept. First, take a deep breath. Do not give up! It is very hard to start a new thing. Second, go back and start again. Which word was not clear for you? Take this word and search information about it. Search for &lt;em&gt;simple explanation for X&lt;/em&gt;. If first answer will not help, try second and third. If this is still unclear, ask questions, for example on programming forum, in article comments, places like Stack overflow. Maybe you know someone who is a programmer, ask him or her. If something is too hard to understand now, mark it and go back in a week or so. The rule is simple, do not give up. If you ask for help, someone will help you. This will be hard work with a lot of doubts, but it is worth it. And remember &lt;em&gt;Wisdom will come with time&lt;/em&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;This took me so much time. - Yes, as I said programming is hard. Some problems will be easy and fast to resolve and some of them not. You will spend many hours learning how to code. You need to be patient. Give yourself some space to failures and mistakes. People study this topic for years (master degree takes 5 years), and they are still at the beginning of programming road. If you are fully committed to this dream you can do it. Give yourself time to do that. This is the only way to reach that goal. There is not short cuts. Remember &lt;em&gt;Progress not perfection&lt;/em&gt;.&lt;/p&gt;
+    &lt;p&gt;This took me so much time. - Yes, as I said programming is hard. Some problems will be easy and fast to resolve and some of them not. You will spend many hours learning how to code. You need to be patient. Give yourself some space to do failures and mistakes. People study this topic for years (master degree takes 5 years), and they are still at the beginning of programming road. If you are fully committed to this dream you can do it. Give yourself time to do that. This is the only way to reach that goal. There is not short cuts. Remember &lt;em&gt;Progress not perfection&lt;/em&gt;.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;I will never understand that! - Look, do you remember from your school’s times any topic which was hard for you to understand? Maybe something from math or physic or philosophy? Do you know that topic better now? Probably yes. I had many this kind of topics. Especially from my studies. I didn’t understand them fully when I was young. When I was learning this first time. And now, I am teaching this others. Just keep going. One thing which is complex for you now, will not stop you for being who you want to be. I believe in yourself. I know you can overcome it. Take care of something else for a moment and go back to this hard topic one more time.&lt;/p&gt;
@@ -1803,79 +2411,6 @@ SyntaxError ((irb):5: syntax error, unexpected '=', expecting end-of-input)
         
         
         <category>refactoring</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Regular expressions - what can go wrong?</title>
-        <description>&lt;p&gt;Someone said: &lt;em&gt;If you have a problem, use regular expressions. You will have two problems.&lt;/em&gt; That’s true. At least in some cases. As a programmer, we should be responsible for our code. We should think twice about all possible usage of our code. And also, do tests for it ;]. Today I would like to share an example with using regular expressions, but without enough preparation and testing. I would like to show what was wrong and how I fixed it. This is a case study. I will not introduce the concept of regular expressions, but I will show you, what you need to consider during using them.&lt;/p&gt;
-
-&lt;p&gt;I got a bug to fix. That’s usually a start of a story. So, I got bug in one text area. In this text area user can put a list of emails, which should be imported as contacts to the application. The problem was that only some of those emails were imported and some of them not. My task was to discover the reason and resolve the problem. I like to think about myself as a detective in this case. I started my investigation.&lt;/p&gt;
-
-&lt;p&gt;This is how the Ruby code looks like for this feature:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:enter_emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;' '&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/,/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# do something (for example add to contact list)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# render error&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The input for this code was just a string. We remove all space between parts of this string and then we check regular expression. If string fits to this expression, we split it by comma. And then do something with this data. For example, add to contact list. These are two main problems with this code:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Splitting by comma&lt;/strong&gt; - What if the user will use a semicolon or just one space or new line? This is a simple text area, he can do that. We are not able to check that.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Validation only the last part of string&lt;/strong&gt; - When we look closely we will see this problem. When we put as input: &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;aaa@excom, bbb@ex.com&quot;&lt;/code&gt; it will be valid. And when we put &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;bbb@ex.com, aaa@excom&quot;&lt;/code&gt; it won’t.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;What is going on? To see that kind of problems, it is good to check how our regular expression behaves for different edge cases in console or in some tool. I use and recommend &lt;a href=&quot;https://rubular.com/&quot; title=&quot;Rubular - regular expressions&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Rubular&lt;/a&gt;. At least for Ruby people. It is simple, but very useful website where you can check your regular expression.&lt;/p&gt;
-
-&lt;figure&gt;
-  &lt;a href=&quot;/images/email-regular-expressions/rubular.png&quot;&gt;&lt;img src=&quot;/images/email-regular-expressions/rubular.png&quot; title=&quot;Rubular - regular expressions&quot; alt=&quot;Matching of regular expression&quot; /&gt;&lt;/a&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;As you can see we only check the last part of the string.The last email address. When the last email is valid whole string is valid no matter what you have in the beginning. That’s not good. There are many possibilities to fix that problem. I decided to first split string and then check email’s regular expression. For splitting I used &lt;code class=&quot;highlighter-rouge&quot;&gt;/\s+|\s*,\s*|\s*;\s*/&lt;/code&gt;. So, I split the text by whitespace, commas and semicolons. There is one more thing to mention. When you split using this regular expression then you will get empty strings in array, like in the example below:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aaa@excom,, , ,  bbb@ex.com aa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/\s+|\s*,\s*|\s*;\s*/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;aaa@excom&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;bbb@ex.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aa&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It can be enough for you or you’ll need to take care of your empty strings in the array. After that you can, for example, check validation of each element of the array:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;all?&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;or just choose valid elements:&lt;/p&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;emails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=~&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/\b[A-Z0-9._%a-z\-\+]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
- &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;bbb@ex.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Do whatever fits the best for you.&lt;/p&gt;
-
-&lt;p&gt;You can ask now, why you share that? What was your purpose? The answer is simple. I see that everywhere. We, as programmers, sometimes do not pay too much attention to resolving problems or we just rush too much. In this situation we introduce new bugs to the application. And maybe sometimes it’s ok, but ask yourself, do you want to go into surgery when doctor do not pay attention to your body? I know that some of our bugs are not so critical, but what if it is related to some formal documents or splitting dosage of medicine or maybe driving a car? In book “The Little Prince” the fox said: &lt;em&gt;“You become responsible, forever, for what you have tamed”&lt;/em&gt;. In this situation I say: &lt;em&gt;“You become responsible, forever, for what you have coded”&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;If you want, share your thoughts in the comments below. Thanks for reading! See you next time. Bye!&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 16 Jan 2019 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/email-regular-expressions</link>
-        <guid isPermaLink="true">https://womanonrails.com/email-regular-expressions</guid>
-        
-        <category>Ruby</category>
-        
-        <category>regular expressions</category>
-        
-        
-        <category>programming</category>
         
       </item>
     

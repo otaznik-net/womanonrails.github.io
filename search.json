@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Functional programming in Ruby",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/functional-programming-ruby",
+		  "date"       : "2019-07-03 00:00:00 -0400",
+		  "shortdate"  : "July 03, 2019"
+		} ,
+	
+		{
 		  "title"      : "Ruby pattern matching",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/ruby-pattern-matching",
