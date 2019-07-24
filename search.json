@@ -153,6 +153,14 @@
 		} ,
 	
 		{
+		  "title"      : "Rails Girls Cieszyn (15 – 16 October 2016)",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/rails-girls-cieszyn",
+		  "date"       : "2016-10-25 00:00:00 -0400",
+		  "shortdate"  : "October 25, 2016"
+		} ,
+	
+		{
 		  "title"      : "Rails Girls Poznań (02 – 03 September 2016)",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/rails-girls-poznan",
