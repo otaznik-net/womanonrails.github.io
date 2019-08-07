@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "4Developers 2019",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/4developers-2019",
+		  "date"       : "2019-08-07 00:00:00 -0400",
+		  "shortdate"  : "August 07, 2019"
+		} ,
+	
+		{
 		  "title"      : "Functional programming in Ruby",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/functional-programming-ruby",

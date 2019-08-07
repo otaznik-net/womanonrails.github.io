@@ -5,9 +5,58 @@
     <description></description>
     <link>https://womanonrails.com/</link>
     <atom:link href="https://womanonrails.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 24 Jul 2019 09:34:07 -0400</pubDate>
-    <lastBuildDate>Wed, 24 Jul 2019 09:34:07 -0400</lastBuildDate>
+    <pubDate>Wed, 07 Aug 2019 11:15:12 -0400</pubDate>
+    <lastBuildDate>Wed, 07 Aug 2019 11:15:12 -0400</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>4Developers 2019</title>
+        <description>&lt;p&gt;Normally I’m quite active in &lt;a href=&quot;/tags/#Rails%20Girls&quot; title=&quot;Rails Girls Workshops&quot;&gt;Rails Girls&lt;/a&gt; community. I’m a mentor and an organizer, and also a speaker at Rails Girls workshops. In this year is a little bit different. I spend less time supporting Rails Girls events, but I challenged myself in a different way. I started sending my proposals to the conferences. I wanted to be a speaker at more than just local community groups or Rails Girls events.&lt;/p&gt;
+
+&lt;p&gt;Finally, my candidature was accepted
+on both local editions of conferences: &lt;a href=&quot;https://4developers.org.pl/krakow/&quot; title=&quot;4Developers Kraków 2019&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;4Developers in Cracow&lt;/a&gt; and &lt;a href=&quot;https://4developers.org.pl/katowice/&quot; title=&quot;4Developers Katowice 2019&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener&quot;&gt;4Developers in Katowice&lt;/a&gt;.
+I have never been on 4Developers conference, but I hope, it will be a great experience for me. I will have an honor to say two presentations at this events. Here they are.&lt;/p&gt;
+
+&lt;h2&gt;
+  &lt;a href=&quot;#are-you-an-egoistic-programmer&quot; title=&quot;Refactoring presentation slides&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Are you an Egoistic Programmer? - Step by step refactoring&lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;#are-you-an-egoistic-programmer&quot; title=&quot;Refactoring presentation slides&quot;&gt;
+  &lt;img src=&quot;/images/4developers/cracow.jpg&quot; alt=&quot;4Developers Conf in Cracow&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In this presentation I would like to focus on small things, which every programmer can do to improve readability of source code. I want to show, that small things matter in architecture of our applications. At first, we should think about this small improvement, before we will start even thinking about big things like DDD or CQRS. I will show you some examples where this small improvement made a difference.&lt;/p&gt;
+
+&lt;h2&gt;
+  &lt;a href=&quot;https://womanonrails.com/presentations/quality-assurance-tdd-example&quot; title=&quot;TDD presentation slides&quot;&gt;Quality Assurance - Based on TDD example&lt;/a&gt;
+&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://womanonrails.com/presentations/quality-assurance-tdd-example&quot; title=&quot;TDD presentation slides&quot;&gt;
+  &lt;img src=&quot;/images/4developers/katowice.jpg&quot; alt=&quot;4Developers Conf in Katowice&quot; /&gt;
+&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Second presentation is about creating an application using TDD. We often talk how important quality is during a development process. TDD is one of these things, we can do to improve the quality. It can be our protection. Our safeguard, when we talk about bugs. Especially when your programming language has dynamic typing like Ruby and you don’t have compiler. ;]&lt;/p&gt;
+
+&lt;p&gt;I’m very excited about this two presentations. If you like those topics or you are interested in this conference, I have 20% discount for tickets at 4Developers in Cracow. You just need to put a discount code &lt;strong&gt;RZADZE_W_KRAKOWIE&lt;/strong&gt; during your purchase process.&lt;/p&gt;
+
+&lt;p&gt;I hope we will meet on 4Developers conference!&lt;/p&gt;
+
+&lt;figure&gt;
+  &lt;img src=&quot;/images/4developers/4developers-2019-discount.jpg&quot; alt=&quot;Discount code RZADZE_W_KRAKOWIE for 4Developers conference in Cracow&quot; /&gt;
+  &lt;figcaption&gt;Discount code for 4Developers conference in Cracow&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description>
+        <pubDate>Wed, 07 Aug 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/4developers-2019</link>
+        <guid isPermaLink="true">https://womanonrails.com/4developers-2019</guid>
+        
+        <category>4Developers</category>
+        
+        
+        <category>conference</category>
+        
+      </item>
     
       
       <item>
@@ -1124,7 +1173,7 @@ NameError (undefined local variable or method `&lt;/span&gt;&lt;span class=&quot
 If you think, that this is easy and you can do nothing almost all the day. - Programming isn’t for you.
 If you think you learn something and your knowledge stays the same for next 10 years. - Programming isn’t for you.&lt;/p&gt;
 
-&lt;p&gt;When I was organizing Rails Girls workshops in Cieszyn for 24 participants, only 5 of them were interested in continuing learning. After first classes only 2 of them staid. Only 2 of them took their time, energy and engagement to learn programming with me. And only one (as far as I know) changed her life and she is now programmer. What I would like to say by that example is that…&lt;/p&gt;
+&lt;p&gt;When I was organizing &lt;a href=&quot;/rails-girls-cieszyn&quot; title=&quot;Rails Girls Cieszyn&quot;&gt;Rails Girls workshops in Cieszyn&lt;/a&gt; for 24 participants, only 5 of them were interested in continuing learning. After first classes only 2 of them staid. Only 2 of them took their time, energy and engagement to learn programming with me. And only one (as far as I know) changed her life and she is now programmer. What I would like to say by that example is that…&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Programming is hard work.&lt;/strong&gt; I’m really honest with you. It will take a lot of your time. You will learn new things, improve your skill and knowledge till end of your life. You will have doubts and moments of break downs. You will be bored sometimes or angry that something is not working, but if you still want to try and you feel deep in your heart, this is for you. You will also have moments of victory. You will be proud of yourself and your code. You will be happy to learn new things. This job will bring you satisfaction.&lt;/p&gt;
 
@@ -2334,83 +2383,6 @@ SyntaxError ((irb):5: syntax error, unexpected '=', expecting end-of-input)
         
         
         <category>programming</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Small code smells</title>
-        <description>&lt;p&gt;I think every programmer, at least at some point, wanted to resolve some big problems, focus on big architecture and be the one, who will fix the entire world. Did you ever feel that way? I did, more than once. It’s funny because at that moment I feel that I can change application completely, for the better of course ;] I can do some refactoring here and there. I can do that alone, without any help. I see the solution inside my head. It is almost done. But after this moment of excitement, I know that this is a daily base work. To have good architecture, we need to take care of each small line of code. This will not happen by night. It is hard work and sometimes we forget about it. It is much more fun to think about integration with Google Earth Engine then about naming of one small variable. Don’t you think?&lt;/p&gt;
-
-&lt;p&gt;Here is what I would like to show you. I got Visual Basic code to rewrite it in Ruby. I cannot show you all of this code. It is still under NDA (non-disclosure agreement). But you can image this situation. I opened the file. One big file. 2000 lines of code. I started reading the code to understand the logic. It was hard. Very hard. It was painful. Many variables almost from &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;z&lt;/code&gt;, then form &lt;code class=&quot;highlighter-rouge&quot;&gt;aa&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;zz&lt;/code&gt; without any explanation what they meant. One big method. Lot of duplications and no indentations. And something what I’ve seen last time on my University during classes about micro-controllers programing. Lot of &lt;code class=&quot;highlighter-rouge&quot;&gt;goto&lt;/code&gt; commands, almost everywhere. It took me some time to understand it. Logic was quite easy, after spending hours of reading this code. Yes, there were many math calculations, but after all, those were linear equations to solve in loops. If the person who prepared this code, took care of it in the proper way, I would have much less work to do. I would spend less time to understand it. And it would be a pleasure to work with this code. I think even for that person the code would be much easier with a good design.&lt;/p&gt;
-
-&lt;p&gt;I will give you two small examples of this code, to show you the problem:&lt;/p&gt;
-
-&lt;div class=&quot;language-visualbasic highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Then&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;GoTo&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;410&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;If&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;410&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Do you know what this code does? First look, first thought. No idea. You need to analyze it to understand it. OK, let me give you a hand here:&lt;/p&gt;
-
-&lt;div class=&quot;language-visualbasic highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Then&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;GoTo&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;410&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;End&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;If&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-  &lt;span class=&quot;mi&quot;&gt;410&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It is more readable, because we know which code is inside the other. And we see that &lt;code class=&quot;highlighter-rouge&quot;&gt;m1 = 2&lt;/code&gt; so we have only 2 steps for each loop. But this &lt;code class=&quot;highlighter-rouge&quot;&gt;goto&lt;/code&gt; breaks the flow of reading it. What if I told you that this code is no more than this:&lt;/p&gt;
-
-&lt;div class=&quot;language-visualbasic highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;err&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;err&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Much easier to understand. I can show you another solution just in case you want to stay with dynamic generation of this matrix based on size. In this Visual Basic code we use only the size of 2, so for me it does not make sense to do that dynamically, but who knows.&lt;/p&gt;
-
-&lt;div class=&quot;language-visualbasic highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;For&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;To&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m1&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;If&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;Then&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;Next&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The second example is quick. Do you know the difference between &lt;code class=&quot;highlighter-rouge&quot;&gt;n12&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;n1n2&lt;/code&gt; variables? Maybe this is just a misspell? And after all what is this &lt;code class=&quot;highlighter-rouge&quot;&gt;n12&lt;/code&gt;? What does it mean?&lt;/p&gt;
-
-&lt;div class=&quot;language-visualbasic highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;n12&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;^&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;n1n2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;It is not hard to do a mistake here. Names are so similar, that you can easily put second variable instead of first. We still don’t know what is the real meaning of these variables, but at least we know the difference. When you have lots of this kind of variables in code it is almost impossible to remember them.&lt;/p&gt;
-
-&lt;p&gt;If we want to have the overall good architecture, we should start small. We should put attention to each line of code. We should explicite show the meaning of our code. It is easy to make a mess, but good code needs more work and engagement.&lt;/p&gt;
-
-&lt;p&gt;Thank you that you are here and that you want to improve your programming skills. Share your thoughts in the comments below. Once again, thank you and see you next time!&lt;/p&gt;
-</description>
-        <pubDate>Sat, 02 Feb 2019 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/small-code-smells</link>
-        <guid isPermaLink="true">https://womanonrails.com/small-code-smells</guid>
-        
-        <category>Visual Basic</category>
-        
-        <category>code smells</category>
-        
-        
-        <category>refactoring</category>
         
       </item>
     
