@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Iteratory w Ruby",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/ruby-iterators",
+		  "date"       : "2019-10-02 00:00:00 -0400",
+		  "shortdate"  : "October 02, 2019"
+		} ,
+	
+		{
 		  "title"      : "4Developers 2019",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/4developers-2019",
