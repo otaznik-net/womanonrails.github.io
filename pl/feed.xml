@@ -5,9 +5,26 @@
     <description></description>
     <link>https://womanonrails.com/pl/</link>
     <atom:link href="https://womanonrails.com/pl/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 02 Oct 2019 11:37:22 -0400</pubDate>
-    <lastBuildDate>Wed, 02 Oct 2019 11:37:22 -0400</lastBuildDate>
+    <pubDate>Mon, 28 Oct 2019 08:15:32 -0400</pubDate>
+    <lastBuildDate>Mon, 28 Oct 2019 08:15:32 -0400</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      
+      <item>
+        <title>Lokalne edycje 4Developers 2019</title>
+        <description>&lt;p&gt;W jednym z poprzednich artykułów pisałam o wyzwaniu, jakie sobie postawiałam na ten rok 2019. Pisałam o chęci zostania prelegentką na konferencjach. Ten cel udało mi się zrealizować dwukrotnie na lokalnych edycjach konferencji 4Developers w Krakowie i Katowicach. To było bardzo ciekawe doświadczenie, zwłaszcza że moje audytorium nie miało styczności z językiem programowania jakim jest Ruby. Dzięki temu miałam możliwość podzielenia się moim doświadczeniem w języku Ruby oraz w używaniu dobrych praktyk podczas pisania kodu. W najbliższym czasie odbędą się jeszcze dwie lokalne edycje festiwalu 4Developers i z tej okazji mam dla Ciebie dwie niespodzianki przygotowane we współpracy z organizatorami tego wydarzenia. Zniżkę na bilety na oba te wydarzenia oraz możliwość wygrania darmowego biletu na poznańską edycję 4Developers. Ale zacznijmy od początku.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 27 Oct 2019 00:00:00 -0400</pubDate>
+        <link>https://womanonrails.com/pl/4developers-local-events-2019</link>
+        <guid isPermaLink="true">https://womanonrails.com/pl/4developers-local-events-2019</guid>
+        
+        <category>4Developers</category>
+        
+        
+        <category>konferencja</category>
+        
+      </item>
     
       
       <item>
@@ -2381,29 +2398,6 @@ method1 || method2 'foo'
         
         
         <category>programowanie</category>
-        
-      </item>
-    
-      
-      <item>
-        <title>Global Game Jam Cieszyn 2019</title>
-        <description>&lt;p&gt;&lt;br /&gt;
-Global Game Jam to co roczny hakaton związany z grami. W tym samym czasie w wielu krajach na całym świecie graficy, dźwiękowcy i programiści spotykają się wspólnie by tworzyć gry komputerowe. Mają na to 48 godzin. Głównym celem tego hakatonu jest innowacja, eksperymentowanie i współpraca. Każdego roku uczestnicy dostają informację o nowym motywie przewodnim, jaki będzie obowiązywać podczas bieżącego game jamu. Ma to być pewnego rodzaju inspiracja dla tworzonych w tym czasie gier. Po całym weekendzie pracy gry umieszczone zostają na stronie &lt;a href=&quot;https://globalgamejam.org/&quot; title=&quot;Global Game Jam - oficjalna strona&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Global Game Jam&lt;/a&gt;. Ja, do tej pory uczestniczyłam w trzech game jamach w Cieszynie. Jeżeli jesteś zainteresowana grami jakie współtworzyłam to zerknij na mój artykuł o &lt;a href=&quot;/pl/global-game-jam&quot; title=&quot;Global Game Jam - Cieszyn 2016&quot;&gt;Global Game Jam Cieszyn 2016&lt;/a&gt; lub na mój &lt;a href=&quot;https://globalgamejam.org/users/womanonrails&quot; title=&quot;Mój profil na Global Game Jam&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;profil inicjatywy Global Game Jam&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Global Game Jam w Cieszynie jest jednym z moich ulubionych hakatonów. Uwielbiam takie inicjatywy i atmosferę panującą na nich. Człowiek naprawdę czuje, że tworzy coś co działa i jest funkcjonalne. To prawdziwa szkoła tworzenia MVP (ang. Minimum Viable Product). Masz tylko 48 godzin by stworzyć i zaprezentować gotowy produkt. Jeszcze lepiej jest, gdy masz możliwość współpracy z prawdziwymi grafikami. Naprawdę ma się wtedy zupełnie inną motywację. No i sama gra wygląda wspaniale. W tym roku motywem przewodnim game jamu było “What home means to you” czyli “Co znaczy dla Ciebie dom”. Mój zespół myślał o zwierzętach, które mają swój dom zawsze ze sobą. Zwierzętach takich jak ślimaki. W ten dość prosty, ale również zabawny sposób powstała fabuła naszej gry. Ślimak Kamil chce pomóc swojej dziewczynie Lucy odzyskać zgubioną muszlę. Postanawia wybrać się w bardzo niebezpieczną podróż, by znaleźć jej zaginiony dom. Przy okazji chciałabym zwrócić Twoją uwagę na grę słów jaką tu zastosowaliśmy. Otóż &lt;em&gt;Kamil ślimak&lt;/em&gt; to &lt;strong&gt;palindrom&lt;/strong&gt;, czyli wyrażenie brzmiące tak samo czytane od lewej do prawej jak i od prawej do lewej. Jeżeli masz ochotę zagrać w naszą &lt;em&gt;palindromową&lt;/em&gt; grę, zajrzyj &lt;a href=&quot;https://snailed-it.fractalsoft.org/play.html&quot; title=&quot;Gra Snailed it - możliwość zagrania&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;tutaj&lt;/a&gt;, i daj znać czy gra Ci się spodobała.&lt;/p&gt;
-
-&lt;p&gt;Na koniec mam dla Ciebie jeszcze dwa filmy z Global Game Jam w Cieszynie. Pierwszy z nich pokazuje prace nad naszą grą, którą nazwaliśmy &lt;a href=&quot;https://globalgamejam.org/2019/games/snailed-it&quot; title=&quot;Snailed it - Global Game Jam profil&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Snailed it&lt;/a&gt;. Drugi opowiada bardziej ogólnie o tym, co działo się w Cieszynie podczas game jamu. Dalej jestem pod ogromnym wrażeniem tego, co powstało w tym czasie. Zapraszam do oglądania! Dziękuje, że tu ze mną byłaś i do zobaczenia następnym razem!&lt;/p&gt;
-
-&lt;div class=&quot;fluid-width-video-wrapper&quot; style=&quot;padding-top: 56.2766%;&quot;&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/320432291&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot; id=&quot;fitvid823973&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;
-</description>
-        <pubDate>Wed, 06 Mar 2019 00:00:00 -0500</pubDate>
-        <link>https://womanonrails.com/pl/global-game-jam-2019</link>
-        <guid isPermaLink="true">https://womanonrails.com/pl/global-game-jam-2019</guid>
-        
-        <category>Global Game Jam</category>
-        
-        
-        <category>hakaton</category>
         
       </item>
     

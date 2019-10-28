@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Local editions of 4Developers 2019",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/4developers-local-events-2019",
+		  "date"       : "2019-10-27 00:00:00 -0400",
+		  "shortdate"  : "October 27, 2019"
+		} ,
+	
+		{
 		  "title"      : "Iterators in Ruby",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/ruby-iterators",
