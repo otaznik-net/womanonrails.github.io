@@ -1,7 +1,15 @@
 [
 	
 		{
-		  "title"      : "4Developers Wroclaw - 2019",
+		  "title"      : "TDD - Wprowadzenie",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/tdd-basic",
+		  "date"       : "2020-02-05 00:00:00 -0500",
+		  "shortdate"  : "February 05, 2020"
+		} ,
+	
+		{
+		  "title"      : "4Developers Wrocław - 2019",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/4developers-wroclaw-2019",
 		  "date"       : "2020-01-29 00:00:00 -0500",
