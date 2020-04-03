@@ -177,6 +177,49 @@
                  
                       
                       <h2 class="post-title text-center super lighter bordered-bottom">
+                          <a href="/session-controller-refactoring">SessionsController refactoring</a>
+                      
+                      </h2>
+                      <div class="post-info text-center small">
+                        <span class='post-tags'>
+
+  <a data-toggle='tooltip'
+     href="https://womanonrails.com/categories/index.html#refactoring"
+     title="Other posts from the Refactoring category"
+     rel="tag">Refactoring</a>
+
+</span>
+
+                      </div>
+                  </header>
+                  <div class="post-body bordered-bottom">
+                  
+                  
+                      <p>A few weeks ago I worked on code like this: class SessionsController &lt; ApplicationController respond_to :json, only: [:create] def create @user = User.find_by(email: user_params[:email]) if @user &amp;&amp; @user.authenticate(user_params[:password]) @user.token = Session.create(user: @user).token end respond_to { |format| format.json { render_user } } end private def user_params params.require(:user).permit(:email, :password) end def render_user if @user render json: @user, status: :created else render json: { errors: 'Email or password was invalid' }, status: :unprocessable_entity end end end When you look on this code at first time, you probably think that this is not too bad. Class isn’t to long. It have about 25 lines....&hellip;</p>
+                      <div class="text-center">
+                      
+                    <a href="/session-controller-refactoring" data-toggle="tooltip" title="How improve your code?" class="more-link btn btn-danger btn-large">
+                        <i class="icon-link"></i> read more...
+                    </a>
+                    
+                    </div>
+                  </div>
+              </article>
+          </div>
+      
+  
+      
+      
+          
+          
+          
+          
+          <div class="row">
+              <article class="post post col-md-8 col-md-offset-2">
+                 <header class="post-header">
+                 
+                      
+                      <h2 class="post-title text-center super lighter bordered-bottom">
                           <a href="/custom-rails-validators">Custom Rails Validators</a>
                       
                       </h2>
@@ -384,49 +427,6 @@
           </div>
       
   
-      
-      
-          
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                 
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/ruby-hash-tips">Ruby Hash Tips</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                        <span class='post-tags'>
-
-  <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#programming"
-     title="Other posts from the Programming category"
-     rel="tag">Programming</a>
-
-</span>
-
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                  
-                  
-                      <p>Today I will show you some Hash tips, which I like. But before that what really is this hash? Hash is a very specific Array where as a key we can use anything we want and order to this key some value or values. For example: If we have books and theirs authors. We can connect author to his books. When we call author then we see his/her books. hash = { 'Carlos Ruiz Zafon' =&gt; ['La Sombra del Viento', 'El Juego del Angel'], 'Antoine de Saint-Exupery' =&gt; 'Le Petit Prince' } hash['Carlos Ruiz Zafon'] # =&gt; ['La Sombra del...&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/ruby-hash-tips" data-toggle="tooltip" title="What I know about Hash?" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> read more...
-                    </a>
-                    
-                    </div>
-                  </div>
-              </article>
-          </div>
-      
-  
 
         <div class="row text-center text-caps">
             <div class="col-md-8 col-md-offset-2">
@@ -439,7 +439,7 @@
   
 
 <span class="page-number">
-  Page 8 of 10
+  Page 8 of 11
 </span>
 
   <a class="older-posts" href="/page9">

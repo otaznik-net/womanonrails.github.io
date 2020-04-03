@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Jak podmienić gałąź rodzica w git-cie?",
+		  "category"   : "",
+		  "url"        : "https://womanonrails.com/replace-parent-branch",
+		  "date"       : "2020-03-29 00:00:00 -0400",
+		  "shortdate"  : "March 29, 2020"
+		} ,
+	
+		{
 		  "title"      : "TDD - Wprowadzenie",
 		  "category"   : "",
 		  "url"        : "https://womanonrails.com/tdd-basic",

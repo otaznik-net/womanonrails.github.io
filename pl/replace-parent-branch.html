@@ -1,23 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" class='no-js'>
-  <head>
-    <meta charset='utf-8'>
-<title>Woman on Rails - web development from woman perspective</title>
-<meta name="description" content="Ruby on Rails programmer fascinated by design patterns, building good application architecture, code refactoring and connecting web development with remote work and travels.">
+<html lang="pl">
+<!--
+====================================================
+    __  ____  ______________  _______ ___    __
+   / / / /  |/  / ____/   \ \/ / ___//   |  / /
+  / /_/ / /|_/ / /_  / /| |\  /\__ \/ /| | / /
+ / __  / /  / / __/ / ___ |/ /___/ / ___ |/ /___
+/_/ /_/_/  /_/_/   /_/  |_/_//____/_/  |_/_____/
 
+====================================================
+Owner Name: Hossain Mohammad Faysal
+Profile: https://www.facebook.com/hmfaysal
+Version: 1.1
+Description: Awesome dude, awesome life
+====================================================
+-->
+<head>
+<meta charset='utf-8'>
+<title>Jak podmienić gałąź rodzica w git-cie? - Woman on Rails - web development z kobiecej perspektywy</title>
+<meta name="description" content="Ustawienie nowej gałęzi rodzica przy pomocy git rebase --onto.">
+<meta name="keywords" content="środowisko programistyczne, git, system kontroli wersji">
 
 <!-- Twitter Cards -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
-<meta name="twitter:title" content="Woman on Rails - web development from woman perspective">
-<meta name="twitter:description" content="Ruby on Rails programmer fascinated by design patterns, building good application architecture, code refactoring and connecting web development with remote work and travels.">
+<meta name='twitter:card' content="summary_large_image">
+<meta name="twitter:image" content="https://womanonrails.com/images/git-rebase/git.png">
+
+<meta name="twitter:title" content="Jak podmienić gałąź rodzica w git-cie?">
+<meta name="twitter:description" content="Ustawienie nowej gałęzi rodzica przy pomocy git rebase --onto.">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Woman on Rails - web development from woman perspective">
-<meta property="og:description" content="Ruby on Rails programmer fascinated by design patterns, building good application architecture, code refactoring and connecting web development with remote work and travels.">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
+<meta property="og:title" content="Jak podmienić gałąź rodzica w git-cie?">
+<meta property="og:description" content="Ustawienie nowej gałęzi rodzica przy pomocy git rebase --onto.">
+<meta property="og:image" content="https://womanonrails.com/images/git-rebase/git.png">
 
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
@@ -26,7 +42,7 @@
 
 
 
-<link rel="canonical" href="https://womanonrails.com/page6/">
+<link rel="canonical" href="https://womanonrails.com/replace-parent-branch">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -36,16 +52,18 @@
 
 <!-- Begin Jekyll SEO tag v2.6.0 -->
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Woman on Rails" />
+<meta property="og:title" content="Jak podmienić gałąź rodzica w git-cie?" />
 <meta name="author" content="womanonrails" />
-<meta property="og:locale" content="en" />
-<link rel="canonical" href="https://womanonrails.com/page6/" />
-<meta property="og:url" content="https://womanonrails.com/page6/" />
+<meta property="og:locale" content="pl" />
+<meta name="description" content="Ustawienie nowej gałęzi rodzica przy pomocy git rebase –onto." />
+<meta property="og:description" content="Ustawienie nowej gałęzi rodzica przy pomocy git rebase –onto." />
+<link rel="canonical" href="https://womanonrails.com/pl/replace-parent-branch" />
+<meta property="og:url" content="https://womanonrails.com/pl/replace-parent-branch" />
 <meta property="og:site_name" content="Woman on Rails" />
-<link rel="prev" href="https://womanonrails.com/page5" />
-<link rel="next" href="https://womanonrails.com/page7" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-29T00:00:00-04:00" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://womanonrails.com/page6/","headline":"Woman on Rails","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/womanonrails-square.svg"},"name":"womanonrails"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+{"description":"Ustawienie nowej gałęzi rodzica przy pomocy git rebase –onto.","@type":"BlogPosting","url":"https://womanonrails.com/pl/replace-parent-branch","headline":"Jak podmienić gałąź rodzica w git-cie?","dateModified":"2020-03-29T00:00:00-04:00","datePublished":"2020-03-29T00:00:00-04:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/replace-parent-branch"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -61,9 +79,9 @@
     </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
 
-  </head>
-  <body class='home-template' itemscope itemtype='https://schema.org/WebPage'>
-    <div id="fade"></div>
+</head>
+<body class="post-template" itemscope itemtype="https://schema.org/WebPage">
+<div id="fade"></div>
 <a id="slide" class="animated fade"></a>
 <aside id="sidebar">
   <nav id="navigation">
@@ -73,31 +91,36 @@
       
 
 <li>
-  <a href="https://womanonrails.com/">Home</a>
+  <a href="https://womanonrails.com/">Strona główna</a>
 </li>
 
 
 <li>
-  <a href="https://womanonrails.com/workshops">Programming courses</a>
+  <a href="https://womanonrails.com/pl/workshops">Kursy programowania</a>
 </li>
 
 
 <li>
-  <a href="https://womanonrails.com/categories">Categories</a>
+  <a href="https://womanonrails.com/pl/categories">Kategorie</a>
 </li>
 
 
 <li>
-  <a href="https://womanonrails.com/tags">Tags</a>
+  <a href="https://womanonrails.com/pl/tags">Tagi</a>
 </li>
 
 
 <li>
-  <a href="https://womanonrails.com/about">About</a>
+  <a href="https://womanonrails.com/pl/about">O mnie</a>
+</li>
+
+
+<li>
+  <a href="https://bemore.womanonrails.com/">Be more</a>
 </li>
 
 <li>
-  <a href="/feed.xml" title='Atom/RSS feed'>
+  <a href="/pl/feed.xml" title='Atom/RSS feed'>
     <i class='icon-rss'></i> Feed
   </a>
 </li>
@@ -106,25 +129,24 @@
   </nav>
 </aside>
 
-
-<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom"  style="background-image: url(https://womanonrails.com/images/)" itemscope itemtype="https://schema.org/Organization">
-
+<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" itemscope itemtype="https://schema.org/Organization">
 
 
-<button class='menu-button animated fade dosearch' title='Search'>
+
+<button class='menu-button animated fade dosearch' title='Wyszukaj'>
   <i class='icon-search'></i>
 </button>
 
 
 
-<a href="/pl/page6/" class='language animated fade'>
-  pl
+<a href="/replace-parent-branch" class='language animated fade'>
+  en
 </a>
 
 
 <div class='inner'>
   <div class='container'>
-    <a class='brand' href='/' itemprop='url' role='banner'>
+    <a class='brand' href='/pl' itemprop='url' role='banner'>
       
 <img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
 
@@ -133,6 +155,10 @@
         Woman on Rails
       </h1>
     </a>
+    
+    <h2 class='blog-description light bordered bordered-top' itemprop='description'>
+      Premature optimization is the root of all evil.
+    </h2>
     
   </div>
 </div>
@@ -159,302 +185,127 @@
 
 </header>
 
-<div id="main" class="content" role="main" itemprop="mainContentOfPage">
+<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/Blog">
     <div class="container">
         <div class="row">
-            <div class="page-body" itemprop="description">
+            <article class="post col-md-8 col-md-offset-2 hentry" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
             
-  
-      
-      
-          
-          
-          <div class="row">
-            <article class="post post col-md-8 col-md-offset-2">
-              <header class="post-header">
-                
-                  <h2 class="post-title text-center super lighter bordered-bottom">
-                    <a href="/rails-girls-lodz"><i class="icon-play-circle"></i> Rails Girls Łódź (16 – 17 June 2016)</a>
-                
-                </h2>
-                <div class="post-info text-center small">
-                  <span class='post-tags'>
+            
+            
+                    <header class="post-header entry-header">
+                        
+                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Jak podmienić gałąź rodzica w git-cie?</h1>
+                        
+                        <div class="cursive" style="color: #000; font-style:italic;">Ustawienie nowej gałęzi rodzica przy pomocy git rebase --onto.</div>
+                        <div class="post-info text-center small">
+                          
+                          
+                          
+                          <span class='post-tags'>
 
   <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#workshops"
-     title="Other posts from the Workshops category"
-     rel="tag">Workshops</a>
+     href="https://womanonrails.com/categories/index.html#narzędzia"
+     title="Other posts from the Narzędzia category"
+     rel="tag">Narzędzia</a>
 
 </span>
 
-                </div>
-              </header>
-              <div class="post-body bordered-bottom">
-                
-                  
+                          |
+                          
+
+
+
+<!-- &nbsp; -->
+<span class='post-tags reading-time'>
+<!-- <i class='icon-time'></i> -->
+<!-- 🕰️ -->
+<!-- &nbsp; -->
+<span class='time'>2</span> min.
+</span>
+
+
+                        </div>
+                    </header>
+                    <div class="post-body bordered-bottom" itemprop="description">
+                        
+                        <p>Kilka dni temu stworzyłam nową gałąź (branch). Na tej gałęzi zatwierdziłam już kilka zmian (czyli dodawałam kilka commit-ów), ale po jakimś czasie zorientowałam się, że gałąź od jakiej wyszłam to nie master tylko zupełnie inna gałąź. No cóż moje przeoczenie, tylko jak teraz poradzić sobie z tym problemem? W tym momencie potrzebowałam scalić (merge) moje bieżące zmiany z gałęzią master. Jednak to nie był dobry czas na dodanie również zmian z tej drugiej gałęzi. Jak to zrobić? W takiej sytuacji z pomocą przychodzi nam git.</p>
+
+<p>Problem, który opisałam powyżej można rozwiązać na wiele sposobów. Ja omówię dwa. Pierwszy jest łatwy w zrozumieniu, ale trochę czasochłonny. Możemy stworzyć nową gałąź. Taką, która będzie wywodzić się od gałęzi master i użyć komendy <code class="highlighter-rouge">git cherry-pick</code>. Tak by przenieść wszystkie zmiany z jednej gałęzi na drugą. To rozwiązanie jest OK, ale tylko wtedy, gdy nie ma się tych zmian za dużo. Wyobraź sobie, że masz 10 zatwierdzonych zmian (commit-ów). Teraz do każdej takiej zmiany musisz zastosować komendę <code class="highlighter-rouge">git cherry-pick</code>. Jest to całkiem sporo pracy. Drugi powód jest równie ważny. W wielu firmach programistycznych istnieje zdefiniowany proces dostarczania nowych funkcjonalności. Często częścią tego procesu jest pokazanie swojego kodu innym członkom zespołu zanim zostanie on dołączony do głównej gałęzi. Jest to tak zwane <strong>review kodu</strong>. Przeprowadza się je na zdalnym repozytorium używając do tego pull/merge request-ów. Dodatkowo założenie takiego przeglądu kodu jest proste: co najmniej jedna osoba musi takie zmiany zatwierdzić. Jeżeli stworzymy nową gałąź to proces przeglądu kodu prawdopodobnie będzie musiał zostać powtórzony. Co powoduje przeznaczenie dodatkowego czasu na przejrzenie lub przynajmniej zatwierdzenie zmian.</p>
+
+<p>Jest jednak inne rozwiązanie. Możemy użyć komendy <code class="highlighter-rouge">git rebase --onto</code>. Pozwoli nam ona zrobić dokładnie to czego oczekujemy, czyli pozwoli nam zamienić gałąź rodzicielską od której wyszła nasza bieżąca gałąź. Na schemacie poniżej możesz zobaczyć ułożenie naszych gałęzi przed wywołaniem komendy <code class="highlighter-rouge">git rebase --onto</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A---B---C---D  master
+                \
+                  E---F---G  feature-branch
+                          \
+                            H---I---J current-feature-branch (HEAD)
+</code></pre></div></div>
+
+<p>oraz po jej wywołaniu:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A---B---C---D  master
+                |\
+                | E---F---G  feature-branch
+                |
+                 \
+                  H'---I'---J' current-feature-branch (HEAD)
+</code></pre></div></div>
+
+<p>By zamienić gałąź rodzicielską na gałąź <code class="highlighter-rouge">master</code> musimy się przełączyć na gałąź <code class="highlighter-rouge">current-feature-branch</code> (to jest właśnie nasza problematyczna gałąź) i wywołać następującą komendę:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase <span class="nt">--onto</span> master feature-branch
+</code></pre></div></div>
+
+<p>I to wszystko. Nasza gałąź <code class="highlighter-rouge">current-feature-branch</code> wywodzi się teraz od gałęzi <code class="highlighter-rouge">master</code>, właśnie o to nam chodziło.</p>
+
+<p>Na koniec chciałabym jeszcze powiedzieć dwie rzeczy. Po pierwsze: Jeżeli chcesz dostosować polecenie <code class="highlighter-rouge">git rebase --onto</code> do swoich potrzeb, to tak wygląda jego ogólne wytłumaczenie dla pokazanego problemu:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase <span class="nt">--onto</span> new-parent old-parent
+</code></pre></div></div>
+
+<p>Po drugie, jak pewnie zauważyłaś na schemacie po wykonaniu polecenia <code class="highlighter-rouge">git rebase --onto</code> nie mamy dostępu do dokładnie tych samych zmian co przedtem. Kod w naszych zatwierdzonych zmianach pozostaje taki sam, jednak zmienia się unikalny identyfikator każdej zmiany, czyli jego <strong>SHA</strong> (np. <code class="highlighter-rouge">2d4698b</code>). Wszystko będzie dobrze jeżeli sama pracujesz na problematycznej gałęzi. Tak było w moim przypadku. Sprawa zaczyna się komplikować, gdy na gałęzi pracują też inne osoby w zespole. Może to powodować problemy. Identyfikatory zmian u Ciebie lokalnie, a także na zdalnym repozytorium, będą inne niż u reszty Twojego zespołu. Pamiętaj o tym, zanim użyjesz polecenia <code class="highlighter-rouge">git rebase --onto</code>, ponieważ przykładowo może to doprowadzić do zniknięcia części zmian z repozytorium.</p>
+
+                        <br>
                     
-                    <p><iframe width="940" height="529" src="//www.youtube.com/embed/VmNY-nrOYbM?theme=light&amp;color=white" frameborder="0" allowfullscreen> </iframe></p>
-                  
-                  <p class="lead">I’m really a Rails Girls freak! After a weekend with Rails Girls Warsaw, I went to the next workshops. This time, I was in Łódź on the third edition of Rails Girls Łódź. I loved the atmosphere of this workshop. It is always a pleasure for me to share my knowledge and to see that other women want to try new things. As usually, workshops started on Friday. We set up the environment on girls’ laptops and discussed what they would like to create during the workshops. After this installation party, was a dinner for mentors. This is a special...&hellip;</p>
-                
-                <div class="text-center">
-                  
-                    <a href="/rails-girls-lodz" data-toggle="tooltip" title="Rails Girls Łódź - video story" class="more-link btn btn-danger btn-large">
-                      <i class="icon-link"></i> see more...
-                    </a>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
-          
-          
-          
-  
-      
-      
-          
-          
-          <div class="row">
-            <article class="post post col-md-8 col-md-offset-2">
-              <header class="post-header">
-                
-                  <h2 class="post-title text-center super lighter bordered-bottom">
-                    <a href="/rails-girls-warsaw-2016"><i class="icon-play-circle"></i> Rails Girls Warsaw (11 - 12 June 2016)</a>
-                
-                </h2>
-                <div class="post-info text-center small">
-                  <span class='post-tags'>
-
-  <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#workshops"
-     title="Other posts from the Workshops category"
-     rel="tag">Workshops</a>
-
-</span>
-
-                </div>
-              </header>
-              <div class="post-body bordered-bottom">
-                
-                  
                     
-                    <p><iframe width="940" height="529" src="//www.youtube.com/embed/W6-Y56N9UvQ?theme=light&amp;color=white" frameborder="0" allowfullscreen> </iframe></p>
-                  
-                  <p class="lead">It is time to start the new Rails Girls season! My first Rails Girls event, this year, was in Warsaw. Warsaw is a very special place for me. Here I was a mentor for a first time. Here I fell in love with Rails Girls even more. It was in 2014. At that time, I was very nervous to be a mentor. After workshops I wrote down all my thoughts about that. You can read them in article Rails Girls welcome back!. This year organizers, as always, surprised us with a beautiful place for a workshop and with new ideas...&hellip;</p>
-                
-                <div class="text-center">
-                  
-                    <a href="/rails-girls-warsaw-2016" data-toggle="tooltip" title="Video story from Rails Girls Warsaw" class="more-link btn btn-danger btn-large">
-                      <i class="icon-link"></i> see more...
-                    </a>
-                  
-                </div>
-              </div>
-            </article>
-          </div>
-          
-          
-          
-  
-      
-      
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                    <figure><a href="/remote-work"><img src="https://womanonrails.com/images/remote/victoria.jpg" alt="Working remote" itemprop="image"></a></figure>
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/remote-work"><i class="icon-picture"></i> Working remote</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                        <span class='post-tags'>
+                    <div class="entry-tags text-center">
 
-  <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#work"
-     title="Other posts from the Work category"
-     rel="tag">Work</a>
+                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="https://womanonrails.com/tags/index.html#środowisko programistyczne" data-toggle="tooltip" title="Posts tagged with środowisko programistyczne" rel="tag">środowisko programistyczne</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/tags/index.html#git" data-toggle="tooltip" title="Posts tagged with git" rel="tag">git</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/tags/index.html#system kontroli wersji" data-toggle="tooltip" title="Posts tagged with system kontroli wersji" rel="tag">system kontroli wersji</a>
 
-</span>
-
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                      <p>For me, there are two types of remote work. Synchronic and asynchronic remote work. Synchronic remote work is work from different places but in the same time. For example I’m working from 9am to 5pm in Europe time zone. Second one - asynchronic remote work is when you are working from different places and in different times. So, it is possible to don’t have chance to talk with anyone through all day work. I only have experience in synchronic remote work. So this article will be about my feelings and my thoughts about this kind of remote work. Day by...&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/remote-work" data-toggle="tooltip" title="How is it feel working remotely?" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> read more...
-                    </a>
+                    </div>
                     
                     </div>
-                  </div>
-              </article>
-          </div>
-          
-          
-  
-      
-      
-          
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                 
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/git-rebase">Git Rebase</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                        <span class='post-tags'>
-
-  <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#tools"
-     title="Other posts from the Tools category"
-     rel="tag">Tools</a>
-
-</span>
-
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                  
-                  <p class = "lead">I wrote 2 articles about git: What is git and Git usage. There are basic information about git. Today I would like to do something more advanced. Last week I did quick presentation/lighting talk about git rebase. After that I realize that this is good topic to do short note. So, there you have.
-
-&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/git-rebase" data-toggle="tooltip" title="How can you do git rebase?" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> read more...
-                    </a>
-                    
-                    </div>
-                  </div>
-              </article>
-          </div>
-      
-  
-      
-      
-          
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                 
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/git-usage">Simple usage of Git</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                        <span class='post-tags'>
-
-  <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#tools"
-     title="Other posts from the Tools category"
-     rel="tag">Tools</a>
-
-</span>
-
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                  
-                  
-                      <p>Last time we talk about why we like Git. Today I would like to show you how we use Git. I will go thought base commands but if you like more information please use Git documentation. Let’s get started! Git is distributed repository. This mean that every one in our team have all history of changes locally. You can commit changes quickly without Internet connection. The most important thing is when something goes wrong in one local machine rest of the team has copy of repo (repository). In case you have central repository, if something is broken in this repository...&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/git-usage" data-toggle="tooltip" title="Git - basic commands" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> read more...
-                    </a>
-                    
-                    </div>
-                  </div>
-              </article>
-          </div>
-      
-  
-      
-      
-          
-          
-          
-          
-          <div class="row">
-              <article class="post post col-md-8 col-md-offset-2">
-                 <header class="post-header">
-                 
-                      
-                      <h2 class="post-title text-center super lighter bordered-bottom">
-                          <a href="/lambda">Lambdas in Ruby</a>
-                      
-                      </h2>
-                      <div class="post-info text-center small">
-                        <span class='post-tags'>
-
-  <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#refactoring"
-     title="Other posts from the Refactoring category"
-     rel="tag">Refactoring</a>
-
-</span>
-
-                      </div>
-                  </header>
-                  <div class="post-body bordered-bottom">
-                  
-                  
-                      <p>I had situation where I worked with many different (but in some way similar) collections in Ruby. This collections had very similar methods to search elements by name. In this particular example I decided to use lambda. Let me show you how this looks like. Code which I get looks like this: @first_collection.select do |activity| activity.name == 'name' end This is not bad code but in others places I had similar things. Collections (I mean arrays) and names were only changes. Like this: @sedond_collection.select do |activity| activity.name == 'name1' || activity.name == 'name2' end So I decided to use lambda....&hellip;</p>
-                      <div class="text-center">
-                      
-                    <a href="/lambda" data-toggle="tooltip" title="How remove redundancy in your code?" class="more-link btn btn-danger btn-large">
-                        <i class="icon-link"></i> read more...
-                    </a>
-                    
-                    </div>
-                  </div>
-              </article>
-          </div>
-      
-  
-
-        <div class="row text-center text-caps">
-            <div class="col-md-8 col-md-offset-2">
-                <nav class="pagination" role="navigation">
-
-  
-    <a class="newer-posts" href="/page5">
-      &larr; Newer Posts
-    </a>
-  
-
-<span class="page-number">
-  Page 6 of 11
-</span>
-
-  <a class="older-posts" href="/page7">
-    Older Posts &rarr;
-  </a>
-
-</nav>
-            </div>
         </div>
+                    <footer class="post-footer entry-meta">
+                        <div class="post-share text-center">
+    <p class="light small">
+        Share this post
+    </p>
+    <ul class="social-mini">
+        <li>
+            <a href="https://twitter.com/intent/tweet?text=&quot;Jak podmienić gałąź rodzica w git-cie?&quot;%20https://womanonrails.com/replace-parent-branch%20via%20&#64;womanonrails"
+            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
+                <i class="icon-twitter"></i>
+            </a>
+        </li>
+        <li>
+            <a  href="https://www.facebook.com/sharer/sharer.php?u=https://womanonrails.com/replace-parent-branch"
+            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
+                <i class="icon-facebook"></i>
+            </a>
+        </li>
+    </ul>
+</div>
 
+                        <div class="post-author text-center">
+	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Małaszkiewicz's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
+	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Małaszkiewicz" itemprop="url">Agnieszka Małaszkiewicz</a></span></h4>
+	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
+</div>
 
-
-            </div>
-        </div>
+                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+                    </footer>
+            </article>
     </div>
 </div>
 <footer id="footer"  class="blog-background overlay text-center align-middle animated from-top">
@@ -518,7 +369,7 @@
 
           </ul>
         <div>
-              <a href="/about">Agnieszka Małaszkiewicz</a>
+              <a href="/pl/about">Agnieszka Małaszkiewicz</a>
               &copy; 2020
               &bull; All rights reserved.
             </div>
@@ -682,6 +533,5 @@ $("a#click-pages").click(function(){
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-
-  </body>
+</body>
 </html>
