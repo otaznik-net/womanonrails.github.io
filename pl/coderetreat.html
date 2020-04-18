@@ -235,11 +235,15 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>W zeszłą sobotę uczestniczyłam w niesamowitym wydarzeniu – <a href="https://www.coderetreat.org/">Global Day of Coderetreat</a> w Krakowie. <strong>Coderetreat</strong> to szczególny dzień w roku, w którym programiści poświęcają swój czas nie tyle tworzeniu nowych funkcjonalności, ale skupiają się na <strong>kodzie dobrej jakości</strong>. Jest to dzień, w którym zatrzymujemy się na chwilę, by poświęcić czas na bycie lepszym programistą/programistką.</p>
+                        <p>W zeszłą sobotę uczestniczyłam w niesamowitym wydarzeniu –
+<a href="https://www.coderetreat.org/" rel="nofollow" target="_blank">Global Day of Coderetreat</a>
+w Krakowie. <strong>Coderetreat</strong> to szczególny dzień w roku, w którym programiści poświęcają swój czas nie tyle tworzeniu nowych funkcjonalności, ale skupiają się na <strong>kodzie dobrej jakości</strong>. Jest to dzień, w którym zatrzymujemy się na chwilę, by poświęcić czas na bycie lepszym programistą/programistką.</p>
 
 <h2 id="jak-wygląda-taki-coderetreat">Jak wygląda taki Coderetreat?</h2>
 
-<p>Cały dzień podzielony jest na 6-7 sesji kodowania. W naszym przypadku było ich dokładnie 6. W każdej z tych sesji staramy się rozwiązać problem <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Gry w życie</a>. Jest to dość prosty problem, ale rozwiązanie go nie jest głównym celem Coderetreat. Ważniejszy jest sposób dojścia do rozwiązania. Każda sesja trwa 45 minut, po czym następuje 15 minut podsumowania tego, co zostało zrobione i w jaki sposób. Przez wszystkie sesje procujemy w trybie <strong>ping pong pair porgramming</strong> z narzuconymi pewnymi ograniczeniami. Pair programming ponieważ pracujemy w parach, ping pong bo zmieniamy się przy klawiaturze. Pierwsza osoba pisze test, druga pisze kod a później pierwsza robi refaktoryzację. Teraz nadszedł czas by powiedzieć coś na temat ograniczeń. Mogą być one na prawdę różne. Jedne są prostsze a inne trudniejsze. Poniżej zamieszczam Wam ograniczenia, jakie mieliśmy podczas naszych sesji.</p>
+<p>Cały dzień podzielony jest na 6-7 sesji kodowania. W naszym przypadku było ich dokładnie 6. W każdej z tych sesji staramy się rozwiązać problem
+<a href="https://pl.wikipedia.org/wiki/Gra_w_%C5%BCycie" rel="nofollow" target="_blank">Gry w życie</a>.
+Jest to dość prosty problem, ale rozwiązanie go nie jest głównym celem Coderetreat. Ważniejszy jest sposób dojścia do rozwiązania. Każda sesja trwa 45 minut, po czym następuje 15 minut podsumowania tego, co zostało zrobione i w jaki sposób. Przez wszystkie sesje procujemy w trybie <strong>ping pong pair porgramming</strong> z narzuconymi pewnymi ograniczeniami. Pair programming ponieważ pracujemy w parach, ping pong bo zmieniamy się przy klawiaturze. Pierwsza osoba pisze test, druga pisze kod a później pierwsza robi refaktoryzację. Teraz nadszedł czas by powiedzieć coś na temat ograniczeń. Mogą być one na prawdę różne. Jedne są prostsze a inne trudniejsze. Poniżej zamieszczam Wam ograniczenia, jakie mieliśmy podczas naszych sesji.</p>
 
 <ol>
   <li>
@@ -250,7 +254,11 @@ Description: Awesome dude, awesome life
   <li>
     <p><strong>Programowanie funkcyjne</strong></p>
 
-    <p>Nasz cały kod nie mógł być mutowalny, to znaczy że stanu obiektu nie mógł się zmieniać wewnątrz metody. Czy pamiętacie funkcje z matematyki? One zawsze dostawały jakiś argument i zwracały wartość. Tak było też podczas tej sesji. Dodatkowo tym razem ustawiałam sobie poprzeczkę jeszcze wyżej. Nie programowałam w Ruby ale w <a href="https://livescript.net/">LiveScript</a>. Było to moje pierwsze zetknięcie z tym językiem. Jest on bardzo podobny do <a href="https://coffeescript.org/">CoffeeScript</a>, więc ciekawie było go spróbować. Podczas tej sesji zwróciłam szczególną uwagę na to, jak prosto testuje się takie matematyczne metody. Wystarczy sprawdzić, co zostaje zwrócone dla konkretnych argumentów i koniec.</p>
+    <p>Nasz cały kod nie mógł być mutowalny, to znaczy że stanu obiektu nie mógł się zmieniać wewnątrz metody. Czy pamiętacie funkcje z matematyki? One zawsze dostawały jakiś argument i zwracały wartość. Tak było też podczas tej sesji. Dodatkowo tym razem ustawiałam sobie poprzeczkę jeszcze wyżej. Nie programowałam w Ruby ale w
+ <a href="https://livescript.net/" rel="nofollow" target="_blank">LiveScript</a>.
+ Było to moje pierwsze zetknięcie z tym językiem. Jest on bardzo podobny do
+ <a href="https://coffeescript.org/" rel="nofollow" target="_blank">CoffeeScript</a>,
+ więc ciekawie było go spróbować. Podczas tej sesji zwróciłam szczególną uwagę na to, jak prosto testuje się takie matematyczne metody. Wystarczy sprawdzić, co zostaje zwrócone dla konkretnych argumentów i koniec.</p>
   </li>
   <li>
     <p><strong>Rozkazuj, nie proś</strong> – brak właściwości, brak metod ustawiających i odczytujących pola obiektu (setter, getter)</p>
@@ -260,12 +268,14 @@ Description: Awesome dude, awesome life
   <li>
     <p><strong>3 minutowe cykle</strong></p>
 
-    <p>W bieżącej sesji mieliśmy tylko 3 minuty by zakończyć jeden cykl TDD. Test, kod, refaktoring. Jeżeli nie udało nam się zakończyć całego cyklu, musieliśmy usunąć wszystko, co w tym cyklu zrobiliśmy i zacząć cykl od nowa. Ta sesja pozwoliła mi zrozumieć, że często w pracy chcemy od razu ogarnąć cały problem. Tworzymy ogrom jeszcze nie użytecznego kodu, tu trochę tam trochę, wszędzie panuje bałagan bo przecież “to nie jest jeszcze skończone”. Czasem jednak warto podejść do problemy za pomocą <a href="https://en.wikipedia.org/wiki/Minimum_viable_product">MVP</a> (Minimum Vable Product). Małe elementy, które działają już teraz. Tak było właśnie w tej sesji. Po każdych 3 minutach mieliśmy gotową działającą małą cząstkę oprogramowania. Malutką ale działającą.</p>
+    <p>W bieżącej sesji mieliśmy tylko 3 minuty by zakończyć jeden cykl TDD. Test, kod, refaktoring. Jeżeli nie udało nam się zakończyć całego cyklu, musieliśmy usunąć wszystko, co w tym cyklu zrobiliśmy i zacząć cykl od nowa. Ta sesja pozwoliła mi zrozumieć, że często w pracy chcemy od razu ogarnąć cały problem. Tworzymy ogrom jeszcze nie użytecznego kodu, tu trochę tam trochę, wszędzie panuje bałagan bo przecież “to nie jest jeszcze skończone”. Czasem jednak warto podejść do problemy za pomocą
+ <a href="https://en.wikipedia.org/wiki/Minimum_viable_product" rel="nofollow" target="_blank">MVP</a>
+ (Minimum Vable Product). Małe elementy, które działają już teraz. Tak było właśnie w tej sesji. Po każdych 3 minutach mieliśmy gotową działającą małą cząstkę oprogramowania. Malutką ale działającą.</p>
   </li>
   <li>
     <p><strong>Brak pętli, brak warunków</strong></p>
 
-    <p>Podczas tej sesji pisałam kod w <a href="http://es6-features.org/">JavaScript ES6</a> (poza moją strefą komfortu). Tym razem nie mogliśmy używać ani warunków ani pętli. To była dla mnie najtrudniejsza sesja. Każdego dnia podczas pisania kodu wielokrotnie korzystamy z pętli i warunków. Nawet nie zdajemy sobie sprawy, jak często. Zamiast pętli można wykorzystać rekurencję tylko jak wyznaczyć warunek zatrzymania? To nie było takie trywialne. Bardzo przydało się w tym momencie myślenie całkowicie poza schematem. Sesja ta dała mi dużo do myślenia.</p>
+    <p>Podczas tej sesji pisałam kod w JavaScript ES6 (poza moją strefą komfortu). Tym razem nie mogliśmy używać ani warunków ani pętli. To była dla mnie najtrudniejsza sesja. Każdego dnia podczas pisania kodu wielokrotnie korzystamy z pętli i warunków. Nawet nie zdajemy sobie sprawy, jak często. Zamiast pętli można wykorzystać rekurencję tylko jak wyznaczyć warunek zatrzymania? To nie było takie trywialne. Bardzo przydało się w tym momencie myślenie całkowicie poza schematem. Sesja ta dała mi dużo do myślenia.</p>
   </li>
   <li>
     <p><strong>Milcząca sesja</strong></p>
@@ -433,6 +443,25 @@ I oto koniec. Nasza ostatnia sesja zakończona. Podsumowując ten dzień uważam
             <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
         </ul>
         </div>
+        <div>
+  <a class='btn btn-default'
+     href='https://paypal.me/womanonrails'
+     target='_blank'
+     rel='nofollow'
+     style='border-radius: 10px !important;'>
+    <img alt='PayPal'
+         height='20'
+         src='/images/donations/paypal.svg'>
+  </a>
+  <a href='https://ko-fi.com/womanonrails'
+     target='_blank'
+     rel='nofollow'>
+    <img alt='Ko-fi'
+         height='34'
+         src='/images/donations/ko-fi.svg'>
+  </a>
+</div>
+
     </div>
     
         <div class="decor-wrapper">

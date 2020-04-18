@@ -238,7 +238,11 @@ Description: Awesome dude, awesome life
 
 <p>dla wszystkich tych przypadków korzystamy właśnie z walidatorów.</p>
 
-<p>Railsy mają wbudowane wiele walidatorów. Jeżeli jesteście zainteresowani poznaniem ich to zajrzyjcie do <a href="https://guides.rubyonrails.org/active_record_validations.html#validation-helpers">dokumentacji</a>. Czasem jednak to nie wystarcza, potrzeba czegoś więcej. W moim przypadku chciałam sprawdzić, czy konkretne pole tekstowe nie zawiera słów będących na czarnej liście. Wiem, że istnieje <a href="https://guides.rubyonrails.org/active_record_validations.html#exclusion">wbudowany walidator</a>, który mógłby mi pomóc, ale zależało mi na czymś więcej:</p>
+<p>Railsy mają wbudowane wiele walidatorów. Jeżeli jesteście zainteresowani poznaniem ich to zajrzyjcie do
+<a href="https://guides.rubyonrails.org/active_record_validations.html#validation-helpers" rel="nofollow" target="_blank">dokumentacji</a>.
+Czasem jednak to nie wystarcza, potrzeba czegoś więcej. W moim przypadku chciałam sprawdzić, czy konkretne pole tekstowe nie zawiera słów będących na czarnej liście. Wiem, że istnieje
+<a href="https://guides.rubyonrails.org/active_record_validations.html#exclusion" rel="nofollow" target="_blank">wbudowany walidator</a>,
+który mógłby mi pomóc, ale zależało mi na czymś więcej:</p>
 
 <ol>
   <li>Moja czarna lista słów była dość długa.</li>
@@ -248,7 +252,9 @@ Description: Awesome dude, awesome life
 
 <h2 id="zdecydowałam-więc-że-stworze-swój-własny-walidator">Zdecydowałam, więc że stworze swój własny walidator.</h2>
 
-<p>Zajrzałam do dokumentacji i znalazłam <a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">to</a>. Wybrałam <code class="highlighter-rouge">ActiveModel::EachValidator</code>, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: <code class="highlighter-rouge">validate_each</code>. Całość wyglądała następująco:</p>
+<p>Zajrzałam do dokumentacji i znalazłam
+<a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations" rel="nofollow" target="_blank">this</a>.
+Wybrałam <code class="highlighter-rouge">ActiveModel::EachValidator</code>, gdzie mam dostęp do całego weryfikowanego rekordu, nazwy atrybutu, który podlega walidacji i wartości tego atrybutu. To było wszystko czego potrzebowałam. Jedyne, co trzeba było zrobić, to napisać jedną metodę: <code class="highlighter-rouge">validate_each</code>. Całość wyglądała następująco:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/validators/blacklist_validator.rb</span>
 
@@ -314,7 +320,8 @@ Description: Awesome dude, awesome life
 
 <p>Została jeszcze jedna kwestia do omówienia. <strong>W jaki sposób dodać tłumaczenia błędów w katalogu <code class="highlighter-rouge">locales</code>?</strong></p>
 
-<p>Używamy konwencji w Rails. Poniżej przedstawiam jeden ze sposobów (inne możliwości dostępne w dokumentacji <a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
+<p>Używamy konwencji w Rails. Poniżej przedstawiam jeden ze sposobów (inne możliwości dostępne w dokumentacji
+<a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes" rel="nofollow" target="_blank">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">pl</span><span class="pi">:</span>
   <span class="na">activerecord</span><span class="pi">:</span>
@@ -486,6 +493,25 @@ Do następnego razu!</p>
             <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
         </ul>
         </div>
+        <div>
+  <a class='btn btn-default'
+     href='https://paypal.me/womanonrails'
+     target='_blank'
+     rel='nofollow'
+     style='border-radius: 10px !important;'>
+    <img alt='PayPal'
+         height='20'
+         src='/images/donations/paypal.svg'>
+  </a>
+  <a href='https://ko-fi.com/womanonrails'
+     target='_blank'
+     rel='nofollow'>
+    <img alt='Ko-fi'
+         height='34'
+         src='/images/donations/ko-fi.svg'>
+  </a>
+</div>
+
     </div>
     
         <div class="decor-wrapper">

@@ -229,21 +229,21 @@ Description: Awesome dude, awesome life
 
 <p>There is another solution. We can use <code class="highlighter-rouge">git rebase --onto</code> command. It can do exactly what we need. Replace the old parent branch with new parent branch. In our case with master branch. This is like our branches tree looks like:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A---B---C---D  master
-                \
-                  E---F---G  feature-branch
-                          \
-                            H---I---J current-feature-branch (HEAD)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A---B---C---D  master
+            \
+              E---F---G  feature-branch
+                      \
+                        H---I---J current-feature-branch (HEAD)
 </code></pre></div></div>
 
 <p>and this is what we would like to achieve:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A---B---C---D  master
-                |\
-                | E---F---G  feature-branch
-                |
-                 \
-                  H'---I'---J' current-feature-branch (HEAD)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A---B---C---D  master
+            |\
+            | E---F---G  feature-branch
+            |
+             \
+              H'---I'---J' current-feature-branch (HEAD)
 </code></pre></div></div>
 
 <p>To replace parent branch with <code class="highlighter-rouge">master</code>, we need to be on <code class="highlighter-rouge">current-feature-branch</code> branch and do:</p>
@@ -405,6 +405,25 @@ Description: Awesome dude, awesome life
             <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
         </ul>
         </div>
+        <div>
+  <a class='btn btn-default'
+     href='https://paypal.me/womanonrails'
+     target='_blank'
+     rel='nofollow'
+     style='border-radius: 10px !important;'>
+    <img alt='PayPal'
+         height='20'
+         src='/images/donations/paypal.svg'>
+  </a>
+  <a href='https://ko-fi.com/womanonrails'
+     target='_blank'
+     rel='nofollow'>
+    <img alt='Ko-fi'
+         height='34'
+         src='/images/donations/ko-fi.svg'>
+  </a>
+</div>
+
     </div>
     
         <div class="decor-wrapper">

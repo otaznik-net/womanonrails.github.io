@@ -234,33 +234,33 @@ Description: Awesome dude, awesome life
 
 <p>Jest jednak inne rozwiązanie. Możemy użyć komendy <code class="highlighter-rouge">git rebase --onto</code>. Pozwoli nam ona zrobić dokładnie to czego oczekujemy, czyli pozwoli nam zamienić gałąź rodzicielską od której wyszła nasza bieżąca gałąź. Na schemacie poniżej możesz zobaczyć ułożenie naszych gałęzi przed wywołaniem komendy <code class="highlighter-rouge">git rebase --onto</code>:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A---B---C---D  master
-                \
-                  E---F---G  feature-branch
-                          \
-                            H---I---J current-feature-branch (HEAD)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A---B---C---D  master
+            \
+              E---F---G  feature-branch
+                      \
+                        H---I---J current-feature-branch (HEAD)
 </code></pre></div></div>
 
 <p>oraz po jej wywołaniu:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A---B---C---D  master
-                |\
-                | E---F---G  feature-branch
-                |
-                 \
-                  H'---I'---J' current-feature-branch (HEAD)
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A---B---C---D  master
+            |\
+            | E---F---G  feature-branch
+            |
+             \
+              H'---I'---J' current-feature-branch (HEAD)
 </code></pre></div></div>
 
 <p>By zamienić gałąź rodzicielską na gałąź <code class="highlighter-rouge">master</code> musimy się przełączyć na gałąź <code class="highlighter-rouge">current-feature-branch</code> (to jest właśnie nasza problematyczna gałąź) i wywołać następującą komendę:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase <span class="nt">--onto</span> master feature-branch
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">--onto</span> master feature-branch
 </code></pre></div></div>
 
 <p>I to wszystko. Nasza gałąź <code class="highlighter-rouge">current-feature-branch</code> wywodzi się teraz od gałęzi <code class="highlighter-rouge">master</code>, właśnie o to nam chodziło.</p>
 
 <p>Na koniec chciałabym jeszcze powiedzieć dwie rzeczy. Po pierwsze: Jeżeli chcesz dostosować polecenie <code class="highlighter-rouge">git rebase --onto</code> do swoich potrzeb, to tak wygląda jego ogólne wytłumaczenie dla pokazanego problemu:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git rebase <span class="nt">--onto</span> new-parent old-parent
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">--onto</span> new-parent old-parent
 </code></pre></div></div>
 
 <p>Po drugie, jak pewnie zauważyłaś na schemacie po wykonaniu polecenia <code class="highlighter-rouge">git rebase --onto</code> nie mamy dostępu do dokładnie tych samych zmian co przedtem. Kod w naszych zatwierdzonych zmianach pozostaje taki sam, jednak zmienia się unikalny identyfikator każdej zmiany, czyli jego <strong>SHA</strong> (np. <code class="highlighter-rouge">2d4698b</code>). Wszystko będzie dobrze jeżeli sama pracujesz na problematycznej gałęzi. Tak było w moim przypadku. Sprawa zaczyna się komplikować, gdy na gałęzi pracują też inne osoby w zespole. Może to powodować problemy. Identyfikatory zmian u Ciebie lokalnie, a także na zdalnym repozytorium, będą inne niż u reszty Twojego zespołu. Pamiętaj o tym, zanim użyjesz polecenia <code class="highlighter-rouge">git rebase --onto</code>, ponieważ przykładowo może to doprowadzić do zniknięcia części zmian z repozytorium.</p>
@@ -408,6 +408,25 @@ Description: Awesome dude, awesome life
             <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
         </ul>
         </div>
+        <div>
+  <a class='btn btn-default'
+     href='https://paypal.me/womanonrails'
+     target='_blank'
+     rel='nofollow'
+     style='border-radius: 10px !important;'>
+    <img alt='PayPal'
+         height='20'
+         src='/images/donations/paypal.svg'>
+  </a>
+  <a href='https://ko-fi.com/womanonrails'
+     target='_blank'
+     rel='nofollow'>
+    <img alt='Ko-fi'
+         height='34'
+         src='/images/donations/ko-fi.svg'>
+  </a>
+</div>
+
     </div>
     
         <div class="decor-wrapper">

@@ -365,7 +365,9 @@ Description: Awesome dude, awesome life
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vi">@user</span> <span class="o">&amp;&amp;</span> <span class="vi">@user</span><span class="p">.</span><span class="nf">authenticate</span><span class="p">(</span><span class="n">user_params</span><span class="p">[</span><span class="ss">:password</span><span class="p">])</span>
 </code></pre></div></div>
 
-<p>Jeżeli nie widzieliście prezentacji <strong>Sandi Metz</strong> na temat <strong>Null Object Pattern</strong> to polecam (<a href="https://www.youtube.com/watch?v=29MAL8pJImQ">RailsConf 2015 – Nothing is Something</a>). Możemy stworzyć klasę <code class="highlighter-rouge">TrustedUser</code> i używać wszędzie tego obiektu bez sprawdzania czy mamy przyjemność z <code class="highlighter-rouge">nil</code>. Dalej możemy przenieść z powrotem metodę <code class="highlighter-rouge">render</code> i ustawiania tokenu do metody <code class="highlighter-rouge">create</code>. Zobaczmy jak nasz kod wygląda po zmianach:</p>
+<p>Jeżeli nie widzieliście prezentacji <strong>Sandi Metz</strong> na temat <strong>Null Object Pattern</strong> to polecam
+(<a href="https://www.youtube.com/watch?v=29MAL8pJImQ" rel="nofollow">RailsConf 2015 – Nothing is Something</a><!-- there will be a modal window with video -->).
+Możemy stworzyć klasę <code class="highlighter-rouge">TrustedUser</code> i używać wszędzie tego obiektu bez sprawdzania czy mamy przyjemność z <code class="highlighter-rouge">nil</code>. Dalej możemy przenieść z powrotem metodę <code class="highlighter-rouge">render</code> i ustawiania tokenu do metody <code class="highlighter-rouge">create</code>. Zobaczmy jak nasz kod wygląda po zmianach:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
   <span class="n">before_action</span> <span class="ss">:set_user</span><span class="p">,</span> <span class="ss">only: </span><span class="p">[</span><span class="ss">:create</span><span class="p">]</span>
@@ -552,6 +554,25 @@ Description: Awesome dude, awesome life
             <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
         </ul>
         </div>
+        <div>
+  <a class='btn btn-default'
+     href='https://paypal.me/womanonrails'
+     target='_blank'
+     rel='nofollow'
+     style='border-radius: 10px !important;'>
+    <img alt='PayPal'
+         height='20'
+         src='/images/donations/paypal.svg'>
+  </a>
+  <a href='https://ko-fi.com/womanonrails'
+     target='_blank'
+     rel='nofollow'>
+    <img alt='Ko-fi'
+         height='34'
+         src='/images/donations/ko-fi.svg'>
+  </a>
+</div>
+
     </div>
     
         <div class="decor-wrapper">

@@ -233,7 +233,11 @@ Description: Awesome dude, awesome life
 
 <p>for all of this we use validators.</p>
 
-<p>Rails has many different validators already in side. Check the <a href="https://guides.rubyonrails.org/active_record_validations.html#validation-helpers">documentation</a>. But sometimes you want to do more. In my case I need validator for black list of words for string field. I know I can use <a href="https://guides.rubyonrails.org/active_record_validations.html#exclusion">build-in validator</a>. But I need much more customization:</p>
+<p>Rails has many different validators already in side. Check the
+<a href="https://guides.rubyonrails.org/active_record_validations.html#validation-helpers" rel="nofollow" target="_blank">documentation</a>.
+But sometimes you want to do more. In my case I need validator for black list of words for string field. I know I can use
+<a href="https://guides.rubyonrails.org/active_record_validations.html#exclusion" rel="nofollow" target="_blank">build-in validator</a>.
+But I need much more customization:</p>
 
 <ol>
   <li>The list of excluded words was very long.</li>
@@ -243,7 +247,9 @@ Description: Awesome dude, awesome life
 
 <h2 id="so-i-decide-to-do-my-own-validator">So I decide to do my own validator.</h2>
 
-<p>I look to documentation and I find <a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations">this</a>. I choosed <code class="highlighter-rouge">ActiveModel::EachValidator</code> where I have access to whole record, specific attribute to check and the value of this attribute. This was all I needed. To do my custom validator I must only write one method: <code class="highlighter-rouge">validate_each</code>. It look like this:</p>
+<p>I look to documentation and I find
+<a href="https://guides.rubyonrails.org/active_record_validations.html#performing-custom-validations" rel="nofollow" target="_blank">this</a>.
+I choosed <code class="highlighter-rouge">ActiveModel::EachValidator</code> where I have access to whole record, specific attribute to check and the value of this attribute. This was all I needed. To do my custom validator I must only write one method: <code class="highlighter-rouge">validate_each</code>. It look like this:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># app/validators/blacklist_validator.rb</span>
 
@@ -309,7 +315,8 @@ Description: Awesome dude, awesome life
 
 <p>It is one more think to say. <strong>How put translation to our validators in <code class="highlighter-rouge">locales</code>?</strong></p>
 
-<p>We use Rails Convention. This is one but not only way to do this (all convention is explain in <a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
+<p>We use Rails Convention. This is one but not only way to do this (all convention is explain in
+<a href="https://guides.rubyonrails.org/i18n.html#error-message-scopes" rel="nofollow" target="_blank">https://guides.rubyonrails.org/i18n.html#error-message-scopes</a>):</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">en</span><span class="pi">:</span>
   <span class="na">activerecord</span><span class="pi">:</span>
@@ -481,6 +488,25 @@ questions or any suggestions below. To next time! Bye!</p>
             <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
         </ul>
         </div>
+        <div>
+  <a class='btn btn-default'
+     href='https://paypal.me/womanonrails'
+     target='_blank'
+     rel='nofollow'
+     style='border-radius: 10px !important;'>
+    <img alt='PayPal'
+         height='20'
+         src='/images/donations/paypal.svg'>
+  </a>
+  <a href='https://ko-fi.com/womanonrails'
+     target='_blank'
+     rel='nofollow'>
+    <img alt='Ko-fi'
+         height='34'
+         src='/images/donations/ko-fi.svg'>
+  </a>
+</div>
+
     </div>
     
         <div class="decor-wrapper">
