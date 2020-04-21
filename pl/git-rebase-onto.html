@@ -296,15 +296,14 @@ git rebase --onto F D
 Before                                    After
 A---B---C---F---G (branch)                A---B---C---F---G (branch)
          \                                             \
-          D---E---H---I (HEAD my-branch)                E'---H' (HEAD my-branch)
+          D---E---H---I (HEAD my-branch)                E'---H'---I' (HEAD my-branch)
 </pre>
 
 <p>Przesuwamy zmiany dostępne z poziomu <code class="highlighter-rouge">HEAD</code>, czyli naszego <code class="highlighter-rouge">my-branch</code>, gdzie starą zmianą rodzicielską było <code class="highlighter-rouge">D</code>, na nową zmianę rodzicielską <code class="highlighter-rouge">F</code>.  Możemy też powiedzieć, że zmieniamy rodzica zmiany <code class="highlighter-rouge">E</code> z <code class="highlighter-rouge">D</code> na <code class="highlighter-rouge">F</code>.</p>
 
-<p>Taki sam efekt uzyskamy korzystając z poleceń:</p>
+<p>Taki sam efekt uzyskamy korzystając z polecenia:</p>
 
 <pre>
-git rebase --onto F D HEAD
 git rebase --onto F D my-branch
 </pre>
 
@@ -326,6 +325,12 @@ A---B---C---F---G (branch)                A---B---C---F---G (branch)
 </pre>
 
 <p>Podobnie jak w przypadku <code class="highlighter-rouge">git rebase</code> bez dodatkowych parametrów, tu też przełączamy <code class="highlighter-rouge">HEAD</code> na ostatni argument wywołania komendy <code class="highlighter-rouge">git rebase --onto</code>. Widzimy, że nasza gałąź <code class="highlighter-rouge">my-branch</code> pozostała nienaruszona, natomiast <code class="highlighter-rouge">HEAD</code> znajduje się na nowej wersji zmiany <code class="highlighter-rouge">I</code>. Nie jest to jeszcze nazwana gałąź, ale jeżeli chcemy możemy ją nazwać. Zastanówmy się teraz, co tu się stało. Nasze polecenie <code class="highlighter-rouge">git rebase --onto F D I</code> sprawia, że zmieniamy rodzica zmiany <code class="highlighter-rouge">E</code>. Można tu się zastanowić dlaczego właściwie zmiany <code class="highlighter-rouge">E</code>? Przecież zmiana ta nie występuje nigdzie w poleceniu. Jest to pewnego rodzaju podmiot domyślny. Skoro bieżącym rodzicem jest zmiana <code class="highlighter-rouge">D</code>, to jest ona rodzicem dla zmiany <code class="highlighter-rouge">E</code>. W skrócie możemy powiedzieć, że <code class="highlighter-rouge">git rebase --onto F D I</code> zmieni rodzica zmiany <code class="highlighter-rouge">E</code> ze zmiany <code class="highlighter-rouge">D</code> na <code class="highlighter-rouge">F</code>. Dodatkowo przełączy nasz <code class="highlighter-rouge">HEAD</code> na zmianę <code class="highlighter-rouge">I</code>.</p>
+
+<p>Taki sam efekt uzyskamy korzystając z polecenia:</p>
+
+<pre>
+git rebase --onto F D HEAD
+</pre>
 
 <p>Podobna sytuacja ma miejsce, gdy chcemy na przykład przełączyć <code class="highlighter-rouge">HEAD</code> na zmianę <code class="highlighter-rouge">H</code>. Tak będzie wtedy wyglądać komenda:</p>
 

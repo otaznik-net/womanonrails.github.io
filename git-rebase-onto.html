@@ -291,7 +291,7 @@ git rebase --onto F D
 Before                                    After
 A---B---C---F---G (branch)                A---B---C---F---G (branch)
          \                                             \
-          D---E---H---I (HEAD my-branch)                E'---H' (HEAD my-branch)
+          D---E---H---I (HEAD my-branch)                E'---H'---I' (HEAD my-branch)
 </pre>
 
 <p>We rebase the commit reachable from <code class="highlighter-rouge">HEAD</code> (<code class="highlighter-rouge">my-branch</code>) where parent commit is <code class="highlighter-rouge">D</code> on top of the <code class="highlighter-rouge">F</code> commit. So, we can say that we change the parent of commit <code class="highlighter-rouge">E</code> from <code class="highlighter-rouge">D</code> to <code class="highlighter-rouge">F</code>.</p>
@@ -299,7 +299,6 @@ A---B---C---F---G (branch)                A---B---C---F---G (branch)
 <p>The same effect, we will get when we call:</p>
 
 <pre>
-git rebase --onto F D HEAD
 git rebase --onto F D my-branch
 </pre>
 
@@ -321,6 +320,12 @@ A---B---C---F---G (branch)                A---B---C---F---G (branch)
 </pre>
 
 <p>As in the normal <code class="highlighter-rouge">git rebase</code> we switch <code class="highlighter-rouge">HEAD</code> to the last argument of <code class="highlighter-rouge">git rebase --onto</code> command. In this case, this is a commit <code class="highlighter-rouge">I'</code>. We see that our branch <code class="highlighter-rouge">my-branch</code> stayed like it was before. Nothing has changed on the <code class="highlighter-rouge">my-branch</code>. But we have new <em>branch</em> which is our new <code class="highlighter-rouge">HEAD</code>. Right now it is not the real branch, but we can name it. What happened here? We told git that we change the parent of commit <code class="highlighter-rouge">E</code>. You can think: <em>“But, why commit <code class="highlighter-rouge">E</code>? We don’t have the commit <code class="highlighter-rouge">E</code> in our command.”</em> Since the current parent is the commit <code class="highlighter-rouge">D</code>, then its child is the commit <code class="highlighter-rouge">E</code>. So we change the parent of commit <code class="highlighter-rouge">E</code> from <code class="highlighter-rouge">D</code> to <code class="highlighter-rouge">F</code>, but we also switch <code class="highlighter-rouge">HEAD</code> from branch <code class="highlighter-rouge">my-branch</code> to the new commit <code class="highlighter-rouge">I'</code>.</p>
+
+<p>The same effect, we will get when we call:</p>
+
+<pre>
+git rebase --onto F D HEAD
+</pre>
 
 <p>A similar situation is when we want to switch <code class="highlighter-rouge">HEAD</code> to commit <code class="highlighter-rouge">H</code>. We will use the command:</p>
 
