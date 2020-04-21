@@ -364,8 +364,8 @@ git rebase --onto B D
 <p>This gives us:</p>
 
 <pre>
-Before                                    After
-A---B---C---D---E---F (HEAD my-branch)    A---B---E'---F' (HEAD)
+Before                                 After
+A---B---C---D---E---F (HEAD branch)    A---B---E'---F' (HEAD branch)
 </pre>
 
 <p>In this example, we say rebase <code class="highlighter-rouge">HEAD</code> on top of commit <code class="highlighter-rouge">B</code>, where the old parent branch was a commit <code class="highlighter-rouge">D</code>. The same effect, we will get for:</p>
