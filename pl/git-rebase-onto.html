@@ -376,7 +376,6 @@ A---B---C---D---E---F (HEAD my-branch)    A---B---E'---F' (HEAD)
 <p>W tym przypadku mówimy <em>przenieś <code class="highlighter-rouge">HEAD</code> nad zmianę <code class="highlighter-rouge">B</code>, gdzie starą zmianą rodzicielską była zmiana <code class="highlighter-rouge">D</code></em>. Taki sam efekt uzyskamy za pomocą:</p>
 
 <pre>
-git rebase --onto B D HEAD
 git rebase --onto B D my-branch
 </pre>
 
