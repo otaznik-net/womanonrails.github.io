@@ -18,20 +18,20 @@ Description: Awesome dude, awesome life
 <head>
 <meta charset='utf-8'>
 <title>Co to jest git? - Woman on Rails - web development z kobiecej perspektywy</title>
-<meta name="description" content="Git - podstawy">
+<meta name="description" content="Podstawy narzedzia Git. Dlaczego używamy git-a?">
 <meta name="keywords" content="środowisko programistyczne, git, system kontroli wersji">
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
 <meta name="twitter:title" content="Co to jest git?">
-<meta name="twitter:description" content="Git - podstawy">
+<meta name="twitter:description" content="Podstawy narzedzia Git. Dlaczego używamy git-a?">
 <meta name="twitter:creator" content="@womanonrails">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Co to jest git?">
-<meta property="og:description" content="Git - podstawy">
+<meta property="og:description" content="Podstawy narzedzia Git. Dlaczego używamy git-a?">
 <meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
 
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
@@ -54,15 +54,15 @@ Description: Awesome dude, awesome life
 <meta property="og:title" content="Co to jest git?" />
 <meta name="author" content="womanonrails" />
 <meta property="og:locale" content="pl" />
-<meta name="description" content="Git - podstawy" />
-<meta property="og:description" content="Git - podstawy" />
+<meta name="description" content="Podstawy narzedzia Git. Dlaczego używamy git-a?" />
+<meta property="og:description" content="Podstawy narzedzia Git. Dlaczego używamy git-a?" />
 <link rel="canonical" href="https://womanonrails.com/pl/what-is-git" />
 <meta property="og:url" content="https://womanonrails.com/pl/what-is-git" />
 <meta property="og:site_name" content="Woman on Rails" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2015-12-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Git - podstawy","@type":"BlogPosting","url":"https://womanonrails.com/pl/what-is-git","headline":"Co to jest git?","dateModified":"2015-12-20T00:00:00-05:00","datePublished":"2015-12-20T00:00:00-05:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/what-is-git"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+{"description":"Podstawy narzedzia Git. Dlaczego używamy git-a?","@type":"BlogPosting","url":"https://womanonrails.com/pl/what-is-git","headline":"Co to jest git?","dateModified":"2015-12-20T00:00:00-05:00","datePublished":"2015-12-20T00:00:00-05:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/what-is-git"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -196,7 +196,7 @@ Description: Awesome dude, awesome life
                         
                         <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Co to jest git?</h1>
                         
-                        <div class="cursive" style="color: #000; font-style:italic;">Git - podstawy</div>
+                        <div class="cursive" style="color: #000; font-style:italic;">Podstawy narzedzia Git. Dlaczego używamy git-a?</div>
                         <div class="post-info text-center small">
                           
                           
@@ -220,7 +220,7 @@ Description: Awesome dude, awesome life
 <!-- <i class='icon-time'></i> -->
 <!-- 🕰️ -->
 <!-- &nbsp; -->
-<span class='time'>4</span> min.
+<span class='time'>6</span> min.
 </span>
 
 
@@ -228,21 +228,27 @@ Description: Awesome dude, awesome life
                     </header>
                     <div class="post-body bordered-bottom" itemprop="description">
                         
-                        <p>Chciałabym z Wami zacząć dzisiaj krótką serię 2-3 artykułów na temat <strong>Gita</strong>. To będzie naprawdę podstawa. W Internecie jest wiele różnego rodzaju kursów na temat Gita. A ja nie chciałabym robić kolejnego. Jeżeli chciałybyście dowiedzieć się czegoś więcej na ten temat, osobiście mogę polecić 2 kursy na temat Gita z CodeSchool. Możecie zacząć <a href="https://www.codeschool.com/courses/try-git">tutaj</a>.</p>
+                        <p>Jeżeli interesuje Cię programowanie, to prawdopodobnie słyszałaś już nazwę <strong>Git</strong> przynajmniej kilka razy. Może nawet więcej niż kilka razy. Git to narzędzie, którego używają programiści i programistki niezależnie od tego w jakim języku programowania pracują. To jedno z tych podstawowych narzędzi, które naprawdę warto znać. Między innymi dlatego napisałam cykl artykułów na temat narzędzia git. W Internecie możesz znaleźć wiele kursów czy artykułów mówiących o tym jak używać git-a. Ja chciałabym się skupić przede wszystkim na zrozumieniu dlaczego warto go stosować, jak on działa i co można za jego pomocą zrobić. Nie przedłużając, dziś zajmiemy się  zrozumieniem czym jest git i jak może nam pomóc w codziennej, programistycznej pracy. No to zaczynamy!</p>
 
-<p>Nie będę tutaj podawać definicji tego czym jest Git, bo możecie ją znaleźć na <a href="https://en.wikipedia.org/wiki/Git_(software)">wiki</a> czy w <a href="https://git-scm.com/documentation">dokumentacji Gita</a>. Powiem tylko, że git to <strong>system kontroli wersji</strong>. Teraz zajmiemy się zrozumieniem do czego można wykorzystać Gita i dlaczego jest to naprawdę świetne narzędzie.</p>
+<h2 id="co-to-jest-git">Co to jest git?</h2>
 
-<p>Czy zdarzają się Wam sytuacje, w których pracujecie wspólnie z innymi nad tymi samymi plikami? Sytuacje takie jak: projekt zespołowy w szkole, na uczelni? Może jakaś duża aplikacja internetowa? Prezentacja lub raport dla szefa? Lub inne zadanie, gdzie każdy w zespole ma dostęp do tych samych plików? Ja spotykam się z taką sytuacją każdego dnia w swojej pracy. Pracuję w zespole składającym się z około 8 osób. A może pracujecie tylko dla siebie, ale nie możecie sobie pozwolić na utratę Waszych danych? Może jesteście pisarzami i przykładowo piszecie książkę?</p>
+<p>Git to <strong>rozproszony system kontroli wersji</strong>, czyli narzędzie do zarządzania różnymi wersjami systemu lub aplikacji. Tak więc, możesz mieć różne wersje swojego systemu i dodatkowo mogą one być rozproszone pomiędzy różnymi komputerami. Jedna wersja może być na Twoim laptopie, a inna wersja może być na komputerze stacjonarnym w pracy.</p>
 
-<h2 id="praca-tylko-dla-siebie">Praca tylko dla siebie</h2>
+<p>Możesz myśleć o narzędziu git trochę jak o graniu w grę komputerową. Zaczynasz grać, aż w pewnym momencie gry chcesz zapisać jej stan, tak na wszelki wypadek zanim stoczysz ostateczną walkę z bossem. Nie chcesz przecież stracić informacji o tych wszystkich poziomach (levelach), które już udało Ci się przejść. To mogło by być dość frustrujące zaczynać od nowa. Tak samo jest właśnie z git-em. Zapisujesz stan swojej pracy, by jej nie stracić. Plus, prawdopodobnie będziesz chciała później porównać swoje zmiany ze zmianami innych osób w zespole.</p>
 
-<p>Załóżmy, że pracujemy sami. Piszemy książkę. Pracujemy nad nią od dwóch lat. Nagle komputer się zepsuł, przypadkowo usunęliśmy plik z danymi lub po prostu chcemy wrócić do poprzedniej wersji, bo była znacznie lepsza, niż ta po ostatnich poprawkach. Co teraz? Wiem dzisiaj istnieje już wiele sposobów, dzięki którym możemy zapobiec tego typu sytuacją. Mamy Dropbox, dyski zewnętrzne czy pocztę internetową (na którą wysyłamy koleją wersję naszych danych). Nawet programy, takie jak LibreOffice potrafią zapamiętywać ostatnie dokonane zmiany. Git też to potrafi. Pamięta on historię wszystkich zapisanych zmian. Można dzięki temu wrócić do dowolnej starszej wersji plików.</p>
+<h2 id="gdzie-używać-git-a">Gdzie używać git-a?</h2>
 
-<p>Jeżeli przykład ten nie przekonał Cię, że Git może być użytecznym narzędziem, to zapraszam do kolejnego przykładu.</p>
+<p>W skrócie - wszędzie. No dobrze, prawie wszędzie. Używaj git-a w projektach, w których zależy Ci przede wszystkim na współpracy z innymi oraz pewności, że nie stracisz swoich danych. Może pracujesz sama dla siebie. Przykładowo jesteś pisarką i piszesz książkę. Albo zdarzają Ci się sytuacje, w których pracujesz wspólnie z innymi nad tymi samymi plikami? Sytuacje takie jak: projekt zespołowy w szkole, na uczelni? Może jakaś duża aplikacja internetowa? Prezentacja lub raport dla szefa? Lub jakieś inne zadanie, gdzie każdy w zespole ma dostęp do tych samych plików? To właśnie są sytuacje, do których git jest stworzony. Ja spotykam się z takimi sytuacjami w swojej pracy na co dzień. Pracuję w zespole składającym się z około 8 osób.</p>
 
-<h2 id="praca-zespołowa">Praca zespołowa</h2>
+<h3 id="praca-tylko-dla-siebie">Praca tylko dla siebie</h3>
 
-<p>Każdy w naszym zespole ma dostęp do projektu na swoim własnym komputerze. Przykładowo mamy jeden plik. Kochamy język Ruby, więc plik będzie pisany właśnie w tym języku. A wygląda on tak:</p>
+<p>Pracujesz sama. Piszesz książkę. Jesteś pochłonięta tym projektem już od dwóch lat. Nagle Twój komputer się zepsuł, przypadkowo usunęłaś plik z danymi lub po prostu chcesz wrócić do poprzedniej wersji rozdziału. Co teraz? Wiem, dzisiaj istnieje wiele sposobów, które pozwalają zapobiec tego typu sytuacjom. Mamy Dropbox, Google Docs, dyski zewnętrzne czy pocztę internetową (na którą wysyłamy koleją wersję projektu). Nawet programy, takie jak LibreOffice potrafią zapamiętać ostatnio dokonane zmiany. Git też to potrafi. Pamięta on historię wszystkich zapisanych zmian. Można dzięki temu wrócić do dowolnej wersji wybranego pliku lub plików.</p>
+
+<p>Jeżeli ten przykład nie przekonał Cię, że Git może być użytecznym narzędziem, to mam w zanadrzu jeszcze jeden. ;]</p>
+
+<h3 id="praca-zespołowa">Praca zespołowa</h3>
+
+<p>Pracujesz nad projektem zespołowym. Każdy w zespole ma dostęp do projektu na swoim własnym komputerze. Przykładowo w projekcie masz jeden plik. Kocham język Ruby, więc kod będzie napisany właśnie w tym języku. A wygląda on tak:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
@@ -250,7 +256,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Każdym ma ten plik lokalnie na swoim komputerze. Teraz ja dostaję zadanie, by zmienić napisaną w nim metodę, tak by zwracała nie <code class="highlighter-rouge">hello</code> tylko <code class="highlighter-rouge">hello world</code>. Po zmianie plik wygląda następująco:</p>
+<p>Każdy w zespole ma ten plik lokalnie na swoim komputerze. Dostajesz zadanie, by zmienić napisaną w nim metodę, tak by zwracała nie <code class="highlighter-rouge">hello</code> a <code class="highlighter-rouge">hello world</code>. Po zmianie plik wygląda następująco:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
@@ -258,9 +264,9 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Teraz w jakiś sposób muszę podzielić się tą zmianą z innymi osobami w zespole. Ale jak? Przez e-mail? Dropbox? Pendrive? Każde z tych rozwiązań jest dość bolesne w tym przypadku. Nasz pierwszy problem to: <strong>1. Aktualizacja projektu (jak mieć dostęp do bieżącej wersji projektu)</strong></p>
+<p>Teraz w jakiś sposób musisz podzielić się tą zmianą z innymi osobami w zespole. Ale jak? Przez e-mail? Dropbox? Pendrive? Każde z tych rozwiązań jest dość czasochłonne. Pojawia się pierwszy problem. <strong>Aktualizacja projektu (jak mieć dostęp do najnowszej wersji projektu).</strong></p>
 
-<p>Ten problem jest możliwy do rozwiązania. Czasem rozwiązanie może być pracochłonne i nużące, ale jesteśmy w stanie sobie z nim poradzić. Natomiast, co zrobimy w przypadku, gdy dwie osoby zmieniają dokładnie ten sam fragment kodu? Przykładowo druga osoba zmienia nazwę metody, nad którą ja w tym czasie pracuje. Kod tej osoby wygląda następująco:</p>
+<p>Ten problem da się jeszcze jakoś rozwiązać. Może być to pracochłonne i nużące, ale jesteś w stanie sobie z nim poradzić. Natomiast, co zrobisz w przypadku, gdy dwie osoby zmieniają dokładnie ten sam fragment kodu? Przykładowo druga osoba w zespole zmienia nazwę metody, nad którą Ty właśnie pracujesz. Kod tej drugiej osoby wygląda następująco:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">say_hi</span>
@@ -268,7 +274,7 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Teraz ja wysyłam moje zmiany do wszystkich, druga osoba robi to samo. Które zmiany powinny zostać? Które zmiany są ważniejsze? A może zależy nam na czymś takim:</p>
+<p>Nadchodzi czas synchronizacji wersji projektu. Ty wysyłasz swoje zmiany do wszystkich, to samo robi ta druga osoba. Które zmiany powinny zostać? Które zmiany są ważniejsze? A może zależy nam na czymś takim:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">say_hi</span>
@@ -276,11 +282,11 @@ Description: Awesome dude, awesome life
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Połączone zmiany. W jaki sposób możemy ten problem rozwiązać? Moglibyśmy mieć taką osobę w zespole, która by to dla nas przygotowywała. Rozmawialibyśmy z tą osobą o zmianach, jakie wprowadziliśmy i ona starałaby się rozwiązywać takie konflikty za nas. Czy myślicie tak jak ja że to bardzo zły pomysł? Jeżeli tak do dobrze, bo to katastrofalny pomysł. No i kto chciałby być taką osobą w zespole? Pojawia się nam drugi chyba jeszcze ważniejszy problem: <strong>2. W jaki sposób łatwo łączyć zmiany wprowadzone przez różne osoby?</strong></p>
+<p>Połączone zmiany. W jaki sposób możesz ten problem rozwiązać? No cóż, w zespole mogłaby być taka osoba, która zajmowała by się rozwiązywaniem tego typu problemów. Inne osoby w zespole rozmawiałyby z tym śmiałkiem o zmianach, jakie wprowadziły. A nasz śmiałek starałaby się rozwiązać konflikty w kodzie za nas. Czy też uważasz, że to nie jest dobry pomysł? To katastrofalny pomysł. No i kto chciałby być taką osobą w zespole? Pojawia się nam drugi, ważniejszy problem: <strong>Jak w łatwy sposób łączyć zmiany wprowadzane przez różne osoby w zespole?</strong> Tu z pomocą przychodzi nam Git. Jest to narzędzie, które w wielu przypadkach automatycznie łączy zmiany pochodzące od różnych osób. <strong>Git jest narzędziem przydatnym przy pracy w projektach zespołowych</strong>. Ale czy zawsze jest tak różowo?</p>
 
-<p>Git jest takim narzędziem, które w wielu przypadkach automatycznie łączy zmiany pochodzące od różnych osób. Jest to bardzo przydatne narzędzie zwłaszcza przy zespołowych projektach. Ale! (zawsze musi być jakieś ale). O ile w bardzo przystępny sposób za pomocą Gita można poruszać się po plikach tekstowych (programy, książki, artykuły) i ich zmianach. To znacznie ciężej jest poruszać się po plikach graficznych. Obrazki to pliki binarne (w większości przypadków, za wyjątkiem np. svg). Kiedy zmienimy coś w takim pliku ciężko jest nam obserwować zmiany.</p>
+<h3 id="pliki-binarne-w-git-cie">Pliki binarne w git-cie</h3>
 
-<p>Przykładowo, nasz obrazek może dla komputera wyglądać następująco:</p>
+<p>Zawsze musi być jakieś ale. O ile w bardzo przystępny sposób za pomocą git-a można zarządzać zmianami w plikach tekstowych (kod źródłowy programów, tekst książki czy artykułu). To znacznie ciężej jest poruszać się po plikach graficznych, plikach wideo i innych plikach binarnych. Problem polega na tym w jaki sposób git zapamiętuje zmiany w naszych plikach. Git pamięta zmiany, jakie zostały wprowadzone w kolejnych liniach. I właśnie dlatego tak dobrze sprawdza się w przypadku plików tekstowych, bo one są złożone z linii tekstu/kodu. Gdy zmienimy coś w jakiejś linijce, to od razu możemy zobaczyć jak ta linijka wyglądała przed i po zmianie. W przypadku plików binarnych, czyli plików zawierających sekwencję bitów, nie jest to takie łatwe. Gdybyśmy taki plik otworzyły bezpośrednio, to mógłby on wyglądać następująco:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00000000  89 50 4e 47 0d 0a 1a 0a  00 00 00 0d 49 48 44 52  |.PNG........IHDR|
 00000010  00 00 04 c9 00 00 01 7e  08 06 00 00 01 ef a0 7d  |.......~.......}|
@@ -293,9 +299,15 @@ Description: Awesome dude, awesome life
 ...
 </code></pre></div></div>
 
-<p>Nasz komputer w łatwy sposób jest wstanie zinterpretować ciągi tych liczb i literek w postaci kształtów i kolorów. My niestety nie. Więc gdy zmienimy coś na naszym obrazku, nie potrafimy po jakimś czasie stwierdzić co to była za zmiana. Chyba, że otworzymy ten obrazek w odpowiednim programie. Rozumiecie co mam na myśli? Nie chodzi o to, że nigdy nie dodajemy plików graficznych do Gita. Chodzi o to, że bez dodatkowych narzędzi ciężko nam śledzić na takich plikach zmiany.</p>
+<p>Jest to fragment pliku graficznego PNG, który jest plikiem binarnym. Nasz komputer w łatwy sposób jest w stanie zinterpretować ciągi tych liczb i literek w postaci kształtów i kolorów. My niestety nie. Gdy wiec zmienimy coś w naszym obrazku (kilka bitów), nie jesteśmy w stanie w łatwy sposób stwierdzić, co to była za zmiana. Chyba, że otworzymy ten obrazek w odpowiednim programie. Nie chodzi o to, że nigdy nie dodajemy plików graficznych do git-a. Chodzi o to, że bez dodatkowych narzędzi ciężko nam śledzić zmiany w takich plikach.</p>
 
-<p>Mam nadzieję, że ten artykuł był dla Was pomocny, w zrozumieniu tego po co przydaje się takie narzędzie jak Git. W następnym artykule chciałabym opisać podstawowe użycie tego narzędzia. Jeżeli macie jakieś pytania lub sugestie, dajcie znać w komentarzach. Do zobaczenia następnym razem. Pa!</p>
+<h3 id="następne-artykuły-w-cyklu">Następne artykuły w cyklu:</h3>
+<ul>
+  <li><a href="/pl/git-usage" title="Jak zacząć używać git-a?">Podstawowe komendy narzędzia Git</a></li>
+  <li><a href="/pl/git-rebase" title="Jaka jest różnica między git merge a git rebase?">Jak używać git rebase?</a></li>
+  <li><a href="/pl/replace-parent-branch" title="Ustawienie innej gałęźi rodzicielckiej za pomoca git-a.">Jak zmienić gałąź rodzicielską w git-cie?</a></li>
+  <li><a href="/pl/git-rebase-onto" title="Zrozumienie komendy  git rebase --onto.">Jak użyć komendy git rebase –onto?</a></li>
+</ul>
 
                         <br>
                     
