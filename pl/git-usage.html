@@ -16,23 +16,33 @@ Description: Awesome dude, awesome life
 ====================================================
 -->
 <head>
+
+
+
+
+
+
+
+
+
+
 <meta charset='utf-8'>
-<title>Podstawowe użycie Git - Woman on Rails - web development z kobiecej perspektywy</title>
-<meta name="description" content="Git - podstawowe komendy">
-<meta name="keywords" content="środowisko programistyczne, git, system kontroli wersji">
+<title>Git - podstawowe komendy - Woman on Rails - web development z kobiecej perspektywy</title>
+<meta name='description' content='Jak zacząć używać gita?'>
 
 <!-- Twitter Cards -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://womanonrails.com/images/womanonrails-square.svg">
-<meta name="twitter:title" content="Podstawowe użycie Git">
-<meta name="twitter:description" content="Git - podstawowe komendy">
-<meta name="twitter:creator" content="@womanonrails">
+<meta name='twitter:card' content='summary'>
+<meta name='twitter:creator' content='@womanonrails'>
+<meta name='twitter:description' content='Jak zacząć używać gita?'>
+<meta name='twitter:image' content='https://womanonrails.com/images/womanonrails-square.svg'>
+<meta name='twitter:title' content='Git - podstawowe komendy - Woman on Rails - web development z kobiecej perspektywy'>
+
 
 <!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Podstawowe użycie Git">
-<meta property="og:description" content="Git - podstawowe komendy">
-<meta property="og:image" content="https://womanonrails.com/images/womanonrails-1000x1000.jpg">
+<meta property='og:description' content='Jak zacząć używać gita?'>
+<meta property='og:image' content='https://womanonrails.com/images/womanonrails-1000x1000.jpg'>
+<meta property='og:title' content='Git - podstawowe komendy - Woman on Rails - web development z kobiecej perspektywy'>
+<meta property='og:type' content='website'>
 
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.ico">
 <link rel='shortcut icon' href="https://womanonrails.com/favicon.png">
@@ -40,8 +50,6 @@ Description: Awesome dude, awesome life
 
 
 
-
-<link rel="canonical" href="https://womanonrails.com/git-usage">
 <link href="https://womanonrails.com/feed.xml" type="application/atom+xml" rel="alternate" title="Woman on Rails Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -51,18 +59,18 @@ Description: Awesome dude, awesome life
 
 <!-- Begin Jekyll SEO tag v2.6.0 -->
 <meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="Podstawowe użycie Git" />
+<meta property="og:title" content="Git - podstawowe komendy" />
 <meta name="author" content="womanonrails" />
 <meta property="og:locale" content="pl" />
-<meta name="description" content="Git - podstawowe komendy" />
-<meta property="og:description" content="Git - podstawowe komendy" />
+<meta name="description" content="Jak zacząć używać gita?" />
+<meta property="og:description" content="Jak zacząć używać gita?" />
 <link rel="canonical" href="https://womanonrails.com/pl/git-usage" />
 <meta property="og:url" content="https://womanonrails.com/pl/git-usage" />
 <meta property="og:site_name" content="Woman on Rails" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-02-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"Git - podstawowe komendy","@type":"BlogPosting","url":"https://womanonrails.com/pl/git-usage","headline":"Podstawowe użycie Git","dateModified":"2016-02-20T00:00:00-05:00","datePublished":"2016-02-20T00:00:00-05:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/git-usage"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
+{"description":"Jak zacząć używać gita?","@type":"BlogPosting","url":"https://womanonrails.com/pl/git-usage","headline":"Git - podstawowe komendy","dateModified":"2016-02-20T00:00:00-05:00","datePublished":"2016-02-20T00:00:00-05:00","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://womanonrails.com/pl/womanonrails-square.svg"},"name":"womanonrails"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://womanonrails.com/pl/git-usage"},"author":{"@type":"Person","name":"womanonrails"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -70,13 +78,17 @@ Description: Awesome dude, awesome life
 <link rel="stylesheet" type="text/css" href="https://womanonrails.com/assets/css/style.css" />
 <link rel="stylesheet" href="/css/main.css">
 
+
 <div class="search-wrapper">
-    <div class="search-form">
-        <input type="text" class="search-field" placeholder="Search...">
-        <i class="icon-remove-sign"></i>
-        <ul class="search-results post-list"></ul><!-- /.search-results -->
-    </div><!-- /.search-form -->
+  <div class="search-form">
+    <input type="text" class="search-field" placeholder="Search...">
+    <span class='js-remove-sign'>
+    <span class='svg--cancel'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 375"><path d="M187.5 2.5a185 185 0 0 0-185 185 185 185 0 0 0 185 185 185 185 0 0 0 185-185 185 185 0 0 0-185-185zm-85.906 78.875a20.232 20.232 0 0 1 14.518 6.132l71.388 71.388 71.388-71.388a20.232 20.232 0 0 1 13.909-6.121 20.232 20.232 0 0 1 14.702 34.73l-71.39 71.388 71.39 71.39a20.232 20.232 0 1 1-28.61 28.61L187.5 216.115l-71.388 71.389a20.232 20.232 0 1 1-28.611-28.61l71.39-71.39-71.39-71.388a20.232 20.232 0 0 1 14.093-34.74z"/></svg></span>
+    </span>
+    <ul class="search-results post-list"></ul><!-- /.search-results -->
+  </div><!-- /.search-form -->
 </div><!-- ./search-wrapper -->
+
 
 </head>
 <body class="post-template" itemscope itemtype="https://schema.org/WebPage">
@@ -120,7 +132,8 @@ Description: Awesome dude, awesome life
 
 <li>
   <a href="/pl/feed.xml" title='Atom/RSS feed'>
-    <i class='icon-rss'></i> Feed
+    <span class='svg--rss'><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>RSS icon</title><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></span>
+    Feed
   </a>
 </li>
 
@@ -128,13 +141,19 @@ Description: Awesome dude, awesome life
   </nav>
 </aside>
 
+<header class='blog-background overlay align-center align-middle animated from-bottom'
+        id='masthead'
+        itemscope
+        itemtype='https://schema.org/Organization'>
 
-<header id="masthead" class="blog-background overlay align-center align-middle animated from-bottom" itemscope itemtype="https://schema.org/Organization">
 
-
-
-<button class='menu-button animated fade dosearch' title='Wyszukaj'>
-  <i class='icon-search'></i>
+<button class='menu-button animated fade dosearch'
+        title='Wyszukaj'>
+  <span class='svg--search'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13">
+<g stroke-width="2" fill="none">
+  <path d="M11.29 11.71l-4-4"/><circle cx="5" cy="5" r="4"/>
+</g>
+</svg></span>
 </button>
 
 
@@ -146,7 +165,7 @@ Description: Awesome dude, awesome life
 
 <div class='inner'>
   <div class='container'>
-    <a class='brand' href='/pl' itemprop='url' role='banner'>
+    <a class='brand' href='/pl/' itemprop='url' role='banner'>
       
 <img itemprop='logo' src="https://womanonrails.com/images/womanonrails-square.svg" alt="Woman on Rails Logo" width='120' />
 
@@ -157,7 +176,7 @@ Description: Awesome dude, awesome life
     </a>
     
     <h2 class='blog-description light bordered bordered-top' itemprop='description'>
-      My code is getting worse, please send more chocolate
+      Premature optimization is the root of all evil.
     </h2>
     
   </div>
@@ -185,88 +204,95 @@ Description: Awesome dude, awesome life
 
 </header>
 
-<div id="main" class="content" role="main" itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/Blog">
-    <div class="container">
-        <div class="row">
-            <article class="post col-md-8 col-md-offset-2 hentry" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<div class='content'
+     id='main'
+     itemprop='mainContentOfPage'
+     itemscope
+     itemtype='https://schema.org/Blog'
+     role='main'>
+  <div class='container'>
+    <div class='row'>
+      <article class='post col-md-8 col-md-offset-2 hentry'
+               itemprop='blogPost'
+               itemscope
+               itemtype='https://schema.org/BlogPosting'>
+        
+        <header class='post-header entry-header'>
+          <h1 class='post-title text-center hyper lighter bordered-bottom entry-title'
+              itemprop='headline'>
+            Git - podstawowe komendy
+          </h1>
+          <div class='cursive'>Jak zacząć używać gita?</div>
+          <div class='post-info text-center small'>
             
             
             
-                    <header class="post-header entry-header">
-                        
-                        <h1 class="post-title text-center hyper lighter bordered-bottom entry-title" itemprop="headline">Podstawowe użycie Git</h1>
-                        
-                        <div class="cursive" style="color: #000; font-style:italic;">Git - podstawowe komendy</div>
-                        <div class="post-info text-center small">
-                          
-                          
-                          
-                          <span class='post-tags'>
+            <span class='post-tags'>
 
   <a data-toggle='tooltip'
-     href="https://womanonrails.com/categories/index.html#narzędzia"
+     href="/pl/categories/#narzędzia"
      title="Other posts from the Narzędzia category"
      rel="tag">Narzędzia</a>
 
 </span>
 
-                          |
-                          
+            |
+            
 
 
 
-<!-- &nbsp; -->
 <span class='post-tags reading-time'>
-<!-- <i class='icon-time'></i> -->
-<!-- 🕰️ -->
-<!-- &nbsp; -->
-<span class='time'>4</span> min.
+<span class='time'>7</span> min.
 </span>
 
 
-                        </div>
-                    </header>
-                    <div class="post-body bordered-bottom" itemprop="description">
-                        
-                        <p><a href="/pl/what-is-git">Ostatnim razem</a> mówiliśmy trochę o tym dlaczego <strong>Git</strong> jest bardzo użytecznym narzędziem, zwłaszcza dla programistów. Dzisiaj chciałabym się skupić na tym, jak zacząć używać narzędzia Git przynajmniej w bardzo podstawowym zakresie. Pokażę kilka najczęściej używanych poleceń, ale jeżeli chcecie się dowiedzieć więcej polecam
-<a href="https://git-scm.com/doc" rel="nofollow" target="_blank">dokumentację</a>.</p>
+          </div>
+        </header>
+        <div class='post-body bordered-bottom'
+             itemprop='description'>
+          
 
-<h2 id="zaczynamy">Zaczynamy!</h2>
+          <p>Git jest ważnym narzędziem dla każdego programisty i programistki. Jest to jeden z <strong>systemów kontroli wersji</strong>. Ze względu na swoje ogromne możliwości i szerokie zastosowanie jest też jednym z najbardziej znanych narzędzi tego typu. Jeżeli chcesz zostać programistką lub podnieść swoje kwalifikacje to szczerze polecam Ci zapoznanie się z tym narzędziem. By pomóc Ci w tym zadaniu, dzisiaj skupimy się na <strong>podstawowych komendach git-a</strong>. Ten artykuł jest drugim artykułem z serii o narzędziu git. Poprzednim razem mówiłam dokładniej o tym <a href="/pl/what-is-git" title="Kiedy warto używać git-a?">czym jest git</a> oraz o tym dlaczego warto używać git-a w codziennej pracy. Tym razem skupimy się na stworzeniu pierwszego repozytorium git, konfiguracji git-a lokalnie i na zewnętrznym serwerze oraz na obsłudze najpotrzebniejszych komend. Mamy dużo do zrobienia, więc zaczynajmy!</p>
 
-<p>Git jest <strong>rozproszonym systemem wersjonowania</strong> (distributed repository lub distributed version control system). To znaczy, że każdy w zespole ma u siebie lokalnie całą historię zmian. Dzięki temu można dodać do repozytorium kolejne swoje zmiany bez połączenia z Internetem. Jednak najważniejszą cechą takiego systemu kontroli wersji jest to, że nawet gdy u jednej osoby zmiany zostaną utracone reszta zespołu ciągle posiada całą historię prac. W przypadku scentralizowanego systemy kontroli wersji to problemy w centralnym repozytorium powodują utratę zmian u wszystkich członków zespołu.</p>
+<h2 id="co-to-jest-git">Co to jest git?</h2>
 
-<p>Mówiąc o narzędziu Git będę używać wiersza poleceń. Myślę, że taki sposób użycia jest łatwiejszy do zrozumienia co tak naprawdę się dzieje niż używanie jakichś graficznych programów.</p>
+<p>Git jest <strong>rozproszonym systemem wersjonowania</strong> (distributed repository lub distributed version control system). Rozproszonym to znaczy, że każda osoba w Twoim zespole ma u siebie lokalnie na komputerze całą historię zmian. Możesz zapisywać nowe zmiany bez konieczności łączenia się z Internetem. Nie musisz też za każdym razem synchronizować swojej wersji projektu z resztą zespołu. To kiedy synchronizacja nastąpi zależy od Ciebie. Jednak najważniejszą cechą git-a jest to, że nawet gdy coś stanie się z Twoim komputerem, to Twój zespół ciągle będzie miał kopie wszystkich zmian w <strong>repozytorium</strong> (w skrócie repo). Tak długo jak przynajmniej jedna osoba w zespole przechowuje historię zmian, nie stracisz dostępu do wykonanej pracy. W przypadku scentralizowanego systemu kontroli wersji problemy w centralnym repozytorium mogą spowodować utratę zmian u wszystkich członków zespołu.</p>
 
-<h2 id="po-pierwsze---konfiguracja">Po pierwsze - konfiguracja</h2>
+<p>Zanim przejdziemy dalej, jedna mała uwaga. Mówiąc o narzędziu git będę skupiać się tylko i wyłącznie na użyciu wiersza poleceń. Istnieją co prawda różnego rodzaju narzędzia graficzne do jego obsługi. Jednak ja, w codziennej pracy, używam tylko wiersza poleceń. Daje mi to pełną kontrolę nad tym co robię i przede wszystkim pozwala lepiej zrozumieć sposób działania narzędzia git. A o to nam właśnie tutaj chodzi. Programy graficzne często ukrywają przed użytkownikiem to, co dzieje się pod spodem. Utrudnia to dobre zrozumienie git-a.</p>
 
-<p>Gdy używamy narzędzia Git, chcemy wiedzieć które zmiany były zrobione przez nas. By to ustawić wykonujemy następujące polecenia:</p>
+<h2 id="konfiguracja-narzędzia-git">Konfiguracja narzędzia git</h2>
+
+<p>Najpierw instalacja. By jej dokonać wejdź na stronę <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" rel="nofollow" target="_blank">dokumentacji git-a</a> i postępuj zgodnie ze wskazówkami. Po zakończeniu instalacji możesz przejść do podstawowej konfiguracji. Gdy używasz git-a, zwłaszcza jeżeli pracujesz w zespole, ważna jest informacja kto dokonał zmian w kodzie. Musisz tą informacje ustawić na swoim komputerze. Do tego możesz użyć poniższych poleceń:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> user.name <span class="s2">"Your Name"</span>
-git config <span class="nt">--global</span> user.email you_email_address@example.com
+git config <span class="nt">--global</span> user.email your_email_address@example.com
 </code></pre></div></div>
 
-<p>Możemy też ustawić by polecenia z narzędzia Git wyświetlały się na kolorowo:</p>
+<p>Możesz też ustawić dla narzędzia git wyświetlanie komunikatów w kolorach. Dzięki temu przykładowo pliki zmodyfikowane będziesz wiedzieć w kolorze czerwonym.</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config <span class="nt">--global</span> color.ui <span class="nb">true</span>
 </code></pre></div></div>
 
-<h2 id="stworzenie-swojego-pierwszego-repozytorium">Stworzenie swojego pierwszego repozytorium</h2>
+<h2 id="stworzenie-pierwszego-repozytorium">Stworzenie pierwszego repozytorium</h2>
 
-<p>Aby zacząć używać narzędzia Git w naszym projekcie, przechodzimy do katalogu naszego projektu za pomocą terminala (wiersza poleceń) i inicjujemy narzędzie Git w środku.</p>
+<p>Po instalacji git-a, nie śledzi on zmian we wszystkich plikach w Twoim systemie. Jeżeli masz pliki, na których zależy Ci by ich zmiany były śledzone musisz o tym powiedzieć narzędziu git. By to osiągnąć przejdź do wybranego folderu używając do tego terminala, a następnie wywołaj polecenie:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git init
 </code></pre></div></div>
 
-<p>To polecenie rozpocznie pracę z Git tylko lokalnie na naszym komputerze. By można było umieścić nasze repozytorium na serwerze będziemy potrzebować narzędzi takich jak
-<a href="https://github.com/" rel="nofollow" target="_blank">GitHub</a>
-lub
-<a href="https://bitbucket.org/" rel="nofollow" target="_blank">Bitbucket</a>.
-Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo przydatną komendą będzie:</p>
+<p>To polecenie zainicjuje <strong>lokalne repozytorium git</strong>. Czyli spowoduje, że git zacznie interesować się zmianami we wszystkich plikach wybranego katalogu. Nie spowoduje to jeszcze, że reszta Twojego zespołu będzie miała dostęp do Twoich zmian. By to osiągnąć potrzebujesz <strong>zdalnego repozytorium</strong>, czyli takiego na zewnętrznym serwerze. Można to zrobić na wiele sposobów. W Internecie istnieją platformy umożliwiające obsługę zdalnego repozytorium takie jak
+<a href="https://github.com/" rel="nofollow" target="_blank">GitHub</a>,
+<a href="https://bitbucket.org/" rel="nofollow" target="_blank">Bitbucket</a> czy
+<a href="https://about.gitlab.com/" rel="nofollow" target="_blank">GitLab</a>. Sama też mogłabyś skonfigurować własny serwer git-a. Najważniejsze jest tutaj zapamiętanie, że git to nie GitHub. Git to narzędzie do zarządzania wersjami a także protokół komunikacji podobnie jak https, ftp czy ssh. GitHub to platforma używająca git-a i dostarczająca funkcjonalność zdalnego repozytorium.</p>
+
+<h2 id="status-zmian">Status zmian</h2>
+
+<p>Kiedy masz już lokalnie ustawione repozytorium, możesz wywołać następujące polecenie:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 </code></pre></div></div>
 
-<p>To polecenie mówi nam co zmieniło się od ostatniego użycia narzędzia Git. Przykładowo mamy plik napisany w języku Ruby.</p>
+<p>To polecenie powie Ci jakie zmiany zostały już zapisane przy pomocy narzędzia git, a jakie jeszcze nie. Można też powiedzieć, że to polecenie pokazuje co się ostatnio zmieniło. Gdy dopiero zainicjowałaś swoje repozytorium, to żaden plik nie został jeszcze w repozytorium zapisany. Załóżmy więc, że masz w swoim repozytorium, czyli katalogu gdzie użyłaś polecenia <code class="highlighter-rouge">git init</code>, jeden plik napisany w języku Ruby:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
@@ -274,13 +300,13 @@ Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo p
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>Ten plik nie jest śledzony przez Git. W takiej sytuacji możemy zobaczyć coś takiego:</p>
+<p>Ten plik nie jest jeszcze śledzony przez git-a. W takiej sytuacji możemy zobaczyć coś takiego:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c">#</span>
-<span class="c"># Initial commit</span>
+<span class="c"># No commits yet</span>
 <span class="c">#</span>
 <span class="c"># Untracked files:</span>
 <span class="c">#   (use "git add &lt;file&gt;..." to include in what will be committed)</span>
@@ -290,20 +316,20 @@ Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo p
 <span class="c"># nothing added to commit but untracked files present (use "git add" to track)</span>
 </code></pre></div></div>
 
-<h2 id="pierwszy-commit">Pierwszy commit</h2>
+<h2 id="zapisanie-zmian-w-repozytorium---pierwszy-commit">Zapisanie zmian w repozytorium - pierwszy commit</h2>
 
-<p>Teraz musimy powiedzieć do naszego systemu kontroli wersji: <em>Proszę, śledź zmiany w tym pliku</em>:</p>
+<p>Nadszedł czas by powiedzieć systemowi kontroli wersji, by zaczął śledzić plik <code class="highlighter-rouge">hello_world.rb</code>. Do tego potrzebne będzie Ci polecenie:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add hello_world.rb
 </code></pre></div></div>
 
-<p>Po wykonaniu tego polecenia sprawdzamy status naszych zmian <code class="highlighter-rouge">git status</code> i otrzymujemy:</p>
+<p>Po wykonaniu tego polecenia możesz sprawdzić jeszcze raz status zmian:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
 <span class="c"># On branch master</span>
 <span class="c">#</span>
-<span class="c"># Initial commit</span>
+<span class="c"># No commits yet</span>
 <span class="c">#</span>
 <span class="c"># Changes to be commited:</span>
 <span class="c">#   (use "git rm --cached  &lt;file&gt;..." to unstage)</span>
@@ -312,12 +338,12 @@ Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo p
 <span class="c">#</span>
 </code></pre></div></div>
 
-<p>Teraz możemy zrobić <strong>commit</strong>. Można powiedzieć, że commit to takie przygotowane do wysłania pudełko. Do pudełka wkładamy wszystkie elementy, które wspólnie tworzą jedną całość. Ponieważ zmieniliśmy tylko jeden plik, to nasz commit będzie składał się tylko z niego.</p>
+<p>Twój plik został dodany do plików śledzonych przez git-a, jednak zmiany nie są jeszcze zapisane. Do zapisania zmian posłuży Ci polecenie <strong>commit</strong>. Możesz myśleć o tym poleceniu jak o wkładaniu rzeczy do pudełka. Powiedzmy, że masz w domu dużo długopisów, mazaków i kredek. Chcesz zrobić porządek. Najpierw wybierasz te przybory do pisania, które lubisz i z których będziesz korzystać. To jest właśnie polecenie <code class="highlighter-rouge">git add</code>. Następnie wybrane przybory wkładasz do swojego nowego pudełka w stylu Marie Kondo i zamykasz to pudełko. Zgromadziłaś w jednym miejscu przedmioty z tej samej kategorii lub w jakiś sposób ze sobą powiązane. To właśnie jest commit. Spakujmy pudełko dla naszego pliku Ruby:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Create a hello function"</span>
 </code></pre></div></div>
 
-<p>Teraz Git status pokazuje:</p>
+<p>Teraz <code class="highlighter-rouge">git status</code> pokazuje:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
@@ -325,13 +351,15 @@ Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo p
 <span class="c"># nothing to commit (working directory clean)</span>
 </code></pre></div></div>
 
-<p>Jeżeli zmienimy naszą funkcję, to zobaczymy:</p>
+<p>Wszystkie zmiany w pliku <code class="highlighter-rouge">hello_world.rb</code> zostały zapisane. Gdy zmienisz odrobinę funkcję <code class="highlighter-rouge">hello</code>:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># hello_world.rb</span>
 <span class="k">def</span> <span class="nf">hello</span>
   <span class="s2">"hello world"</span>
 <span class="k">end</span>
 </code></pre></div></div>
+
+<p>polecenie <code class="highlighter-rouge">git status</code> pokaże:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git status
 
@@ -342,191 +370,234 @@ Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo p
 <span class="c"># no changes add to commit</span>
 </code></pre></div></div>
 
-<p>Jeżeli chcemy zrobić nowy commit, musimy dodać nasze zmiany do pudełka:</p>
+<p>Jeżeli chcesz zapisać nowe zmiany, czyli zrobić nowy commit, musisz dodać je do nowego pudełka:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add hello_world.rb
+git commit <span class="nt">-m</span> <span class="s2">"Change our hello function"</span>
 </code></pre></div></div>
 
-<p>i oznaczyć opisem co jest w środku:</p>
+<h2 id="synchronizacja-zmian-ze-zdalnym-repozytorium">Synchronizacja zmian ze zdalnym repozytorium</h2>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git commit <span class="nt">-m</span> <span class="s2">"Change our hello function"</span>
+<p>W tej chwili Twoje zmiany są zapisane tylko lokalnie. Czas, by umieścić kod na zdalnym repozytorium. To pozwoli Ci udostępnić Twoje zmiany innym członkom zespołu. Posłuży do tego polecenie <code class="highlighter-rouge">git push</code>. Zanim będziesz mogła z niego skorzystać potrzebujesz skonfigurować takie zdalne repozytorium. Pokażę Ci jak to zrobić na przykładzie <strong>GitHub</strong>, ale możesz użyć do tego celu innych platform. Pierwszą rzeczą jest posiadanie konta na GitHubie. Gdy takie konto już posiadasz zaloguj się i znajdź polecenie <strong>stwórz nowe repozytorium</strong> (create new repository). Po jego wykonaniu czas przejść do konsoli i wykonać następującą komendę:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin link_to_your_remote_repository
 </code></pre></div></div>
 
-<h2 id="wysłanieściągnięcie-zmian-doz-zdalnego-repozytorium">Wysłanie/ściągnięcie zmian do/z zdalnego repozytorium</h2>
+<p>Ta komenda sprawi, że Twój lokalny git będzie wiedział gdzie znajduje się zdalne repozytorium. Mówi ona <em>ustaw zdalne repozytorium o nazwie <code class="highlighter-rouge">origin</code> na adres <code class="highlighter-rouge">link_to_your_remote_repository</code></em>. Za każdym razem gdy będziesz używać nazwy <code class="highlighter-rouge">origin</code> git będzie wiedział, że masz na myśli zdalne repozytorium GitHub. Nic się nie martw, jeżeli po stworzeniu nowego zdalnego repozytorium, nie wiesz co wstawić w <code class="highlighter-rouge">link_to_your_remote_repository</code>. GitHub pokaże Ci potrzebą komendę. Wystarczy, że skopiujesz ją do swojego terminala. Teraz czas by wysłać zmiany na serwer:</p>
 
-<p>W tej chwili mamy zapisane nasze zmiany tylko lokalnie. Teraz chcielibyśmy wysłać je gdzieś na zewnątrz (na jakiś serwer), tak byśmy mogli wymieniać się naszymi zmianami z całym zespołem. Te dwie czynności mają swoje nazwy. Wysyłanie zmian na serwer to <strong>push</strong> a ściąganie to <strong>pull</strong>. Do tego posłuży nam <strong>GitHub</strong> ale można też korzystać z innych rozwiązań.</p>
-
-<p>Kiedy mamy już swoje konto na GitHub, tworzymy <strong>nowe repozytorium</strong>. A lokalnie w linii poleceń wykonujemy następującą komendę:</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git remote add origin link_to_or_repo
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master
 </code></pre></div></div>
 
-<p>Nic się nie martwcie, po stworzeniu nowego repozytorium, GitHub pokaże Wam wszystkie komendy jakie potrzebujecie wykonać. Wystarczy tylko skopiować je do swojego terminala. W skrócie komenda ta mówi nam: <em>Hej, od tej chwili mam zdalne repozytorium (czyli mam repozytorium na serwerze) i nazywa się ono origin</em>. Gdy będziemy chcieli wysłać tam nasze zmiany to:</p>
+<p>Komenda ta spowoduje, że wszystkie zapisane zmiany znajdujące się na lokalnej gałęzi <code class="highlighter-rouge">master</code> zostaną wysłane na gałąź <code class="highlighter-rouge">master</code> na zdalnym repozytorium o nazwie <code class="highlighter-rouge">origin</code>. Zostaniesz zapytana o login i hasło do GitHub. Po wpisaniu poprawnie tych danych w konsoli Twój kod będzie dostępny na platformie GitHub.</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push <span class="nt">-u</span> origin master
+<h2 id="co-to-jest-gałąź-czyli-inaczej-branch">Co to jest gałąź, czyli inaczej branch?</h2>
+
+<p>Gałąź to pewna wersja Twojego kodu. To trochę jakbyś miała do czynienia ze światami równoległymi. W jednym świecie możesz być bohaterką, a w innym normalnym obywatelem. Podobnie jest z kodem. Możesz mieć wiele różnych wersji kodu. Główna wersja domyślnie znajduje się na gałęzi <code class="highlighter-rouge">master</code>. To tylko nazwa, która reprezentuje konkretną wersję kodu. Za każdym razem, gdy zamierzasz stworzyć nową wersję kodu, dobrze jest przygotować osobną gałąź, która w końcowym efekcie zostanie połączona z gałęzią główną. Słowo gałąź możesz też kojarzyć z drzewami. To będzie dobra analogia do tego, czym jest gałąź w git-cie. Każde drzewo ma wiele gałęzi, tak samo jak każde repozytorium git-a.</p>
+
+<h2 id="jak-ściągnąć-lokalnie-nowe-zmiany">Jak ściągnąć lokalnie nowe zmiany?</h2>
+
+<p>Po pierwsze, osoba której zmiany chcesz mieć dostępne lokalnie musi wysłać je do zdalnego repozytorium. Tak samo jak Ty zrobiłaś to wcześniej, czyli za pomocą polecenia <code class="highlighter-rouge">git push</code>. Następnie możesz za pomocą polecenia <code class="highlighter-rouge">git pull</code> ściągnąć zmiany do siebie.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull origin master
 </code></pre></div></div>
 
-<p>Mówimy wtedy do narzędzia Git: <em>Wyślij mój kod na gałąź (branch)</em> <code class="highlighter-rouge">master</code> <em>na repozytorium o nazwie</em> <code class="highlighter-rouge">origin</code>.</p>
+<p>To polecenie spowoduje, że wszystkie zmiany z gałęzi <code class="highlighter-rouge">master</code> ze zdalnego repozytorium o nazwie <code class="highlighter-rouge">origin</code> zostaną pobrane do Twojego lokalnego repozytorium na gałąź <code class="highlighter-rouge">master</code>. Tutaj też zostaniesz poproszona o podanie loginu i hasła do GitHub. Po uwierzytelnieniu wszystkie zmiany będziesz mieć dostępne lokalnie.</p>
 
-<h4 id="co-to-jest-branch-gałąź">Co to jest branch (gałąź)?</h4>
+<h3 id="inne-artykuły-w-cyklu">Inne artykuły w cyklu:</h3>
+<ul>
+  <li><a href="/pl/what-is-git" title="Dlaczego warto używać narzedzia git?">Co to jest git?</a></li>
+  <li><a href="/pl/git-rebase" title="Jaka jest różnica między git merge a git rebase?">Jak używać git rebase?</a></li>
+  <li><a href="/pl/replace-parent-branch" title="Ustawienie innej gałęźi rodzicielckiej za pomoca git-a.">Jak zmienić gałąź rodzicielską w git-cie?</a></li>
+  <li><a href="/pl/git-rebase-onto" title="Zrozumienie komendy  git rebase --onto.">Jak użyć komendy git rebase –onto?</a></li>
+</ul>
 
-<p>Branch jest jak ścieżka. W naszym projekcie mamy wiele ścieżek, każda z nich może wyglądać inaczej, ale w danym momencie możemy iść tylko jedną ścieżką. Domyślnie po stworzeniu repozytorium Git ma jedną ścieżkę, którą nazywa <code class="highlighter-rouge">master</code>. Po poleceniu, które widzimy nieco wyżej GitHub zapyta się nas o naszą nazwę użytkownika (login) i hasło. Gdy podamy te informacje nasze zmiany znajdą się na serwerze.</p>
+<p>Jeżeli interesuje Cię więcej informacji na temat narzędzia git, możesz zajrzeć na stronę <a href="https://git-scm.com/doc" rel="nofollow" target="_blank">dokumentacji git-a</a>.</p>
 
-<h2 id="ostatnia-rzecz">Ostatnia rzecz!</h2>
-
-<p>Kiedy pracujemy z innymi osobami nad jednym projektem to tak jak już wspominałam chcemy się wymieniać naszymi zmianami. Do tej pory nauczyliśmy się wysyłać na serwer zmiany teraz chcielibyśmy je stamtąd pobrać:</p>
-
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
-</code></pre></div></div>
-
-<p>To polecenie <strong>pull</strong> spowoduje, że pobierzemy z naszego repozytorium o nazwie <code class="highlighter-rouge">origin</code> bieżący branch (czyli tą naszą ścieżkę). Ponieważ mamy tylko jeden branch - <code class="highlighter-rouge">master</code> wszystkie zmiany zostaną dociągnięte właśnie dla gałęzi (branch) <code class="highlighter-rouge">master</code>.</p>
-
-<p>To na razie tyle. Szybki przegląd podstawowych poleceń używanych do obsługi systemu kontroli wersji jakim jest Git. Mam nadzieje, że Wam się podobało. Jeżeli chcielibyście dowiedzieć sie czegoś więcej lub chcielibyście bym coś bardziej wytłumaczyła zostawcie komentarz. Do zobaczenia następnym razem. Pa!</p>
-
-                        <br>
-                    
-                    
-                    <div class="entry-tags text-center">
-
-                        <i class="icon-tags"></i>&nbsp;Tagged with <a href="https://womanonrails.com/tags/index.html#środowisko programistyczne" data-toggle="tooltip" title="Posts tagged with środowisko programistyczne" rel="tag">środowisko programistyczne</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/tags/index.html#git" data-toggle="tooltip" title="Posts tagged with git" rel="tag">git</a>&nbsp;&bull;&nbsp;<a href="https://womanonrails.com/tags/index.html#system kontroli wersji" data-toggle="tooltip" title="Posts tagged with system kontroli wersji" rel="tag">system kontroli wersji</a>
-
-                    </div>
-                    
-                    </div>
+          <br>
+          
+          <div class='entry-tags text-center'>
+            <span class='svg--tags'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230 230"><path d="M95.084 0H.13v95.475L134.658 230l95.212-95.212L95.084 0zM61.138 61.268c-6.988 6.989-18.321 6.989-25.309 0-6.989-6.987-6.99-18.321 0-25.308 6.987-6.99 18.321-6.989 25.309 0 6.989 6.987 6.989 18.321 0 25.308z"/></svg></span>
+            Tagged with
+            
+              <a href="/pl/tags/#środowisko programistyczne"
+                 data-toggle='tooltip'
+                 title='Posts tagged with środowisko programistyczne'
+                 rel='tag'>środowisko programistyczne</a>
+              &bull;
+            
+              <a href="/pl/tags/#git"
+                 data-toggle='tooltip'
+                 title='Posts tagged with git'
+                 rel='tag'>git</a>
+              &bull;
+            
+              <a href="/pl/tags/#system kontroli wersji"
+                 data-toggle='tooltip'
+                 title='Posts tagged with system kontroli wersji'
+                 rel='tag'>system kontroli wersji</a>
+              
+            
+          </div>
+          
         </div>
-                    <footer class="post-footer entry-meta">
-                        <div class="post-share text-center">
-    <p class="light small">
-        Share this post
-    </p>
-    <ul class="social-mini">
-        <li>
-            <a href="https://twitter.com/intent/tweet?text=&quot;Podstawowe użycie Git&quot;%20https://womanonrails.com/git-usage%20via%20&#64;womanonrails"
-            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" data-toggle="tooltip" title="Share on Twitter" itemprop="Twitter">
-                <i class="icon-twitter"></i>
-            </a>
-        </li>
-        <li>
-            <a  href="https://www.facebook.com/sharer/sharer.php?u=https://womanonrails.com/git-usage"
-            onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" data-toggle="tooltip" title="Share on Facebook" itemprop="Facebook">
-                <i class="icon-facebook"></i>
-            </a>
-        </li>
-    </ul>
+      </article>
+    </div>
+    <footer class='post-footer entry-meta'>
+      
+<div class='post-share text-center'>
+  <p class='light small'>
+    Share this post
+  </p>
+  
+  <ul class='social-mini'>
+    <li>
+      <a data-toggle='tooltip'
+   href="https://twitter.com/intent/tweet?text=&quot;Git - podstawowe komendy&quot;%20https://womanonrails.com/git-usage%20via%20&#64;womanonrails"
+   onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"
+   title='Share on Twitter'>
+  <span class='svg--twitter'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span>
+</a>
+    </li>
+    <li>
+      <a data-toggle='tooltip'
+   href='https://www.facebook.com/sharer/sharer.php?u=https://womanonrails.com/git-usage'
+   onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"
+   title='Share on Facebook'>
+  <span class='svg--facebook'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 512"><path d="M76.7 512V283H0v-91h76.7v-71.7C76.7 42.4 124.3 0 193.8 0c33.3 0 61.9 2.5 70.2 3.6V85h-48.2c-37.8 0-45.1 18-45.1 44.3V192H256l-11.7 91h-73.6v229"/></svg></span>
+</a>
+    </li>
+  </ul>
 </div>
 
-                        <div class="post-author text-center">
+      <div class="post-author text-center">
 	        <img src="https://womanonrails.com/images/womanonrails-square.svg" alt="Agnieszka Małaszkiewicz's photo" itemprop="image" class="post-avatar img-circle img-responsive"/>
 	    <h4 class="bordered-bottom vcard author" itemprop="author" itemscope itemtype="https://schema.org/Person">By <span itemprop="name" class="fn"><a href="https://womanonrails.com/about" title="About Agnieszka Małaszkiewicz" itemprop="url">Agnieszka Małaszkiewicz</a></span></h4>
 	    <p>Woman, programmer, mentor, speaker, photographer and dancer with passion.</p>
 </div>
 
-                        <div id="disqus_thread"></div><!-- /#disqus_thread -->
-                    </footer>
-            </article>
-    </div>
+      <div id='disqus_thread'></div><!-- /#disqus_thread -->
+    </footer>
+  </div>
 </div>
-<footer id="footer"  class="blog-background overlay text-center align-middle animated from-top">
-
-    <div class="inner">
-        <div class="container">
-          <ul class="social-icons">
-            
+<footer id='footer' class='blog-background overlay text-center align-middle animated from-top'>
+  <div class='inner'>
+    <div class='container'>
+      <ul class='social-icons'>
+        
 <li>
   <a href='https://twitter.com/womanonrails' rel='nofollow noopener noreferrer' target='_blank'>
     <span class='svg--twitter'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></span>
-    <!-- <i class='icon-twitter'></i> -->
   </a>
 </li>
 
 
-            
+        
 <li>
   <a href='https://facebook.com/womanonrails' rel='nofollow noopener noreferrer' target='_blank'>
     <span class='svg--facebook'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 512"><path d="M76.7 512V283H0v-91h76.7v-71.7C76.7 42.4 124.3 0 193.8 0c33.3 0 61.9 2.5 70.2 3.6V85h-48.2c-37.8 0-45.1 18-45.1 44.3V192H256l-11.7 91h-73.6v229"/></svg></span>
-    <!-- <i class='icon-facebook'></i> -->
   </a>
 </li>
 
 
-            
+        
 <li>
   <a href='https://stackoverflow.com/users/2885676/womanonrails' rel='nofollow noopener noreferrer' target='_blank'>
     <span class='svg--stackoverflow'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M293.7 300l-181.2-84.5 16.7-36.5 181.3 84.7-16.8 36.3zm48-76L188.2 95.7l-25.5 30.8 153.5 128.3 25.5-30.8zm39.6-31.7L262 32l-32 24 119.3 160.3 32-24zM290.7 311L95 269.7 86.8 309l195.7 41 8.2-39zm31.6 129H42.7V320h-40v160h359.5V320h-40v120zm-39.8-80h-200v39.7h200V360z"/></svg></span>
-    <!-- <i class='icon-stack-overflow'></i> -->
   </a>
 </li>
 
 
-            
+        
 <li>
   <a href='https://linkedin.com/in/womanonrails' rel='nofollow noopener noreferrer' target='_blank'>
     <span class='svg--linkedin'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.3 480H7.4V180.9h92.9V480zM53.8 140.1C24.1 140.1 0 115.5 0 85.8 0 56.1 24.1 32 53.8 32c29.7 0 53.8 24.1 53.8 53.8 0 29.7-24.1 54.3-53.8 54.3zM448 480h-92.7V334.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V480h-92.8V180.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V480z"/></svg></span>
-    <!-- <i class='icon-linkedin'></i> -->
   </a>
 </li>
 
 
-            
+        
 <li>
   <a href='https://instagram.com/womanonrails' rel='nofollow noopener noreferrer' target='_blank'>
     <span class='svg--linkedin'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></span>
-    <!-- <i class='icon-instagram'></i> -->
   </a>
 </li>
 
 
-            
+        
 <li>
   <a href='https://github.com/womanonrails' rel='nofollow noopener noreferrer' target='_blank'>
     <span class='svg--github'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 399.378c0 2.052-2.3 3.693-5.2 3.693-3.3.307-5.6-1.334-5.6-3.693 0-2.05 2.3-3.692 5.2-3.692 3-.307 5.6 1.334 5.6 3.692zm-31.1-4.615c-.7 2.051 1.3 4.41 4.3 5.026 2.6 1.025 5.6 0 6.2-2.052.6-2.05-1.3-4.41-4.3-5.333-2.6-.718-5.5.308-6.2 2.36zm44.2-1.743c-2.9.718-4.9 2.666-4.6 5.025.3 2.051 2.9 3.385 5.9 2.667 2.9-.718 4.9-2.667 4.6-4.718-.3-1.949-3-3.282-5.9-2.974zM244.8 0C106.1 0 0 107.998 0 250.253c0 113.741 69.8 211.073 169.5 245.33 12.8 2.358 17.3-5.744 17.3-12.411 0-6.359-.3-41.435-.3-62.973 0 0-70 15.384-84.7-30.564 0 0-11.4-29.846-27.8-37.538 0 0-22.9-16.102 1.6-15.794 0 0 24.9 2.05 38.6 26.46 21.9 39.59 58.6 28.205 72.9 21.436 2.3-16.41 8.8-27.794 16-34.563-55.9-6.36-112.3-14.667-112.3-113.332 0-28.205 7.6-42.358 23.6-60.41-2.6-6.666-11.1-34.153 2.6-69.64 20.9-6.666 69 27.693 69 27.693 20-5.744 41.5-8.718 62.8-8.718 21.3 0 42.8 2.974 62.8 8.718 0 0 48.1-34.461 69-27.692 13.7 35.589 5.2 62.973 2.6 69.64 16 18.153 25.8 32.307 25.8 60.409 0 98.973-58.9 106.87-114.8 113.332 9.2 8.102 17 23.486 17 47.589 0 34.563-.3 77.332-.3 85.742 0 6.666 4.6 14.769 17.3 12.41 100-34.05 167.8-131.383 167.8-245.124C496 107.998 383.5 0 244.8 0zM97.2 353.738c-1.3 1.026-1 3.385.7 5.333 1.6 1.641 3.9 2.36 5.2 1.026 1.3-1.026 1-3.385-.7-5.333-1.6-1.641-3.9-2.36-5.2-1.026zm-10.8-8.307c-.7 1.333.3 2.974 2.3 4 1.6 1.025 3.6.717 4.3-.718.7-1.334-.3-2.975-2.3-4-2-.616-3.6-.308-4.3.718zm32.4 36.512c-1.6 1.333-1 4.41 1.3 6.359 2.3 2.359 5.2 2.666 6.5 1.025 1.3-1.333.7-4.41-1.3-6.359-2.2-2.358-5.2-2.666-6.5-1.025zm-11.4-15.077c-1.6 1.026-1.6 3.692 0 6.051 1.6 2.36 4.3 3.385 5.6 2.36 1.6-1.334 1.6-4 0-6.36-1.4-2.359-4-3.384-5.6-2.05z"/></svg></span>
-    <!-- <i class='icon-github'></i> -->
   </a>
 </li>
 
 
-          </ul>
-        <div>
-              <a href="/pl/about">Agnieszka Małaszkiewicz</a>
-              &copy; 2020
-              &bull; All rights reserved.
-            </div>
-            <ul class="menu-items">
-            
-            <li>
-                
-                    <a href="https://womanonrails.com/"><i class="icon-home"></i></a>&nbsp;&bull;
-                
-            </li>
-            
-            <li>
-                
-                    <a href="https://womanonrails.com/workshops">Programming courses</a>&nbsp;&bull;
-                
-            </li>
-            
-            <li>
-                
-                    <a href="https://womanonrails.com/categories">Categories</a>&nbsp;&bull;
-                
-            </li>
-            
-            <li>
-                
-                    <a href="https://womanonrails.com/tags">Tags</a>&nbsp;&bull;
-                
-            </li>
-            
-            <li>
-                
-                    <a href="https://womanonrails.com/about">About</a>&nbsp;&bull;
-                
-            </li>
-            
-            <li><a href="https://womanonrails.com/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
-        </ul>
-        </div>
-        <div>
+      </ul>
+      <div>
+        Agnieszka Małaszkiewicz
+        &copy; 2020
+        &bull; All rights reserved.
+      </div>
+      <ul class='menu-items'>
+      
+        <li>
+        
+        
+        <a href="/">
+          
+            <span class='svg--home'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M16 256L256 64l96 72v-32h48v72l96 80h-48v192H328V288h-96v160H64V256z"/></svg></span>
+          
+        </a>&bull;
+        </li>
+      
+        <li>
+        
+        
+        <a href="/workshops">
+          
+            Programming courses
+          
+        </a>&bull;
+        </li>
+      
+        <li>
+        
+        
+        <a href="/categories">
+          
+            Categories
+          
+        </a>&bull;
+        </li>
+      
+        <li>
+        
+        
+        <a href="/tags">
+          
+            Tags
+          
+        </a>&bull;
+        </li>
+      
+        <li>
+        
+        
+        <a href="/about">
+          
+            About
+          
+        </a>&bull;
+        </li>
+      
+        <li>
+          <a href="/pl/feed.xml" title='Atom/RSS feed'>
+            <span class='svg--rss'><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>RSS icon</title><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg></span>
+            Feed
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
   <a class='btn btn-default'
      href='https://paypal.me/womanonrails'
      target='_blank'
@@ -545,7 +616,7 @@ Dobrze, teraz możemy zacząć prawdziwą pracę z naszym repozytorium. Bardzo p
   </a>
 </div>
 
-    </div>
+  </div>
     
         <div class="decor-wrapper">
             <svg id="footer-decor" class="decor top" xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -607,7 +678,7 @@ $("a#click-pages").click(function(){
 <script>
   $(document).ready(function() {
       $('.search-field').simpleJekyllSearch({
-          jsonFile : 'https://womanonrails.com/search.json',
+          jsonFile : '/pl/search.json',
           searchResults : '.search-results',
           template : '<li><article><a href="{url}">{title} <span class="entry-date"><time datetime="{date}">{shortdate}</time></span></a></article></li>',
           noResults: '<p>Nothing found.</p>'
@@ -616,12 +687,12 @@ $("a#click-pages").click(function(){
 
   (function( $, window, undefined ) {
 
-     var bs = {
-          close: $(".icon-remove-sign"),
-          searchform: $(".search-form"),
-          canvas: $("body"),
-          dothis: $('.dosearch')
-      };
+    var bs = {
+      close: $(".js-remove-sign"),
+      searchform: $(".search-form"),
+      canvas: $("body"),
+      dothis: $('.dosearch')
+    };
 
     bs.dothis.on('click', function() {
       $('.search-wrapper').css({ display: "block" });
