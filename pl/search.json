@@ -1,6 +1,14 @@
 [
 	
 		{
+		  "title"      : "Jak Ruby rzutuje obiekty na łańcuchy znaków?",
+		  "category"   : "programowanie",
+		  "url"        : "https://womanonrails.com/pl/casting-ruby-object-into-string",
+		  "date"       : "2020-05-15 00:00:00 -0400",
+		  "shortdate"  : "May 15, 2020"
+		} ,
+	
+		{
 		  "title"      : "Jak używać git rebase --onto?",
 		  "category"   : "narzędzia",
 		  "url"        : "https://womanonrails.com/pl/git-rebase-onto",
