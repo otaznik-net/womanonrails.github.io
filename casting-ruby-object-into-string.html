@@ -284,9 +284,9 @@ Description: Awesome dude, awesome life
 
 <p>So, my logical part of the brain says: <em>After method <code class="highlighter-rouge">join</code> I should get <code class="highlighter-rouge">"[:symbol] string"</code> and this is not what I have. Hmm… why?</em>. I started my research. In the beginning, I focused on a difference between the <code class="highlighter-rouge">to_s</code> method and the <code class="highlighter-rouge">join</code> method.</p>
 
-<h2 id="join-method-under-the-hoot">Join method under the hoot</h2>
+<h2 id="join-method-under-the-hood">Join method under the hood</h2>
 
-<p>First, what I discovered was that the <code class="highlighter-rouge">join</code> method doesn’t use <code class="highlighter-rouge">to_s</code> under the hoot. At least this was my first understanding of this problem. It uses the <code class="highlighter-rouge">to_str</code> method. Let me show this in the example. I will declare a new object and I will check how it behaves in <code class="highlighter-rouge">join</code>.</p>
+<p>First, what I discovered was that the <code class="highlighter-rouge">join</code> method doesn’t use <code class="highlighter-rouge">to_s</code> under the hood. At least this was my first understanding of this problem. It uses the <code class="highlighter-rouge">to_str</code> method. Let me show this in the example. I will declare a new object and I will check how it behaves in <code class="highlighter-rouge">join</code>.</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">RubyStringTest</span>
   <span class="k">def</span> <span class="nf">to_s</span>
@@ -440,7 +440,7 @@ Did you mean?  to_s
  <span class="o">=&gt;</span> <span class="s2">"it #&lt;RubyStringTest:0x000055567edb0bd0&gt; method"</span>
 </code></pre></div></div>
 
-<p>We see that in this case, the <code class="highlighter-rouge">join</code> method uses the <code class="highlighter-rouge">to_s</code> method under the hoot. When we override the <code class="highlighter-rouge">to_s</code> method, we will see our implementation:</p>
+<p>We see that in this case, the <code class="highlighter-rouge">join</code> method uses the <code class="highlighter-rouge">to_s</code> method under the hood. When we override the <code class="highlighter-rouge">to_s</code> method, we will see our implementation:</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">RubyStringTest</span>
   <span class="k">def</span> <span class="nf">to_s</span>
